@@ -20,7 +20,7 @@ function ingame_entity_precreate(parameters = {}) {
 }
 
 /// ----------------------------------------------------------------------------
-/// @function ingame_entity_instance_create(parameters)
+/// @function gamemaker_construct_instance_create(parameters)
 /// ----------------------------------------------------------------------------
 /// @description
 /// <function_description>
@@ -43,28 +43,41 @@ function ingame_entity_precreate(parameters = {}) {
 /// ----------------------------------------------------------------------------
 /// @return {struct}
 /// ----------------------------------------------------------------------------
-function ingame_entity_instance_create(parameters = {}) {
+function gamemaker_construct_instance_create(parameters = {}) {
     var _ingame_entity = new InGameEntityInstance()
-    var _object_instance = object_instance_create({ x : 0, y : 0 })
+    var _object_instance = gamemaker_object_instance_create({ x : 0, y : 0 })
     _ingame_entity.private.object_instance = _object_instance
     return _ingame_entity
 }
 
 /// ----------------------------------------------------------------------------
-/// @function ingame_entity_instance_destroy(parameters)
+/// @description
+/// <function_description>
+/// ----------------------------------------------------------------------------
+/// @parameter {type} instance
+/// <parameter_description>
+/// @parameter {type} parameter_name
+/// <parameter_description>
+/// ----------------------------------------------------------------------------
+/// @return {undefined}
+/// ----------------------------------------------------------------------------
+function gamemaker_construct_instance_destroy(parameters = {}) {
+    return undefined
+}
+
 /// ----------------------------------------------------------------------------
 /// @description
 /// <function_description>
 /// ----------------------------------------------------------------------------
+/// @parameter {type} instance
+/// <parameter_description>
 /// @parameter {type} parameter_name
 /// <parameter_description>
-///
 /// ----------------------------------------------------------------------------
-/// @return {type}
-/// <return_description>
+/// @return {undefined}
 /// ----------------------------------------------------------------------------
-function ingame_entity_instance_destroy(parameters = {}) {
-    return _return
+function gamemaker_construct_instance_cleanup(parameters = {}) {
+    return undefined
 }
 
 /// ----------------------------------------------------------------------------
@@ -84,7 +97,7 @@ function ingame_entity_instance_get(parameters = {}) {
 }
 
 /// ----------------------------------------------------------------------------
-/// @function ingame_entity_instance_reconfigure(parameters)
+/// @function construct_instance_reconfigure(parameters)
 /// ----------------------------------------------------------------------------
 /// @description
 /// <function_description>
@@ -95,7 +108,7 @@ function ingame_entity_instance_get(parameters = {}) {
 /// ----------------------------------------------------------------------------
 /// @return {struct|undefined}
 /// ----------------------------------------------------------------------------
-function ingame_entity_instance_reconfigure(parameters = {}) {
+function construct_instance_reconfigure(parameters = {}) {
     var _instances = <expression>
     for (var i = 0; i < array_length(_instances); i++) {
         var _instance = _instances[i]
@@ -120,26 +133,6 @@ function ingame_entity_instance_execute_event(parameters = {}) {
     return _return
 }
 
-/// ----------------------------------------------------------------------------
-/// @function ingame_entity_instance_set_creation_code(parameters)
-/// ----------------------------------------------------------------------------
-/// @description
-/// <function_description>
-/// ----------------------------------------------------------------------------
-/// @parameter {type} ingame_entity_instance
-/// <parameter_description>
-///
-/// @parameter {type} callable
-/// <parameter_description>
-///
-/// ----------------------------------------------------------------------------
-/// @return {type}
-/// <return_description>
-/// ----------------------------------------------------------------------------
-function ingame_entity_instance_set_creation_code(parameters = {}) {
-    return _return
-}
-
 /******************************************************************************/
 #endregion –––––––––––––––––––– FUNCTIONS ––––––––––––––––––––
 /******************************************************************************/
@@ -160,7 +153,7 @@ function InGameEntityInstance() constructor {
 
     static create = function(parameters = {}) {
         if (parameters.object_instance == undefined) {
-            private.object_instance = object_instance_create({
+            private.object_instance = gamemaker_object_instance_create({
                 object     : ingame_entity_object,
                 x_position : 0,
                 y_position : 0,
@@ -191,10 +184,10 @@ function InGameEntityInstance() constructor {
 #endregion –––––––––––––––––––– CONSTRUCTORS ––––––––––––––––––––
 /******************************************************************************/
 
-gpl_object_get({ object : ingame_entity_object })
+gamemaker_object_get({ object : ingame_entity_object })
 .set_event({ event : "create_event", callable : function(parameters = {}) {
     if (self[$ "ingame_entity"] == undefined) {
-        ingame_entity = ingame_entity_instance_create({ object_instance : self })
+        ingame_entity = gamemaker_construct_instance_create({ object_instance : self })
     }
 }})
 .set_event({ event : "step_event", callable : function(parameters = {}) {

@@ -78,8 +78,8 @@ function SpriteElement() constructor {
     private.x_dimensions = 0
     private.y_dimensions = 0
 
-    self.get_x_dimensions = method(self, Drawable.get_x_dimensions)
-	self.get_y_dimensions = method(self, Drawable.get_y_dimensions)
+    self.get_x_dimension = method(self, Drawable.get_x_dimension)
+	self.get_y_dimension = method(self, Drawable.get_y_dimension)
 	self.set_dimensions   = method(self, Drawable.set_dimensions)
 
     /// ----------------------------------------------------------------------------

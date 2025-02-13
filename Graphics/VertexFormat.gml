@@ -17,7 +17,7 @@ INITIALIZED_CONSTRUCTOR(VertexFormat)
 /// <description>
 /// ----------------------------------------------------------------------------
 #macro DEFAULT_VERTEX_FORMAT                                                   \
-generic_vertex_format_get({ vertex_format : "default_vertex_format" })
+gamemaker_vertexformat_get({ vertex_format : "default_vertex_format" })
 
 /******************************************************************************/
 /* –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -31,7 +31,7 @@ generic_vertex_format_get({ vertex_format : "default_vertex_format" })
 /* –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– */
 /******************************************************************************/
 
-function generic_vertex_format_create(parameters) {
+function gamemaker_vertexformat_create(parameters) {
 
     // start the definition of the new vertex format
     vertex_format_begin()
@@ -66,19 +66,19 @@ function generic_vertex_format_create(parameters) {
 
 }
 
-function generic_vertex_format_destroy(parameters) {
+function gamemaker_vertexformat_destroy(parameters) {
     vertex_format_delete(parameters.vertex_format)
 }
 
-function generic_vertex_format_get_bytes(parameters) {
+function gamemaker_vertexformat_get_bytes(parameters) {
     vertex_format_get_info().stride
 }
 
-function generic_vertex_format_get_attribute_count(parameters) {
+function gamemaker_vertexformat_get_attribute_count(parameters) {
     vertex_format_get_info().num_elements
 }
 
-function generic_vertex_format_get_attribute(parameters) {
+function gamemaker_vertexformat_get_attribute(parameters) {
     vertex_format_get_info().elements[i]
 }
 
@@ -99,28 +99,28 @@ VERTEX_FORMAT
 function VertexFormat() constructor {
 
     /// @function get(parameters)
-    static get = generic_vertex_format_get
+    static get = gamemaker_vertexformat_get
 
     /// @function get_handle(parameters)
-    static get_handle = generic_vertex_format_get_handle
+    static get_handle = gamemaker_vertexformat_get_handle
 
     /// @function get_id(parameters)
-    static get_id = generic_vertex_format_get_id
+    static get_id = gamemaker_vertexformat_get_id
 
     /// @function create(parameters)
-    static create = generic_vertex_format_create
+    static create = gamemaker_vertexformat_create
 
     /// @function destroy(parameters)
-    static destroy = generic_vertex_format_destroy
+    static destroy = gamemaker_vertexformat_destroy
 
     /// @function get_vertex_size_bytes(parameters)
-    static get_vertex_size_bytes = generic_vertex_format_destroy
+    static get_vertex_size_bytes = gamemaker_vertexformat_destroy
 
     /// @function get_attribute_count(parameters)
-    static get_attribute_count = generic_vertex_format_get_attribute_count
+    static get_attribute_count = gamemaker_vertexformat_get_attribute_count
 
     /// @function get_attribute(parameters)
-    static get_attribute = generic_vertex_format_get_attribute
+    static get_attribute = gamemaker_vertexformat_get_attribute
 
     /// @type {struct}
     static private = {
@@ -128,7 +128,7 @@ function VertexFormat() constructor {
         vertex_formats : {},
     }
 
-    generic_vertex_format_create({
+    gamemaker_vertexformat_create({
         name : "default_vertex_format",
         function() {
             vertex_format_add_position_3d()

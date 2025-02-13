@@ -1,21 +1,3 @@
-/// ----------------------------------------------------------------------------
-/// @function generic_draw_(parameters)
-/// ----------------------------------------------------------------------------
-/// @description
-/// <function_description>
-/// ----------------------------------------------------------------------------
-/// @parameter {Type} parameter_name
-/// @parameter {Type} parameter_name
-/// @parameter {Type} parameter_name
-/// @parameter {Type} parameter_name
-/// ----------------------------------------------------------------------------
-/// @return {type}
-/// <return_description>
-/// ----------------------------------------------------------------------------
-function generic_draw_(parameters) {
-    return _return
-}
-
 function draw_settings_save() {}
 
 function draw_settings_restore() {}
@@ -50,7 +32,7 @@ or
 */
 
 /// ----------------------------------------------------------------------------
-/// @function gpl_sprite_draw(parameters)
+/// @function gamemaker_sprite_draw(parameters)
 /// ----------------------------------------------------------------------------
 /// @description
 /// <function_description>
@@ -94,7 +76,7 @@ or
 /// @return {type}
 /// <return_description>
 /// ----------------------------------------------------------------------------
-function gpl_sprite_draw(parameters) {
+function gamemaker_sprite_draw(parameters) {
 
     var _sprite = parameters.sprite
 
@@ -117,10 +99,10 @@ function gpl_sprite_draw(parameters) {
     // draw_sprite_general(sprite, subimg, left, top, width, height, x, y, xscale, yscale, rot, c1, c2, c3, c4, alpha)
 
     draw_primitive_begin_texture(pr_trianglestrip, sprite_get_texture(_sprite, _frame))
-    draw_vertex_texture_colour(_x_position               , _y_position               , 0, 0, c_white, 1)
-    draw_vertex_texture_colour(_x_position               , _y_position + _y_dimension, 0, 1, c_white, 1)
-    draw_vertex_texture_colour(_x_position + _x_dimension, _y_position               , 1, 0, c_white, 1)
-    draw_vertex_texture_colour(_x_position + _x_dimension, _y_position + _y_dimension, 1, 1, c_white, 1)
+    draw_vertex_texture_colour(_x_position               , _y_position               , 0, 0, #FFFFFF, 1)
+    draw_vertex_texture_colour(_x_position               , _y_position + _y_dimension, 0, 1, #FFFFFF, 1)
+    draw_vertex_texture_colour(_x_position + _x_dimension, _y_position               , 1, 0, #FFFFFF, 1)
+    draw_vertex_texture_colour(_x_position + _x_dimension, _y_position + _y_dimension, 1, 1, #FFFFFF, 1)
     draw_primitive_end()
 
     draw_settings_restore()
@@ -129,7 +111,7 @@ function gpl_sprite_draw(parameters) {
 }
 
 /// ----------------------------------------------------------------------------
-/// @function generic_text_draw(parameters)
+/// @function gamemaker_text_draw(parameters)
 /// ----------------------------------------------------------------------------
 /// @description
 /// <function_description>
@@ -162,7 +144,7 @@ function gpl_sprite_draw(parameters) {
 /// @return {type}
 /// <return_description>
 /// ----------------------------------------------------------------------------
-function generic_text_draw(parameters) {
+function gamemaker_text_draw(parameters) {
 
     var _string     = parameters[$ ""] ??
 
@@ -175,7 +157,7 @@ function generic_text_draw(parameters) {
     var x_alignment = parameters[$ ""] ??
     var y_alignment = parameters[$ ""] ??
 
-    scribble(_string, "generic_text_draw")
+    scribble(_string, "gamemaker_text_draw")
     .starting_format(_font, _colour)
     .align(x_alignment, y_alignment)
     .draw(_x_position, _y_position)

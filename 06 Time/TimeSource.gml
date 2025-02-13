@@ -37,31 +37,29 @@ TIME_SOURCE_CONTROLLER_GENERIC
 #region    –––––––––––––––––––– FUNCTIONS ––––––––––––––––––––
 /******************************************************************************/
 
-#region    –––––––––––––––––––– CALL_LATER_WRAPPERS ––––––––––––––––––––
-
-/// ----------------------------------------------------------------------------
-/// @function gpl_call_later(arguments)
 /// ----------------------------------------------------------------------------
 /// @description
-/// Creates a time source that calls the specified callback function after the
-/// specified time. This time source is automatically destroyed afterwards.
+/// This function is used to create a Time Source
 /// ----------------------------------------------------------------------------
-/// @parameter {Struct} arguments
-/// Arguments used in the creation of the time source. Refer to Struct.TimeSourceGeneric.
+/// @parameter {callable} callable
+/// <parameter_description>
+/// @parameter {type} delay_seconds
+/// <parameter_description>
+/// @parameter {type} delay_frames
+/// <parameter_description>
+/// @parameter {type} arguments
+/// <parameter_description>
+/// @parameter {type} parameter_name
+/// <parameter_description>
 /// ----------------------------------------------------------------------------
-/// @return {Struct.TimeSourceGeneric}
-/// The time source calling the callback function.
+/// @return {type}
 /// ----------------------------------------------------------------------------
-function gpl_call_later(arguments = {}) {
+function gamemaker_call_later(parameters = {}) {
 	arguments.creation_scope = other
     var _time_source = new TimeSourceGeneric(arguments).start()
 	TIME_SOURCE_CONTROLLER_GENERIC.add_garbage_collection({ time_source : _time_source })
     return _time_source
 }
-
-#endregion –––––––––––––––––––– CALL_LATER_WRAPPERS ––––––––––––––––––––
-
-#region    ––––––––––––––– NATIVE_TIME_SOURCE_FUNCTION_WRAPPERS –––––––––––––––
 
 /// ----------------------------------------------------------------------------
 /// @function get_id_time_source_generic(arguments)
@@ -88,45 +86,48 @@ function gpl_time_source_create(arguments = {}) {
 }
 
 /// ----------------------------------------------------------------------------
-/// @function exists_time_source_generic(arguments)
-/// ----------------------------------------------------------------------------
 /// @description
 /// This script function serves as a proxy for the static method function:
 /// TimeSourceGeneric.exists
 /// ----------------------------------------------------------------------------
-function exists_time_source_generic(arguments = {}) {
+/// @parameter {type} parameter_name
+/// <parameter_description>
+/// ----------------------------------------------------------------------------
+/// @return {type}
+/// <return_description>
+/// ----------------------------------------------------------------------------
+function gamemaker_timesource_exists(parameters = {}) {
 	if (is_instanceof(self, TimeSourceGeneric)) { arguments.time_source = self }
 	var _time_source_id = get_id(arguments)
 	return time_source_exists(_time_source_id)
 }
 
 /// ----------------------------------------------------------------------------
-/// @function gpl_time_source_destroy(parameters)
-/// ----------------------------------------------------------------------------
 /// @description
-/// This is a generification of <time_source_destroy>.
+/// <function_description>
 /// ----------------------------------------------------------------------------
-/// @parameter {mixed} time_source
-/// The time source(s) to destroy.
-///
-/// @parameter {boolean} destroy_children
-/// Whether to destroy child Time Sources as well.
+/// @parameter {type} parameter_name
+/// <parameter_description>
 /// ----------------------------------------------------------------------------
-/// @return {undefined}
+/// @return {type}
+/// <return_description>
 /// ----------------------------------------------------------------------------
-function gpl_time_source_destroy(parameters = {}) {
+function gamemaker_timesource_destroy(parameters = {}) {
 	time_source_destroy(parameters.time_source, parameters.destroy_children)
     return undefined
 }
 
 /// ----------------------------------------------------------------------------
-/// @function gpl_time_source_start(arguments)
-/// ----------------------------------------------------------------------------
 /// @description
-/// This script function serves as a proxy for the static method function:
-/// TimeSourceGeneric.start
+/// <function_description>
 /// ----------------------------------------------------------------------------
-function gpl_time_source_start(arguments = {}) {
+/// @parameter {type} parameter_name
+/// <parameter_description>
+/// ----------------------------------------------------------------------------
+/// @return {type}
+/// <return_description>
+/// ----------------------------------------------------------------------------
+function gamemaker_timesource_start(parameters = {}) {
 	if (is_instanceof(self, TimeSourceGeneric)) { arguments.time_source = self }
 	var _time_source_id = get_id(arguments)
 	time_source_start(_time_source_id)
@@ -134,18 +135,16 @@ function gpl_time_source_start(arguments = {}) {
 }
 
 /// ----------------------------------------------------------------------------
-/// @function gpl_time_source_is_active(parameters)
-/// ----------------------------------------------------------------------------
 /// @description
 /// <function_description>
 /// ----------------------------------------------------------------------------
-/// @parameter {type} time_source
+/// @parameter {type} parameter_name
 /// <parameter_description>
 /// ----------------------------------------------------------------------------
-/// @return {boolean|undefined}
+/// @return {type}
 /// <return_description>
 /// ----------------------------------------------------------------------------
-function gpl_time_source_is_active(parameters = {}) {
+function gamemaker_timesource_is_active(parameters = {}) {
 	if (not is_struct(parameters)) {
 		throw new InvalidArgumentException({ message : "<parameters> must be a struct." })
 	}
@@ -154,13 +153,16 @@ function gpl_time_source_is_active(parameters = {}) {
 }
 
 /// ----------------------------------------------------------------------------
-/// @function gpl_time_source_pause(arguments)
-/// ----------------------------------------------------------------------------
 /// @description
-/// This script function serves as a proxy for the static method function:
-/// TimeSourceGeneric.pause
+/// <function_description>
 /// ----------------------------------------------------------------------------
-function gpl_time_source_pause(parameters = {}) {
+/// @parameter {type} parameter_name
+/// <parameter_description>
+/// ----------------------------------------------------------------------------
+/// @return {type}
+/// <return_description>
+/// ----------------------------------------------------------------------------
+function gamemaker_timesource_pause(parameters = {}) {
 	if (not is_struct(parameters)) {
 		throw new InvalidArgumentException({ message : "<parameters> must be a struct." })
 	}
@@ -169,7 +171,7 @@ function gpl_time_source_pause(parameters = {}) {
 		_time_sources = [_time_sources]
 	}
 	for (var i = 0; i < array_length(_time_sources); i++) {
-		if (gpl_time_source_is_active(_time_sources[i]) == true) {
+		if (gamemaker_timesource_is_active(_time_sources[i]) == true) {
 			time_source_pause(_time_sources[i])
 		}
 	}
@@ -177,18 +179,16 @@ function gpl_time_source_pause(parameters = {}) {
 }
 
 /// ----------------------------------------------------------------------------
-/// @function gpl_time_source_is_paused(parameters)
-/// ----------------------------------------------------------------------------
 /// @description
 /// <function_description>
 /// ----------------------------------------------------------------------------
-/// @parameter {type} time_source
+/// @parameter {type} parameter_name
 /// <parameter_description>
 /// ----------------------------------------------------------------------------
-/// @return {boolean|undefined}
+/// @return {type}
 /// <return_description>
 /// ----------------------------------------------------------------------------
-function gpl_time_source_is_paused(parameters = {}) {
+function gamemaker_timesource_is_paused(parameters = {}) {
 	if (not is_struct(parameters)) {
 		throw new InvalidArgumentException({ message : "<parameters> must be a struct." })
 	}
@@ -197,13 +197,16 @@ function gpl_time_source_is_paused(parameters = {}) {
 }
 
 /// ----------------------------------------------------------------------------
-/// @function gpl_time_source_stop(arguments)
-/// ----------------------------------------------------------------------------
 /// @description
-/// This script function serves as a proxy for the static method function:
-/// TimeSourceGeneric.stop
+/// <function_description>
 /// ----------------------------------------------------------------------------
-function gpl_time_source_stop(arguments = {}) {
+/// @parameter {type} parameter_name
+/// <parameter_description>
+/// ----------------------------------------------------------------------------
+/// @return {type}
+/// <return_description>
+/// ----------------------------------------------------------------------------
+function gamemaker_timesource_stop(parameters = {}) {
 	if (is_instanceof(self, TimeSourceGeneric)) { arguments.time_source = self }
 	var _time_source_id = get_id(arguments)
 	time_source_stop(_time_source_id)
@@ -211,18 +214,16 @@ function gpl_time_source_stop(arguments = {}) {
 }
 
 /// ----------------------------------------------------------------------------
-/// @function gpl_time_source_is_stopped(parameters)
-/// ----------------------------------------------------------------------------
 /// @description
 /// <function_description>
 /// ----------------------------------------------------------------------------
-/// @parameter {type} time_source
+/// @parameter {type} parameter_name
 /// <parameter_description>
 /// ----------------------------------------------------------------------------
-/// @return {boolean|undefined}
+/// @return {type}
 /// <return_description>
 /// ----------------------------------------------------------------------------
-function gpl_time_source_is_stopped(parameters = {}) {
+function gamemaker_timesource_is_stopped(parameters = {}) {
 	if (not is_struct(parameters)) {
 		throw new InvalidArgumentException({ message : "<parameters> must be a struct." })
 	}
@@ -231,13 +232,16 @@ function gpl_time_source_is_stopped(parameters = {}) {
 }
 
 /// ----------------------------------------------------------------------------
-/// @function gpl_time_source_resume(arguments)
-/// ----------------------------------------------------------------------------
 /// @description
-/// This script function serves as a proxy for the static method function:
-/// TimeSourceGeneric.resume
+/// <function_description>
 /// ----------------------------------------------------------------------------
-function gpl_time_source_resume(arguments = {}) {
+/// @parameter {type} parameter_name
+/// <parameter_description>
+/// ----------------------------------------------------------------------------
+/// @return {type}
+/// <return_description>
+/// ----------------------------------------------------------------------------
+function gamemaker_timesource_resume(parameters = {}) {
 	if (is_instanceof(self, TimeSourceGeneric)) { arguments.time_source = self }
 	var _time_source_id = get_id(arguments)
 	time_source_resume(_time_source_id)
@@ -245,13 +249,16 @@ function gpl_time_source_resume(arguments = {}) {
 }
 
 /// ----------------------------------------------------------------------------
-/// @function reconfigure_time_source_generic(arguments)
-/// ----------------------------------------------------------------------------
 /// @description
-/// This script function serves as a proxy for the static method function:
-/// TimeSourceGeneric.reconfigure
+/// <function_description>
 /// ----------------------------------------------------------------------------
-function reconfigure_time_source_generic(arguments = {}) {
+/// @parameter {type} parameter_name
+/// <parameter_description>
+/// ----------------------------------------------------------------------------
+/// @return {type}
+/// <return_description>
+/// ----------------------------------------------------------------------------
+function gamemaker_timesource_reconfigure(parameters = {}) {
 	if (is_instanceof(self, TimeSourceGeneric)) { arguments.time_source = self }
 	var _time_source_id = get_id(arguments)
 	var _arguments = private_static.reconfigure_arguments(arguments)
@@ -267,13 +274,16 @@ function reconfigure_time_source_generic(arguments = {}) {
 }
 
 /// ----------------------------------------------------------------------------
-/// @function reset_time_source_generic(arguments)
-/// ----------------------------------------------------------------------------
 /// @description
-/// This script function serves as a proxy for the static method function:
-/// TimeSourceGeneric.reset
+/// <function_description>
 /// ----------------------------------------------------------------------------
-function reset_time_source_generic(arguments = {}) {
+/// @parameter {type} parameter_name
+/// <parameter_description>
+/// ----------------------------------------------------------------------------
+/// @return {type}
+/// <return_description>
+/// ----------------------------------------------------------------------------
+function gamemaker_timesource_reset(parameters = {}) {
 	if (is_instanceof(self, TimeSourceGeneric)) { arguments.time_source = self }
 	var _time_source_id = get_id(arguments)
 	time_source_reset(_time_source_id)
@@ -281,13 +291,16 @@ function reset_time_source_generic(arguments = {}) {
 }
 
 /// ----------------------------------------------------------------------------
-/// @function get_children_time_source_generic(arguments)
-/// ----------------------------------------------------------------------------
 /// @description
-/// This script function serves as a proxy for the static method function:
-/// TimeSourceGeneric.get_children
+/// <function_description>
 /// ----------------------------------------------------------------------------
-function get_children_time_source_generic(arguments = {}) {
+/// @parameter {type} parameter_name
+/// <parameter_description>
+/// ----------------------------------------------------------------------------
+/// @return {type}
+/// <return_description>
+/// ----------------------------------------------------------------------------
+function gamemaker_timesource_get_children(parameters = {}) {
 	if (is_instanceof(self, TimeSourceGeneric)) { arguments.time_source = self }
 	var _time_source_id = get_id(arguments)
 	var _children_ids = time_source_get_children(_time_source_id)
@@ -299,13 +312,16 @@ function get_children_time_source_generic(arguments = {}) {
 }
 
 /// ----------------------------------------------------------------------------
-/// @function get_parent_time_source_generic(arguments)
-/// ----------------------------------------------------------------------------
 /// @description
-/// This script function serves as a proxy for the static method function:
-/// TimeSourceGeneric.get_parent
+/// <function_description>
 /// ----------------------------------------------------------------------------
-function get_parent_time_source_generic(arguments = {}) {
+/// @parameter {type} parameter_name
+/// <parameter_description>
+/// ----------------------------------------------------------------------------
+/// @return {type}
+/// <return_description>
+/// ----------------------------------------------------------------------------
+function gamemaker_timesource_get_parent(parameters = {}) {
 	if (is_instanceof(self, TimeSourceGeneric)) { arguments.time_source = self }
 	var _time_source_id = get_id(arguments)
 	var _parent_id = time_source_get_parent(_time_source_id)
@@ -313,78 +329,96 @@ function get_parent_time_source_generic(arguments = {}) {
 }
 
 /// ----------------------------------------------------------------------------
-/// @function get_period_time_source_generic(arguments)
-/// ----------------------------------------------------------------------------
 /// @description
-/// This script function serves as a proxy for the static method function:
-/// TimeSourceGeneric.get_period
+/// <function_description>
 /// ----------------------------------------------------------------------------
-function get_period_time_source_generic(arguments = {}) {
+/// @parameter {type} parameter_name
+/// <parameter_description>
+/// ----------------------------------------------------------------------------
+/// @return {type}
+/// <return_description>
+/// ----------------------------------------------------------------------------
+function gamemaker_timesource_get_period(parameters = {}) {
 	if (is_instanceof(self, TimeSourceGeneric)) { arguments.time_source = self }
 	var _time_source_id = get_id(arguments)
 	return time_source_get_period(_time_source_id)
 }
 
 /// ----------------------------------------------------------------------------
-/// @function get_state_time_source_generic(arguments)
-/// ----------------------------------------------------------------------------
 /// @description
-/// This script function serves as a proxy for the static method function:
-/// TimeSourceGeneric.get_state
+/// <function_description>
 /// ----------------------------------------------------------------------------
-function get_state_time_source_generic(arguments = {}) {
+/// @parameter {type} parameter_name
+/// <parameter_description>
+/// ----------------------------------------------------------------------------
+/// @return {type}
+/// <return_description>
+/// ----------------------------------------------------------------------------
+function gamemaker_timesource_get_state(parameters = {}) {
 	if (is_instanceof(self, TimeSourceGeneric)) { arguments.time_source = self }
 	var _time_source_id = get_id(arguments)
 	return time_source_get_state(_time_source_id)
 }
 
 /// ----------------------------------------------------------------------------
-/// @function get_remaining_time_time_source_generic(arguments)
-/// ----------------------------------------------------------------------------
 /// @description
-/// This script function serves as a proxy for the static method function:
-/// TimeSourceGeneric.get_remaining_time
+/// <function_description>
 /// ----------------------------------------------------------------------------
-function get_remaining_time_time_source_generic(arguments = {}) {
+/// @parameter {type} parameter_name
+/// <parameter_description>
+/// ----------------------------------------------------------------------------
+/// @return {type}
+/// <return_description>
+/// ----------------------------------------------------------------------------
+function gamemaker_timesource_get_remaining_time(parameters = {}) {
 	if (is_instanceof(self, TimeSourceGeneric)) { arguments.time_source = self }
 	var _time_source_id = get_id(arguments)
 	return time_source_get_time_remaining(_time_source_id)
 }
 
 /// ----------------------------------------------------------------------------
-/// @function get_units_time_source_generic(arguments)
-/// ----------------------------------------------------------------------------
 /// @description
-/// This script function serves as a proxy for the static method function:
-/// TimeSourceGeneric.get_units
+/// <function_description>
 /// ----------------------------------------------------------------------------
-function get_units_time_source_generic(arguments = {}) {
+/// @parameter {type} parameter_name
+/// <parameter_description>
+/// ----------------------------------------------------------------------------
+/// @return {type}
+/// <return_description>
+/// ----------------------------------------------------------------------------
+function gamemaker_timesource_get_units(parameters = {}) {
 	if (is_instanceof(self, TimeSourceGeneric)) { arguments.time_source = self }
 	var _time_source_id = get_id(arguments)
 	return time_source_get_units(_time_source_id)
 }
 
 /// ----------------------------------------------------------------------------
-/// @function get_completed_repetitions_time_source_generic(arguments)
-/// ----------------------------------------------------------------------------
 /// @description
-/// This script function serves as a proxy for the static method function:
-/// TimeSourceGeneric.get_completed_repetitions
+/// <function_description>
 /// ----------------------------------------------------------------------------
-function get_completed_repetitions_time_source_generic(arguments = {}) {
+/// @parameter {type} parameter_name
+/// <parameter_description>
+/// ----------------------------------------------------------------------------
+/// @return {type}
+/// <return_description>
+/// ----------------------------------------------------------------------------
+function gamemaker_timesource_get_completed_repetitions(parameters = {}) {
 	if (is_instanceof(self, TimeSourceGeneric)) { arguments.time_source = self }
 	var _time_source_id = get_id(arguments)
 	return time_source_get_reps_completed(_time_source_id)
 }
 
 /// ----------------------------------------------------------------------------
-/// @function get_remaining_repetitions_time_source_generic(arguments)
-/// ----------------------------------------------------------------------------
 /// @description
-/// This script function serves as a proxy for the static method function:
-/// TimeSourceGeneric.get_remaining_repetitions
+/// <function_description>
 /// ----------------------------------------------------------------------------
-function get_remaining_repetitions_time_source_generic(arguments = {}) {
+/// @parameter {type} parameter_name
+/// <parameter_description>
+/// ----------------------------------------------------------------------------
+/// @return {type}
+/// <return_description>
+/// ----------------------------------------------------------------------------
+function gamemaker_timesource_get_remaining_repetitions(parameters = {}) {
 	if (is_instanceof(self, TimeSourceGeneric)) { arguments.time_source = self }
 	var _time_source_id = get_id(arguments)
 	var _remaining_repetitions = time_source_get_reps_remaining(_time_source_id)
@@ -392,13 +426,16 @@ function get_remaining_repetitions_time_source_generic(arguments = {}) {
 }
 
 /// ----------------------------------------------------------------------------
-/// @function (arguments)
-/// ----------------------------------------------------------------------------
 /// @description
-/// This script function serves as a proxy for the static method function:
-/// TimeSourceGeneric.
+/// <function_description>
 /// ----------------------------------------------------------------------------
-function get_repetitions_time_time_source_generic(arguments = {}) {
+/// @parameter {type} parameter_name
+/// <parameter_description>
+/// ----------------------------------------------------------------------------
+/// @return {type}
+/// <return_description>
+/// ----------------------------------------------------------------------------
+function gamemaker_timesource_get_repetitions(parameters = {}) {
 	if (!is_instanceof(self, TimeSourceGeneric)) { arguments.time_source = self }
 	var _time_source = arguments[$ "time_source"]
 	var _remaining_repetitions = time_source_get_reps_remaining(_time_source_id)
@@ -408,45 +445,52 @@ function get_repetitions_time_time_source_generic(arguments = {}) {
 }
 
 /// ----------------------------------------------------------------------------
-/// @function get_expiry_type_time_time_source_generic(arguments)
-/// ----------------------------------------------------------------------------
 /// @description
-/// This script function serves as a proxy for the static method function:
-/// TimeSourceGeneric.get_expiry_type
+/// <function_description>
 /// ----------------------------------------------------------------------------
-function get_expiry_type_time_time_source_generic(arguments = {}) {
+/// @parameter {type} parameter_name
+/// <parameter_description>
+/// ----------------------------------------------------------------------------
+/// @return {type}
+/// <return_description>
+/// ----------------------------------------------------------------------------
+function gamemaker_timesource_get_expiry_type(parameters = {}) {
 	if (!is_instanceof(self, TimeSourceGeneric)) { arguments.time_source = self }
 	var _time_source = arguments[$ "time_source"]
 	return is_struct(_time_source) ? _time_source.private.expiry_type : undefined
 }
 
 /// ----------------------------------------------------------------------------
-/// @function get_callback_time_time_source_generic(arguments)
-/// ----------------------------------------------------------------------------
 /// @description
-/// This script function serves as a proxy for the static method function:
-/// TimeSourceGeneric.get_callback
+/// <function_description>
 /// ----------------------------------------------------------------------------
-function get_callback_time_time_source_generic(arguments = {}) {
+/// @parameter {type} parameter_name
+/// <parameter_description>
+/// ----------------------------------------------------------------------------
+/// @return {type}
+/// <return_description>
+/// ----------------------------------------------------------------------------
+function gamemaker_timesource_get_callback(parameters = {}) {
 	if (!is_instanceof(self, TimeSourceGeneric)) { arguments.time_source = self }
 	var _time_source = arguments[$ "time_source"]
 	return is_struct(_time_source) ? _time_source.private.callback : undefined
 }
 
 /// ----------------------------------------------------------------------------
-/// @function get_arguments_time_time_source_generic(arguments)
-/// ----------------------------------------------------------------------------
 /// @description
-/// This script function serves as a proxy for the static method function:
-/// TimeSourceGeneric.get_arguments
+/// <function_description>
 /// ----------------------------------------------------------------------------
-function get_arguments_time_time_source_generic(arguments = {}) {
+/// @parameter {type} parameter_name
+/// <parameter_description>
+/// ----------------------------------------------------------------------------
+/// @return {type}
+/// <return_description>
+/// ----------------------------------------------------------------------------
+function gamemaker_timesource_get_arguments(parameters = {}) {
 	if (!is_instanceof(self, TimeSourceGeneric)) { arguments.time_source = self }
 	var _time_source = arguments[$ "time_source"]
 	return is_struct(_time_source) ? _time_source.private.arguments : undefined
 }
-
-#endregion ––––––––––––––– NATIVE_TIME_SOURCE_FUNCTION_WRAPPERS –––––––––––––––
 
 /******************************************************************************/
 #endregion –––––––––––––––––––– FUNCTIONS ––––––––––––––––––––
@@ -580,13 +624,13 @@ function TimeSourceGeneric(arguments = {}) constructor {
 	/// @function destroy(parameters)
 	/// ----------------------------------------------------------------------------
 	/// @description
-	/// This method calls <gpl_time_source_destroy> on self.
+	/// This method calls <gamemaker_timesource_destroy> on self.
 	/// ----------------------------------------------------------------------------
 	/// @return {struct} self
 	/// ----------------------------------------------------------------------------
 	static destroy = function(parameters = {}) {
 		parameters.time_source = self
-		gpl_time_source_destroy(parameters)
+		gamemaker_timesource_destroy(parameters)
 		return self
 	}
 
@@ -599,7 +643,7 @@ function TimeSourceGeneric(arguments = {}) constructor {
 	/// @return {struct} self
 	/// ----------------------------------------------------------------------------
 	static start = function() {
-		gpl_time_source_start({ time_source : self })
+		gamemaker_timesource_start({ time_source : self })
 	    return self
 	}
 
@@ -614,7 +658,7 @@ function TimeSourceGeneric(arguments = {}) constructor {
 	/// @return {struct} self
 	/// ----------------------------------------------------------------------------
 	static pause = function() {
-		gpl_time_source_pause({ time_source : self })
+		gamemaker_timesource_pause({ time_source : self })
 	    return self
 	}
 
@@ -629,7 +673,7 @@ function TimeSourceGeneric(arguments = {}) constructor {
 	/// @return {struct} self
 	/// ----------------------------------------------------------------------------
 	static stop = function() {
-		gpl_time_source_stop({ time_source : self })
+		gamemaker_timesource_stop({ time_source : self })
 	    return self
 	}
 
@@ -644,7 +688,7 @@ function TimeSourceGeneric(arguments = {}) constructor {
 	/// @return {struct} self
 	/// ----------------------------------------------------------------------------
 	static resume = function() {
-		gpl_time_source_resume({ time_source : self })
+		gamemaker_timesource_resume({ time_source : self })
 		return self
 	}
 
@@ -1048,7 +1092,7 @@ time_source_controller_generic.gml
 
 @overview
 This file defines the constructor for the TimeSourceControllerGeneric struct.
-This struct caches time sources created by gpl_call_later and automatically
+This struct caches time sources created by gamemaker_call_later and automatically
 garbage collects them once they have called their callback method. This struct
 is initialized by SystemControllerGeneric.
 ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
@@ -1074,13 +1118,13 @@ function TimeSourceControllerGeneric() constructor {
     static time_sources = []
 
     /// @type {Array<Struct.TimeSourceGeneric>}
-    /// caches time sources created by gpl_call_later
+    /// caches time sources created by gamemaker_call_later
     static call_later_time_sources = []
 
     #region    –––––––––––––––––––– STEP_EVENT ––––––––––––––––––––
 
     static step_event = function() {
-        // remove time sources used with gpl_call_later once they have run their callback method
+        // remove time sources used with gamemaker_call_later once they have run their callback method
         for (var i = 0; i < array_length(call_later_time_sources); i++) {
             var _time_source = call_later_time_sources[i]
             // destroy stopped time sources

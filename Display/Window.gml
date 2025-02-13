@@ -1,12 +1,82 @@
 /******************************************************************************/
-/* –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– */
 #region    –––––––––––––––––––– FUNCTIONS ––––––––––––––––––––
-/* –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– */
 /******************************************************************************/
 
-/*******************************************************************************/
-#region    –––––––––––––––––––– CAPTION ––––––––––––––––––––
-/*******************************************************************************/
+/// ----------------------------------------------------------------------------
+/// @description
+/// This function is used to get the current width of the game window in pixels.
+/// ----------------------------------------------------------------------------
+/// @return {number}
+/// ----------------------------------------------------------------------------
+function gamemaker_window_get_x_dimension() {
+    return window_get_width()
+}
+
+/// ----------------------------------------------------------------------------
+/// @description
+/// This function is used to get the current height of the game window in pixels.
+/// ----------------------------------------------------------------------------
+/// @return {number}
+/// ----------------------------------------------------------------------------
+function gamemaker_window_get_y_dimension() {
+    return window_get_height()
+}
+
+/// ----------------------------------------------------------------------------
+/// @description
+/// <function_description>
+/// ----------------------------------------------------------------------------
+/// @parameter {number} x
+/// <parameter_description>
+/// @parameter {number} y
+/// <parameter_description>
+/// ----------------------------------------------------------------------------
+/// @return {undefined}
+/// ----------------------------------------------------------------------------
+function gamemaker_window_set_dimensions(parameters = {}) {
+    window_set_size(parameters.x, parameters.y)
+    return undefined
+}
+
+/// ----------------------------------------------------------------------------
+/// @description
+/// This function is used to get the aspect ratio of the current game window.
+/// ----------------------------------------------------------------------------
+/// @return {number}
+/// ----------------------------------------------------------------------------
+function gamemaker_window_get_aspectratio() {
+    return (gamemaker_window_get_x_dimension() / gamemaker_window_get_y_dimension())
+}
+
+/// ----------------------------------------------------------------------------
+/// @description
+/// <function_description>
+/// ----------------------------------------------------------------------------
+/// @return {undefined}
+/// ----------------------------------------------------------------------------
+function gamemaker_window_center() {
+    gamemaker_call_later({ delay_frames : 1, callback : window_center })
+    /// do this manually to avoid delay
+    /// window_set_position(x, y)
+}
+
+/******************************************************************************/
+#endregion –––––––––––––––––––– FUNCTIONS ––––––––––––––––––––
+/******************************************************************************/
+
+/******************************************************************************/
+#region    –––––––––––––––––––– CONSTRUCTORS ––––––––––––––––––––
+/******************************************************************************/
+
+/******************************************************************************/
+#endregion –––––––––––––––––––– CONSTRUCTORS ––––––––––––––––––––
+/******************************************************************************/
+
+
+
+
+
+
 
 /// ----------------------------------------------------------------------------
 /// @function set_default_caption_window_generic(arguments)
@@ -15,11 +85,11 @@
 /// <function_description>
 /// ----------------------------------------------------------------------------
 function set_default_caption_window_generic(arguments = {}) {
-    return WINDOW.set_default_caption(arguments)
+    return gamemaker_window_set_default_caption(arguments)
 }
 
 /// ----------------------------------------------------------------------------
-/// @function generic_window_set_caption(parameters)
+/// @function gamemaker_window_set_caption(parameters)
 /// ----------------------------------------------------------------------------
 /// @description
 /// This function is used to change the caption of the game window.
@@ -34,7 +104,7 @@ function set_default_caption_window_generic(arguments = {}) {
 /// ----------------------------------------------------------------------------
 /// @return {undefined}
 /// ----------------------------------------------------------------------------
-function generic_window_set_caption(parameters = {}) {
+function gamemaker_window_set_caption(parameters = {}) {
     var _string = parameters[$ "string"]
     window_set_caption(_string)
 }
@@ -46,91 +116,8 @@ function generic_window_set_caption(parameters = {}) {
 /// <function_description>
 /// ----------------------------------------------------------------------------
 function reset_caption_window_generic(arguments = {}) {
-    return WINDOW.reset_caption(arguments)
+    return gamemaker_window_reset_caption(arguments)
 }
-
-
-/*******************************************************************************/
-#endregion –––––––––––––––––––– CAPTION ––––––––––––––––––––
-/*******************************************************************************/
-
-/*******************************************************************************/
-#region    –––––––––––––––––––– DIMENSIONS ––––––––––––––––––––
-/*******************************************************************************/
-
-/// ----------------------------------------------------------------------------
-/// @function get_x_dimensions_window_generic(arguments)
-/// ----------------------------------------------------------------------------
-/// @description
-/// <function_description>
-/// ----------------------------------------------------------------------------
-function get_x_dimensions_window_generic(arguments = {}) {
-    return WINDOW.get_x_dimensions(arguments)
-}
-
-/// ----------------------------------------------------------------------------
-/// @function get_y_dimensions_window_generic(arguments)
-/// ----------------------------------------------------------------------------
-/// @description
-/// <function_description>
-/// ----------------------------------------------------------------------------
-function get_y_dimensions_window_generic(arguments = {}) {
-    return WINDOW.get_y_dimensions(arguments)
-}
-
-/// ----------------------------------------------------------------------------
-/// @function get_dimensions_window_generic(arguments)
-/// ----------------------------------------------------------------------------
-/// @description
-/// <function_description>
-/// ----------------------------------------------------------------------------
-function get_dimensions_window_generic(arguments = {}) {
-    return WINDOW.get_dimensions(arguments)
-}
-
-/// ----------------------------------------------------------------------------
-/// @function set_dimensions_window_generic(arguments)
-/// ----------------------------------------------------------------------------
-/// @description
-/// <function_description>
-/// ----------------------------------------------------------------------------
-function set_dimensions_window_generic(arguments = {}) {
-    return WINDOW.set_dimensions(arguments)
-}
-
-/// ----------------------------------------------------------------------------
-/// @function get_aspect_ratio_window_generic(arguments)
-/// ----------------------------------------------------------------------------
-/// @description
-/// <function_description>
-/// ----------------------------------------------------------------------------
-function get_aspect_ratio_window_generic(arguments = {}) {
-    return WINDOW.get_aspect_ratio(arguments)
-}
-
-/// ----------------------------------------------------------------------------
-/// @function gpl_window_center(parameters)
-/// ----------------------------------------------------------------------------
-/// @description
-/// <function_description>
-/// ----------------------------------------------------------------------------
-/// @parameter {type} parameter_name
-/// <parameter_description>
-///
-/// ----------------------------------------------------------------------------
-/// @return {undefined}
-/// ----------------------------------------------------------------------------
-function gpl_window_center(parameters = {}) {
-    gpl_call_later({ delay_frames : 1, callback : window_center })
-}
-
-/*******************************************************************************/
-#endregion –––––––––––––––––––– DIMENSIONS ––––––––––––––––––––
-/*******************************************************************************/
-
-/*******************************************************************************/
-#region    –––––––––––––––––––– MINIMUM_DIMENSIONS ––––––––––––––––––––
-/*******************************************************************************/
 
 /// ----------------------------------------------------------------------------
 /// @function set_x_minimum_dimensions_window_generic(arguments)
@@ -139,7 +126,7 @@ function gpl_window_center(parameters = {}) {
 /// <function_description>
 /// ----------------------------------------------------------------------------
 function set_x_minimum_dimensions_window_generic(arguments = {}) {
-    return WINDOW.set_x_minimum_dimensions(arguments)
+    return gamemaker_window_set_x_minimum_dimensions(arguments)
 }
 
 /// ----------------------------------------------------------------------------
@@ -149,16 +136,16 @@ function set_x_minimum_dimensions_window_generic(arguments = {}) {
 /// <function_description>
 /// ----------------------------------------------------------------------------
 function set_y_minimum_dimensions_window_generic(arguments = {}) {
-    return WINDOW.set_y_minimum_dimensions(arguments)
+    return gamemaker_window_set_y_minimum_dimensions(arguments)
 }
 
 /// ----------------------------------------------------------------------------
-/// @function gpl_window_set_minimum_dimensions(arguments)
+/// @function gamemaker_window_set_minimum_dimensions(arguments)
 /// ----------------------------------------------------------------------------
 /// @description
 /// <function_description>
 /// ----------------------------------------------------------------------------
-function gpl_window_set_minimum_dimensions(arguments = {}) {
+function gamemaker_window_set_minimum_dimensions(arguments = {}) {
     if (struct_exists(arguments, "x")) {
         window_set_min_width(arguments.x)
     }
@@ -168,95 +155,52 @@ function gpl_window_set_minimum_dimensions(arguments = {}) {
     return self
 }
 
-/*******************************************************************************/
-#endregion –––––––––––––––––––– MINIMUM_DIMENSIONS ––––––––––––––––––––
-/*******************************************************************************/
-
-
-/// ----------------------------------------------------------------------------
-/// @function function_name(arguments)
 /// ----------------------------------------------------------------------------
 /// @description
 /// <function_description>
 /// ----------------------------------------------------------------------------
-function _window_generic(arguments = {}) {
-    return WINDOW.(arguments)
+/// @return {boolean}
+/// ----------------------------------------------------------------------------
+function gamemaker_window_is_fullscreen() {
+    return window_get_fullscreen()
 }
 
-/******************************************************************************/
-/* –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– */
-#endregion –––––––––––––––––––– FUNCTIONS ––––––––––––––––––––
-/* –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– */
-/******************************************************************************/
-
-/******************************************************************************/
-/* –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– */
-#region    –––––––––––––––––––– CONSTRUCTORS ––––––––––––––––––––
-/* –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– */
-/******************************************************************************/
-
-#macro WINDOW INITIALIZED_CONSTRUCTOR(Window)
-
-WINDOW
+/// ----------------------------------------------------------------------------
+/// @description
+/// <function_description>
+/// ----------------------------------------------------------------------------
+/// @parameter {boolean} fullscreen
+/// <parameter_description>
+/// ----------------------------------------------------------------------------
+/// @return {undefined}
+/// ----------------------------------------------------------------------------
+function gamemaker_window_set_fullscreen(parameters = {}) {
+    window_set_fullscreen(parameters.fullscreen)
+    return undefined
+}
 
 function Window() constructor {
-
-    /*******************************************************************************/
-    #region    –––––––––––––––––––– PRIVATE ––––––––––––––––––––
-    /*******************************************************************************/
 
     private = {
         default_caption : undefined,
     }
 
-    /*******************************************************************************/
-    #endregion –––––––––––––––––––– PRIVATE ––––––––––––––––––––
-    /*******************************************************************************/
-
-    /*******************************************************************************/
-    #region    –––––––––––––––––––– REGION_NAME ––––––––––––––––––––
-    /*******************************************************************************/
-
-    window_center
     window_handle
     window_has_focus
-
-    /*******************************************************************************/
-    #endregion –––––––––––––––––––– REGION_NAME ––––––––––––––––––––
-    /*******************************************************************************/
-
-    /*******************************************************************************/
-    #region    –––––––––––––––––––– REGION_NAME ––––––––––––––––––––
-    /*******************************************************************************/
 
     window_set_showborder
     window_get_showborder
 
-    /*******************************************************************************/
-    #endregion –––––––––––––––––––– REGION_NAME ––––––––––––––––––––
-    /*******************************************************************************/
-
-    /*******************************************************************************/
-    #region    –––––––––––––––––––– REGION_NAME ––––––––––––––––––––
-    /*******************************************************************************/
 
     window_get_visible_rects
     window_set_rectangle
-
-    /*******************************************************************************/
-    #endregion –––––––––––––––––––– REGION_NAME ––––––––––––––––––––
-    /*******************************************************************************/
-
-    /*******************************************************************************/
-    #region    –––––––––––––––––––– CAPTION ––––––––––––––––––––
-    /*******************************************************************************/
 
     static set_default_caption = function(arguments = {}) {
         private.default_caption = arguments.caption
         return self
     }
 
-    static set_caption = generic_window_set_caption
+    static set_caption = gamemaker_window_set_caption
 
     static reset_caption = function(arguments = {}) {
         if (private.default_caption != undefined) {
@@ -264,14 +208,6 @@ function Window() constructor {
         }
         return self
     }
-
-    /*******************************************************************************/
-    #endregion –––––––––––––––––––– CAPTION ––––––––––––––––––––
-    /*******************************************************************************/
-
-    /*******************************************************************************/
-    #region    –––––––––––––––––––– BACKGROUND_COLOUR ––––––––––––––––––––
-    /*******************************************************************************/
 
     static get_background_colour = function(arguments = {}) {
         return window_get_colour()
@@ -282,31 +218,15 @@ function Window() constructor {
         return self
     }
 
-    /*******************************************************************************/
-    #endregion –––––––––––––––––––– BACKGROUND_COLOUR ––––––––––––––––––––
-    /*******************************************************************************/
-
-    /*******************************************************************************/
-    #region    –––––––––––––––––––– FULLSCREEN ––––––––––––––––––––
-    /*******************************************************************************/
-
     static get_fullscreen = function(arguments = {}) {
-        window_get_fullscreen(full)
+        
         return
     }
 
     static set_fullscreen = function(arguments = {}) {
-        window_set_fullscreen(full)
+        
         return self
     }
-
-    /*******************************************************************************/
-    #endregion –––––––––––––––––––– FULLSCREEN ––––––––––––––––––––
-    /*******************************************************************************/
-
-    /*******************************************************************************/
-    #region    –––––––––––––––––––– POSITION ––––––––––––––––––––
-    /*******************************************************************************/
 
     static get_x_position = function(arguments = {}) {
         return window_get_x()
@@ -330,47 +250,31 @@ function Window() constructor {
         return self
     }
 
-    /*******************************************************************************/
-    #endregion –––––––––––––––––––– POSITION ––––––––––––––––––––
-    /*******************************************************************************/
-
-    /*******************************************************************************/
-    #region    –––––––––––––––––––– DIMENSIONS ––––––––––––––––––––
-    /*******************************************************************************/
-
-    static get_x_dimensions = function(arguments = {}) {
-        return window_get_width()
+    static get_x_dimension = function(arguments = {}) {
+        return gamemaker_window_get_x_dimension()
     }
 
-    static get_y_dimensions = function(arguments = {}) {
-        return window_get_height()
+    static get_y_dimension = function(arguments = {}) {
+        return gamemaker_window_get_y_dimension()
     }
 
     static get_dimensions = function(arguments = {}) {
         return {
-            x : window_get_width(),
-            y : window_get_height(),
+            x : gamemaker_window_get_x_dimension(),
+            y : gamemaker_window_get_y_dimension(),
         }
     }
 
     static set_dimensions = function(arguments = {}) {
-        var _x = arguments[$ "x"] ?? window_get_width()
-        var _y = arguments[$ "y"] ?? window_get_height()
+        var _x = arguments[$ "x"] ?? gamemaker_window_get_x_dimension()
+        var _y = arguments[$ "y"] ?? gamemaker_window_get_y_dimension()
         window_set_size(_x, _y)
         return self
     }
 
     static get_aspect_ratio = function(arguments = {}) {
-        return window_get_width() / window_get_height()
+        return gamemaker_window_get_x_dimension() / gamemaker_window_get_y_dimension()
     }
-
-    /*******************************************************************************/
-    #endregion –––––––––––––––––––– DIMENSIONS ––––––––––––––––––––
-    /*******************************************************************************/
-
-    /*******************************************************************************/
-    #region    –––––––––––––––––––– MINIMUM_DIMENSIONS ––––––––––––––––––––
-    /*******************************************************************************/
 
     static set_x_minimum_dimensions = function(arguments = {}) {
         window_set_min_width(width)
@@ -385,14 +289,6 @@ function Window() constructor {
     static set_minimum_dimensions = function(arguments = {}) {
 
     }
-
-    /*******************************************************************************/
-    #endregion –––––––––––––––––––– MINIMUM_DIMENSIONS ––––––––––––––––––––
-    /*******************************************************************************/
-
-    /*******************************************************************************/
-    #region    –––––––––––––––––––– MAXIMUM_DIMENSIONS ––––––––––––––––––––
-    /*******************************************************************************/
 
     static set_x_maximum_dimensions = function(arguments = {}) {
         window_set_max_width(width)
@@ -414,15 +310,5 @@ function Window() constructor {
         return self
     }
 
-    /*******************************************************************************/
-    #endregion –––––––––––––––––––– MAXIMUM_DIMENSIONS ––––––––––––––––––––
-    /*******************************************************************************/
-
 
 }
-
-/******************************************************************************/
-/* –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– */
-#endregion –––––––––––––––––––– CONSTRUCTORS ––––––––––––––––––––
-/* –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– */
-/******************************************************************************/

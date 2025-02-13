@@ -16,35 +16,35 @@
 /// same on any surface as on the application_surface.
 /// ----------------------------------------------------------------------------
 #macro DEFAULT_BLEND_MODE                                                      \
-generic_blend_mode_get({ blend_mode : "default_blend_mode" })
+gamemaker_blendmode_get({ blend_mode : "default_blend_mode" })
 
 /// ----------------------------------------------------------------------------
 /// @description
 /// Game Maker's default blend mode.
 /// ----------------------------------------------------------------------------
 #macro NORMAL_BLEND_MODE                                                       \
-generic_blend_mode_get({ blend_mode : "normal_blend_mode" })
+gamemaker_blendmode_get({ blend_mode : "normal_blend_mode" })
 
 /// ----------------------------------------------------------------------------
 /// @description
 /// <description>
 /// ----------------------------------------------------------------------------
 #macro ADDITIVE_BLEND_MODE                                                     \
-generic_blend_mode_get({ blend_mode : "additive_blend_mode" })
+gamemaker_blendmode_get({ blend_mode : "additive_blend_mode" })
 
 /// ----------------------------------------------------------------------------
 /// @description
 /// <description>
 /// ----------------------------------------------------------------------------
 #macro SUBTRACTIVE_BLEND_MODE                                                  \
-generic_blend_mode_get({ blend_mode : "subtractive_blend_mode" })
+gamemaker_blendmode_get({ blend_mode : "subtractive_blend_mode" })
 
 /// ----------------------------------------------------------------------------
 /// @description
 /// <description>
 /// ----------------------------------------------------------------------------
 #macro MAXIMUM_BLEND_MODE                                                      \
-generic_blend_mode_get({ blend_mode : "maximum_blend_mode" })
+gamemaker_blendmode_get({ blend_mode : "maximum_blend_mode" })
 
 /******************************************************************************/
 /* –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -59,7 +59,7 @@ generic_blend_mode_get({ blend_mode : "maximum_blend_mode" })
 /******************************************************************************/
 
 /// ----------------------------------------------------------------------------
-/// @function generic_blend_mode_get(arguments)
+/// @function gamemaker_blendmode_get(arguments)
 /// ----------------------------------------------------------------------------
 /// @description
 /// <function_description>
@@ -72,27 +72,27 @@ generic_blend_mode_get({ blend_mode : "maximum_blend_mode" })
 /// @return {Struct.BlendMode}
 /// <return_description>
 /// ----------------------------------------------------------------------------
-function generic_blend_mode_get(arguments = {}) {
+function gamemaker_blendmode_get(arguments = {}) {
     var _blend_mode
     return _blend_mode
 }
 
-function generic_blend_mode_get_source_colour_blend_factor(arguments = {}) {
+function gamemaker_blendmode_get_source_colour_blend_factor(arguments = {}) {
     var _blend_factor
     return _blend_factor
 }
 
-function generic_blend_mode_get_source_alpha_blend_factor(arguments = {}) {
+function gamemaker_blendmode_get_source_alpha_blend_factor(arguments = {}) {
     var _blend_factor
     return _blend_factor
 }
 
-function generic_blend_mode_get_destination_colour_blend_factor(arguments = {}) {
+function gamemaker_blendmode_get_destination_colour_blend_factor(arguments = {}) {
     var _blend_factor
     return _blend_factor
 }
 
-function generic_blend_mode_get_destination_alpha_blend_factor(arguments = {}) {
+function gamemaker_blendmode_get_destination_alpha_blend_factor(arguments = {}) {
     var _blend_factor
     return _blend_factor
 }

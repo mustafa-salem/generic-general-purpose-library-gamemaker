@@ -2,36 +2,51 @@
 #region    –––––––––––––––––––– FUNCTIONS ––––––––––––––––––––
 /******************************************************************************/
 
+layer_sprite_get_id
+
+layer_sprite_get_x
+
 /// ----------------------------------------------------------------------------
-/// @function gamemaker_construct_instance_create(parameters)
+/// @description
+/// <function_description>
+/// ----------------------------------------------------------------------------
+/// @parameter {type} layer
+/// <parameter_description>
+/// @parameter {type} element
+/// <parameter_description>
+/// ----------------------------------------------------------------------------
+/// @return {type}
+/// <return_description>
+/// ----------------------------------------------------------------------------
+function gamemaker_spritelayerelement_get(parameters = {}) {
+    return _return
+}
+
 /// ----------------------------------------------------------------------------
 /// @description
 /// <function_description>
 /// ----------------------------------------------------------------------------
 /// @parameter {type} parameter_name
 /// <parameter_description>
-///
 /// ----------------------------------------------------------------------------
 /// @return {type}
 /// <return_description>
 /// ----------------------------------------------------------------------------
-function gamemaker_construct_instance_create(parameters = {}) {
+function gamemaker_spritelayerelement_get_x_position(parameters = {}) {
     return _return
 }
 
 /// ----------------------------------------------------------------------------
-/// @function in_game_event_find(parameters)
-/// ----------------------------------------------------------------------------
 /// @description
-/// This function returns an array of in game events that fit the provided
-/// conditions.
+/// <function_description>
 /// ----------------------------------------------------------------------------
-/// @parameter {string} type
-/// The name of the in_game_event_type to target.
+/// @parameter {type} parameter_name
+/// <parameter_description>
 /// ----------------------------------------------------------------------------
-/// @return {array<struct>}
+/// @return {type}
+/// <return_description>
 /// ----------------------------------------------------------------------------
-function in_game_event_find(parameters = {}) {
+function gamemaker_spritelayerelement_get_y_position(parameters = {}) {
     return _return
 }
 
@@ -43,14 +58,14 @@ function in_game_event_find(parameters = {}) {
 #region    –––––––––––––––––––– CONSTRUCTORS ––––––––––––––––––––
 /******************************************************************************/
 
-function InGameEvent() {
+function SpriteLayerElement() constructor {
+
+    get_x_position
+
+    get_y_position
 
 }
 
 /******************************************************************************/
 #endregion –––––––––––––––––––– CONSTRUCTORS ––––––––––––––––––––
 /******************************************************************************/
-
-gamemaker_object_get({ object : ingameevent_construct_object })
-
-gamemaker_construct_create({ name : "ingameevent_construct" })

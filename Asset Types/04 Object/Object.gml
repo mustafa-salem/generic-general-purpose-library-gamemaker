@@ -119,7 +119,7 @@ if (event_type == ev_other) {
 /******************************************************************************/
 
 /// ----------------------------------------------------------------------------
-/// @function gpl_object_get(parameters)
+/// @function gamemaker_object_get(parameters)
 /// ----------------------------------------------------------------------------
 /// @description
 /// This function returns the 'Object' struct instance associated with the
@@ -130,7 +130,7 @@ if (event_type == ev_other) {
 /// ----------------------------------------------------------------------------
 /// @return {struct.Object|undefined}
 /// ----------------------------------------------------------------------------
-function gpl_object_get(parameters) {
+function gamemaker_object_get(parameters) {
     var _object_id = object_get_id(parameters)
     return is_numeric(_object_id) ? OBJECT.private.objects[_object_id] : undefined
 }
@@ -212,7 +212,7 @@ function object_get_instance_count(parameters = {}) {
 }
 
 /// ----------------------------------------------------------------------------
-/// @function generic_object_get_instances(parameters)
+/// @function gamemaker_object_get_instances(parameters)
 /// ----------------------------------------------------------------------------
 /// @description
 /// <function_description>
@@ -224,8 +224,8 @@ function object_get_instance_count(parameters = {}) {
 /// @return {type}
 /// <return_description>
 /// ----------------------------------------------------------------------------
-function generic_object_get_instances(parameters = {}) {
-    var _object_handle = gpl_object_get({ object : parameters.object })
+function gamemaker_object_get_instances(parameters = {}) {
+    var _object_handle = gamemaker_object_get({ object : parameters.object })
     var _instances = []
     for (var i = 0; i < instance_number(_object_handle); i++) {
         var _instance = instance_find(_object_handle, i)
@@ -303,7 +303,7 @@ function object_get_depth(argument0)
 {
     var objID = argument0
     var ret = 0
-    if (objID >= 0 && objID < array_length_1d(global.__objectID2Depth))
+    if (objID >= 0 and objID < array_length_1d(global.__objectID2Depth))
         ret = global.__objectID2Depth[objID]
     return ret;
 }
@@ -317,7 +317,7 @@ function object_get_depth(argument0)
 /******************************************************************************/
 
 /// ----------------------------------------------------------------------------
-/// @function generic_object_set_default_event(parameters)
+/// @function gamemaker_object_set_event(parameters)
 /// ----------------------------------------------------------------------------
 /// @description
 /// <function_description>
@@ -335,7 +335,7 @@ function object_get_depth(argument0)
 /// @return {type}
 /// <return_description>
 /// ----------------------------------------------------------------------------
-function generic_object_set_default_event(parameters) {
+function gamemaker_object_set_event(parameters) {
     for (var i = 0; i < ; i++) {
         .set_default_event(parameters)
     }
@@ -354,7 +354,7 @@ function generic_object_set_default_event(parameters) {
 /// @return {type}
 /// <return_description>
 /// ----------------------------------------------------------------------------
-function generic_object_get_event_callable(parameters) {
+function gamemaker_object_get_event_callable(parameters) {
     return _return
 }
 
@@ -371,7 +371,7 @@ function generic_object_get_event_callable(parameters) {
 /// @return {type}
 /// <return_description>
 /// ----------------------------------------------------------------------------
-function generic_object_execute_event(parameters) {
+function gamemaker_object_execute_event(parameters) {
     return _return
 }
 
@@ -775,7 +775,7 @@ function ObjectConstructorGeneric() constructor {
 
         var _object = arguments["object"]
         var _event  = arguments["event"]
-        _object = gpl_object_get({ object : _object })
+        _object = gamemaker_object_get({ object : _object })
         _event  = Object.get_event({ event : _event })
 
         if (_event.default_callable == undefined and _object.get_parent() != undefined) {
@@ -813,7 +813,7 @@ function ObjectConstructorGeneric() constructor {
         var _object   = arguments["object"]
         var _event    = arguments["events"]
         var _callable = arguments["callable"]
-        _object = gpl_object_get({ object : _object })
+        _object = gamemaker_object_get({ object : _object })
         _object.private.default_events..callable = arguments.callable
         return self
     }

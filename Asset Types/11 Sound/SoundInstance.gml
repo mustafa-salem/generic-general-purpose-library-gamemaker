@@ -30,20 +30,20 @@ function SoundInstance() constructor {
     }
 
     /// @function stop(arguments)
-    /// @description self-targeting sound_exists
+    /// @description self-targeting gamemaker_sound_exists
     /// @parameter {Struct} arguments
     /// @return {Bool}
     exists = function(arguments = {}) {
         arguments.target = self
-        return sound_exists(arguments)
+        return gamemaker_sound_exists(arguments)
     }
 
     /// @function stop(arguments)
-    /// @description self-targeting sound_stop
+    /// @description self-targeting gamemaker_sound_stop
     /// @parameter {Struct} arguments
     stop = function(arguments = {}) {
         arguments.target = self
-        sound_stop(arguments)
+        gamemaker_sound_stop(arguments)
     }
 
     /// @function stop_callback(arguments)
@@ -65,21 +65,21 @@ function SoundInstance() constructor {
     }
 
     /// @function stop(arguments)
-    /// @description self-targeting sound_is_looping
+    /// @description self-targeting gamemaker_sound_is_looping
     /// @parameter {Struct} arguments
     /// @return {Bool}
     looping = function(arguments = {}) {
         arguments.target = self
-        return sound_is_looping(arguments)
+        return gamemaker_sound_is_looping(arguments)
     }
 
     /// @function stop(arguments)
-    /// @description self-targeting sound_is_persistent
+    /// @description self-targeting gamemaker_sound_is_persistent
     /// @parameter {Struct} arguments
     /// @return {Bool}
     persistent = function(arguments = {}) {
         arguments.target = self
-        return sound_is_persistent(arguments)
+        return gamemaker_sound_is_persistent(arguments)
     }
 
     /// @function gain(arguments)
@@ -92,30 +92,30 @@ function SoundInstance() constructor {
     }
 
     /// @function pitch(arguments)
-    /// @description self-targeting sound_get_pitch
+    /// @description self-targeting gamemaker_sound_get_pitch
     /// @parameter {Struct} arguments
     /// @return {Real}
     pitch = function(arguments = {}) {
         arguments.target = self
-        return sound_get_pitch(arguments)
+        return gamemaker_sound_get_pitch(arguments)
     }
 
     /// @function length(arguments)
-    /// @description self-targeting sound_get_length
+    /// @description self-targeting gamemaker_sound_get_length
     /// @parameter {Struct} arguments
     /// @return {Real}
     length = function(arguments = {}) {
         arguments.target = self
-        return sound_get_length(arguments)
+        return gamemaker_sound_get_length(arguments)
     }
 
     /// @function playback_position(arguments)
-    /// @description self-targeting sound_get_track_position
+    /// @description self-targeting gamemaker_sound_get_track_position
     /// @parameter {Struct} arguments
     /// @return {Real}
     playback_position = function(arguments = {}) {
         arguments.target = self
-        return sound_get_track_position(arguments)
+        return gamemaker_sound_get_track_position(arguments)
     }
 
 }

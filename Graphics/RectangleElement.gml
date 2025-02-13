@@ -3,16 +3,16 @@
 /******************************************************************************/
 
 /// ----------------------------------------------------------------------------
-/// @function rectangle_element_create()
+/// @function gamemaker_rectangleelement_create()
 /// ----------------------------------------------------------------------------
 /// @return {Struct.RectangleElement}
 /// ----------------------------------------------------------------------------
-function rectangle_element_create() {
+function gamemaker_rectangleelement_create() {
 	return new RectangleElement()
 }
 
 /// ----------------------------------------------------------------------------
-/// @function generic_rectangle_draw(parameters)
+/// @function gamemaker_rectangle_draw(parameters)
 /// ----------------------------------------------------------------------------
 /// @description
 /// This function draws a rectangle.
@@ -52,7 +52,7 @@ function rectangle_element_create() {
 /// @return {type}
 /// <return_description>
 /// ----------------------------------------------------------------------------
-function generic_rectangle_draw(parameters) {
+function gamemaker_rectangle_draw(parameters) {
 
     /*******************************************************************************
     –––––––––––––––––––– PARAMETERS ––––––––––––––––––––
@@ -66,13 +66,13 @@ function generic_rectangle_draw(parameters) {
         x2 : a[$ "x2"] ?? 0,
         y2 : a[$ "y2"] ?? 0,
 
-        colour : a[$ "colour"] ?? c_white,
+        colour : a[$ "colour"] ?? #FFFFFF,
 		alpha : a[$ "alpha"] ?? 1,
         gradient : a[$ "gradient"] ?? {
-            top_left : c_white,
-            top_right : c_white,
-            bottom_right : c_white,
-            bottom_left : c_white,
+            top_left : #FFFFFF,
+            top_right : #FFFFFF,
+            bottom_right : #FFFFFF,
+            bottom_left : #FFFFFF,
         },
 
         outline : false,
@@ -279,15 +279,15 @@ function RectangleElement() constructor {
 			z : 0,
 		},
 		solid_fill : {
-			colour : c_white,
+			colour : #FFFFFF,
 			alpha  : 0,
 		},
 		gradient_fill : {
 			colour : {
-				top_left     : c_white,
-				top_right    : c_white,
-				bottom_left  : c_white,
-				bottom_right : c_white,
+				top_left     : #FFFFFF,
+				top_right    : #FFFFFF,
+				bottom_left  : #FFFFFF,
+				bottom_right : #FFFFFF,
 			},
 			alpha : {
 				top_left     : 0,
@@ -299,7 +299,7 @@ function RectangleElement() constructor {
 		solid_outline : {
 			thickness : 0,
 			alignment : 0,
-			colour    : c_white,
+			colour    : #FFFFFF,
 			alpha     : 0,
 		},
 		alpha : 1,
@@ -322,8 +322,8 @@ function RectangleElement() constructor {
 	/// ----------------------------------------------------------------------------
 	/// # dimensions
 	/// ----------------------------------------------------------------------------
-	self.get_x_dimensions = method(self, Drawable.get_x_dimensions)
-	self.get_y_dimensions = method(self, Drawable.get_y_dimensions)
+	self.get_x_dimension = method(self, Drawable.get_x_dimension)
+	self.get_y_dimension = method(self, Drawable.get_y_dimension)
 	self.set_dimensions   = method(self, Drawable.set_dimensions)
 
     /// ----------------------------------------------------------------------------
@@ -378,7 +378,7 @@ function RectangleElement() constructor {
 			// new InvalidTypeErrorGeneric()
 			return self
 		}
-		private.solid_fill.colour = clamp(_colour_solid_fill, c_black, c_white)
+		private.solid_fill.colour = clamp(_colour_solid_fill, #000000, #FFFFFF)
 		return self
 	}
 
@@ -557,7 +557,7 @@ function RectangleElement() constructor {
 			// new InvalidTypeErrorGeneric()
 			return self
 		}
-		private.solid_outline.colour = clamp(_colour_solid_outline, c_black, c_white)
+		private.solid_outline.colour = clamp(_colour_solid_outline, #000000, #FFFFFF)
 		return self
 	}
 
@@ -625,10 +625,10 @@ function RectangleElement() constructor {
 	/// ----------------------------------------------------------------------------
 	static draw = function() {
 
-		var _x1 = get_x_position() - get_x_alignment() * get_x_dimensions() * get_x_scale()
-		var _y1 = get_y_position() - get_y_alignment() * get_y_dimensions() * get_y_scale()
-		var _x2 = _x1 + get_x_dimensions() * get_x_scale()
-		var _y2 = _y1 + get_y_dimensions() * get_y_scale()
+		var _x1 = get_x_position() - get_x_alignment() * get_x_dimension() * get_x_scale()
+		var _y1 = get_y_position() - get_y_alignment() * get_y_dimension() * get_y_scale()
+		var _x2 = _x1 + get_x_dimension() * get_x_scale()
+		var _y2 = _y1 + get_y_dimension() * get_y_scale()
 
 		var _colour = get_colour_solid_fill()
 		var _alpha  = get_alpha_solid_fill()

@@ -1,4 +1,48 @@
 /******************************************************************************/
+#region    –––––––––––––––––––– FUNCTIONS ––––––––––––––––––––
+/******************************************************************************/
+
+/// ----------------------------------------------------------------------------
+/// @description
+/// <function_description>
+/// ----------------------------------------------------------------------------
+/// @parameter {type} surface
+/// <parameter_description>
+/// ----------------------------------------------------------------------------
+/// @return {number}
+/// ----------------------------------------------------------------------------
+function gamemaker_surface_get_x_dimension(parameters = {}) {
+    return surface_get_width(surface_id)
+}
+
+/// ----------------------------------------------------------------------------
+/// @description
+/// <function_description>
+/// ----------------------------------------------------------------------------
+/// @parameter {type} surface
+/// <parameter_description>
+/// ----------------------------------------------------------------------------
+/// @return {number}
+/// ----------------------------------------------------------------------------
+function gamemaker_surface_get_y_dimension(parameters = {}) {
+    return surface_get_height(surface_id);
+}
+
+/******************************************************************************/
+#endregion –––––––––––––––––––– FUNCTIONS ––––––––––––––––––––
+/******************************************************************************/
+
+
+
+
+
+
+
+
+
+
+
+/******************************************************************************/
 /* –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– */
 #region    –––––––––––––––––––– CONSTANTS ––––––––––––––––––––
 /* –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -15,7 +59,7 @@
 /// <description>
 /// ----------------------------------------------------------------------------
 #macro APPLICATION_SURFACE                                                     \
-generic_surface_get({ surface : application_surface })
+gamemaker_surface_get({ surface : application_surface })
 
 #macro ENABLE_COMBATIBILITY_SIZE_SURFACE_GENERIC false
 #macro ENSURE_EXISTS_SURFACE_GENERIC true
@@ -98,12 +142,12 @@ function SurfaceFormatGeneric() {
 /// @return {handle.surface|undefined}
 /// <return_description>
 /// ----------------------------------------------------------------------------
-function generic_surface_get_handle(parameters = {}) {
+function gamemaker_surface_get_handle(parameters = {}) {
     return _return
 }
 
 /// ----------------------------------------------------------------------------
-/// @function generic_surface_get_id(parameters)
+/// @function gamemaker_surface_get_id(parameters)
 /// ----------------------------------------------------------------------------
 /// @description
 /// <function_description>
@@ -114,7 +158,7 @@ function generic_surface_get_handle(parameters = {}) {
 /// @return {id.surface|undefined}
 /// <return_description>
 /// ----------------------------------------------------------------------------
-function generic_surface_get_id(parameters = {}) {
+function gamemaker_surface_get_id(parameters = {}) {
     // exception: variable 'parameters' isn't a struct
     if (!is_struct(parameters)) {
         throw Exception({
@@ -156,12 +200,12 @@ function generic_surface_get_id(parameters = {}) {
 
 }
 
-function generic_surface_get_default_blend_alpha() {
+function gamemaker_surface_get_default_blend_alpha() {
     static _SURFACE = SURFACE
     return _SURFACE.private.default_blend_alpha
 }
 
-function generic_surface_get(arguments = {}) {
+function gamemaker_surface_get(arguments = {}) {
     SURFACE.get
 }
 
@@ -176,7 +220,7 @@ function generic_surface_get(arguments = {}) {
 /// ----------------------------------------------------------------------------
 /// @description
 /// This function is used to prepare a surface for its creation in an create event.
-/// Like gpl_surface_create but the actual surface won't be created yet.
+/// Like gamemaker_surface_create but the actual surface won't be created yet.
 /// Call .create to create the surface.
 /// ----------------------------------------------------------------------------
 /// @parameter {type} parameter_name
@@ -191,7 +235,7 @@ function gpl_surface_precreate(parameters = {}) {
 }
 
 /// ----------------------------------------------------------------------------
-/// @function gpl_surface_create(parameters)
+/// @function gamemaker_surface_create(parameters)
 /// ----------------------------------------------------------------------------
 /// @description
 /// <function_description>
@@ -216,7 +260,7 @@ function gpl_surface_precreate(parameters = {}) {
 /// ----------------------------------------------------------------------------
 /// @return {struct.Surface}
 /// ----------------------------------------------------------------------------
-function gpl_surface_create(parameters) {
+function gamemaker_surface_create(parameters) {
     var _x_dimension          = parameters[$ "x_dimension"]
     var _y_dimension          = parameters[$ "y_dimension"]
     var _format               = parameters[$ "format"]               ?? SURFACE_DEFAULT_FORMAT
@@ -228,7 +272,7 @@ function gpl_surface_create(parameters) {
 }
 
 /// ----------------------------------------------------------------------------
-/// @function generic_surface_exists(parameters)
+/// @function gamemaker_surface_exists(parameters)
 /// ----------------------------------------------------------------------------
 /// @description
 /// This is a generification of <surface_exists>.
@@ -240,14 +284,14 @@ function gpl_surface_create(parameters) {
 /// ----------------------------------------------------------------------------
 /// @return {boolean}
 /// ----------------------------------------------------------------------------
-function generic_surface_exists(parameters) {
+function gamemaker_surface_exists(parameters) {
     var _surface = parameters[$ "surface"]
     if (is_struct(_surface)) { return _surface.exists() }
     if (is_numeric(_surface)) { return surface_exists(_surface) }
 }
 
 /// ----------------------------------------------------------------------------
-/// @function generic_surface_destroy(parameters)
+/// @function gamemaker_surface_destroy(parameters)
 /// ----------------------------------------------------------------------------
 /// @description
 /// * surface_free
@@ -255,7 +299,7 @@ function generic_surface_exists(parameters) {
 /// @parameter {mixed} surface
 /// The value or the array of values that identify the surface to destroy.
 /// ----------------------------------------------------------------------------
-function generic_surface_destroy(parameters) {
+function gamemaker_surface_destroy(parameters) {
     var _surface = parameters[$ "surface"]
     if (!is_array(_surface)) { _surface = [_surface] }
     for (var i = 0; i < array_length(_surface); i++) {
@@ -267,11 +311,22 @@ function generic_surface_destroy(parameters) {
     }
 }
 
-/// @function (arguments)
-/// @parameter {Struct} arguments
-/// @return {}
-function resize_surface_generic(arguments = {}) {
-    surface_resize(arguments.surface.surface_id, arguments.width, arguments.height)
+/// ----------------------------------------------------------------------------
+/// @description
+/// <function_description>
+/// ----------------------------------------------------------------------------
+/// @parameter {type} surface
+/// <parameter_description>
+/// @parameter {number} [x]
+/// <parameter_description>
+/// @parameter {number} [y]
+/// <parameter_description>
+/// ----------------------------------------------------------------------------
+/// @return {undefined}
+/// ----------------------------------------------------------------------------
+function gamemaker_surface_set_dimensions(parameters = {}) {
+    surface_resize(parameters.surface, parameters.x, parameters.y)
+    return undefined
 }
 
 /// @function (arguments)
@@ -339,9 +394,9 @@ function is_target_surface_generic(arguments = {}) {}
 /// @function (arguments)
 /// @parameter {Struct} arguments
 /// @return {}
-function get_height_surface_generic(arguments = {}) {
+function get_y_dimension_surface_generic(arguments = {}) {
     var _surface_id = arguments.get_surface_id()
-    return surface_get_height(_surface_id)
+    return gamemaker_surface_get_y_dimension(_surface_id)
 }
 
 /// @function (arguments)
@@ -349,13 +404,13 @@ function get_height_surface_generic(arguments = {}) {
 /// @return {}
 function set_height_surface_generic(arguments = {}) {
     var _surface_id = arguments.get_surface_id()
-    resize_surface_generic({})
+    gamemaker_surface_set_dimensions({})
 }
 
 /// @function (arguments)
 /// @parameter {Struct} arguments
 /// @return {}
-function get_width_surface_generic(arguments = {}) {}
+function get_x_dimension_surface_generic(arguments = {}) {}
 
 /// @function (arguments)
 /// @parameter {Struct} arguments
@@ -363,7 +418,7 @@ function get_width_surface_generic(arguments = {}) {}
 function set_width_surface_generic(arguments = {}) {}
 
 /// ----------------------------------------------------------------------------
-/// @function generic_surface_get_texture(parameters)
+/// @function gamemaker_surface_get_texture(parameters)
 /// ----------------------------------------------------------------------------
 /// @description
 /// <function_description>
@@ -374,12 +429,12 @@ function set_width_surface_generic(arguments = {}) {}
 /// @return {struct.Texture|undefined}
 /// <return_description>
 /// ----------------------------------------------------------------------------
-function generic_surface_get_texture_id(parameters = {}) {
-    generic_surface_get_texture_id()
+function gamemaker_surface_get_texture_id(parameters = {}) {
+    gamemaker_surface_get_texture_id()
 }
 
 /// ----------------------------------------------------------------------------
-/// @function generic_surface_get_texture_id(parameters)
+/// @function gamemaker_surface_get_texture_id(parameters)
 /// ----------------------------------------------------------------------------
 /// @description
 /// <function_description>
@@ -390,7 +445,7 @@ function generic_surface_get_texture_id(parameters = {}) {
 /// @return {type}
 /// <return_description>
 /// ----------------------------------------------------------------------------
-function generic_surface_get_texture_id(parameters = {}) {
+function gamemaker_surface_get_texture_id(parameters = {}) {
 
     try {
 
@@ -414,7 +469,7 @@ function generic_surface_get_texture_id(parameters = {}) {
     return _texture_id
 }
 
-generic_surface_draw({
+gamemaker_surface_draw({
     surface : <value>,
     position : {
         x : <value>,
@@ -432,7 +487,7 @@ generic_surface_draw({
 })
 
 /// ----------------------------------------------------------------------------
-/// @function generic_surface_clear(parameters)
+/// @function gamemaker_surface_clear(parameters)
 /// ----------------------------------------------------------------------------
 /// @description
 /// This function is used to set the colour and alpha components of all pixels
@@ -440,20 +495,20 @@ generic_surface_draw({
 /// the colour values are simply overwritten.
 /// ----------------------------------------------------------------------------
 /// @parameter {number} [colour]
-/// The colour with which to clear the surface. [0, 16777215]
+/// The colour with which to clear the surface. [0, #FFFFFF]
 ///
 /// @parameter {number} [alpha]
 /// The transparency of the colour with which to clear the surface. [0, 1]
 ///
 /// ----------------------------------------------------------------------------
-function generic_surface_clear(parameters = {}) {
-    var _colour = parameters[$ "colour"] ?? c_black
+function gamemaker_surface_clear(parameters = {}) {
+    var _colour = parameters[$ "colour"] ?? #000000
     var _alpha  = parameters[$ "alpha"]  ?? 1
     draw_clear_alpha(_colour, _alpha)
 }
 
 /// ----------------------------------------------------------------------------
-/// @function generic_surface_draw(parameters)
+/// @function gamemaker_surface_draw(parameters)
 /// ----------------------------------------------------------------------------
 /// @description
 /// Draws a surface using any combination of parameters passed through the
@@ -534,7 +589,7 @@ function generic_surface_clear(parameters = {}) {
 /// @return {type}
 /// <return_description>
 /// ----------------------------------------------------------------------------
-function generic_surface_draw(parameters) {
+function gamemaker_surface_draw(parameters) {
 
     // x : [100, 200] or [0.1, 0.2]
     // y : [0, 50] or [0, 0.1]
@@ -549,7 +604,7 @@ function generic_surface_draw(parameters) {
 
     // early return: surface doesn't exist
     if (!surface_exists(_surface)) {
-        // if (!generic_surface_exists({ surface : _surface })) { return _SURFACE }
+        // if (!gamemaker_surface_exists({ surface : _surface })) { return _SURFACE }
     }
 
     // position
@@ -559,14 +614,14 @@ function generic_surface_draw(parameters) {
     var _x_alignment = parameters[$ "x_alignment"] ?? 0
     var _y_alignment = parameters[$ "y_alignment"] ?? 0
     // dimension
-    var _x_dimension = parameters[$ "x_dimension"] ?? surface_get_width(_surface)
-    var _y_dimension = parameters[$ "y_dimension"] ?? surface_get_height(_surface)
+    var _x_dimension = parameters[$ "x_dimension"] ?? gamemaker_surface_get_x_dimension(_surface)
+    var _y_dimension = parameters[$ "y_dimension"] ?? gamemaker_surface_get_y_dimension(_surface)
     // rotation
     var _x_rotation = parameters[$ "x_rotation"] ?? 0
     var _y_rotation = parameters[$ "y_rotation"] ?? 0
     var _z_rotation = parameters[$ "z_rotation"] ?? 0
     // blend
-    var _blend_colour = parameters[$ "blend_colour"] ?? c_white
+    var _blend_colour = parameters[$ "blend_colour"] ?? #FFFFFF
     var _blend_alpha  = parameters[$ "blend_alpha"]  ?? 1
 
     var _vertices = []
@@ -619,7 +674,7 @@ function generic_surface_draw(parameters) {
 
     var _primitive = new Primitive({
         type : TRIANGLE_STRIP_PRIMITIVE_TYPE,
-        texture : generic_surface_get_texture({ surface : _surface }),
+        texture : gamemaker_surface_get_texture({ surface : _surface }),
     })
 
     vb = vertex_create_buffer();
@@ -692,11 +747,11 @@ function Surface(parameters) constructor {
     private = {}
 
     // index of native GameMaker surface
-    private.surface_id = is_numeric(arguments) ? arguments : gpl_surface_create(arguments)
+    private.surface_id = is_numeric(arguments) ? arguments : gamemaker_surface_create(arguments)
 
     private.cached = {
-        width  : get_width(),
-        height : get_height(),
+        width  : get_x_dimension(),
+        height : get_y_dimension(),
         format : get_format(),
         depth_buffer_enabled : true,
     }
@@ -706,7 +761,7 @@ function Surface(parameters) constructor {
     private.ensure_surface_exists = function() {
         if (exists() or !surface_existance_ensurance_enabled) { return }
 
-        private.surface_id = gpl_surface_create({
+        private.surface_id = gamemaker_surface_create({
             width  : private.cached.width,
             height : private.cached.height,
             format : private.cached.format,
@@ -727,7 +782,7 @@ function Surface(parameters) constructor {
     /// ----------------------------------------------------------------------------
     static exists = function(parameters = {}) {
         parameters.surface = self
-        return generic_surface_exists(parameters)
+        return gamemaker_surface_exists(parameters)
     }
 
     self.exists = method(self, exists)
@@ -737,9 +792,9 @@ function Surface(parameters) constructor {
     /// ----------------------------------------------------------------------------
     static resize = function(arguments = {}) {
         arguments.surface = self
-        arguments[$ "width"]  ??= get_width()
-        arguments[$ "height"] ??= get_height()
-        resize_surface_generic(arguments)
+        arguments[$ "width"]  ??= get_x_dimension()
+        arguments[$ "height"] ??= get_y_dimension()
+        gamemaker_surface_set_dimensions(arguments)
     }
 
     self.resize = method(self, resize)
@@ -767,14 +822,14 @@ function Surface(parameters) constructor {
         surface_depth_disable
     }
 
-    /// @function get_width(arguments)
+    /// @function get_x_dimension(arguments)
     /// @description Calls ___________________ on self using provided arguments.
     /// @parameter {Struct} arguments
     /// @return {Real}
-    get_width = function(arguments = {}) {
+    get_x_dimension = function(arguments = {}) {
         if (exists()) {
             arguments.surface = self
-            private.cached_width = get_width_surface_generic(arguments)
+            private.cached_width = get_x_dimension_surface_generic(arguments)
         }
         return private.cached_width
     }
@@ -788,13 +843,13 @@ function Surface(parameters) constructor {
         set_width_surface_generic(arguments)
     }
 
-    /// @function get_height(arguments)
+    /// @function get_y_dimension(arguments)
     /// @description Calls ___________________ on self using provided arguments.
     /// @parameter {Struct} arguments
     /// @return {Real}
-    get_height = function(arguments = {}) {
+    get_y_dimension = function(arguments = {}) {
         arguments.surface = self
-        return get_height_surface_generic(arguments)
+        return get_y_dimension_surface_generic(arguments)
     }
 
     /// @function set_height(arguments)
@@ -841,7 +896,7 @@ function Surface(parameters) constructor {
     /// ----------------------------------------------------------------------------
     static draw = function(parameters) {
         parameters.surface = self
-        generic_surface_draw(parameters)
+        gamemaker_surface_draw(parameters)
     }
 
     self.draw = method(self, draw)

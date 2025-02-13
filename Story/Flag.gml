@@ -1,5 +1,5 @@
 /// ----------------------------------------------------------------------------
-/// @function flag_get(parameters)
+/// @function gamemaker_gameflag_get(parameters)
 /// ----------------------------------------------------------------------------
 /// @description
 /// <function_description>
@@ -14,12 +14,12 @@
 /// @return {type}
 /// <return_description>
 /// ----------------------------------------------------------------------------
-function flag_get(parameters = {}) {
+function gamemaker_gameflag_get(parameters = {}) {
     return _return
 }
 
 /// ----------------------------------------------------------------------------
-/// @function flag_set(parameters)
+/// @function gamemaker_gameflag_set(parameters)
 /// ----------------------------------------------------------------------------
 /// @description
 /// <function_description>
@@ -34,6 +34,6 @@ function flag_get(parameters = {}) {
 /// @return {type}
 /// <return_description>
 /// ----------------------------------------------------------------------------
-function flag_set(parameters = {}) {
+function gamemaker_gameflag_set(parameters = {}) {
     return _return
 }

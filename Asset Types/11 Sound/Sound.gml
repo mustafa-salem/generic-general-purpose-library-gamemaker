@@ -12,21 +12,16 @@ SOUND
 #region    –––––––––––––––––––– FUNCTIONS ––––––––––––––––––––
 /******************************************************************************/
 
-#region    –––––––––––––––––––– GENERAL ––––––––––––––––––––
-
-/// ----------------------------------------------------------------------------
-/// @function sound_exists(parameters)
 /// ----------------------------------------------------------------------------
 /// @description
 /// <function_description>
 /// ----------------------------------------------------------------------------
 /// @parameter {type} sound
 /// <parameter_description>
-///
 /// ----------------------------------------------------------------------------
 /// @return {boolean}
 /// ----------------------------------------------------------------------------
-function sound_exists(parameters = {}) {
+function gamemaker_sound_exists(parameters = {}) {
     // MULTI_TARGET
     if (is_array(arguments.target)) {
         var _return_values = []
@@ -45,59 +40,42 @@ function sound_exists(parameters = {}) {
 }
 
 /// ----------------------------------------------------------------------------
-/// @function sound_get(parameters)
-/// ----------------------------------------------------------------------------
 /// @description
 /// <function_description>
 /// ----------------------------------------------------------------------------
 /// @parameter {type} sound
 /// <parameter_description>
-///
 /// ----------------------------------------------------------------------------
-/// @return {struct}
+/// @return {struct|undefined}
 /// ----------------------------------------------------------------------------
-function sound_get() {
+function gamemaker_sound_get() {
 
 }
 
-#endregion –––––––––––––––––––– GENERAL ––––––––––––––––––––
-
-#region    –––––––––––––––––––– PLAYING ––––––––––––––––––––
-
-/// ----------------------------------------------------------------------------
-/// @function sound_play(parameters)
 /// ----------------------------------------------------------------------------
 /// @description
 /// <function_description>
 /// ----------------------------------------------------------------------------
 /// @parameter {type} sound
 /// <parameter_description>
-///
 /// @parameter {boolean} loop
 /// <parameter_description>
-///
 /// @parameter {type} gain
 /// <parameter_description>
-///
 /// @parameter {type} pitch
 /// <parameter_description>
-///
 /// @parameter {type} parameter_name
 /// <parameter_description>
-///
 /// ----------------------------------------------------------------------------
-/// @return {type}
-/// <return_description>
+/// @return {struct}
 /// ----------------------------------------------------------------------------
-function sound_play(parameters = {}) {
+function gamemaker_sound_play(parameters = {}) {
     VinylPlay(sound, [loop], [gain=1], [pitch=1], [pan])
     VinylPlayFadeIn(sound, [loop], [targetGain=1], [rate=VINYL_DEFAULT_GAIN_RATE], [pitch=1])
     var _sound_instance = new SoundInstance()
     return _sound_instance
 }
 
-/// ----------------------------------------------------------------------------
-/// @function sound_is_playing(parameters)
 /// ----------------------------------------------------------------------------
 /// @description
 /// This function is used to check if a sound is currently playing.
@@ -107,16 +85,19 @@ function sound_play(parameters = {}) {
 /// ----------------------------------------------------------------------------
 /// @return {boolean}
 /// ----------------------------------------------------------------------------
-function sound_is_playing(parameters = {}) {
+function gamemaker_sound_is_playing(parameters = {}) {
     return VinylPausedGet(parameters.sound)
 }
 
-/// @function sound_is_paused(arguments)
-/// @description getter/setter for sound.paused
-/// @parameter {Struct} arguments
-/// @parameter {SoundInstance|Array<SoundInstance>|String|Array<String>} arguments.target
-/// @parameter {Bool} arguments.value
-/// @return {Bool|Array<Bool>}
+/// ----------------------------------------------------------------------------
+/// @description
+/// 
+/// ----------------------------------------------------------------------------
+/// @parameter {type} sound
+/// <parameter_description>
+/// ----------------------------------------------------------------------------
+/// @return {boolean}
+/// ----------------------------------------------------------------------------
 function sound_is_paused(arguments = {}) {
     // MULTI_TARGET
     if (is_array(arguments.target)) {
@@ -140,16 +121,6 @@ function sound_is_paused(arguments = {}) {
     }
 }
 
-function sound_pause(parameters = {}) {
-    VinylSetPause(_voice, true)
-}
-
-function sound_resume(arguments) {
-    VinylSetPause(_voice, false)
-}
-
-/// ----------------------------------------------------------------------------
-/// @function sound_stop(parameters)
 /// ----------------------------------------------------------------------------
 /// @description
 /// <function_description>
@@ -159,7 +130,33 @@ function sound_resume(arguments) {
 /// ----------------------------------------------------------------------------
 /// @return {undefined}
 /// ----------------------------------------------------------------------------
-function sound_stop(parameters = {}) {
+function gamemaker_sound_pause(parameters = {}) {
+    VinylSetPause(_voice, true)
+}
+
+/// ----------------------------------------------------------------------------
+/// @description
+/// <function_description>
+/// ----------------------------------------------------------------------------
+/// @parameter {type} sound
+/// <parameter_description>
+/// ----------------------------------------------------------------------------
+/// @return {undefined}
+/// ----------------------------------------------------------------------------
+function gamemaker_sound_resume(arguments) {
+    VinylSetPause(_voice, false)
+}
+
+/// ----------------------------------------------------------------------------
+/// @description
+/// <function_description>
+/// ----------------------------------------------------------------------------
+/// @parameter {type} sound
+/// <parameter_description>
+/// ----------------------------------------------------------------------------
+/// @return {undefined}
+/// ----------------------------------------------------------------------------
+function gamemaker_sound_stop(parameters = {}) {
     var _sound = parameters[$ "sound"]
 
     for (var i = 0; i < array_length(_sound); i++) {
@@ -189,42 +186,42 @@ function sound_stop(parameters = {}) {
 }
 
 /// ----------------------------------------------------------------------------
-/// @function sound_fadeout(parameters)
-/// ----------------------------------------------------------------------------
 /// @description
 /// <function_description>
 /// ----------------------------------------------------------------------------
 /// @parameter {type} sound
 /// <parameter_description>
-///
 /// @parameter {type} duration_seconds
 /// <parameter_description>
-///
 /// ----------------------------------------------------------------------------
 /// @return {undefined}
 /// ----------------------------------------------------------------------------
-function sound_fadeout(parameters = {}) {
+function gamemaker_sound_fadeout(parameters = {}) {
     VinylFadeOut(target, [rate=VINYL_DEFAULT_GAIN_RATE])
 }
 
 /// ----------------------------------------------------------------------------
-/// @function sound_is_shutdown(parameters)
+/// @description
+/// whether a voice is in “shutdown mode”
+/// ----------------------------------------------------------------------------
+/// @parameter {type} parameter_name
+/// <parameter_description>
+/// ----------------------------------------------------------------------------
+/// @return {boolean}
+/// ----------------------------------------------------------------------------
+function gamemaker_sound_is_shutdown(parameters = {}) {
+    return _return
+}
+
 /// ----------------------------------------------------------------------------
 /// @description
 /// <function_description>
 /// ----------------------------------------------------------------------------
 /// @parameter {type} parameter_name
 /// <parameter_description>
-///
 /// ----------------------------------------------------------------------------
-/// @return {boolean}
-/// whether a voice is in “shutdown mode”
+/// @return {undefined}
 /// ----------------------------------------------------------------------------
-function sound_is_shutdown(parameters = {}) {
-    return _return
-}
-
-/// @function sound_set_stop_callback(arguments)
 function sound_set_stop_callback(arguments) {
     // MULTI_TARGET
     if (is_array(arguments.target)) {
@@ -242,67 +239,57 @@ function sound_set_stop_callback(arguments) {
         // GET
         return VinylStopCallbackGet(arguments.target)
     }
+    return undefined
 }
 
-#endregion –––––––––––––––––––– PLAYING ––––––––––––––––––––
+/// ----------------------------------------------------------------------------
+/// @description
+/// <function_description>
+/// ----------------------------------------------------------------------------
+/// @parameter {type} sound
+/// <parameter_description>
+/// ----------------------------------------------------------------------------
+/// @return {number}
+/// ----------------------------------------------------------------------------
+function gamemaker_sound_get_gain(arguments) {
 
-#region    –––––––––––––––––––– PROPERTIES ––––––––––––––––––––
+}
 
 /// ----------------------------------------------------------------------------
-/// @function function_name(parameters)
+/// @description
+/// This function is used to set the gain of sound instances.
+/// ----------------------------------------------------------------------------
+/// @parameter {type} sound
+/// The sound instances to affect.
+/// @parameter {number} gain
+/// The gain to target. Must be between 0 and 1.
+/// @parameter {number} [duration_seconds=0]
+/// The amount of seconds to reach the target.
+/// ----------------------------------------------------------------------------
+/// @return {undefined}
+/// ----------------------------------------------------------------------------
+function gamemaker_sound_set_gain(parameters = {}) {
+    /// -> VinylSetGain
+    return undefined
+}
+
 /// ----------------------------------------------------------------------------
 /// @description
 /// <function_description>
 /// ----------------------------------------------------------------------------
 /// @parameter {type} parameter_name
 /// <parameter_description>
-///
 /// ----------------------------------------------------------------------------
-/// @return {type}
-/// <return_description>
+/// @return {number}
 /// ----------------------------------------------------------------------------
-function sound_get_gain(arguments) {
-
-}
-
-/// ----------------------------------------------------------------------------
-/// @function function_name(parameters)
-/// ----------------------------------------------------------------------------
-/// @description
-/// <function_description>
-/// ----------------------------------------------------------------------------
-/// @parameter {type} parameter_name
-/// <parameter_description>
-///
-/// ----------------------------------------------------------------------------
-/// @return {type}
-/// <return_description>
-/// ----------------------------------------------------------------------------
-function sound_set_gain(arguments) {
-
-}
-
-/// ----------------------------------------------------------------------------
-/// @function function_name(parameters)
-/// ----------------------------------------------------------------------------
-/// @description
-/// <function_description>
-/// ----------------------------------------------------------------------------
-/// @parameter {type} parameter_name
-/// <parameter_description>
-///
-/// ----------------------------------------------------------------------------
-/// @return {type}
-/// <return_description>
-/// ----------------------------------------------------------------------------
-function sound_get_pitch(arguments = {}) {
+function gamemaker_sound_get_pitch(arguments = {}) {
     // MULTI_TARGET
     if (is_array(arguments.target)) {
         var _targets = arguments.target
         var _return_values = []
         for (var i = 0; i < array_length(_targets); i++) {
             arguments.target = _targets[i]
-            var _value = sound_get_pitch(arguments)
+            var _value = gamemaker_sound_get_pitch(arguments)
             array_push(_return_values, _value)
         }
         return _return_values
@@ -326,93 +313,71 @@ function sound_get_pitch(arguments = {}) {
 }
 
 /// ----------------------------------------------------------------------------
-/// @function sound_set_pitch(parameters)
-/// ----------------------------------------------------------------------------
 /// @description
 /// <function_description>
 /// ----------------------------------------------------------------------------
 /// @parameter {type} sound
 /// <parameter_description>
-///
 /// @parameter {type} pitch
 /// <parameter_description>
-///
 /// @parameter {type} duration_seconds
 /// <parameter_description>
-///
 /// ----------------------------------------------------------------------------
-/// @return {type}
-/// <return_description>
+/// @return {undefined}
 /// ----------------------------------------------------------------------------
-function sound_set_pitch(parameters = {}) {
+function gamemaker_sound_set_pitch(parameters = {}) {
     return _return
 }
 
 /// ----------------------------------------------------------------------------
-/// @function function_name(parameters)
-/// ----------------------------------------------------------------------------
 /// @description
 /// <function_description>
 /// ----------------------------------------------------------------------------
 /// @parameter {type} parameter_name
 /// <parameter_description>
-///
 /// ----------------------------------------------------------------------------
-/// @return {type}
-/// <return_description>
+/// @return {undefined}
 /// ----------------------------------------------------------------------------
-function sound_set_looping(arguments = {}) {
+function gamemaker_sound_set_looping(arguments = {}) {
     return VinylGetLoop(_voice)
 }
 
 /// ----------------------------------------------------------------------------
-/// @function function_name(parameters)
-/// ----------------------------------------------------------------------------
 /// @description
 /// <function_description>
 /// ----------------------------------------------------------------------------
 /// @parameter {type} parameter_name
 /// <parameter_description>
-///
 /// ----------------------------------------------------------------------------
-/// @return {type}
-/// <return_description>
+/// @return {boolean}
 /// ----------------------------------------------------------------------------
-function sound_is_looping(arguments = {}) {
+function gamemaker_sound_is_looping(arguments = {}) {
     return VinylGetLoop(_voice)
 }
 
 /// ----------------------------------------------------------------------------
-/// @function function_name(parameters)
-/// ----------------------------------------------------------------------------
 /// @description
 /// <function_description>
 /// ----------------------------------------------------------------------------
 /// @parameter {type} parameter_name
 /// <parameter_description>
-///
 /// ----------------------------------------------------------------------------
-/// @return {type}
-/// <return_description>
+/// @return {undefined}
 /// ----------------------------------------------------------------------------
-function sound_set_persistent(arguments = {}) {
+function gamemaker_sound_set_persistent(arguments = {}) {
     return VinylGetLoop(_voice)
 }
 
 /// ----------------------------------------------------------------------------
-/// @function function_name(parameters)
-/// ----------------------------------------------------------------------------
 /// @description
 /// <function_description>
 /// ----------------------------------------------------------------------------
 /// @parameter {type} parameter_name
 /// <parameter_description>
-///
 /// ----------------------------------------------------------------------------
-/// @return {type}
-/// <return_description>
+/// @return {boolean}
 /// ----------------------------------------------------------------------------
-function sound_is_persistent(arguments = {}) {
+function gamemaker_sound_is_persistent(arguments = {}) {
     // MULTI_TARGET
     if (is_array(arguments.target)) {
         var _return_values = []
@@ -431,26 +396,22 @@ function sound_is_persistent(arguments = {}) {
 }
 
 /// ----------------------------------------------------------------------------
-/// @function function_name(parameters)
-/// ----------------------------------------------------------------------------
 /// @description
 /// <function_description>
 /// ----------------------------------------------------------------------------
 /// @parameter {type} parameter_name
 /// <parameter_description>
-///
 /// ----------------------------------------------------------------------------
-/// @return {type}
-/// <return_description>
+/// @return {number}
 /// ----------------------------------------------------------------------------
-function sound_get_length(arguments = {}) {
+function gamemaker_sound_get_length(arguments = {}) {
     // MULTI_TARGET
     if (is_array(arguments.target)) {
         var _targets = arguments.target
         var _return_values = []
         for (var i = 0; i < array_length(_targets); i++) {
             arguments.target = _targets[i]
-            var _value = sound_get_length(arguments)
+            var _value = gamemaker_sound_get_length(arguments)
             array_push(_return_values, _value)
         }
         return _return_values
@@ -464,26 +425,22 @@ function sound_get_length(arguments = {}) {
 }
 
 /// ----------------------------------------------------------------------------
-/// @function function_name(parameters)
-/// ----------------------------------------------------------------------------
 /// @description
 /// <function_description>
 /// ----------------------------------------------------------------------------
 /// @parameter {type} parameter_name
 /// <parameter_description>
-///
 /// ----------------------------------------------------------------------------
-/// @return {type}
-/// <return_description>
+/// @return {number}
 /// ----------------------------------------------------------------------------
-function sound_get_track_position(arguments = {}) {
+function gamemaker_sound_get_track_position(arguments = {}) {
     // MULTI_TARGET
     if (is_array(arguments.target)) {
         var _targets = arguments.target
         var _return_values = []
         for (var i = 0; i < array_length(_targets); i++) {
             arguments.target = _targets[i]
-            var _value = sound_get_track_position(arguments)
+            var _value = gamemaker_sound_get_track_position(arguments)
             array_push(_return_values, _value)
         }
         return _return_values
@@ -501,23 +458,17 @@ function sound_get_track_position(arguments = {}) {
 }
 
 /// ----------------------------------------------------------------------------
-/// @function function_name(parameters)
-/// ----------------------------------------------------------------------------
 /// @description
 /// <function_description>
 /// ----------------------------------------------------------------------------
 /// @parameter {type} parameter_name
 /// <parameter_description>
-///
 /// ----------------------------------------------------------------------------
-/// @return {type}
-/// <return_description>
+/// @return {undefined}
 /// ----------------------------------------------------------------------------
-function sound_set_track_position(parameters = {}) {
+function gamemaker_sound_set_track_position(parameters = {}) {
     return _return
 }
-
-#endregion –––––––––––––––––––– PROPERTIES ––––––––––––––––––––
 
 /******************************************************************************/
 #endregion –––––––––––––––––––– FUNCTIONS ––––––––––––––––––––
@@ -526,8 +477,6 @@ function sound_set_track_position(parameters = {}) {
 /******************************************************************************/
 #region    –––––––––––––––––––– CONSTRUCTORS ––––––––––––––––––––
 /******************************************************************************/
-
-SOUND
 
 function Sound() constructor {
 

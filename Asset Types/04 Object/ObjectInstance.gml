@@ -264,7 +264,7 @@ function object_instance_exists(arguments) {
 }
 
 /// ----------------------------------------------------------------------------
-/// @function object_instance_create(parameters)
+/// @function gamemaker_object_instance_create(parameters)
 /// ----------------------------------------------------------------------------
 /// @description
 /// This script function serves as a proxy for the static method function:
@@ -295,7 +295,7 @@ function object_instance_exists(arguments) {
 /// @return {type}
 /// <return_description>
 /// ----------------------------------------------------------------------------
-function object_instance_create(parameters = {}) {
+function gamemaker_object_instance_create(parameters = {}) {
     var _x_position    =
     var _y_position    =
     var _layer_handle  =
@@ -417,11 +417,11 @@ function vertical_movement_object_instance(_object_instance = self) {
 	return _object_instance.y - _object_instance.yprevious
 }
 
-function generic_object_instance_get_x_dimension(parameters = {}) {
+function gamemaker_object_instance_get_x_dimension(parameters = {}) {
     return self.sprite_width
 }
 
-function generic_object_instance_get_y_dimension(parameters = {}) {
+function gamemaker_object_instance_get_y_dimension(parameters = {}) {
     return self.sprite_height
 }
 
@@ -529,7 +529,7 @@ function object_instance_execute_parent_event(parameters = {}) {
 }
 
 /// ----------------------------------------------------------------------------
-/// @function generic_object_instance_draw(parameters)
+/// @function gamemaker_object_instance_draw(parameters)
 /// ----------------------------------------------------------------------------
 /// @description
 /// <function_description>
@@ -553,8 +553,8 @@ function object_instance_execute_parent_event(parameters = {}) {
 /// @return {type}
 /// <return_description>
 /// ----------------------------------------------------------------------------
-function generic_object_instance_draw(parameters = {}) {
-    var _object_instance_handle = generic_object_instance_get_handle(parameters)
+function gamemaker_object_instance_draw(parameters = {}) {
+    var _object_instance_handle = gamemaker_object_instance_get_handle(parameters)
     parameters[$ "sprite"]     ??= _object_instance_handle.sprite_index
     parameters[$ "frame"]      ??= _object_instance_handle.image_index
     parameters[$ "x_position"] ??= _object_instance_handle.x
@@ -564,7 +564,7 @@ function generic_object_instance_draw(parameters = {}) {
     parameters[$ "rotation"]   ??= _object_instance_handle.image_angle
     parameters[$ "alpha"]      ??= _object_instance_handle.image_alpha
     parameters[$ "colour"]     ??= _object_instance_handle.image_blend
-    gpl_sprite_draw(parameters)
+    gamemaker_sprite_draw(parameters)
 }
 
 /******************************************************************************/

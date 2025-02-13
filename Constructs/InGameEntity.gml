@@ -86,3 +86,7 @@ function InGameEntity() constructor {
 /******************************************************************************/
 #endregion –––––––––––––––––––– CONSTRUCTORS ––––––––––––––––––––
 /******************************************************************************/
+
+gamemaker_object_get({ object : ingameentity_construct_object })
+
+gamemaker_construct_create({ name : "ingameentity_construct" })

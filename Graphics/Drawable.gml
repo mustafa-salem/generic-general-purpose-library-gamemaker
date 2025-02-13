@@ -62,12 +62,12 @@ function Drawable() constructor {
     #region    –––––––––––––––––––– DIMENSIONS ––––––––––––––––––––
 
     /// ----------------------------------------------------------------------------
-    /// @function get_x_dimensions()
+    /// @function get_x_dimension()
     /// ----------------------------------------------------------------------------
     /// @return {Real}
     /// x_dimensions
     /// ----------------------------------------------------------------------------
-    static get_x_dimensions = function() {
+    static get_x_dimension = function() {
         return private.dimensions.x
     }
 
@@ -89,12 +89,12 @@ function Drawable() constructor {
     }
 
     /// ----------------------------------------------------------------------------
-    /// @function get_y_dimensions()
+    /// @function get_y_dimension()
     /// ----------------------------------------------------------------------------
     /// @return {Real}
     /// y_dimensions
     /// ----------------------------------------------------------------------------
-    static get_y_dimensions = function() {
+    static get_y_dimension = function() {
         return private.dimensions.y
     }
 

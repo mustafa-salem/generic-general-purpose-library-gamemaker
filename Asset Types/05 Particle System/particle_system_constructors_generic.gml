@@ -13,7 +13,7 @@ function ParticleSystemInstanceGeneric(arguments) constructor {
     persistent = arguments[$ "persistent"] ?? false
 
     particle_system_id = part_system_create_layer(layer, persistent, asset)
-    if (arguments[$ "x"] && arguments[$ "y"]) {
+    if (arguments[$ "x"] and arguments[$ "y"]) {
         position({ x : arguments.x, y : arguments.y })
     }
 

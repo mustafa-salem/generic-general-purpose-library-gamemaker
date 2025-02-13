@@ -1,9 +1,9 @@
-function gpl_input_check(parameters) {
+function gamemaker_input_check(parameters) {
     return input_check(parameters.input, parameters.player, parameters.buffer_duration)
 }
 
 /// ----------------------------------------------------------------------------
-/// @function gpl_input_check_pressed(parameters)
+/// @function gamemaker_input_check_pressed(parameters)
 /// ----------------------------------------------------------------------------
 /// @description
 /// <function_description>
@@ -20,7 +20,7 @@ function gpl_input_check(parameters) {
 /// @return {boolean}
 /// <return_description>
 /// ----------------------------------------------------------------------------
-function gpl_input_check_pressed(parameters) {
+function gamemaker_input_check_pressed(parameters) {
     return input_check_pressed(parameters.input, parameters.player, parameters.buffer_duration)
 }
 
@@ -32,7 +32,7 @@ function input_check_all_pressed(_verb, _player_index, _buffer_duration) {
 }
 
 /// ----------------------------------------------------------------------------
-/// @function generic_input_get_opposing_pressed_sign(parameters)
+/// @function gamemaker_input_get_opposing_pressed_sign(parameters)
 /// ----------------------------------------------------------------------------
 /// @description
 /// <function_description>
@@ -55,12 +55,12 @@ function input_check_all_pressed(_verb, _player_index, _buffer_duration) {
 /// @return {type}
 /// <return_description>
 /// ----------------------------------------------------------------------------
-function generic_input_get_opposing_pressed_sign(parameters) {
+function gamemaker_input_get_opposing_pressed_sign(parameters) {
     return input_check_opposing_pressed(parameters.negative_input, parameters.positive_input, parameters.player, parameters.most_recent)
 }
 
 /// ----------------------------------------------------------------------------
-/// @function generic_input_get_exclusive_active_name(parameters)
+/// @function gamemaker_input_get_exclusive_active_name(parameters)
 /// ----------------------------------------------------------------------------
 /// @description
 /// <function_description>
@@ -77,30 +77,24 @@ function generic_input_get_opposing_pressed_sign(parameters) {
 /// @return {string|undefined}
 /// <return_description>
 /// ----------------------------------------------------------------------------
-function generic_input_get_exclusive_active_name(parameters) {
+function gamemaker_input_get_exclusive_active_name(parameters) {
     return
 }
 
 /// ----------------------------------------------------------------------------
-/// @function gpl_input_get_exclusive_pressed(parameters)
-/// ----------------------------------------------------------------------------
 /// @description
 /// <function_description>
 /// ----------------------------------------------------------------------------
-/// @parameter {string} input
+/// @parameter {type} parameter_name
 /// <parameter_description>
-///
-/// @parameter {integer} player
-/// <parameter_description>
-///
-/// @parameter {boolean} most_recent
+/// @parameter {type} parameter_name
 /// <parameter_description>
 /// ----------------------------------------------------------------------------
 /// @return {string|undefined}
 /// <return_description>
 /// ----------------------------------------------------------------------------
-function gpl_input_get_exclusive_pressed(parameters) {
-    return
+function gamemaker_input_check_exclusive_pressed(parameters = {}) {
+    return _return
 }
 
 /// ----------------------------------------------------------------------------
@@ -127,7 +121,7 @@ function gpl_input_get_exclusive_pressed(parameters) {
 /// @return {type}
 /// <return_description>
 /// ----------------------------------------------------------------------------
-generic_input_get_held_duration = function(parameters) {
+gamemaker_input_get_held_duration = function(parameters) {
 
     if (parameters.units == "frames") {
         <statement>
@@ -136,42 +130,34 @@ generic_input_get_held_duration = function(parameters) {
     return _return
 }
 
-function generic_input_check_opposing(parameters) {
+function gamemaker_input_check_opposing(parameters) {
 	input_check_opposing(verbNegative, verbPositive, [playerIndex], [mostRecent])
 	input_check_opposing_repeat(verbNegative, verbPositive, [playerIndex], [mostRecent], [delay], [predelay])
 }
 
 /// ----------------------------------------------------------------------------
-/// @function gpl_input_consume(parameters)
-/// ----------------------------------------------------------------------------
 /// @description
 /// <function_description>
-///
-/// * input_verb_consume(verb, [playerIndex])
 /// ----------------------------------------------------------------------------
-/// @parameter {mixed} input
+/// @parameter {type} command
 /// <parameter_description>
-///
-/// @parameter {mixed} player
+/// @parameter {type} [player]
 /// <parameter_description>
-///
 /// ----------------------------------------------------------------------------
-/// @return {type}
-/// <return_description>
+/// @return {undefined}
 /// ----------------------------------------------------------------------------
-function gpl_input_consume(parameters) {
-    var _input_name   = parameters[$ "input"]
-    var _player_index = parameters[$ "player"]
-	input_verb_consume(_input_name, _player_index)
+function gamemaker_input_command_consume(parameters = {}) {
+    input_verb_consume(parameters.input, parameters.player)
+    return undefined
 }
 
 #region    –––––––––––––––––––– SYSTEM_DATA ––––––––––––––––––––
 
-function generic_input_export_system_data(parameters) {
+function gamemaker_input_export_system_data(parameters) {
     return input_system_export(parameters.stringify, parameters.prettify)
 }
 
-function generic_input_import_system_data(parameters) {
+function gamemaker_input_import_system_data(parameters) {
     input_system_import(parameters.system_data)
 }
 
@@ -179,7 +165,7 @@ function reset_system_config_input_generic(arguments = {}) {
     return INPUT_GENERIC.reset_system_config(arguments)
 }
 
-function generic_input_system_serialize(parameters) {
+function gamemaker_input_system_serialize(parameters) {
     if (parameters.filepath) {
 
     }
@@ -187,7 +173,7 @@ function generic_input_system_serialize(parameters) {
     return
 }
 
-function generic_input_system_deserialize(parameters) {
+function gamemaker_input_system_deserialize(parameters) {
     if (parameters.filepath) {
 
     }
@@ -195,7 +181,7 @@ function generic_input_system_deserialize(parameters) {
     return
 }
 
-function generic_input_save_system_data_to_file() {
+function gamemaker_input_save_system_data_to_file() {
     if (!is_struct(arguments)) { return }
 
     var _filepath = arguments[$ "filepath"] ?? private.system_config.default_filepath
@@ -212,7 +198,7 @@ function generic_input_save_system_data_to_file() {
     buffer_delete(_buffer)
 }
 
-function generic_input_load_system_data_from_file() {
+function gamemaker_input_load_system_data_from_file() {
     var _filepath = arguments[$ "filepath"] ?? private.system_config.default_filepath
 
     //Load up the Input data if it exists
@@ -266,7 +252,7 @@ function generic_input_load_system_data_from_file() {
 /// @return {type}
 /// <return_description>
 /// ----------------------------------------------------------------------------
-function generic_input_get_direction_degrees() {
+function gamemaker_input_get_direction_degrees() {
     input_direction(default, verbLeft, verbRight, verbUp, verbDown, [playerIndex], [mostRecent])
 }
 

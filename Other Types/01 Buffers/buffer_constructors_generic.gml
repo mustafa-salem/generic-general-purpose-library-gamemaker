@@ -9,7 +9,7 @@ function BufferGeneric(arguments = {}) constructor {
     /// @return {type} <return_description>
     exists = function(arguments = {}) {
         arguments.buffer = self
-        return exists_buffer_generic(arguments)
+        return gamemaker_buffer_exists(arguments)
     }
 
     /// @function function_name(arguments)
@@ -18,7 +18,7 @@ function BufferGeneric(arguments = {}) constructor {
     /// @return {type} <return_description>
     delete = function(arguments = {}) {
         arguments.buffer = self
-        delete_buffer_generic(arguments)
+        gamemaker_buffer_delete(arguments)
     }
 
     /// @function function_name(arguments)
@@ -27,7 +27,7 @@ function BufferGeneric(arguments = {}) constructor {
     /// @return {type} <return_description>
     read = function(arguments = {}) {
         arguments.buffer = self
-        read_buffer_generic(arguments)
+        gamemaker_buffer_read(arguments)
     }
 
     /// @function function_name(arguments)
@@ -36,7 +36,7 @@ function BufferGeneric(arguments = {}) constructor {
     /// @return {type} <return_description>
     write = function(arguments = {}) {
         arguments.buffer = self
-        write_buffer_generic(arguments)
+        gamemaker_buffer_write(arguments)
     }
 
 }

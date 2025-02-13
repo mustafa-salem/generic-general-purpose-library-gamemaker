@@ -1,48 +1,17 @@
-/// collision_get_collidees
-
-/// construct_execute_event({ construct : "obj_laserscythe" })
-
-// construct_instance_execute_inherited_event()
-
-// construct_execute_event({ construct : "regular_bullet_object", event : "create_event" })
-
-function gamemaker_construct_create() {
-
-}
-
 /// ----------------------------------------------------------------------------
-/// @function value_is_instance_of_construct(parameters)
-/// ----------------------------------------------------------------------------
-/// @description
-/// This function checks whether a given value is an instance of a construct.
-/// ----------------------------------------------------------------------------
-/// @parameter {any} value
-/// The value to check.
-///
-/// @parameter {type|array<type>} construct
-/// The construct or array of constructs to check.
-///
-/// ----------------------------------------------------------------------------
-/// @return {boolean}
-/// <return_description>
-/// ----------------------------------------------------------------------------
-function value_is_instance_of_construct(parameters = {}) {
-    return _return
-}
-
+/// @function yarnspinner_add_function(parameters)
 /// ----------------------------------------------------------------------------
 /// @description
 /// <function_description>
 /// ----------------------------------------------------------------------------
-/// @parameter {type} object
+/// @parameter {type} parameter_name
 /// <parameter_description>
-/// @parameter {type} callable
-/// <parameter_description>
+///
 /// ----------------------------------------------------------------------------
 /// @return {type}
 /// <return_description>
 /// ----------------------------------------------------------------------------
-function gamemaker_construct_set_constructor(parameters = {}) {
+function yarnspinner_add_function(parameters = {}) {
     return _return
 }
 
@@ -59,38 +28,40 @@ function gamemaker_construct_set_constructor(parameters = {}) {
 /// @return {type}
 /// <return_description>
 /// ----------------------------------------------------------------------------
-function construct_execute_event(parameters = {}) {
+function yarnspinner_dialoguerunner(parameters = {}) {
     return _return
 }
 
 /// ----------------------------------------------------------------------------
-/// @function construct_get_instances(parameters)
+/// @function function_name(parameters)
 /// ----------------------------------------------------------------------------
 /// @description
-/// This function is used to get an array of all instances of constructs that
-/// pass a predicate.
+/// <function_description>
 /// ----------------------------------------------------------------------------
-/// @parameter {struct} parameters
+/// @parameter {type} parameter_name
+/// <parameter_description>
 ///
-/// @parameter {all|string|struct|array<string|struct>} parameters.construct
-/// The constructs of which to return their instances.
-///
-/// @parameter {callable} [parameters.predicate]
-/// As argument0 { array, element, index } will be passed to this callable and
-/// it must return a boolean to determine whether to return the element.
 /// ----------------------------------------------------------------------------
-/// @return {array<struct>}
+/// @return {type}
+/// <return_description>
 /// ----------------------------------------------------------------------------
-function construct_get_instances(parameters) {
+function yarnspinner_dialogueview(parameters = {}) {
     return _return
 }
 
-function Construct() constructor {
-
+/// ----------------------------------------------------------------------------
+/// @description
+/// <function_description>
+/// ----------------------------------------------------------------------------
+/// @parameter {string} node
+/// <parameter_description>
+/// ----------------------------------------------------------------------------
+/// @return {string}
+/// ----------------------------------------------------------------------------
+function yarnspinner_get_string(parameters = {}) {
+    return _return
 }
 
-gamemaker_object_set_event({ object : construct_object, callable : function() {
-    if (not variable_instance_exists(self, "construct_instance")) {
-        construct_instance = myconstructor()
-    }
-}})
+function YarnSpinnerDialogueRunner() constructor {
+    
+}

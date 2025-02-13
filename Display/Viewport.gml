@@ -1,69 +1,44 @@
-BEGIN_SCRIPT_HINT_DEBUG_GENERIC
+/******************************************************************************/
+#region    –––––––––––––––––––– FUNCTIONS ––––––––––––––––––––
+/******************************************************************************/
 
-/*******************************************************************************/
-/* ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– */
-#region    –––––––––––––––––––– MACROS ––––––––––––––––––––
-/* ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– */
-/*******************************************************************************/
-
-#region    –––––––––––––––––––– INITIALIZE_CONSTRUCTOR ––––––––––––––––––––
-
-#macro ViewPort  ViewPortGeneric
-#macro VIEW_PORT VIEW_PORT_GENERIC
-
-#macro VIEW_PORT_GENERIC __ViewPortGeneric()
-
-function __ViewPortGeneric() {
-    static instance = new ViewPortGeneric()
-    return static_get(ViewPortGeneric)
+/// ----------------------------------------------------------------------------
+/// @description
+/// <function_description>
+/// ----------------------------------------------------------------------------
+/// @parameter {type} viewport
+/// <parameter_description>
+/// @parameter {type} x
+/// <parameter_description>
+/// @parameter {type} y
+/// <parameter_description>
+/// ----------------------------------------------------------------------------
+/// @return {undefined}
+/// ----------------------------------------------------------------------------
+function gamemaker_viewport_set_dimensions(parameters = {}) {
+    if () {
+        view_set_wport(view_port, w)
+    }
+    if () {
+        view_set_hport(view_port, h)
+    }
+    return undefined
 }
 
-__ViewPortGeneric()
-struct_remove(static_get(__ViewPortGeneric), "instance")
+/******************************************************************************/
+#endregion –––––––––––––––––––– FUNCTIONS ––––––––––––––––––––
+/******************************************************************************/
 
-#endregion –––––––––––––––––––– INITIALIZE_CONSTRUCTOR ––––––––––––––––––––
 
-#macro VIEW_PORTS global.view_ports
 
-VIEW_PORTS = array_create(8)
 
-for (var i = 0; i < 8; i++) {
-    VIEW_PORTS[i] = new ViewPortGeneric({ view_port_index : i })
-}
 
-#macro VIEW_PORT_0 VIEW_PORTS[0]
-#macro VIEW_PORT_1 VIEW_PORTS[1]
-#macro VIEW_PORT_2 VIEW_PORTS[2]
-#macro VIEW_PORT_3 VIEW_PORTS[3]
-#macro VIEW_PORT_4 VIEW_PORTS[4]
-#macro VIEW_PORT_5 VIEW_PORTS[5]
-#macro VIEW_PORT_6 VIEW_PORTS[6]
-#macro VIEW_PORT_7 VIEW_PORTS[7]
 
-#macro get_visible_view_port      get_visible_view_port_generic
-#macro set_visible_view_port      set_visible_view_port_generic
-#macro get_surface_view_port      get_surface_view_port_generic
-#macro set_surface_view_port      set_surface_view_port_generic
-#macro get_camera_view_port       get_camera_view_port_generic
-#macro set_camera_view_port       set_camera_view_port_generic
-#macro get_x_position_view_port   get_x_position_view_port_generic
-#macro set_x_position_view_port   set_x_position_view_port_generic
-#macro get_y_position_view_port   get_y_position_view_port_generic
-#macro set_y_position_view_port   set_y_position_view_port_generic
-#macro get_position_view_port     get_position_view_port_generic
-#macro set_position_view_port     set_position_view_port_generic
-#macro get_x_dimensions_view_port get_x_dimensions_view_port_generic
-#macro set_x_dimensions_view_port set_x_dimensions_view_port_generic
-#macro get_y_dimensions_view_port get_y_dimensions_view_port_generic
-#macro set_y_dimensions_view_port set_y_dimensions_view_port_generic
-#macro get_dimensions_view_port   get_dimensions_view_port_generic
-#macro set_dimensions_view_port   set_dimensions_view_port_generic
 
-/*******************************************************************************/
-/* ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– */
-#endregion –––––––––––––––––––– MACROS ––––––––––––––––––––
-/* ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– */
-/*******************************************************************************/
+
+
+
+
 
 /*******************************************************************************/
 /* ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -99,28 +74,28 @@ function ViewPortGeneric(arguments) constructor {
     /// @function get_visible(arguments)
     /// ----------------------------------------------------------------------------
     /// @description
-    /// proxy for get_visible_view_port_generic
+    /// proxy for gamemaker_viewport_is_visible
     /// ----------------------------------------------------------------------------
     /// @return {Bool}
     /// ----------------------------------------------------------------------------
     static get_visible = function(arguments = {}) {
         var _is_instance_scope = is_instanceof(self, ViewPortGeneric)
         if (_is_instance_scope) { arguments.view_port = self }
-        return get_visible_view_port_generic(arguments)
+        return gamemaker_viewport_is_visible(arguments)
     }
 
     /// ----------------------------------------------------------------------------
     /// @function set_visible(arguments)
     /// ----------------------------------------------------------------------------
     /// @description
-    /// proxy for set_visible_view_port_generic
+    /// proxy for gamemaker_viewport_set_visible
     /// ----------------------------------------------------------------------------
     /// @return {Struct.ViewPortGeneric} self
     /// ----------------------------------------------------------------------------
     static set_visible = function(arguments = {}) {
         var _is_instance_scope = is_instanceof(self, ViewPortGeneric)
         if (_is_instance_scope) { arguments.view_port = self }
-        set_visible_view_port_generic(arguments)
+        gamemaker_viewport_set_visible(arguments)
         if (_is_instance_scope) { return self }
     }
 
@@ -136,7 +111,7 @@ function ViewPortGeneric(arguments) constructor {
     /// @function get_surface(arguments)
     /// ----------------------------------------------------------------------------
     /// @description
-    /// proxy for get_surface_view_port_generic
+    /// proxy for gamemaker_viewport_get_surface
     /// ----------------------------------------------------------------------------
     /// @return {Struct.Surface|Undefined}
     /// <return_description>
@@ -144,21 +119,21 @@ function ViewPortGeneric(arguments) constructor {
     static get_surface = function(arguments = {}) {
         var _is_instance_scope = is_instanceof(self, ViewPortGeneric)
         if (_is_instance_scope) { arguments.view_port = self }
-        return get_surface_view_port_generic(arguments)
+        return gamemaker_viewport_get_surface(arguments)
     }
 
     /// ----------------------------------------------------------------------------
     /// @function set_surface(arguments)
     /// ----------------------------------------------------------------------------
     /// @description
-    /// proxy for set_surface_view_port_generic
+    /// proxy for gamemaker_viewport_set_surface
     /// ----------------------------------------------------------------------------
     /// @return {Struct.ViewPortGeneric} self
     /// ----------------------------------------------------------------------------
     static set_surface = function(arguments = {}) {
         var _is_instance_scope = is_instanceof(self, ViewPortGeneric)
         if (_is_instance_scope) { arguments.view_port = self }
-        set_surface_view_port_generic(arguments)
+        gamemaker_viewport_set_surface(arguments)
         if (_is_instance_scope) { return self }
     }
 
@@ -174,28 +149,28 @@ function ViewPortGeneric(arguments) constructor {
     /// @function get_camera(arguments)
     /// ----------------------------------------------------------------------------
     /// @description
-    /// proxy for get_camera_view_port_generic
+    /// proxy for gamemaker_viewport_get_camera
     /// ----------------------------------------------------------------------------
     /// @return {Struct.CameraGeneric|Undefined}
     /// ----------------------------------------------------------------------------
     static get_camera = function(arguments = {}) {
         var _is_instance_scope = is_instanceof(self, ViewPortGeneric)
         if (_is_instance_scope) { arguments.view_port = self }
-        return get_camera_view_port_generic(arguments)
+        return gamemaker_viewport_get_camera(arguments)
     }
 
     /// ----------------------------------------------------------------------------
     /// @function set_camera(arguments)
     /// ----------------------------------------------------------------------------
     /// @description
-    /// proxy for set_camera_view_port_generic
+    /// proxy for gamemaker_viewport_set_camera
     /// ----------------------------------------------------------------------------
     /// @return {Struct.ViewPortGeneric} self
     /// ----------------------------------------------------------------------------
     static set_camera = function(arguments = {}) {
         var _is_instance_scope = is_instanceof(self, ViewPortGeneric)
         if (_is_instance_scope) { arguments.view_port = self }
-        set_camera_view_port_generic(arguments)
+        gamemaker_viewport_set_camera(arguments)
         if (_is_instance_scope) { return self }
     }
 
@@ -218,7 +193,7 @@ function ViewPortGeneric(arguments) constructor {
     static get_x_position = function(arguments = {}) {
         var _is_instance_scope = is_instanceof(self, ViewPortGeneric)
         if (_is_instance_scope) { arguments.view_port = self }
-        return get_x_position_view_port_generic(arguments)
+        return gamemaker_viewport_get_x_position(arguments)
     }
 
     /// ----------------------------------------------------------------------------
@@ -238,7 +213,7 @@ function ViewPortGeneric(arguments) constructor {
     static set_x_position = function(arguments = {}) {
         var _is_instance_scope = is_instanceof(self, ViewPortGeneric)
         if (_is_instance_scope) { arguments.view_port = self }
-        set_x_position_view_port_generic(arguments)
+        gamemaker_viewport_set_x_position(arguments)
         if (_is_instance_scope) { return self }
     }
 
@@ -255,7 +230,7 @@ function ViewPortGeneric(arguments) constructor {
     static get_y_position = function(arguments = {}) {
         var _is_instance_scope = is_instanceof(self, ViewPortGeneric)
         if (_is_instance_scope) { arguments.view_port = self }
-        return get_y_position_view_port_generic(arguments)
+        return gamemaker_viewport_get_y_position(arguments)
     }
 
     /// ----------------------------------------------------------------------------
@@ -275,7 +250,7 @@ function ViewPortGeneric(arguments) constructor {
     static set_y_position = function(arguments = {}) {
         var _is_instance_scope = is_instanceof(self, ViewPortGeneric)
         if (_is_instance_scope) { arguments.view_port = self }
-        set_y_position_view_port_generic(arguments)
+        gamemaker_viewport_set_y_position(arguments)
         if (_is_instance_scope) { return self }
     }
 
@@ -292,7 +267,7 @@ function ViewPortGeneric(arguments) constructor {
     static get_position = function(arguments = {}) {
         var _is_instance_scope = is_instanceof(self, ViewPortGeneric)
         if (_is_instance_scope) { arguments.view_port = self }
-        return get_position_view_port_generic(arguments)
+        return gamemaker_viewport_get_position(arguments)
     }
 
     /// ----------------------------------------------------------------------------
@@ -315,7 +290,7 @@ function ViewPortGeneric(arguments) constructor {
     static set_position = function(arguments = {}) {
         var _is_instance_scope = is_instanceof(self, ViewPortGeneric)
         if (_is_instance_scope) { arguments.view_port = self }
-        set_position_view_port_generic(arguments)
+        gamemaker_viewport_set_position(arguments)
         if (_is_instance_scope) { return self }
     }
 
@@ -332,15 +307,15 @@ function ViewPortGeneric(arguments) constructor {
     #region    –––––––––––––––––––– X_DIMENSIONS ––––––––––––––––––––
 
     /// ----------------------------------------------------------------------------
-    /// @function get_x_dimensions(arguments)
+    /// @function get_x_dimension(arguments)
     /// ----------------------------------------------------------------------------
     /// @return {Real}
     /// <return_description>
     /// ----------------------------------------------------------------------------
-    static get_x_dimensions = function(arguments = {}) {
+    static get_x_dimension = function(arguments = {}) {
         var _is_instance_scope = is_instanceof(self, ViewPortGeneric)
         if (_is_instance_scope) { arguments.view_port = self }
-        return get_x_dimensions_view_port_generic(arguments)
+        return gamemaker_viewport_get_x_dimension(arguments)
     }
 
     /// ----------------------------------------------------------------------------
@@ -360,7 +335,7 @@ function ViewPortGeneric(arguments) constructor {
     static set_x_dimensions = function(arguments = {}) {
         var _is_instance_scope = is_instanceof(self, ViewPortGeneric)
         if (_is_instance_scope) { arguments.view_port = self }
-        set_x_dimensions_view_port_generic(arguments)
+        gamemaker_viewport_set_x_dimension(arguments)
         if (_is_instance_scope) { return self }
     }
 
@@ -369,15 +344,15 @@ function ViewPortGeneric(arguments) constructor {
     #region    –––––––––––––––––––– Y_DIMENSIONS ––––––––––––––––––––
 
     /// ----------------------------------------------------------------------------
-    /// @function get_y_dimensions()
+    /// @function get_y_dimension()
     /// ----------------------------------------------------------------------------
     /// @return {type}
     /// <return_description>
     /// ----------------------------------------------------------------------------
-    static get_y_dimensions = function(arguments = {}) {
+    static get_y_dimension = function(arguments = {}) {
         var _is_instance_scope = is_instanceof(self, ViewPortGeneric)
         if (_is_instance_scope) { arguments.view_port = self }
-        return get_y_dimensions_view_port_generic(arguments)
+        return gamemaker_viewport_get_y_dimension(arguments)
     }
 
     /// ----------------------------------------------------------------------------
@@ -397,7 +372,7 @@ function ViewPortGeneric(arguments) constructor {
     static set_y_dimensions = function(arguments = {}) {
         var _is_instance_scope = is_instanceof(self, ViewPortGeneric)
         if (_is_instance_scope) { arguments.view_port = self }
-        set_y_dimensions_view_port_generic(arguments)
+        gamemaker_viewport_set_y_dimension(arguments)
         if (_is_instance_scope) { return self }
     }
 
@@ -414,7 +389,7 @@ function ViewPortGeneric(arguments) constructor {
     static get_dimensions = function(arguments = {}) {
         var _is_instance_scope = is_instanceof(self, ViewPortGeneric)
         if (_is_instance_scope) { arguments.view_port = self }
-        return get_dimensions_view_port_generic(arguments)
+        return 
     }
 
     /// ----------------------------------------------------------------------------
@@ -437,7 +412,7 @@ function ViewPortGeneric(arguments) constructor {
     static set_dimensions = function(arguments = {}) {
         var _is_instance_scope = is_instanceof(self, ViewPortGeneric)
         if (_is_instance_scope) { arguments.view_port = self }
-        set_dimensions_view_port_generic(arguments)
+        gamemaker_viewport_set_dimensions(arguments)
         if (_is_instance_scope) { return self }
     }
 
@@ -461,7 +436,7 @@ function ViewPortGeneric(arguments) constructor {
 /* ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– */
 /*******************************************************************************/
 
-function get_index_view_port_generic(arguments = {}) {
+function gamemaker_viewport_get_index(arguments = {}) {
     var _view_port_index = arguments.view_port
     if (is_struct(arguments.view_port)) {
         _view_port_index = arguments.view_port.get_index()
@@ -474,7 +449,7 @@ function get_index_view_port_generic(arguments = {}) {
 /*******************************************************************************/
 
 /// ----------------------------------------------------------------------------
-/// @function get_visible_view_port_generic(arguments)
+/// @function gamemaker_viewport_is_visible(arguments)
 /// ----------------------------------------------------------------------------
 /// @description
 /// wrapper function for view_get_visible
@@ -487,13 +462,13 @@ function get_index_view_port_generic(arguments = {}) {
 /// @return {Bool}
 ///  Whether the view port with the provided index is visible.
 /// ----------------------------------------------------------------------------
-function get_visible_view_port_generic(arguments = {}) {
-    var _view_port_index = get_index_view_port_generic({ view_port : arguments.view_port })
+function gamemaker_viewport_is_visible(arguments = {}) {
+    var _view_port_index = gamemaker_viewport_get_index({ view_port : arguments.view_port })
     return view_get_visible(_view_port_index)
 }
 
 /// ----------------------------------------------------------------------------
-/// @function set_visible_view_port_generic(arguments)
+/// @function gamemaker_viewport_set_visible(arguments)
 /// ----------------------------------------------------------------------------
 /// @description
 /// <function_description>
@@ -506,8 +481,8 @@ function get_visible_view_port_generic(arguments = {}) {
 /// @parameter {Type} arguments.visible
 /// Whether the view port should be visible.
 /// ----------------------------------------------------------------------------
-function set_visible_view_port_generic(arguments = {}) {
-    var _view_port_index = get_index_view_port_generic({ view_port : arguments.view_port })
+function gamemaker_viewport_set_visible(arguments = {}) {
+    var _view_port_index = gamemaker_viewport_get_index({ view_port : arguments.view_port })
     view_set_visible(_view_port_index, arguments.visible)
 }
 
@@ -520,7 +495,7 @@ function set_visible_view_port_generic(arguments = {}) {
 /*******************************************************************************/
 
 /// ----------------------------------------------------------------------------
-/// @function get_surface_view_port_generic(arguments)
+/// @function gamemaker_viewport_get_surface(arguments)
 /// ----------------------------------------------------------------------------
 /// @description
 /// <function_description>
@@ -533,13 +508,13 @@ function set_visible_view_port_generic(arguments = {}) {
 /// @return {type}
 /// <return_description>
 /// ----------------------------------------------------------------------------
-function get_surface_view_port_generic(arguments = {}) {
-    var _view_port_index = get_index_view_port_generic({ view_port : arguments.view_port })
+function gamemaker_viewport_get_surface(arguments = {}) {
+    var _view_port_index = gamemaker_viewport_get_index({ view_port : arguments.view_port })
     return view_get_surface_id(_view_port_index)
 }
 
 /// ----------------------------------------------------------------------------
-/// @function set_surface_view_port_generic(arguments)
+/// @function gamemaker_viewport_set_surface(arguments)
 /// ----------------------------------------------------------------------------
 /// @description
 /// <function_description>
@@ -555,8 +530,8 @@ function get_surface_view_port_generic(arguments = {}) {
 /// @return {type}
 /// <return_description>
 /// ----------------------------------------------------------------------------
-function set_surface_view_port_generic(arguments = {}) {
-    var _view_port_index = get_index_view_port_generic({ view_port : arguments.view_port })
+function gamemaker_viewport_set_surface(arguments = {}) {
+    var _view_port_index = gamemaker_viewport_get_index({ view_port : arguments.view_port })
     view_set_surface_id(_view_port_index, arguments.surface_id)
 }
 
@@ -569,7 +544,7 @@ function set_surface_view_port_generic(arguments = {}) {
 /*******************************************************************************/
 
 /// ----------------------------------------------------------------------------
-/// @function get_camera_view_port_generic(arguments)
+/// @function gamemaker_viewport_get_camera(arguments)
 /// ----------------------------------------------------------------------------
 /// @parameter {Struct} arguments
 ///
@@ -580,15 +555,15 @@ function set_surface_view_port_generic(arguments = {}) {
 /// The camera assigned to the view port with the provided index.
 /// If no camera is assigned, undefined will be returned.
 /// ----------------------------------------------------------------------------
-function get_camera_view_port_generic(arguments = {}) {
-    var _view_port_index = get_index_view_port_generic({ view_port : arguments.view_port })
+function gamemaker_viewport_get_camera(arguments = {}) {
+    var _view_port_index = gamemaker_viewport_get_index({ view_port : arguments.view_port })
     var _camera_id = view_get_camera(_view_port_index)
     if (_camera_id = -1) { return undefined }
-    return create_camera_generic({ camera_id : _camera_id })
+    return gamemaker_camera_create({ camera_id : _camera_id })
 }
 
 /// ----------------------------------------------------------------------------
-/// @function set_camera_view_port_generic(arguments)
+/// @function gamemaker_viewport_set_camera(arguments)
 /// ----------------------------------------------------------------------------
 /// @description
 /// Assigns the provided camera to the view port with the provided index.
@@ -603,9 +578,9 @@ function get_camera_view_port_generic(arguments = {}) {
 /// @parameter {Struct.CameraGeneric|Real|Undefined} arguments.camera
 /// The camera to use or it
 /// ----------------------------------------------------------------------------
-function set_camera_view_port_generic(arguments = {}) {
-    var _view_port_index = get_index_view_port_generic({ view_port : arguments.view_port })
-    var _camera_id = get_id_camera_generic({ camera : arguments.camera })
+function gamemaker_viewport_set_camera(arguments = {}) {
+    var _view_port_index = gamemaker_viewport_get_index({ view_port : arguments.view_port })
+    var _camera_id = gamemaker_camera_get_id({ camera : arguments.camera })
     view_set_camera(_view_port_index, _camera_id)
 }
 
@@ -620,7 +595,7 @@ function set_camera_view_port_generic(arguments = {}) {
 #region    –––––––––––––––––––– X_POSITION ––––––––––––––––––––
 
 /// ----------------------------------------------------------------------------
-/// @function get_x_position_view_port_generic(arguments)
+/// @function gamemaker_viewport_get_x_position(arguments)
 /// ----------------------------------------------------------------------------
 /// @description
 /// <function_description>
@@ -633,13 +608,13 @@ function set_camera_view_port_generic(arguments = {}) {
 /// @return {Real}
 /// The x position of the given view port
 /// ----------------------------------------------------------------------------
-function get_x_position_view_port_generic(arguments = {}) {
-    var _view_port_index = get_index_view_port_generic({ view_port : arguments.view_port })
+function gamemaker_viewport_get_x_position(arguments = {}) {
+    var _view_port_index = gamemaker_viewport_get_index({ view_port : arguments.view_port })
     return view_get_xport(_view_port_index)
 }
 
 /// ----------------------------------------------------------------------------
-/// @function set_x_position_view_port_generic(arguments)
+/// @function gamemaker_viewport_set_x_position(arguments)
 /// ----------------------------------------------------------------------------
 /// @description
 /// <function_description>
@@ -652,8 +627,8 @@ function get_x_position_view_port_generic(arguments = {}) {
 /// @parameter {Type} arguments.parameter_name
 /// <parameter_description>
 /// ----------------------------------------------------------------------------
-function set_x_position_view_port_generic(arguments = {}) {
-    var _view_port_index = get_index_view_port_generic({ view_port : arguments.view_port })
+function gamemaker_viewport_set_x_position(arguments = {}) {
+    var _view_port_index = gamemaker_viewport_get_index({ view_port : arguments.view_port })
     view_set_xport(_view_port_index, arguments.x_position)
 }
 
@@ -662,7 +637,7 @@ function set_x_position_view_port_generic(arguments = {}) {
 #region    –––––––––––––––––––– Y_POSITION ––––––––––––––––––––
 
 /// ----------------------------------------------------------------------------
-/// @function get_y_position_view_port_generic(arguments)
+/// @function gamemaker_viewport_get_y_position(arguments)
 /// ----------------------------------------------------------------------------
 /// @description
 /// <function_description>
@@ -675,13 +650,13 @@ function set_x_position_view_port_generic(arguments = {}) {
 /// @return {type}
 /// <return_description>
 /// ----------------------------------------------------------------------------
-function get_y_position_view_port_generic(arguments = {}) {
-    var _view_port_index = get_index_view_port_generic({ view_port : arguments.view_port })
+function gamemaker_viewport_get_y_position(arguments = {}) {
+    var _view_port_index = gamemaker_viewport_get_index({ view_port : arguments.view_port })
     return view_get_yport(_view_port_index)
 }
 
 /// ----------------------------------------------------------------------------
-/// @function set_y_position_view_port_generic(arguments)
+/// @function gamemaker_viewport_set_y_position(arguments)
 /// ----------------------------------------------------------------------------
 /// @description
 /// <function_description>
@@ -694,8 +669,8 @@ function get_y_position_view_port_generic(arguments = {}) {
 /// @parameter {Type} arguments.parameter_name
 /// <parameter_description>
 /// ----------------------------------------------------------------------------
-function set_y_position_view_port_generic(arguments = {}) {
-    var _view_port_index = get_index_view_port_generic({ view_port : arguments.view_port })
+function gamemaker_viewport_set_y_position(arguments = {}) {
+    var _view_port_index = gamemaker_viewport_get_index({ view_port : arguments.view_port })
     view_set_yport(_view_port_index, arguments.y_position)
 }
 
@@ -704,7 +679,7 @@ function set_y_position_view_port_generic(arguments = {}) {
 #region    –––––––––––––––––––– POSITION ––––––––––––––––––––
 
 /// ----------------------------------------------------------------------------
-/// @function get_position_view_port_generic(arguments)
+/// @function gamemaker_viewport_get_position(arguments)
 /// ----------------------------------------------------------------------------
 /// @description
 /// <function_description>
@@ -717,8 +692,8 @@ function set_y_position_view_port_generic(arguments = {}) {
 /// @return {Struct}
 /// <return_description>
 /// ----------------------------------------------------------------------------
-function get_position_view_port_generic(arguments = {}) {
-    var _view_port_index = get_index_view_port_generic({ view_port : arguments.view_port })
+function gamemaker_viewport_get_position(arguments = {}) {
+    var _view_port_index = gamemaker_viewport_get_index({ view_port : arguments.view_port })
     return {
         x : view_get_xport(_view_port_index),
         y : view_get_yport(_view_port_index),
@@ -726,7 +701,7 @@ function get_position_view_port_generic(arguments = {}) {
 }
 
 /// ----------------------------------------------------------------------------
-/// @function set_position_view_port_generic(arguments)
+/// @function gamemaker_viewport_set_position(arguments)
 /// ----------------------------------------------------------------------------
 /// @description
 /// <function_description>
@@ -742,8 +717,8 @@ function get_position_view_port_generic(arguments = {}) {
 /// @parameter {Type} arguments.parameter_name
 /// <parameter_description>
 /// ----------------------------------------------------------------------------
-function set_position_view_port_generic(arguments = {}) {
-    var _view_port_index = get_index_view_port_generic({ view_port : arguments.view_port })
+function gamemaker_viewport_set_position(arguments = {}) {
+    var _view_port_index = gamemaker_viewport_get_index({ view_port : arguments.view_port })
     if (arguments[$ "x"] != undefined) {
         view_set_xport(_view_port_index, arguments.x)
     }
@@ -765,7 +740,7 @@ function set_position_view_port_generic(arguments = {}) {
 #region    –––––––––––––––––––– X_DIMENSIONS ––––––––––––––––––––
 
 /// ----------------------------------------------------------------------------
-/// @function get_x_dimensions_view_port_generic(arguments)
+/// @function gamemaker_viewport_get_x_dimension(arguments)
 /// ----------------------------------------------------------------------------
 /// @description
 /// wrapper for view_get_wport
@@ -778,13 +753,13 @@ function set_position_view_port_generic(arguments = {}) {
 /// @return {Real}
 /// The x dimensions of the view port with the provided index on its render target.
 /// ----------------------------------------------------------------------------
-function get_x_dimensions_view_port_generic(arguments = {}) {
-    var _view_port_index = get_index_view_port_generic({ view_port : arguments.view_port })
+function gamemaker_viewport_get_x_dimension(arguments = {}) {
+    var _view_port_index = gamemaker_viewport_get_index({ view_port : arguments.view_port })
     return view_get_wport(_view_port_index)
 }
 
 /// ----------------------------------------------------------------------------
-/// @function set_x_dimensions_view_port_generic(arguments)
+/// @function gamemaker_viewport_set_x_dimension(arguments)
 /// ----------------------------------------------------------------------------
 /// @description
 /// <function_description>
@@ -797,8 +772,8 @@ function get_x_dimensions_view_port_generic(arguments = {}) {
 /// @parameter {Type} arguments.x_dimensions
 /// The x dimensions of the view port on its render target.
 /// ----------------------------------------------------------------------------
-function set_x_dimensions_view_port_generic(arguments = {}) {
-    var _view_port_index = get_index_view_port_generic({ view_port : arguments.view_port })
+function gamemaker_viewport_set_x_dimension(arguments = {}) {
+    var _view_port_index = gamemaker_viewport_get_index({ view_port : arguments.view_port })
     view_set_wport(_view_port_index, arguments.x_dimensions)
 }
 
@@ -807,7 +782,7 @@ function set_x_dimensions_view_port_generic(arguments = {}) {
 #region    –––––––––––––––––––– Y_DIMENSIONS ––––––––––––––––––––
 
 /// ----------------------------------------------------------------------------
-/// @function get_y_dimensions_view_port_generic(arguments)
+/// @function gamemaker_viewport_get_y_dimension(arguments)
 /// ----------------------------------------------------------------------------
 /// @description
 /// <function_description>
@@ -820,13 +795,13 @@ function set_x_dimensions_view_port_generic(arguments = {}) {
 /// @return {Real}
 /// <return_description>
 /// ----------------------------------------------------------------------------
-function get_y_dimensions_view_port_generic(arguments = {}) {
-    var _view_port_index = get_index_view_port_generic({ view_port : arguments.view_port })
+function gamemaker_viewport_get_y_dimension(arguments = {}) {
+    var _view_port_index = gamemaker_viewport_get_index({ view_port : arguments.view_port })
     return view_get_hport(_view_port_index)
 }
 
 /// ----------------------------------------------------------------------------
-/// @function set_y_dimensions_view_port_generic(arguments)
+/// @function gamemaker_viewport_set_y_dimension(arguments)
 /// ----------------------------------------------------------------------------
 /// @description
 /// <function_description>
@@ -839,8 +814,8 @@ function get_y_dimensions_view_port_generic(arguments = {}) {
 /// @parameter {Type} arguments.parameter_name
 /// <parameter_description>
 /// ----------------------------------------------------------------------------
-function set_y_dimensions_view_port_generic(arguments = {}) {
-    var _view_port_index = get_index_view_port_generic({ view_port : arguments.view_port })
+function gamemaker_viewport_set_y_dimension(arguments = {}) {
+    var _view_port_index = gamemaker_viewport_get_index({ view_port : arguments.view_port })
     view_set_hport(_view_port_index, arguments.y_dimensions)
 }
 
@@ -848,30 +823,9 @@ function set_y_dimensions_view_port_generic(arguments = {}) {
 
 #region    –––––––––––––––––––– DIMENSIONS ––––––––––––––––––––
 
-/// ----------------------------------------------------------------------------
-/// @function get_dimensions_view_port_generic(arguments)
-/// ----------------------------------------------------------------------------
-/// @description
-/// <function_description>
-/// ----------------------------------------------------------------------------
-/// @parameter {Struct} arguments
-///
-/// @parameter {Struct.ViewPortGeneric|Real} arguments.view_port
-/// The view port to target or its index (0 - 7).
-/// ----------------------------------------------------------------------------
-/// @return {Struct}
-/// { x : Real, y : Real }
-/// ----------------------------------------------------------------------------
-function get_dimensions_view_port_generic(arguments = {}) {
-    var _view_port_index = get_index_view_port_generic({ view_port : arguments.view_port })
-    return {
-        x : view_get_wport(_view_port_index),
-        y : view_get_hport(_view_port_index),
-    }
-}
 
 /// ----------------------------------------------------------------------------
-/// @function set_dimensions_view_port_generic(arguments)
+/// @function gamemaker_viewport_set_dimensions(arguments)
 /// ----------------------------------------------------------------------------
 /// @description
 /// <function_description>
@@ -887,8 +841,8 @@ function get_dimensions_view_port_generic(arguments = {}) {
 /// @parameter {Real} arguments.y
 /// <parameter_description>
 /// ----------------------------------------------------------------------------
-function set_dimensions_view_port_generic(arguments = {}) {
-    var _view_port_index = get_index_view_port_generic({ view_port : arguments.view_port })
+function gamemaker_viewport_set_dimensions(arguments = {}) {
+    var _view_port_index = gamemaker_viewport_get_index({ view_port : arguments.view_port })
     if (arguments[$ "x"] != undefined) {
         view_set_wport(_view_port_index, arguments.x)
     }

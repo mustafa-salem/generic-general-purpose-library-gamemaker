@@ -4,7 +4,7 @@ function AudioLabel() {
 
 AudioLabels.music.stop()
 
-MUSIC_AUDIO_LABEL.stop()
+gamemaker_sound_stop({ sound : "MUSIC_AUDIO_LABEL" })
 
 
 /// ----------------------------------------------------------------------------

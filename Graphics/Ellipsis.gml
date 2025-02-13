@@ -1,5 +1,5 @@
 /// ----------------------------------------------------------------------------
-/// @function generic_ellipsis_draw(parameters)
+/// @function gamemaker_ellipsis_draw(parameters)
 /// ----------------------------------------------------------------------------
 /// @description
 /// This function is a generification of the built-in functions <draw_circle>,
@@ -36,7 +36,7 @@
 /// <parameter_description>
 ///
 /// ----------------------------------------------------------------------------
-function generic_ellipsis_draw(parameters) {
+function gamemaker_ellipsis_draw(parameters) {
 
 }
 
@@ -52,7 +52,7 @@ function draw_ring_generic(arguments) {
         radius : a.radius,
         width : a.width,
 
-        colour : a[$ "colour"] ?? c_white,
+        colour : a[$ "colour"] ?? #FFFFFF,
         alpha : a[$ "alpha"] ?? 1,
         precision : a[$ "precision"],
 
@@ -132,22 +132,22 @@ function draw_ring_generic(arguments) {
 }
 
 function scr_draw_circle_width(argument0, argument1, argument2, argument3) {
-    if (argument3 <= 1 || argument3 >= argument2) {
+    if (argument3 <= 1 or argument3 >= argument2) {
         draw_circle(argument0, argument1, argument2, argument3 < argument2)
         return;
     }
     ring_surf = -1
-    if (!generic_surface_exists({ surface : ring_surf })) {
-        ring_surf = gpl_surface_create({ x_dimension : argument2 * 2, y_dimension : argument2 * 2 })
+    if (!gamemaker_surface_exists({ surface : ring_surf })) {
+        ring_surf = gamemaker_surface_create({ x_dimension : argument2 * 2, y_dimension : argument2 * 2 })
         render_target_set_surface(ring_surf)
-        draw_clear_alpha(c_black, 0)
+        draw_clear_alpha(#000000, 0)
         draw_circle(argument2, argument2, argument2, 0)
         gpu_set_blendmode(bm_subtract)
         draw_circle(argument2, argument2, (argument2 - argument3), 0)
-        generic_graphics_set_blend_mode({ blend_mode : DEFAULT_BLEND_MODE })
+        gamemaker_graphics_set_blend_mode({ blend_mode : DEFAULT_BLEND_MODE })
         surface_reset_target()
     }
-    generic_surface_draw({
+    gamemaker_surface_draw({
 		surface    : ring_surf,
 		x_position : argument0 - argument2,
 		y_position : argument1 - argument2,

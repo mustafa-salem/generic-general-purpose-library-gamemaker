@@ -4,11 +4,11 @@
 /* –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– */
 /******************************************************************************/
 
-function generic_graphics_get_blend_mode(arguments = {}) {
+function gamemaker_graphics_get_blend_mode(arguments = {}) {
 
 }
 
-function generic_graphics_set_blend_mode(arguments = {}) {
+function gamemaker_graphics_set_blend_mode(arguments = {}) {
     var a = arguments
 
     parameters = {

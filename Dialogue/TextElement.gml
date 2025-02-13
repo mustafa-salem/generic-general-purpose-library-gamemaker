@@ -26,21 +26,6 @@ function TextElement(arguments) constructor {
 #endregion –––––––––––––––––––– CONSTRUCTORS ––––––––––––––––––––
 /******************************************************************************/
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /******************************************************************************/
 /* –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– */
 #region    –––––––––––––––––––– CONSTANTS ––––––––––––––––––––
@@ -80,7 +65,7 @@ function draw_text_outline(argument0, argument1, argument2, argument3)
 function draw_text_shadow_width(argument0, argument1, argument2, argument3)
 {
     __txtcolor__ = draw_get_color()
-    draw_set_color(c_black)
+    draw_set_color(#000000)
     draw_text_width((argument0 + 1), (argument1 + 1), string_hash_to_newline(argument2), argument3)
     draw_set_color(__txtcolor__)
     draw_text_width(argument0, argument1, string_hash_to_newline(argument2), argument3)
@@ -89,7 +74,7 @@ function draw_text_shadow_width(argument0, argument1, argument2, argument3)
 function draw_text_shadow(argument0, argument1, argument2)
 {
     __txtcolor__ = draw_get_color()
-    draw_set_color(c_black)
+    draw_set_color(#000000)
     draw_text((argument0 + 1), (argument1 + 1), string_hash_to_newline(argument2))
     draw_set_color(__txtcolor__)
     draw_text(argument0, argument1, string_hash_to_newline(argument2))
@@ -161,7 +146,7 @@ function set_message_sequence(_messages) {
             }
         }
 
-        if (_sequence_length > 1 && !string_ends_with(_messages[0], "/")) { _messages[0] += "/" }
+        if (_sequence_length > 1 and !string_ends_with(_messages[0], "/")) { _messages[0] += "/" }
         if (!string_ends_with(_messages[_sequence_length - 1], "/%")) { _messages[_sequence_length - 1] += "/%" }
         msgset(0, _messages[0])
         if (_sequence_length > 1) {
@@ -183,7 +168,7 @@ function message_sequence_to_default_battletext(_messages) {
 }
 
 /// ----------------------------------------------------------------------------
-/// @function generic_text_draw(parameters)
+/// @function gamemaker_text_draw(parameters)
 /// ----------------------------------------------------------------------------
 /// @description
 /// <function_description>
@@ -204,7 +189,7 @@ function message_sequence_to_default_battletext(_messages) {
 /// @parameter {type} maximum_line_width
 /// @parameter {type} distance_between_lines
 /// ----------------------------------------------------------------------------
-function generic_text_draw(arguments) {
+function gamemaker_text_draw(arguments) {
 
     scribble(parameters.string)
 
@@ -229,10 +214,10 @@ function generic_text_draw(arguments) {
         xscale : 1,
         yscale : 1,
         angle : 0,
-        colour_top_left : c_white,
-        colour_top_right : c_white,
-        colour_bottom_right : c_white,
-        colour_bottom_left : c_white,
+        colour_top_left : #FFFFFF,
+        colour_top_right : #FFFFFF,
+        colour_bottom_right : #FFFFFF,
+        colour_bottom_left : #FFFFFF,
         alpha : 1,
         halign : fa_left,
         valign : fa_top,

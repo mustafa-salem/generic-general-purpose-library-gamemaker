@@ -24,17 +24,17 @@ INITIALIZED_CONSTRUCTOR(Primitive)
 /******************************************************************************/
 
 /// ----------------------------------------------------------------------------
-/// @function generic_primitive_create(parameters)
+/// @function gamemaker_primitive_create(parameters)
 /// ----------------------------------------------------------------------------
-function generic_primitive_create(parameters = {}) {
+function gamemaker_primitive_create(parameters = {}) {
 
 	var _primitive
 
-	with (_primitive) { __generic_primitive_create() }
+	with (_primitive) { __gamemaker_primitive_create() }
 
 }
 
-function __generic_primitive_create() {
+function __gamemaker_primitive_create() {
 
 	private = {
 		type          : POINT_LIST_PRIMITIVE_TYPE,
@@ -45,58 +45,58 @@ function __generic_primitive_create() {
 	/// @function create(parameters)
 	create = function(parameters = {}) {
 		parameters.primitive = self
-		generic_primitive_create(parameters)
+		gamemaker_primitive_create(parameters)
 		return self
 	}
 
 	/// @function get_type(parameters)
 	get_type = function(parameters = {}) {
 		parameters.primitive = self
-		generic_primitive_get_type(parameters)
+		gamemaker_primitive_get_type(parameters)
 		return self
 	}
 
 	/// @function set_type(parameters)
 	set_type = function(parameters = {}) {
 		parameters.primitive = self
-		generic_primitive_set_type(parameters)
+		gamemaker_primitive_set_type(parameters)
 		return self
 	}
 
 	/// @function get_texture(parameters)
 	get_texture = function(parameters = {}) {
 		parameters.primitive = self
-		generic_primitive_get_texture(parameters)
+		gamemaker_primitive_get_texture(parameters)
 		return self
 	}
 
 	/// @function set_texture(parameters)
 	set_texture = function(parameters = {}) {
 		parameters.primitive = self
-		generic_primitive_set_texture(parameters)
+		gamemaker_primitive_set_texture(parameters)
 		return self
 	}
 
 	/// @function add_vertex(parameters)
     static add_vertex = function(parameters = {}) {
 		parameters.primitive = self
-		generic_primitive_add_vertex(parameters)
+		gamemaker_primitive_add_vertex(parameters)
 		return self
 	}
 
 	/// @function draw(parameters)
 	draw = function(parameters = {}) {
 		parameters.primitive = self
-		generic_primitive_draw(parameters)
+		gamemaker_primitive_draw(parameters)
 		return self
 	}
 
 }
 
 /// ----------------------------------------------------------------------------
-/// @function generic_primitive_get_type(parameters)
+/// @function gamemaker_primitive_get_type(parameters)
 /// ----------------------------------------------------------------------------
-function generic_primitive_get_type(parameters = {}) {
+function gamemaker_primitive_get_type(parameters = {}) {
 	static _PRIMITIVE = PRIMITIVE
 
 	var _primitive = parameters[$ "primitive"]
@@ -105,9 +105,9 @@ function generic_primitive_get_type(parameters = {}) {
 }
 
 /// ----------------------------------------------------------------------------
-/// @function generic_primitive_set_type(parameters)
+/// @function gamemaker_primitive_set_type(parameters)
 /// ----------------------------------------------------------------------------
-function generic_primitive_set_type(parameters = {}) {
+function gamemaker_primitive_set_type(parameters = {}) {
 	static _PRIMITIVE = PRIMITIVE
 
 	var _primitive = parameters[$ "primitive"]
@@ -118,9 +118,9 @@ function generic_primitive_set_type(parameters = {}) {
 }
 
 /// ----------------------------------------------------------------------------
-/// @function generic_primitive_get_texture(parameters)
+/// @function gamemaker_primitive_get_texture(parameters)
 /// ----------------------------------------------------------------------------
-function generic_primitive_get_texture(parameters = {}) {
+function gamemaker_primitive_get_texture(parameters = {}) {
 	static _PRIMITIVE = PRIMITIVE
 
 	var _primitive = parameters[$ "primitive"]
@@ -128,7 +128,7 @@ function generic_primitive_get_texture(parameters = {}) {
 }
 
 /// ----------------------------------------------------------------------------
-/// @function generic_primitive_set_texture(parameters)
+/// @function gamemaker_primitive_set_texture(parameters)
 /// ----------------------------------------------------------------------------
 /// @description
 /// <function_description>
@@ -141,7 +141,7 @@ function generic_primitive_get_texture(parameters = {}) {
 /// ----------------------------------------------------------------------------
 /// @return {struct} The static struct of the 'Primitive' constructor.
 /// ----------------------------------------------------------------------------
-function generic_primitive_set_texture(parameters = {}) {
+function gamemaker_primitive_set_texture(parameters = {}) {
 	static _PRIMITIVE = PRIMITIVE
 
 	var _primitive = parameters[$ "primitive"]
@@ -155,7 +155,7 @@ function generic_primitive_set_texture(parameters = {}) {
 }
 
 /// ----------------------------------------------------------------------------
-/// @function generic_primitive_get_texture(parameters)
+/// @function gamemaker_primitive_get_texture(parameters)
 /// ----------------------------------------------------------------------------
 /// @description
 /// <function_description>
@@ -166,7 +166,7 @@ function generic_primitive_set_texture(parameters = {}) {
 /// @return {struct.Texture}
 /// <return_description>
 /// ----------------------------------------------------------------------------
-function generic_primitive_add_vertex(parameters = {}) {
+function gamemaker_primitive_add_vertex(parameters = {}) {
 	static _PRIMITIVE = PRIMITIVE
 
 	var _primitive = parameters[$ "primitive"]
@@ -176,7 +176,7 @@ function generic_primitive_add_vertex(parameters = {}) {
 }
 
 /// ----------------------------------------------------------------------------
-/// @function generic_primitive_draw(parameters)
+/// @function gamemaker_primitive_draw(parameters)
 /// ----------------------------------------------------------------------------
 /// @description
 /// <function_description>
@@ -197,7 +197,7 @@ function generic_primitive_add_vertex(parameters = {}) {
 /// @return {type}
 /// <return_description>
 /// ----------------------------------------------------------------------------
-function generic_primitive_draw(parameters = {}) {
+function gamemaker_primitive_draw(parameters = {}) {
 
     var _primitive = parameters[$ "primitive"]
 
@@ -231,25 +231,25 @@ PRIMITIVE
 function Primitive() constructor {
 
     /// @function create(parameters)
-    static create = generic_primitive_create
+    static create = gamemaker_primitive_create
 
     /// @function get_type(parameters)
-    static get_type = generic_primitive_get_type
+    static get_type = gamemaker_primitive_get_type
 
     /// @function set_type(parameters)
-    static set_type = generic_primitive_set_type
+    static set_type = gamemaker_primitive_set_type
 
     /// @function get_texture(parameters)
-    static get_texture = generic_primitive_get_texture
+    static get_texture = gamemaker_primitive_get_texture
 
     /// @function set_texture(parameters)
-    static set_texture = generic_primitive_set_texture
+    static set_texture = gamemaker_primitive_set_texture
 
 	/// @function add_vertex(parameters)
-    static add_vertex = generic_primitive_add_vertex
+    static add_vertex = gamemaker_primitive_add_vertex
 
     /// @function draw(parameters)
-    static draw = generic_primitive_draw
+    static draw = gamemaker_primitive_draw
 
 }
 

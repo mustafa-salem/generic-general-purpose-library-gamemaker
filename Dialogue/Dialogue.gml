@@ -196,7 +196,7 @@
 /// * ChatterboxLocalizationClear        -> dialogue_reset_localisation
 /// ----------------------------------------------------------------------------
 /// # Setup
-/// * ChatterboxAddFunction              -> dialogue_define_function
+/// * ChatterboxAddFunction              -> yarnspinner_define_function
 /// * ChatterboxAddFindReplace           -> dialogue_find_and_replace
 /// ----------------------------------------------------------------------------
 /// # Dialogue
@@ -355,7 +355,7 @@ function dialogue_reset_localisation() {
 /******************************************************************************/
 
 /// ----------------------------------------------------------------------------
-/// @function dialogue_define_function(parameters)
+/// @function yarnspinner_define_function(parameters)
 /// ----------------------------------------------------------------------------
 /// @description
 /// This function is used to link YarnScript functions/commands to a GML function.
@@ -376,7 +376,7 @@ function dialogue_reset_localisation() {
 /// @return {boolean}
 /// Whether the function was added successfully.
 /// ----------------------------------------------------------------------------
-function dialogue_define_function(parameters) {
+function yarnspinner_define_function(parameters) {
     return ChatterboxAddFunction(parameters.name, parameters.callable)
 }
 

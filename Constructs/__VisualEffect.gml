@@ -2,4 +2,4 @@
 /// visual_effect; visual_effect_object
 /// ----------------------------------------------------------------------------
 
-construct_create({ name : "visual_effect" })
+gamemaker_construct_create({ name : "visual_effect" })

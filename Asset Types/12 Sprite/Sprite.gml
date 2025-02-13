@@ -4,8 +4,8 @@
 /* –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– */
 /******************************************************************************/
 
-function get_width_sprite_generic() {
-    return sprite_get_width(_sprite_index)
+function get_x_dimension_sprite_generic() {
+    return sprite_get_x_dimension(_sprite_index)
 }
 
 function draw_sprite_center_pivot(argument0, argument1, argument2, argument3) {
@@ -20,27 +20,27 @@ function draw_sprite_center_pivot(argument0, argument1, argument2, argument3) {
 function draw_sprite_ext_centerscale(argument0, argument1, argument2, argument3, argument4, argument5, argument6, argument7, argument8) {
     var _xoff = (sprite_get_xoffset(argument0) * image_xscale)
     var _yoff = (sprite_get_yoffset(argument0) * image_yscale)
-    var _sprite_width = (sprite_get_width(argument0) * image_xscale)
-    var _sprite_height = (sprite_get_width(argument0) * image_yscale)
+    var _sprite_width = (sprite_get_x_dimension(argument0) * image_xscale)
+    var _sprite_height = (sprite_get_x_dimension(argument0) * image_yscale)
     draw_sprite_ext(argument0, argument1, (argument2 - (((_sprite_width - _xoff) * (argument4 - image_xscale)) / 2)), (argument3 - (((_sprite_height - _yoff) * (argument5 - image_yscale)) / 2)), argument4, argument5, argument6, argument7, argument8)
 }
 
 function draw_sprite_ext_flash(argument0, argument1, argument2, argument3, argument4, argument5, argument6, argument7, argument8) {
     gpu_set_fog(true, argument7, 0, 1)
     draw_sprite_ext(argument0, argument1, argument2, argument3, argument4, argument5, argument6, argument7, argument8)
-    gpu_set_fog(false, c_black, 0, 0)
+    gpu_set_fog(false, #000000, 0, 0)
 }
 
 function draw_sprite_ext_glow() {
-    var color = (argument_count > 9 ? argument[9] : c_white)
-    var blend = (color != c_white ? merge_color(argument[7], color, glow) : argument[7])
+    var color = (argument_count > 9 ? argument[9] : #FFFFFF)
+    var blend = (color != #FFFFFF ? merge_color(argument[7], color, glow) : argument[7])
     if (glow < 1) { draw_sprite_ext(argument[0], argument[1], argument[2], argument[3], argument[4], argument[5], argument[6], blend, argument[8]) }
     if (glow > 0) {
-        if (color == c_white) { generic_graphics_set_blend_mode(ADDITIVE_BLEND_MODE) }
+        if (color == #FFFFFF) { gamemaker_graphics_set_blend_mode(ADDITIVE_BLEND_MODE) }
         gpu_set_fog(true, color, 0, 1)
         draw_sprite_ext(argument[0], argument[1], argument[2], argument[3], argument[4], argument[5], argument[6], argument[7], glow)
-        gpu_set_fog(false, c_black, 0, 0)
-        if (color == c_white) { generic_graphics_set_blend_mode(DEFAULT_BLEND_MODE) }
+        gpu_set_fog(false, #000000, 0, 0)
+        if (color == #FFFFFF) { gamemaker_graphics_set_blend_mode(DEFAULT_BLEND_MODE) }
     }
 }
 
@@ -58,8 +58,8 @@ function draw_sprite_ext_mode(argument0, argument1, argument2, argument3, argume
     var hskew = argument9
     var vskew = argument10
     var sprTex = sprite_get_texture(sprite, index)
-    var sprWidth = sprite_get_width(sprite)
-    var sprHeight = sprite_get_height(sprite)
+    var sprWidth = sprite_get_x_dimension(sprite)
+    var sprHeight = sprite_get_y_dimension(sprite)
     var sprXOrig = sprite_get_xoffset(sprite)
     var sprYOrig = sprite_get_yoffset(sprite)
     var _nn = 0
@@ -84,27 +84,27 @@ function draw_sprite_ext_pivotscale(argument0, argument1, argument2, argument3, 
 }
 
 function draw_sprite_part_ext_glow() {
-    var color = (argument_count > 12 ? argument[12] : c_white)
-    var blend = (color != c_white ? merge_color(argument[10], color, glow) : argument[10])
+    var color = (argument_count > 12 ? argument[12] : #FFFFFF)
+    var blend = (color != #FFFFFF ? merge_color(argument[10], color, glow) : argument[10])
     if (glow < 1) { draw_sprite_part_ext(argument[0], argument[1], argument[2], argument[3], argument[4], argument[5], argument[6], argument[7], argument[8], argument[9], blend, argument[11]) }
     if (glow > 0) {
-        if (color == c_white) { generic_graphics_set_blend_mode(ADDITIVE_BLEND_MODE) }
+        if (color == #FFFFFF) { gamemaker_graphics_set_blend_mode(ADDITIVE_BLEND_MODE) }
         gpu_set_fog(true, color, 0, 1)
         draw_sprite_part_ext(argument[0], argument[1], argument[2], argument[3], argument[4], argument[5], argument[6], argument[7], argument[8], argument[9], argument[10], glow)
-        gpu_set_fog(false, c_black, 0, 0)
-        if (color == c_white) { generic_graphics_set_blend_mode(DEFAULT_BLEND_MODE) }
+        gpu_set_fog(false, #000000, 0, 0)
+        if (color == #FFFFFF) { gamemaker_graphics_set_blend_mode(DEFAULT_BLEND_MODE) }
     }
 }
 
 function draw_sprite_part_parallax(argument0, argument1, argument2, argument3, argument4) {
     var _mysprite = argument0
-    var _mywidth = sprite_get_width(argument0)
-    var _myheight = sprite_get_height(argument0)
+    var _mywidth = sprite_get_x_dimension(argument0)
+    var _myheight = sprite_get_y_dimension(argument0)
     var _xoffset = (argument2 % _mywidth)
     var _yoffset = (argument3 % _myheight)
     if (_xoffset < 0) { _xoffset += _mywidth }
     if (_yoffset < 0) { _yoffset += _myheight }
-    if (_xoffset == 0 && _yoffset == 0) { draw_sprite_ext(argument0, argument1, x, y, 2, 2, 0, image_blend, argument4) } else {
+    if (_xoffset == 0 and _yoffset == 0) { draw_sprite_ext(argument0, argument1, x, y, 2, 2, 0, image_blend, argument4) } else {
         draw_sprite_part_ext(argument0, argument1, 0, 0, (_mywidth - _xoffset), (_myheight - _yoffset), (x + (_xoffset * 2)), (y + (_yoffset * 2)), 2, 2, image_blend, argument4)
         draw_sprite_part_ext(argument0, argument1, (_mywidth - _xoffset), (_myheight - _yoffset), _xoffset, _yoffset, x, y, 2, 2, image_blend, argument4)
         draw_sprite_part_ext(argument0, argument1, 0, (_myheight - _yoffset), (_mywidth - _xoffset), _yoffset, (x + (_xoffset * 2)), y, 2, 2, image_blend, argument4)
@@ -115,15 +115,15 @@ function draw_sprite_part_parallax(argument0, argument1, argument2, argument3, a
 function draw_sprite_part_parallax_scale(argument0, argument1, argument2, argument3, argument4, argument5) {
     var _scale = argument5
     var _mysprite = argument0
-    var _mywidth = sprite_get_width(argument0)
-    var _myheight = sprite_get_height(argument0)
+    var _mywidth = sprite_get_x_dimension(argument0)
+    var _myheight = sprite_get_y_dimension(argument0)
     var _xoffset = (argument2 % _mywidth)
     var _yoffset = (argument3 % _myheight)
     if (_xoffset < 0) { _xoffset += _mywidth }
     if (_yoffset < 0) { _yoffset += _myheight }
     var _xmax = (_mywidth * (2 / _scale))
     var _ymax = (_myheight * (2 / _scale))
-    if (_xoffset == 0 && _yoffset == 0) { draw_sprite_ext(argument0, argument1, x, y, 2, 2, 0, image_blend, argument4) } else {
+    if (_xoffset == 0 and _yoffset == 0) { draw_sprite_ext(argument0, argument1, x, y, 2, 2, 0, image_blend, argument4) } else {
         draw_sprite_part_ext(argument0, argument1, 0, 0, (_xmax - _xoffset), (_ymax - _yoffset), (x + (_xoffset * _scale)), (y + (_yoffset * _scale)), _scale, _scale, image_blend, argument4)
         draw_sprite_part_ext(argument0, argument1, (_mywidth - _xoffset), (_myheight - _yoffset), min(_xmax, _xoffset), min(_ymax, _yoffset), x, y, _scale, _scale, image_blend, argument4)
         draw_sprite_part_ext(argument0, argument1, 0, (_ymax - _yoffset), min(_xmax, (_xmax - _xoffset)), min(_ymax, _yoffset), (x + (_xoffset * _scale)), y, _scale, _scale, image_blend, argument4)
@@ -149,8 +149,8 @@ function draw_sprite_skew_ext(argument0, argument1, argument2, argument3, argume
     var hskew = argument9
     var vskew = argument10
     var sprTex = sprite_get_texture(sprite, index)
-    var sprWidth = sprite_get_width(sprite)
-    var sprHeight = sprite_get_height(sprite)
+    var sprWidth = sprite_get_x_dimension(sprite)
+    var sprHeight = sprite_get_y_dimension(sprite)
     var sprXOrig = sprite_get_xoffset(sprite)
     var sprYOrig = sprite_get_yoffset(sprite)
     draw_primitive_begin_texture(5, sprTex)
@@ -183,8 +183,8 @@ function draw_sprite_skew_ext_cute(argument0, argument1, argument2, argument3, a
     var hskew = argument9
     var vskew = argument10
     var sprTex = sprite_get_texture(sprite, index)
-    var sprWidth = sprite_get_width(sprite)
-    var sprHeight = sprite_get_height(sprite)
+    var sprWidth = sprite_get_x_dimension(sprite)
+    var sprHeight = sprite_get_y_dimension(sprite)
     var sprXOrig = sprite_get_xoffset(sprite)
     var sprYOrig = sprite_get_yoffset(sprite)
     var _nn = 0
@@ -207,11 +207,11 @@ function draw_sprite_skew_ext_cute(argument0, argument1, argument2, argument3, a
 function scr_draw_sprite_crop(argument0, argument1, argument2, argument3, argument4, argument5, argument6, argument7) {
     var _sprite_xoffset = sprite_get_xoffset(argument0)
     var _sprite_yoffset = sprite_get_yoffset(argument0)
-    var _sprite_width = sprite_get_width(argument0)
-    var _sprite_height = sprite_get_height(argument0)
+    var _sprite_width = sprite_get_x_dimension(argument0)
+    var _sprite_height = sprite_get_y_dimension(argument0)
     var _true_xanchor = (x - abs(sprite_xoffset))
     var _true_yanchor = (y - abs(sprite_yoffset))
-    if (_true_xanchor > argument2 && (_true_xanchor + _sprite_width) < argument4 && _true_yanchor > argument3 && (_true_yanchor + _sprite_height) < argument5) {
+    if (_true_xanchor > argument2 and (_true_xanchor + _sprite_width) < argument4 and _true_yanchor > argument3 and (_true_yanchor + _sprite_height) < argument5) {
         draw_self()
         return;
     }
@@ -225,11 +225,11 @@ function scr_draw_sprite_crop(argument0, argument1, argument2, argument3, argume
 function scr_draw_sprite_crop_ext(argument0, argument1, argument2, argument3, argument4, argument5, argument6, argument7, argument8, argument9, argument10, argument11) {
     var _sprite_xoffset = sprite_get_xoffset(argument0)
     var _sprite_yoffset = sprite_get_yoffset(argument0)
-    var _sprite_width = (sprite_get_width(argument0) * argument8)
-    var _sprite_height = (sprite_get_height(argument0) * argument9)
+    var _sprite_width = (sprite_get_x_dimension(argument0) * argument8)
+    var _sprite_height = (sprite_get_y_dimension(argument0) * argument9)
     var _true_xanchor = (x - (abs(_sprite_xoffset) * argument8))
     var _true_yanchor = (y - (abs(_sprite_yoffset) * argument9))
-    if (_true_xanchor > argument2 && (_true_xanchor + _sprite_width) < argument4 && _true_yanchor > argument3 && (_true_yanchor + _sprite_height) < argument5) {
+    if (_true_xanchor > argument2 and (_true_xanchor + _sprite_width) < argument4 and _true_yanchor > argument3 and (_true_yanchor + _sprite_height) < argument5) {
         draw_sprite_ext(argument0, argument1, argument6, argument7, argument8, argument9, 0, argument10, argument11)
         return;
     }
@@ -251,10 +251,10 @@ function scr_draw_sprite_tiled_area() {
     var y2 = argument[7]
     var xscale = argument[8]
     var yscale = argument[9]
-    var col = (argument_count > 10 ? argument[10] : c_white)
+    var col = (argument_count > 10 ? argument[10] : #FFFFFF)
     var alpha = (argument_count > 11 ? argument[11] : 1)
-    var sw = (sprite_get_width(sprite) * xscale)
-    var sh = (sprite_get_height(sprite) * yscale)
+    var sw = (sprite_get_x_dimension(sprite) * xscale)
+    var sh = (sprite_get_y_dimension(sprite) * yscale)
     var i = ((x1 - ((x1 % sw) - (xx % sw))) - (sw * (x1 % sw) < (xx % sw)))
     var j = ((y1 - ((y1 % sh) - (yy % sh))) - (sh * (y1 % sh) < (yy % sh)))
     var jj = j
@@ -289,7 +289,7 @@ function scr_draw_sprite_tiled_area() {
 
 // WRAPPER FOR NATIVE GAMEMAKER SPRITE ASSET
 function SpriteAssetGeneric() constructor {
-    get_width = function() {
+    get_x_dimension = function() {
 
     }
 }
@@ -334,7 +334,7 @@ function sprite_get_fps(_sprite) {
     }
 }
 
-function gpl_sprite_draw(arguments) {
+function gamemaker_sprite_draw(arguments) {
 
     /*******************************************************************************
     –––––––––––––––––––– INTERNAL: DRAW METHODS ––––––––––––––––––––
@@ -421,14 +421,14 @@ function gpl_sprite_draw(arguments) {
             arguments.screen_y -= arguments.outline.width
         }
 
-        var surface = gpl_surface_create({ x_dimension : _surface_width, y_dimension : _surface_height })
+        var surface = gamemaker_surface_create({ x_dimension : _surface_width, y_dimension : _surface_height })
         render_target_set_surface({ surface })
-        draw_clear_alpha(c_white, 0)
+        draw_clear_alpha(#FFFFFF, 0)
 
         /* –––––––––––––––––––– DRAW TO SURFACE –––––––––––––––––––– */
-        if (arguments.nine_slice) { gpl_sprite_draw.draw_method_nine_slice(arguments) }
-        else if (arguments.tiled) { gpl_sprite_draw.draw_method_tiled(arguments) }
-        else { gpl_sprite_draw.draw_method_default(arguments) }
+        if (arguments.nine_slice) { gamemaker_sprite_draw.draw_method_nine_slice(arguments) }
+        else if (arguments.tiled) { gamemaker_sprite_draw.draw_method_tiled(arguments) }
+        else { gamemaker_sprite_draw.draw_method_default(arguments) }
         render_target_reset_surface()
 
         /* –––––––––––––––––––– APPLY SHADER –––––––––––––––––––– */
@@ -472,7 +472,7 @@ function gpl_sprite_draw(arguments) {
         draw_surface(surface, arguments.screen_x, arguments.screen_y)
 
         /* –––––––––––––––––––– SURFACE & SHADER CLEANUP –––––––––––––––––––– */
-        generic_surface_destroy({ surface : surface })
+        gamemaker_surface_destroy({ surface : surface })
         shader_reset()
 
         /* –––––––––––––––––––– PRESERVE PREVIOUS SHADER –––––––––––––––––––– */
@@ -498,16 +498,16 @@ function gpl_sprite_draw(arguments) {
         fragment : arguments[$ "fragment"] ?? {
             x : 0,
             y : 0,
-            width : sprite_get_width(arguments.sprite),
-            height : sprite_get_height(arguments.sprite),
+            width : sprite_get_x_dimension(arguments.sprite),
+            height : sprite_get_y_dimension(arguments.sprite),
         },
 
-        colour : arguments[$ "colour"] ?? c_white,
+        colour : arguments[$ "colour"] ?? #FFFFFF,
         gradient : arguments[$ "gradient"] ?? {
-            top_left : c_white,
-            top_right : c_white,
-            bottom_right : c_white,
-            bottom_left : c_white,
+            top_left : #FFFFFF,
+            top_right : #FFFFFF,
+            bottom_right : #FFFFFF,
+            bottom_left : #FFFFFF,
         },
 
         tiled : arguments[$ "tiled"] == undefined ? false : true,
@@ -536,7 +536,7 @@ function gpl_sprite_draw(arguments) {
     *******************************************************************************/
 
     if (struct_exists(arguments, "image_speed")) {
-        if (arguments.image_speed == MODE_DEFAULT || arguments.image_speed == "default") {
+        if (arguments.image_speed == MODE_DEFAULT or arguments.image_speed == "default") {
             parameters.frame = (parameters.seconds * sprite_get_fps(arguments.sprite)) % sprite_get_number(arguments.sprite)
         } else {
             parameters.frame = (parameters.seconds * arguments.image_speed) % sprite_get_number(arguments.sprite)
@@ -588,10 +588,10 @@ function gpl_sprite_draw(arguments) {
     –––––––––––––––––––– ALIGNMENT ––––––––––––––––––––
     *******************************************************************************/
 
-    if (struct_exists(arguments, "align") && arguments.align == "center") {
-        parameters.x -= sprite_get_width(parameters.sprite) * parameters.xscale / 2
-        parameters.y -= sprite_get_height(parameters.sprite) * parameters.yscale / 2
-    } else if (!struct_exists(arguments, "ignore_offset") || arguments.ignore_offset == false) {
+    if (struct_exists(arguments, "align") and arguments.align == "center") {
+        parameters.x -= sprite_get_x_dimension(parameters.sprite) * parameters.xscale / 2
+        parameters.y -= sprite_get_y_dimension(parameters.sprite) * parameters.yscale / 2
+    } else if (!struct_exists(arguments, "ignore_offset") or arguments.ignore_offset == false) {
         parameters.x -= sprite_get_xoffset(parameters.sprite) * parameters.xscale
         parameters.y -= sprite_get_yoffset(parameters.sprite) * parameters.yscale
     }
@@ -674,7 +674,7 @@ function gpl_sprite_draw(arguments) {
 /// @return {struct.Texture}
 /// <return_description>
 /// ----------------------------------------------------------------------------
-function generic_sprite_get_texture(parameters) {
+function gamemaker_sprite_get_texture(parameters) {
 
 }
 
@@ -690,7 +690,7 @@ function generic_sprite_get_texture(parameters) {
 /// @return {pointer.Texture}
 /// <return_description>
 /// ----------------------------------------------------------------------------
-function generic_sprite_get_texture_pointer(parameters) {
+function gamemaker_sprite_get_texture_pointer(parameters) {
 
     var _sprite_handle =
     var _frame_index   =
@@ -716,10 +716,10 @@ SPRITE
 function Sprite() constructor {
 
     /// @function get_texture(parameters)
-    static get_texture = generic_sprite_get_texture
+    static get_texture = gamemaker_sprite_get_texture
 
     /// @function get_texture_pointer(parameters)
-    static get_texture_pointer = generic_sprite_get_texture_pointer
+    static get_texture_pointer = gamemaker_sprite_get_texture_pointer
 
 }
 

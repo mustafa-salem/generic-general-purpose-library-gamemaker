@@ -8,22 +8,22 @@ function create_buffer_generic(arguments = {}) {
 }
 
 /// @function (arguments)
-function exists_buffer_generic(arguments = {}) {
+function gamemaker_buffer_exists(arguments = {}) {
     return buffer_exists(_buffer_id)
 }
 
 /// @function (arguments)
-function delete_buffer_generic(arguments = {}) {
+function gamemaker_buffer_delete(arguments = {}) {
     buffer_delete(_buffer_id)
 }
 
 /// @function (arguments)
-function read_buffer_generic(arguments = {}) {
+function gamemaker_buffer_read(arguments = {}) {
     buffer_read(_buffer_id, _buffer_data_type_constant)
 }
 
 /// @function (arguments)
-function write_buffer_generic(arguments = {}) {
+function gamemaker_buffer_write(arguments = {}) {
     buffer_write(_buffer_id, _buffer_data_type_constant, _value)
 }
 

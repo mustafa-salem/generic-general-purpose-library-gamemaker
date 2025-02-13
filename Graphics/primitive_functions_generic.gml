@@ -2,7 +2,7 @@
 #region    –––––––––––––––––––– DRAW TRIANGLE ––––––––––––––––––––
 /*******************************************************************************/
 
-function draw_triangle_generic(arguments = {}) {
+function gamemaker_triangle_draw(arguments = {}) {
 
     /*******************************************************************************
     –––––––––––––––––––– PARAMETERS ––––––––––––––––––––
@@ -13,7 +13,7 @@ function draw_triangle_generic(arguments = {}) {
     var parameters = {
 		// BASIC
         vertices : a.vertices,
-        colours : a[$ "colours"] ?? array_create(3, c_white),
+        colours : a[$ "colours"] ?? array_create(3, #FFFFFF),
         outline : false,
 
 		// ADDITIONAL

@@ -40,11 +40,11 @@
 /// @return {type}
 /// <return_description>
 /// ----------------------------------------------------------------------------
-function generic_texture_get(parameters = {}) {
+function gamemaker_texture_get(parameters = {}) {
 
 }
 
-function generic_texture_get_pointer(parameters = {}) {
+function gamemaker_texture_get_pointer(parameters = {}) {
 
 }
 
@@ -61,10 +61,10 @@ TEXTURE
 function Texture() constructor {
 
     /// @function get(parameters)
-    static get = generic_texture_get
+    static get = gamemaker_texture_get
 
     /// @function get_pointer(parameters)
-    static get_pointer = generic_texture_get_pointer
+    static get_pointer = gamemaker_texture_get_pointer
 
 }
 

@@ -9,56 +9,55 @@
 /*
 
 # IDENTIFIERS
-* gpl_room_get
-* generic_room_get_id
-* generic_room_get_handle
-* generic_room_get_name
+* gamemaker_room_get
+* gamemaker_room_get_id
+* gamemaker_room_get_handle
+* gamemaker_room_get_name
 
 #
-* generic_room_get_display_name
+* gamemaker_room_get_displayname
 
 # EXISTANCE
-* generic_room_exists
-* generic_room_create
+* gamemaker_room_exists
+* gamemaker_room_create
 
 # DIMENSIONS
-* generic_room_get_x_dimension
-* generic_room_get_y_dimension
-* generic_room_set_dimensions
+* gamemaker_room_get_x_dimension
+* gamemaker_room_get_y_dimension
+* gamemaker_room_set_dimensions
 
 # CAMERA & VIEW
 *
 
-* generic_room_get_persistent
-* gpl_room_set_persistent
+* gamemaker_room_get_persistent
+* gamemaker_room_set_persistent
 
 # OTHER
-* generic_room_set_event
-* gpl_room_goto
-* gpl_room_restart
+* gamemaker_room_set_event
+* gamemaker_room_goto
+* gamemaker_room_restart
 
 */
 /// ----------------------------------------------------------------------------
 
-/// ----------------------------------------------------------------------------
-/// @function gpl_room_add(parameters)
+
 /// ----------------------------------------------------------------------------
 /// @description
-/// <function_description>
+/// This function is used to create a new room asset.
 /// ----------------------------------------------------------------------------
-/// @parameter {string} [name]
+/// @parameter {string} name
 /// <parameter_description>
-///
 /// ----------------------------------------------------------------------------
-/// @return {type}
+/// @return {struct}
 /// <return_description>
 /// ----------------------------------------------------------------------------
-function gpl_room_add(parameters = {}) {
-    return room_add()
+function gamemaker_room_create(parameters = {}) {
+    var _handle = room_add()
+    return new Room()
 }
 
 /// ----------------------------------------------------------------------------
-/// @function gpl_room_get(parameters)
+/// @function gamemaker_room_get(parameters)
 /// ----------------------------------------------------------------------------
 /// @description
 /// <function_description>
@@ -70,12 +69,12 @@ function gpl_room_add(parameters = {}) {
 /// @return {struct|undefined}
 /// <return_description>
 /// ----------------------------------------------------------------------------
-function gpl_room_get(parameters = {}) {
+function gamemaker_room_get(parameters = {}) {
     return _return
 }
 
 /// ----------------------------------------------------------------------------
-/// @function generic_room_get_id(parameters)
+/// @function gamemaker_room_get_id(parameters)
 /// ----------------------------------------------------------------------------
 /// @description
 /// <function_description>
@@ -87,12 +86,12 @@ function gpl_room_get(parameters = {}) {
 /// @return {integer|undefined}
 /// <return_description>
 /// ----------------------------------------------------------------------------
-function generic_room_get_id(parameters = {}) {
+function gamemaker_room_get_id(parameters = {}) {
     return _return
 }
 
 /// ----------------------------------------------------------------------------
-/// @function generic_room_get_handle(parameters)
+/// @function gamemaker_room_get_handle(parameters)
 /// ----------------------------------------------------------------------------
 /// @description
 /// <function_description>
@@ -104,12 +103,12 @@ function generic_room_get_id(parameters = {}) {
 /// @return {handle|undefined}
 /// <return_description>
 /// ----------------------------------------------------------------------------
-function generic_room_get_handle(parameters = {}) {
+function gamemaker_room_get_handle(parameters = {}) {
     return _return
 }
 
 /// ----------------------------------------------------------------------------
-/// @function generic_room_get_name(parameters)
+/// @function gamemaker_room_get_name(parameters)
 /// ----------------------------------------------------------------------------
 /// @description
 /// <function_description>
@@ -121,12 +120,12 @@ function generic_room_get_handle(parameters = {}) {
 /// @return {string|undefined}
 /// <return_description>
 /// ----------------------------------------------------------------------------
-function generic_room_get_name(parameters = {}) {
+function gamemaker_room_get_name(parameters = {}) {
     return _return
 }
 
 /// ----------------------------------------------------------------------------
-/// @function gpl_room_set_dimensions(parameters)
+/// @function gamemaker_room_set_dimensions(parameters)
 /// ----------------------------------------------------------------------------
 /// @description
 /// <function_description>
@@ -143,7 +142,7 @@ function generic_room_get_name(parameters = {}) {
 /// ----------------------------------------------------------------------------
 /// @return {undefined}
 /// ----------------------------------------------------------------------------
-function gpl_room_set_dimensions(parameters = {}) {
+function gamemaker_room_set_dimensions(parameters = {}) {
     var _room        = parameters[$ "room"]
     var _x_dimension = parameters[$ "x"]
     var _y_dimension = parameters[$ "y"]
@@ -165,21 +164,17 @@ function gpl_room_set_dimensions(parameters = {}) {
 }
 
 /// ----------------------------------------------------------------------------
-/// @function gpl_room_set_persistent(parameters)
-/// ----------------------------------------------------------------------------
 /// @description
 /// <function_description>
 /// ----------------------------------------------------------------------------
 /// @parameter {type} room
 /// <parameter_description>
-///
 /// @parameter {boolean} persistent
 /// <parameter_description>
-///
 /// ----------------------------------------------------------------------------
 /// @return {undefined}
 /// ----------------------------------------------------------------------------
-function gpl_room_set_persistent(parameters = {}) {
+function gamemaker_room_set_persistent(parameters = {}) {
     var _room       = parameters[$ "room"]
     var _persistent = parameters[$ "persistent"]
     if (_room == room) {
@@ -191,7 +186,7 @@ function gpl_room_set_persistent(parameters = {}) {
 }
 
 /// ----------------------------------------------------------------------------
-/// @function gpl_room_goto(parameters)
+/// @function gamemaker_room_goto(parameters)
 /// ----------------------------------------------------------------------------
 /// @description
 /// <function_description>
@@ -208,16 +203,16 @@ function gpl_room_set_persistent(parameters = {}) {
 /// @return {type}
 /// <return_description>
 /// ----------------------------------------------------------------------------
-function gpl_room_goto(parameters) {
+function gamemaker_room_goto(parameters) {
     var _room = parameters[$ "room"]
 
-    var _room_handle = generic_room_get_handle({ room : _room })
+    var _room_handle = gamemaker_room_get_handle({ room : _room })
 
     room_goto(_room_handle)
 }
 
 /// ----------------------------------------------------------------------------
-/// @function gpl_room_get_entryway(parameters)
+/// @function gamemaker_room_get_entryway(parameters)
 /// ----------------------------------------------------------------------------
 /// @description
 /// <function_description>
@@ -229,12 +224,12 @@ function gpl_room_goto(parameters) {
 /// @return {type}
 /// <return_description>
 /// ----------------------------------------------------------------------------
-function gpl_room_get_entryway(parameters = {}) {
+function gamemaker_room_get_entryway(parameters = {}) {
     Room.private.entrance = parameters.entrance
 }
 
 /// ----------------------------------------------------------------------------
-/// @function gpl_room_restart(parameters)
+/// @function gamemaker_room_restart(parameters)
 /// ----------------------------------------------------------------------------
 /// @description
 /// <function_description>
@@ -246,7 +241,7 @@ function gpl_room_get_entryway(parameters = {}) {
 /// @return {type}
 /// <return_description>
 /// ----------------------------------------------------------------------------
-function gpl_room_restart(parameters = {}) {
+function gamemaker_room_restart(parameters = {}) {
     room_restart()
 }
 
@@ -288,7 +283,7 @@ function Room() constructor {
 
     /// @function create(parameters)
     static create = function(parameters) {
-        return generic_room_create(parameters)
+        return gamemaker_room_create(parameters)
     }
 
     #endregion –––––––––––––––––––– CREATE ––––––––––––––––––––
@@ -305,7 +300,7 @@ function Room() constructor {
 
     /// @function get_id(parameters)
     static get_id = function(parameters) {
-        return generic_room_get_id(parameters)
+        return gamemaker_room_get_id(parameters)
     }
 
     /// @function get_id(parameters)
@@ -313,7 +308,7 @@ function Room() constructor {
 
     /// @function get_handle(parameters)
     static get_handle = function(parameters) {
-        return generic_room_get_handle(parameters)
+        return gamemaker_room_get_handle(parameters)
     }
 
     /// @function get_handle(parameters)
@@ -321,7 +316,7 @@ function Room() constructor {
 
     /// @function get_name(parameters)
     static get_name = function(parameters) {
-        return generic_room_get_name(parameters)
+        return gamemaker_room_get_name(parameters)
     }
 
     /// @function get_name(parameters)
@@ -360,7 +355,7 @@ function Room() constructor {
 
     /// @function go_to(parameters)
     static go_to = method(static_get(Room), function(parameters) {
-        return gpl_room_goto(parameters)
+        return gamemaker_room_goto(parameters)
     })
 
     /// @function go_to(parameters)
