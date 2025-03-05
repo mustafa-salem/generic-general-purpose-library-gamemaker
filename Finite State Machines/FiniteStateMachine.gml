@@ -82,7 +82,7 @@ function finite_state_machine_create() {
 /// # Events
 /// * has_event
 /// * add_event
-/// * execute_parent_event
+/// * execute_parentevent
 ///
 /// # Event Listeners
 /// * add_event_listener
@@ -564,7 +564,7 @@ function FiniteStateMachine() constructor {
 	}
 
 	/// ----------------------------------------------------------------------------
-	/// @function execute_parent_event(parameters)
+	/// @function execute_parentevent(parameters)
 	/// ----------------------------------------------------------------------------
 	/// @description
 	/// This function is used to execute the current event of the parent state.
@@ -574,7 +574,7 @@ function FiniteStateMachine() constructor {
 	/// ----------------------------------------------------------------------------
 	/// @return {struct.FiniteStateMachine} self
 	/// ----------------------------------------------------------------------------
-	execute_parent_event = function(parameters = {}) {
+	execute_parentevent = function(parameters = {}) {
 		var _state_name = private.history_contents[0]
 
 		if (private.state_parent_name[$ _state_name] == undefined) {
@@ -1049,7 +1049,7 @@ function FiniteStateMachine() constructor {
 	/// @function __try_triggering_transition(parameters)
 	/// ----------------------------------------------------------------------------
 	/// @parameter {Struct} arguments { transitions : Array<Struct>, source_state_name : String, trigger_name : String, arguments : [Array<Any>] }
-	/// @return {Bool} Whether the trigger_transition is successful (true), or not (false)
+	/// @return {boolean} Whether the trigger_transition is successful (true), or not (false)
 	__try_triggering_transition = function(arguments = {}) {
 		var _transitions       = arguments[$ "transitions"]
 		var _source_state_name = arguments[$ "source_state_name"]

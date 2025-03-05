@@ -144,7 +144,7 @@ function scr_draw_circle_width(argument0, argument1, argument2, argument3) {
         draw_circle(argument2, argument2, argument2, 0)
         gpu_set_blendmode(bm_subtract)
         draw_circle(argument2, argument2, (argument2 - argument3), 0)
-        gamemaker_graphics_set_blend_mode({ blend_mode : DEFAULT_BLEND_MODE })
+        gamemaker_blendmode_set({ blendmode : DEFAULT_BLENDMODE })
         surface_reset_target()
     }
     gamemaker_surface_draw({

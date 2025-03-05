@@ -76,7 +76,7 @@ function ViewPortGeneric(arguments) constructor {
     /// @description
     /// proxy for gamemaker_viewport_is_visible
     /// ----------------------------------------------------------------------------
-    /// @return {Bool}
+    /// @return {boolean}
     /// ----------------------------------------------------------------------------
     static get_visible = function(arguments = {}) {
         var _is_instance_scope = is_instanceof(self, ViewPortGeneric)
@@ -459,7 +459,7 @@ function gamemaker_viewport_get_index(arguments = {}) {
 /// @parameter {Struct.ViewPortGeneric|Real} arguments.view_port
 /// The view port to target or its index (0 - 7).
 /// ----------------------------------------------------------------------------
-/// @return {Bool}
+/// @return {boolean}
 ///  Whether the view port with the provided index is visible.
 /// ----------------------------------------------------------------------------
 function gamemaker_viewport_is_visible(arguments = {}) {

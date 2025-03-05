@@ -331,7 +331,7 @@ function gamemaker_object_instance_create(parameters = {}) {
 /// * Struct.ObjectInstance
 /// * Id.ObjectInstance
 ///
-/// @parameter {Bool} arguments.execute_destroy_event
+/// @parameter {boolean} arguments.execute_destroy_event
 /// Whether to execute the destroy event of the object instance being destroyed.
 /// ----------------------------------------------------------------------------
 /// @return {Any} self
@@ -368,6 +368,11 @@ function object_instance_destroy(_object_instance = self) {
             instance_destroy(_object_instance)
         }
     }
+}
+
+function is_instance_of_object(arguments) {
+    var _child_object_index  = arguments[$ "child_object_index"] ?? self.object_index
+    var _parent_object_index = arguments.parent_object_index
 }
 
 function object_instance_get_x_position(parameters = {}) {
@@ -511,8 +516,6 @@ function object_instance_get_sequence_instance(parameters = {}) {
 }
 
 /// ----------------------------------------------------------------------------
-/// @function object_instance_execute_parent_event(parameters)
-/// ----------------------------------------------------------------------------
 /// @description
 /// This is a generification of 'event_inherited'.
 ///
@@ -524,7 +527,7 @@ function object_instance_get_sequence_instance(parameters = {}) {
 /// @return {type}
 /// <return_description>
 /// ----------------------------------------------------------------------------
-function object_instance_execute_parent_event(parameters = {}) {
+function gamemaker_object_instance_execute_parentevent(parameters = {}) {
     return _return
 }
 
@@ -623,7 +626,7 @@ function ObjectInstance() : AssetInstanceGeneric() constructor {
     /// @parameter {Id.Instance}   [arguments.object_instance=id] - Object Instance
     /// @parameter {Asset.GMObject} arguments.object              - Object
     /// ----------------------------------------------------------------------------
-    /// @return {Bool}
+    /// @return {boolean}
     /// ----------------------------------------------------------------------------
     static is_instance_of = function(arguments) {
         var _object_instance = arguments[$ "object_instance"] ?? id
@@ -735,8 +738,8 @@ function ObjectInstance() : AssetInstanceGeneric() constructor {
         }
     }
 
-    execute_parent_event = function(parameters) {
-        object_instance_execute_parent_event(parameters)
+    execute_parentevent = function(parameters) {
+        gamemaker_object_instance_execute_parentevent(parameters)
         return self
     }
 

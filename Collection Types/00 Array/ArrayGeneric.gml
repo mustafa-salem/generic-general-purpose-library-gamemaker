@@ -42,7 +42,7 @@ function ArrayGeneric() constructor {
     /// @parameter {Type} arguments.index
     /// <parameter_description>
     /// ----------------------------------------------------------------------------
-    /// @return {Bool}
+    /// @return {boolean}
     /// <return_description>
     /// ----------------------------------------------------------------------------
     static exists_element = function(arguments = {}) {

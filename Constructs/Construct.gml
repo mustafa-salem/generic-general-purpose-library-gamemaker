@@ -89,8 +89,25 @@ function Construct() constructor {
 
 }
 
-gamemaker_object_set_event({ object : construct_object, callable : function() {
+/// ----------------------------------------------------------------------------
+/// construct_object
+/// ----------------------------------------------------------------------------
+gamemaker_object_get({ object : construct_object })
+.set_event({ event : "create_event", callable : function() {
     if (not variable_instance_exists(self, "construct_instance")) {
         construct_instance = myconstructor()
     }
+    execute_parentevent(argument0)
+}})
+.set_event({ event : "destroy_event", callable : function() {
+    construct_instance.execute_event({ event : "destroy_event" })
+    execute_parentevent(argument0)
+}})
+.set_event({ event : "cleanup_event", callable : function() {
+    construct_instance.execute_event({ event : "cleanup_event" })
+    execute_parentevent(argument0)
+}})
+.set_event({ event : "step_event", callable : function() {
+    construct_instance.execute_event({ event : "step_event" })
+    execute_parentevent(argument0)
 }})

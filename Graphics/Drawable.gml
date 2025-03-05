@@ -388,7 +388,7 @@ function Drawable() constructor {
     }
 
     /// ----------------------------------------------------------------------------
-    /// @function get_blend_mode(parameters)
+    /// @function get_blendmode(parameters)
     /// ----------------------------------------------------------------------------
     /// @description
     /// <function_description>
@@ -400,7 +400,7 @@ function Drawable() constructor {
     /// @return {type}
     /// <return_description>
     /// ----------------------------------------------------------------------------
-    get_blend_mode = function(parameters = {}) {
+    get_blendmode = function(parameters = {}) {
         return _return
     }
 

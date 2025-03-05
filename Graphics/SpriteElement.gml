@@ -109,11 +109,11 @@ function SpriteElement() constructor {
 	/// ----------------------------------------------------------------------------
 	private.blend_colour = 0
 	private.blend_alpha  = 0
-	private.blend_mode   = 0
+	private.blendmode   = 0
 
 	self.get_blend_colour = method(self, Drawable.get_blend_colour)
 	self.get_blend_alpha  = method(self, Drawable.get_blend_alpha)
-	self.get_blend_mode   = method(self, Drawable.get_blend_mode)
+	self.get_blendmode   = method(self, Drawable.get_blendmode)
 	self.set_blend        = method(self, Drawable.set_blend)
 
     /// ----------------------------------------------------------------------------

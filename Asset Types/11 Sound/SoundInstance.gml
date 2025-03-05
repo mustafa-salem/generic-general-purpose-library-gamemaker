@@ -32,7 +32,7 @@ function SoundInstance() constructor {
     /// @function stop(arguments)
     /// @description self-targeting gamemaker_sound_exists
     /// @parameter {Struct} arguments
-    /// @return {Bool}
+    /// @return {boolean}
     exists = function(arguments = {}) {
         arguments.target = self
         return gamemaker_sound_exists(arguments)
@@ -58,7 +58,7 @@ function SoundInstance() constructor {
     /// @function paused(arguments)
     /// @description self-targeting sound_is_paused
     /// @parameter {Struct} arguments
-    /// @return {Bool}
+    /// @return {boolean}
     paused = function(arguments = {}) {
         arguments.target = self
         return sound_is_paused(arguments)
@@ -67,7 +67,7 @@ function SoundInstance() constructor {
     /// @function stop(arguments)
     /// @description self-targeting gamemaker_sound_is_looping
     /// @parameter {Struct} arguments
-    /// @return {Bool}
+    /// @return {boolean}
     looping = function(arguments = {}) {
         arguments.target = self
         return gamemaker_sound_is_looping(arguments)
@@ -76,7 +76,7 @@ function SoundInstance() constructor {
     /// @function stop(arguments)
     /// @description self-targeting gamemaker_sound_is_persistent
     /// @parameter {Struct} arguments
-    /// @return {Bool}
+    /// @return {boolean}
     persistent = function(arguments = {}) {
         arguments.target = self
         return gamemaker_sound_is_persistent(arguments)

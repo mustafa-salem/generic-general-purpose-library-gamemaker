@@ -613,7 +613,7 @@ function TimeSourceGeneric(arguments = {}) constructor {
 	/// @parameter {Struct.TimeSourceGeneric|Id.TimeSource} arguments.time_source
 	/// The time source to target.
 	/// ----------------------------------------------------------------------------
-	/// @return {Bool}
+	/// @return {boolean}
 	/// Whether the time source exists.
 	/// ----------------------------------------------------------------------------
 	static exists = function(arguments = {}) {

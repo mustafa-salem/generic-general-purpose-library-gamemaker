@@ -667,7 +667,7 @@ function gamemaker_surface_draw(parameters) {
     for (var i = 0; i < 4; i++) { with (_vertices[i]) { draw_vertex_texture_colour(x_position, y_position, x_texture_coordinate, y_texture_coordinate, blend_colour, blend_alpha) } }
     draw_primitive_end()
 
-    _blend_mode.set()
+    _blendmode.set()
     _shader.set()
 
     // DRAW SURFACE TEXTURE
@@ -703,7 +703,7 @@ function gamemaker_surface_draw(parameters) {
 
     _primitive.draw()
 
-    _blend_mode.unset()
+    _blendmode.unset()
     _shader.unset()
 
     return _SURFACE

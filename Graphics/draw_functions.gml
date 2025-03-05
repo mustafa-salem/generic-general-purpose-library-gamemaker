@@ -70,7 +70,7 @@ or
 
 /// @parameter {boolean} tiled
 /// @parameter {Type} target
-/// @parameter {Type} blend_mode
+/// @parameter {Type} blendmode
 /// @parameter {Type} shader
 /// ----------------------------------------------------------------------------
 /// @return {type}
@@ -137,7 +137,7 @@ function gamemaker_sprite_draw(parameters) {
 /// @parameter {Type} gradient_blend_colour_3
 /// @parameter {Type} gradient_blend_alpha
 /// @parameter {Type} target
-/// @parameter {Type} blend_mode
+/// @parameter {Type} blendmode
 /// @parameter {Type} shader
 
 /// ----------------------------------------------------------------------------

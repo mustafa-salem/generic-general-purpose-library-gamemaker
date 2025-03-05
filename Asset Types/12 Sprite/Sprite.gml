@@ -36,11 +36,11 @@ function draw_sprite_ext_glow() {
     var blend = (color != #FFFFFF ? merge_color(argument[7], color, glow) : argument[7])
     if (glow < 1) { draw_sprite_ext(argument[0], argument[1], argument[2], argument[3], argument[4], argument[5], argument[6], blend, argument[8]) }
     if (glow > 0) {
-        if (color == #FFFFFF) { gamemaker_graphics_set_blend_mode(ADDITIVE_BLEND_MODE) }
+        if (color == #FFFFFF) { gamemaker_blendmode_set(ADDITIVE_BLENDMODE) }
         gpu_set_fog(true, color, 0, 1)
         draw_sprite_ext(argument[0], argument[1], argument[2], argument[3], argument[4], argument[5], argument[6], argument[7], glow)
         gpu_set_fog(false, #000000, 0, 0)
-        if (color == #FFFFFF) { gamemaker_graphics_set_blend_mode(DEFAULT_BLEND_MODE) }
+        if (color == #FFFFFF) { gamemaker_blendmode_set(DEFAULT_BLENDMODE) }
     }
 }
 
@@ -88,11 +88,11 @@ function draw_sprite_part_ext_glow() {
     var blend = (color != #FFFFFF ? merge_color(argument[10], color, glow) : argument[10])
     if (glow < 1) { draw_sprite_part_ext(argument[0], argument[1], argument[2], argument[3], argument[4], argument[5], argument[6], argument[7], argument[8], argument[9], blend, argument[11]) }
     if (glow > 0) {
-        if (color == #FFFFFF) { gamemaker_graphics_set_blend_mode(ADDITIVE_BLEND_MODE) }
+        if (color == #FFFFFF) { gamemaker_blendmode_set(ADDITIVE_BLENDMODE) }
         gpu_set_fog(true, color, 0, 1)
         draw_sprite_part_ext(argument[0], argument[1], argument[2], argument[3], argument[4], argument[5], argument[6], argument[7], argument[8], argument[9], argument[10], glow)
         gpu_set_fog(false, #000000, 0, 0)
-        if (color == #FFFFFF) { gamemaker_graphics_set_blend_mode(DEFAULT_BLEND_MODE) }
+        if (color == #FFFFFF) { gamemaker_blendmode_set(DEFAULT_BLENDMODE) }
     }
 }
 

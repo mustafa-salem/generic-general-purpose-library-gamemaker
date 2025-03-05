@@ -69,7 +69,7 @@ function gamemaker_construct_instance_destroy(parameters) {
 /// @return {type}
 /// <return_description>
 /// ----------------------------------------------------------------------------
-function construct_instance_execute_parent_event(parameters = {}) {
+function construct_instance_execute_parentevent(parameters = {}) {
     return _return
 }
 
@@ -166,10 +166,6 @@ function ConstructInstance() constructor {
     self.private = {}
 
     self.collision = function() {
-
-    }
-
-    self.execute_parent_event = function() {
 
     }
 
