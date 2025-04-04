@@ -15,7 +15,7 @@ function typist_create() {
 /// @parameter {type} parameter_name
 /// <parameter_description>
 /// ----------------------------------------------------------------------------
-/// @return {type}
+/// @returns {type}
 /// <return_description>
 /// ----------------------------------------------------------------------------
 function gamemaker_typist_add_event(parameters = {}) {
@@ -50,7 +50,7 @@ function Typist() {
     /// @parameter {type} parameters.parameter_name
     /// <parameter_description>
     /// ----------------------------------------------------------------------------
-    /// @return {struct.Typist} self
+    /// @returns {struct.Typist} self
     /// ----------------------------------------------------------------------------
     fade_in = function(parameters = {}) {
         private.typist_instance.in(speed, smoothness)
@@ -71,7 +71,7 @@ function Typist() {
     /// @parameter {type} parameters.parameter_name
     /// <parameter_description>
     /// ----------------------------------------------------------------------------
-    /// @return {struct.Typist} self
+    /// @returns {struct.Typist} self
     /// ----------------------------------------------------------------------------
     fade_out = function(parameters = {}) {
         private.typist_instance.out(speed, smoothness, [backwards])
@@ -98,7 +98,7 @@ function Typist() {
     /// <parameter_description>
     ///
     /// ----------------------------------------------------------------------------
-    /// @return {number}
+    /// @returns {number}
     /// <return_description>
     /// ----------------------------------------------------------------------------
     get_position = function(parameters = {}) {
@@ -111,7 +111,7 @@ function Typist() {
     /// @description
     /// <function_description>
     /// ----------------------------------------------------------------------------
-    /// @return {struct.Typist} self
+    /// @returns {struct.Typist} self
     /// ----------------------------------------------------------------------------
     reset_animation = function() {
         private.typist_instance.reset()
@@ -139,7 +139,7 @@ function Typist() {
     /// <parameter_description>
     ///
     /// ----------------------------------------------------------------------------
-    /// @return {struct.Typist} self
+    /// @returns {struct.Typist} self
     /// ----------------------------------------------------------------------------
     ease = function(parameters = {}) {
         private.typist_instance.ease(easeMethod, dx, dy, xscale, yscale, rotation, alphaDuration)
@@ -167,7 +167,7 @@ function Typist() {
     /// <parameter_description>
     ///
     /// ----------------------------------------------------------------------------
-    /// @return {type}
+    /// @returns {type}
     /// <return_description>
     /// ----------------------------------------------------------------------------
     get_state = function(parameters = {}) {
@@ -195,7 +195,7 @@ function Typist() {
     /// <parameter_description>
     ///
     /// ----------------------------------------------------------------------------
-    /// @return {struct.Typist} self
+    /// @returns {struct.Typist} self
     /// ----------------------------------------------------------------------------
     set_paused = function(parameters = {}) {
         private.typist_instance.pause()
@@ -206,7 +206,7 @@ function Typist() {
     /// ----------------------------------------------------------------------------
     /// @function is_paused()
     /// ----------------------------------------------------------------------------
-    /// @return {boolean}
+    /// @returns {boolean}
     /// <return_description>
     /// ----------------------------------------------------------------------------
     get_paused = function() {
@@ -231,7 +231,7 @@ function Typist() {
     /// @parameter {type} ignore_pause
     /// <parameter_description>
     /// ----------------------------------------------------------------------------
-    /// @return {struct.Typist} self
+    /// @returns {struct.Typist} self
     /// ----------------------------------------------------------------------------
     set_skip_animation = function(parameters = {}) {
         if (parameters.ignore_pause) {
@@ -248,7 +248,7 @@ function Typist() {
     /// @description
     /// <function_description>
     /// ----------------------------------------------------------------------------
-    /// @return {boolean} Whether the typist is skipping typewriter animation.
+    /// @returns {boolean} Whether the typist is skipping typewriter animation.
     /// ----------------------------------------------------------------------------
     get_skip_animation = function() {
         return private.typist_instance.get_skip()
@@ -267,7 +267,7 @@ function Typist() {
     /// @parameter {type} parameters.parameter_name
     /// <parameter_description>
     /// ----------------------------------------------------------------------------
-    /// @return {struct.Typist} self
+    /// @returns {struct.Typist} self
     /// ----------------------------------------------------------------------------
     sync_to_sound = function(parameters = {}) {
         private.typist_instance.sync_to_sound(soundInstance)
@@ -295,7 +295,7 @@ function Typist() {
     /// <parameter_description>
     ///
     /// ----------------------------------------------------------------------------
-    /// @return {struct.Typist} self
+    /// @returns {struct.Typist} self
     /// ----------------------------------------------------------------------------
     sound = function(parameters = {}) {
         private.typist_instance.sound(soundArray, overlap, pitchMin, pitchMax. [gain=1])
@@ -323,7 +323,7 @@ function Typist() {
     /// <parameter_description>
     ///
     /// ----------------------------------------------------------------------------
-    /// @return {struct.Typist} self
+    /// @returns {struct.Typist} self
     /// ----------------------------------------------------------------------------
     sound_per_char = function(parameters = {}) {
         private.typist_instance.sound_per_char(soundArray, pitchMin, pitchMax, [exceptionString], [gain=1])
@@ -337,7 +337,7 @@ function Typist() {
     /// ----------------------------------------------------------------------------
     /// @function get_ignore_delay()
     /// ----------------------------------------------------------------------------
-    /// @return {boolean}
+    /// @returns {boolean}
     /// Whether the typewriter is set to ignore character and tag delays.
     /// ----------------------------------------------------------------------------
     get_ignore_delay = function() {
@@ -350,7 +350,7 @@ function Typist() {
     /// @parameter {boolean} ignore_delay
     /// Whether the typewriter should ignore character and tag delays.
     /// ----------------------------------------------------------------------------
-    /// @return {struct.Typist} self
+    /// @returns {struct.Typist} self
     /// ----------------------------------------------------------------------------
     set_ignore_delay = function(parameters = {}) {
         private.typist_instance.ignore_delay(parameters.ignore_delay)
@@ -372,7 +372,7 @@ function Typist() {
     /// @parameter {number} delay_milliseconds
     /// <parameter_description>
     /// ----------------------------------------------------------------------------
-    /// @return {struct.Typist} self
+    /// @returns {struct.Typist} self
     /// ----------------------------------------------------------------------------
     set_character_delay = function(parameters = {}) {
         for (var i = 0; i < ; i++) {
@@ -400,7 +400,7 @@ function Typist() {
     /// @parameter {callable|undefined} callable
     /// The function that will be executed once per character as that character is revealed
     /// ----------------------------------------------------------------------------
-    /// @return {struct.Typist} self
+    /// @returns {struct.Typist} self
     /// ----------------------------------------------------------------------------
     set_per_character_callable = function(parameters = {}) {
         private.typist_instance.function_per_char(parameters.callable)
@@ -416,7 +416,7 @@ function Typist() {
     /// @parameter {callable|undefined} callable
     /// <parameter_description>
     /// ----------------------------------------------------------------------------
-    /// @return {struct.Typist} self
+    /// @returns {struct.Typist} self
     /// ----------------------------------------------------------------------------
     set_on_complete_callable = function(parameters = {}) {
         private.typist_instance.function_on_complete(parameters.callable)
@@ -430,7 +430,7 @@ function Typist() {
     /// ----------------------------------------------------------------------------
     /// @function get_execution_scope()
     /// ----------------------------------------------------------------------------
-    /// @return {mixed}
+    /// @returns {mixed}
     /// <return_description>
     /// ----------------------------------------------------------------------------
     get_execution_scope = function() {
@@ -446,7 +446,7 @@ function Typist() {
     /// @parameter {mixed} execution_scope
     /// <parameter_description>
     /// ----------------------------------------------------------------------------
-    /// @return {struct.Typist} self
+    /// @returns {struct.Typist} self
     /// ----------------------------------------------------------------------------
     set_execution_scope = function(parameters = {}) {
         private.typist_instance.execution_scope(parameters.execution_scope)
@@ -460,7 +460,7 @@ function Typist() {
     /// ----------------------------------------------------------------------------
     /// @function get_text_element()
     /// ----------------------------------------------------------------------------
-    /// @return {struct.TextElement}
+    /// @returns {struct.GameMakerTextElement}
     /// <return_description>
     /// ----------------------------------------------------------------------------
     get_text_element = function() {

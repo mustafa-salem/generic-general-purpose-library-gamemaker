@@ -5,7 +5,7 @@
 /// @parameter {type} parameter_name
 /// <parameter_description>
 /// ----------------------------------------------------------------------------
-/// @return {type}
+/// @returns {type}
 /// <return_description>
 /// ----------------------------------------------------------------------------
 function gamemaker_quest_create(parameters = {}) {
@@ -22,7 +22,7 @@ function gamemaker_quest_create(parameters = {}) {
 /// <parameter_description>
 ///
 /// ----------------------------------------------------------------------------
-/// @return {type}
+/// @returns {type}
 /// <return_description>
 /// ----------------------------------------------------------------------------
 function gamemaker_quest_get_progress(parameters = {}) {
@@ -38,7 +38,7 @@ function gamemaker_quest_get_progress(parameters = {}) {
 /// @parameter {type} progress
 /// <parameter_description>
 /// ----------------------------------------------------------------------------
-/// @return {type}
+/// @returns {type}
 /// <return_description>
 /// ----------------------------------------------------------------------------
 function gamemaker_quest_set_progress(parameters = {}) {
@@ -54,7 +54,7 @@ function gamemaker_quest_set_progress(parameters = {}) {
 /// @parameter {type} status
 /// <parameter_description>
 /// ----------------------------------------------------------------------------
-/// @return {undefined}
+/// @returns {undefined}
 /// <return_description>
 /// ----------------------------------------------------------------------------
 function gamemaker_quest_set_status(parameters = {}) {
@@ -68,7 +68,7 @@ function gamemaker_quest_set_status(parameters = {}) {
 /// @parameter {type} quest
 /// <parameter_description>
 /// ----------------------------------------------------------------------------
-/// @return {type}
+/// @returns {type}
 /// <return_description>
 /// ----------------------------------------------------------------------------
 function gamemaker_quest_is_failed(parameters = {}) {

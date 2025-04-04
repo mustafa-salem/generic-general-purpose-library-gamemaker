@@ -6,13 +6,13 @@
 /// @description
 /// <description>
 /// ----------------------------------------------------------------------------
-#macro FIXED_DELTA_TIME Time.fixed_delta_time
+#macro GAMEMAKER_FIXEDDELTATIME Time.fixed_delta_time
 
 /// ----------------------------------------------------------------------------
 /// @description
 /// <description>
 /// ----------------------------------------------------------------------------
-#macro FIXED_UNSCALED_DELTA_TIME Time.fixed_unscaled_delta_time
+#macro GAMEMAKER_FIXEDUNSCALEDDELTATIME Time.fixed_unscaled_delta_time
 
 /******************************************************************************/
 #endregion –––––––––––––––––––– CONSTANTS ––––––––––––––––––––

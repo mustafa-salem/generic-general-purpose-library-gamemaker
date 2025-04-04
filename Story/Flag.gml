@@ -11,7 +11,7 @@
 /// <parameter_description>
 ///
 /// ----------------------------------------------------------------------------
-/// @return {type}
+/// @returns {type}
 /// <return_description>
 /// ----------------------------------------------------------------------------
 function gamemaker_gameflag_get(parameters = {}) {
@@ -31,7 +31,7 @@ function gamemaker_gameflag_get(parameters = {}) {
 /// <parameter_description>
 ///
 /// ----------------------------------------------------------------------------
-/// @return {type}
+/// @returns {type}
 /// <return_description>
 /// ----------------------------------------------------------------------------
 function gamemaker_gameflag_set(parameters = {}) {

@@ -1,0 +1,92 @@
+/******************************************************************************/
+#region    –––––––––––––––––––– FUNCTIONS ––––––––––––––––––––
+/******************************************************************************/
+
+/// ----------------------------------------------------------------------------
+/// @function ingame_entity_create(parameters)
+/// ----------------------------------------------------------------------------
+/// @description
+/// This function is used to declare a new type of in-game entity.
+/// ----------------------------------------------------------------------------
+/// @parameter {string} name
+/// The name used to identify the in-game entity.
+/// ----------------------------------------------------------------------------
+/// @returns {struct}
+/// ----------------------------------------------------------------------------
+function ingame_entity_create(parameters = {}) {
+    var _return = new InGameEntity()
+
+    static.private.ingame_entity_types[$ ""] = _return
+
+    return _return
+}
+
+/******************************************************************************/
+#endregion –––––––––––––––––––– FUNCTIONS ––––––––––––––––––––
+/******************************************************************************/
+
+/******************************************************************************/
+#region    –––––––––––––––––––– CONSTRUCTORS ––––––––––––––––––––
+/******************************************************************************/
+
+function InGameEntity() constructor {
+
+    static.private = {
+        ingame_entity_types : {},
+    }
+
+    self.private = {}
+
+    /// ----------------------------------------------------------------------------
+    /// @function set_method(parameters)
+    /// ----------------------------------------------------------------------------
+    /// @description
+    /// <function_description>
+    /// ----------------------------------------------------------------------------
+    /// @parameter {type} parameter_name
+    /// <parameter_description>
+    ///
+    /// @parameter {type} parameter_name
+    /// <parameter_description>
+    ///
+    /// ----------------------------------------------------------------------------
+    /// @returns {type}
+    /// <return_description>
+    /// ----------------------------------------------------------------------------
+    static set_method = function(parameters = {}) {
+        return self
+    }
+
+    self.set_method = method(self, set_method)
+
+    /// ----------------------------------------------------------------------------
+    /// @function set_event(parameters)
+    /// ----------------------------------------------------------------------------
+    /// @description
+    /// <function_description>
+    /// ----------------------------------------------------------------------------
+    /// @parameter {string} event
+    /// <parameter_description>
+    ///
+    /// @parameter {type} callable
+    /// <parameter_description>
+    ///
+    /// ----------------------------------------------------------------------------
+    /// @returns {type}
+    /// <return_description>
+    /// ----------------------------------------------------------------------------
+    static set_event = function(parameters = {}) {
+        return self
+    }
+
+    self.set_event = method(self, set_event)
+
+}
+
+/******************************************************************************/
+#endregion –––––––––––––––––––– CONSTRUCTORS ––––––––––––––––––––
+/******************************************************************************/
+
+gamemaker_object_get({ object : ingameentity_construct_object })
+
+gamemaker_construct_create({ name : "ingameentity_construct" })

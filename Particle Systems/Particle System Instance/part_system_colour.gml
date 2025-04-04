@@ -1,0 +1,1 @@
+part_system_colour(ind, color, alpha);

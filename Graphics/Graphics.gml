@@ -212,7 +212,7 @@ function gamemaker_blendmode_get_destination_alpha_blendfactor(arguments = {}) {
 /// @parameter {Type} arguments.blendmode
 /// <parameter_description>
 /// ----------------------------------------------------------------------------
-/// @return {Struct.BlendMode}
+/// @returns {Struct.BlendMode}
 /// <return_description>
 /// ----------------------------------------------------------------------------
 function gamemaker_blendmode_get(arguments = {}) {

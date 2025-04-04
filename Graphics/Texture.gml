@@ -37,7 +37,7 @@
 /// <parameter_description>
 ///
 /// ----------------------------------------------------------------------------
-/// @return {type}
+/// @returns {type}
 /// <return_description>
 /// ----------------------------------------------------------------------------
 function gamemaker_texture_get(parameters = {}) {

@@ -15,7 +15,7 @@ function Drawable() constructor {
     /// @parameter {number} alignment
     /// 0 to 1
     /// ----------------------------------------------------------------------------
-    /// @return {number}
+    /// @returns {number}
     /// ----------------------------------------------------------------------------
     static get_x_position = function(parameters = {}) {
         return private.position.x
@@ -30,7 +30,7 @@ function Drawable() constructor {
     /// @parameter {number} alignment
     /// 0 to 1
     /// ----------------------------------------------------------------------------
-    /// @return {number}
+    /// @returns {number}
     /// ----------------------------------------------------------------------------
     static get_y_position = function(parameters = {}) {
         return private.position.y
@@ -49,7 +49,7 @@ function Drawable() constructor {
     /// <parameter_description>
     ///
     /// ----------------------------------------------------------------------------
-    /// @return {struct} self
+    /// @returns {struct} self
     /// ----------------------------------------------------------------------------
     static set_position = function(parameters = {}) {
         if (arguments[$ "x"] != undefined) { set_x_position(arguments.x) }
@@ -64,7 +64,7 @@ function Drawable() constructor {
     /// ----------------------------------------------------------------------------
     /// @function get_x_dimension()
     /// ----------------------------------------------------------------------------
-    /// @return {Real}
+    /// @returns {Real}
     /// x_dimensions
     /// ----------------------------------------------------------------------------
     static get_x_dimension = function() {
@@ -77,7 +77,7 @@ function Drawable() constructor {
     /// @parameter {Real} _x_dimensions
     /// x_dimensions
     /// ----------------------------------------------------------------------------
-    /// @return {Struct.RectangleElement} self
+    /// @returns {Struct.GameMakerRectangleElement} self
     /// ----------------------------------------------------------------------------
     static set_x_dimensions = function(_x_dimensions) {
         if (!is_real(_x_dimensions)) {
@@ -91,7 +91,7 @@ function Drawable() constructor {
     /// ----------------------------------------------------------------------------
     /// @function get_y_dimension()
     /// ----------------------------------------------------------------------------
-    /// @return {Real}
+    /// @returns {Real}
     /// y_dimensions
     /// ----------------------------------------------------------------------------
     static get_y_dimension = function() {
@@ -104,7 +104,7 @@ function Drawable() constructor {
     /// @parameter {Real} _y_dimensions
     /// y_dimensions
     /// ----------------------------------------------------------------------------
-    /// @return {Struct.RectangleElement} self
+    /// @returns {Struct.GameMakerRectangleElement} self
     /// ----------------------------------------------------------------------------
     static set_y_dimensions = function(_y_dimensions) {
         if (!is_real(_y_dimensions)) {
@@ -118,7 +118,7 @@ function Drawable() constructor {
     /// ----------------------------------------------------------------------------
     /// @function get_dimensions()
     /// ----------------------------------------------------------------------------
-    /// @return {Struct}
+    /// @returns {Struct}
     /// dimensions { x : Real, y : Real }
     /// ----------------------------------------------------------------------------
     static get_dimensions = function() {
@@ -136,7 +136,7 @@ function Drawable() constructor {
     /// @parameter {Real} [arguments.y]
     /// y_dimensions
     /// ----------------------------------------------------------------------------
-    /// @return {Struct.RectangleElement} self
+    /// @returns {Struct.GameMakerRectangleElement} self
     /// ----------------------------------------------------------------------------
     static set_dimensions = function(arguments = {}) {
         if (!is_struct(arguments)) {
@@ -155,7 +155,7 @@ function Drawable() constructor {
     /// ----------------------------------------------------------------------------
     /// @function get_x_alignment()
     /// ----------------------------------------------------------------------------
-    /// @return {Real}
+    /// @returns {Real}
     /// x_alignment
     /// ----------------------------------------------------------------------------
     static get_x_alignment = function() {
@@ -168,7 +168,7 @@ function Drawable() constructor {
     /// @parameter {Struct} _x_alignment
     /// x_alignment
     /// ----------------------------------------------------------------------------
-    /// @return {Struct.RectangleElement}
+    /// @returns {Struct.GameMakerRectangleElement}
     /// ----------------------------------------------------------------------------
     static set_x_alignment = function(_x_alignment) {
         if (!is_real(_x_alignment)) {
@@ -182,7 +182,7 @@ function Drawable() constructor {
     /// ----------------------------------------------------------------------------
     /// @function get_y_alignment()
     /// ----------------------------------------------------------------------------
-    /// @return {Real}
+    /// @returns {Real}
     /// y_alignment
     /// ----------------------------------------------------------------------------
     static get_y_alignment = function() {
@@ -195,7 +195,7 @@ function Drawable() constructor {
     /// @parameter {Struct} _y_alignment
     /// y_alignment
     /// ----------------------------------------------------------------------------
-    /// @return {Struct.RectangleElement}
+    /// @returns {Struct.GameMakerRectangleElement}
     /// ----------------------------------------------------------------------------
     static set_y_alignment = function(_y_alignment) {
         if (!is_real(_y_alignment)) {
@@ -209,7 +209,7 @@ function Drawable() constructor {
     /// ----------------------------------------------------------------------------
     /// @function get_alignment()
     /// ----------------------------------------------------------------------------
-    /// @return {Struct}
+    /// @returns {Struct}
     /// alignment { x : Real, y : Real }
     /// ----------------------------------------------------------------------------
     static get_alignment = function() {
@@ -227,7 +227,7 @@ function Drawable() constructor {
     /// @parameter {Real} [arguments.y]
     /// y_alignment
     /// ----------------------------------------------------------------------------
-    /// @return {Struct.RectangleElement} self
+    /// @returns {Struct.GameMakerRectangleElement} self
     /// ----------------------------------------------------------------------------
     static set_alignment = function(arguments = {}) {
         if (!is_struct(arguments)) {
@@ -249,7 +249,7 @@ function Drawable() constructor {
     /// @description
     /// This function is used to get the x component of the scale of the element.
     /// ----------------------------------------------------------------------------
-    /// @return {number}
+    /// @returns {number}
     /// ----------------------------------------------------------------------------
     static get_x_scale = function() {
         return private.x_scale
@@ -261,7 +261,7 @@ function Drawable() constructor {
     /// @description
     /// This function is used to get the y component of the scale of the element.
     /// ----------------------------------------------------------------------------
-    /// @return {number}
+    /// @returns {number}
     /// ----------------------------------------------------------------------------
     static get_y_scale = function() {
         return private.y_scale
@@ -280,7 +280,7 @@ function Drawable() constructor {
     /// The scaling on the y axis.
     ///
     /// ----------------------------------------------------------------------------
-    /// @return {struct} self
+    /// @returns {struct} self
     /// ----------------------------------------------------------------------------
     static set_scale = function(parameters = {}) {
         if (parameters[$ "x"] != undefined) { private.x_scale = parameters.x }
@@ -295,7 +295,7 @@ function Drawable() constructor {
 	/// ----------------------------------------------------------------------------
 	/// @function get_x_rotation()
 	/// ----------------------------------------------------------------------------
-	/// @return {Real}
+	/// @returns {Real}
 	/// x_rotation
 	/// ----------------------------------------------------------------------------
 	static get_x_rotation = function() {
@@ -305,7 +305,7 @@ function Drawable() constructor {
 	/// ----------------------------------------------------------------------------
 	/// @function get_y_rotation()
 	/// ----------------------------------------------------------------------------
-	/// @return {Real}
+	/// @returns {Real}
 	/// y_rotation
 	/// ----------------------------------------------------------------------------
 	static get_y_rotation = function() {
@@ -315,7 +315,7 @@ function Drawable() constructor {
 	/// ----------------------------------------------------------------------------
 	/// @function get_z_rotation()
 	/// ----------------------------------------------------------------------------
-	/// @return {Real}
+	/// @returns {Real}
 	/// z_rotation
 	/// ----------------------------------------------------------------------------
 	static get_z_rotation = function() {
@@ -336,7 +336,7 @@ function Drawable() constructor {
 	/// @parameter {Real} [arguments.z]
 	/// z_dimensions
 	/// ----------------------------------------------------------------------------
-	/// @return {Struct.RectangleElement} self
+	/// @returns {Struct.GameMakerRectangleElement} self
 	/// ----------------------------------------------------------------------------
 	static set_rotation = function(arguments) {
 		if (!is_struct(arguments)) {
@@ -363,7 +363,7 @@ function Drawable() constructor {
     /// <parameter_description>
     ///
     /// ----------------------------------------------------------------------------
-    /// @return {type}
+    /// @returns {type}
     /// <return_description>
     /// ----------------------------------------------------------------------------
     get_blend_colour = function(parameters = {}) {
@@ -380,7 +380,7 @@ function Drawable() constructor {
     /// <parameter_description>
     ///
     /// ----------------------------------------------------------------------------
-    /// @return {type}
+    /// @returns {type}
     /// <return_description>
     /// ----------------------------------------------------------------------------
     get_blend_alpha = function(parameters = {}) {
@@ -397,7 +397,7 @@ function Drawable() constructor {
     /// <parameter_description>
     ///
     /// ----------------------------------------------------------------------------
-    /// @return {type}
+    /// @returns {type}
     /// <return_description>
     /// ----------------------------------------------------------------------------
     get_blendmode = function(parameters = {}) {
@@ -414,7 +414,7 @@ function Drawable() constructor {
     /// <parameter_description>
     ///
     /// ----------------------------------------------------------------------------
-    /// @return {type}
+    /// @returns {type}
     /// <return_description>
     /// ----------------------------------------------------------------------------
     set_blend = function(parameters = {}) {
@@ -435,7 +435,7 @@ function Drawable() constructor {
     /// <parameter_description>
     ///
     /// ----------------------------------------------------------------------------
-    /// @return {type}
+    /// @returns {type}
     /// <return_description>
     /// ----------------------------------------------------------------------------
     get_shader = function(parameters = {}) {
@@ -452,7 +452,7 @@ function Drawable() constructor {
     /// <parameter_description>
     ///
     /// ----------------------------------------------------------------------------
-    /// @return {type}
+    /// @returns {type}
     /// <return_description>
     /// ----------------------------------------------------------------------------
     get_shader_variables = function(parameters = {}) {
@@ -469,7 +469,7 @@ function Drawable() constructor {
     /// <parameter_description>
     ///
     /// ----------------------------------------------------------------------------
-    /// @return {type}
+    /// @returns {type}
     /// <return_description>
     /// ----------------------------------------------------------------------------
     set_shader = function(parameters = {}) {

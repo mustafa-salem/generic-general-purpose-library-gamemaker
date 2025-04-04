@@ -11,7 +11,7 @@
 /// @parameter {number} [k=1]
 /// The number of elements to choose.
 /// ----------------------------------------------------------------------------
-/// @return {array<any>}
+/// @returns {array<any>}
 /// ----------------------------------------------------------------------------
 function gamemaker_random_choices(parameters = {}) {
     return _return

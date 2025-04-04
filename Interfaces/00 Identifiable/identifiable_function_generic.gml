@@ -5,7 +5,7 @@
 /// ----------------------------------------------------------------------------
 /// @parameter {Struct} arguments <parameter_description>
 /// ----------------------------------------------------------------------------
-/// @return {String} Key
+/// @returns {String} Key
 /// ----------------------------------------------------------------------------
 function get_key_keyed_generic(_identifiable) {
     if (is_string(_identifiable)) { return _identifiable }
@@ -19,7 +19,7 @@ function get_key_keyed_generic(_identifiable) {
 /// ----------------------------------------------------------------------------
 /// @parameter {Struct} arguments <parameter_description>
 /// ----------------------------------------------------------------------------
-/// @return {Real} Id
+/// @returns {Real} Id
 /// ----------------------------------------------------------------------------
 function get_id_identifiable_generic(_identifiable) {
     if (is_real(_identifiable)) { return _identifiable }

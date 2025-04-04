@@ -2,28 +2,6 @@ function gamemaker_input_check(parameters) {
     return input_check(parameters.input, parameters.player, parameters.buffer_duration)
 }
 
-/// ----------------------------------------------------------------------------
-/// @function gamemaker_input_check_pressed(parameters)
-/// ----------------------------------------------------------------------------
-/// @description
-/// <function_description>
-/// ----------------------------------------------------------------------------
-/// @parameter {Type} input
-/// <parameter_description>
-///
-/// @parameter {Type} player
-/// <parameter_description>
-///
-/// @parameter {Type} buffer_duration
-/// <parameter_description>
-/// ----------------------------------------------------------------------------
-/// @return {boolean}
-/// <return_description>
-/// ----------------------------------------------------------------------------
-function gamemaker_input_check_pressed(parameters) {
-    return input_check_pressed(parameters.input, parameters.player, parameters.buffer_duration)
-}
-
 function input_check_all_pressed(_verb, _player_index, _buffer_duration) {
 	for (var i = 0; i < (array_length(_verb)); i++) {
 		if (!input_check_pressed(_verb[i], _player_index, _buffer_duration)) { return false }
@@ -52,7 +30,7 @@ function input_check_all_pressed(_verb, _player_index, _buffer_duration) {
 /// <parameter_description>
 ///
 /// ----------------------------------------------------------------------------
-/// @return {type}
+/// @returns {type}
 /// <return_description>
 /// ----------------------------------------------------------------------------
 function gamemaker_input_get_opposing_pressed_sign(parameters) {
@@ -74,7 +52,7 @@ function gamemaker_input_get_opposing_pressed_sign(parameters) {
 /// @parameter {boolean} most_recent
 /// <parameter_description>
 /// ----------------------------------------------------------------------------
-/// @return {string|undefined}
+/// @returns {string|undefined}
 /// <return_description>
 /// ----------------------------------------------------------------------------
 function gamemaker_input_get_exclusive_active_name(parameters) {
@@ -90,7 +68,7 @@ function gamemaker_input_get_exclusive_active_name(parameters) {
 /// @parameter {type} parameter_name
 /// <parameter_description>
 /// ----------------------------------------------------------------------------
-/// @return {string|undefined}
+/// @returns {string|undefined}
 /// <return_description>
 /// ----------------------------------------------------------------------------
 function gamemaker_input_check_exclusive_pressed(parameters = {}) {
@@ -118,7 +96,7 @@ function gamemaker_input_check_exclusive_pressed(parameters = {}) {
 /// <parameter_description>
 ///
 /// ----------------------------------------------------------------------------
-/// @return {type}
+/// @returns {type}
 /// <return_description>
 /// ----------------------------------------------------------------------------
 gamemaker_input_get_held_duration = function(parameters) {
@@ -144,7 +122,7 @@ function gamemaker_input_check_opposing(parameters) {
 /// @parameter {type} [player]
 /// <parameter_description>
 /// ----------------------------------------------------------------------------
-/// @return {undefined}
+/// @returns {undefined}
 /// ----------------------------------------------------------------------------
 function gamemaker_input_command_consume(parameters = {}) {
     input_verb_consume(parameters.input, parameters.player)
@@ -249,7 +227,7 @@ function gamemaker_input_load_system_data_from_file() {
 /// <parameter_description>
 ///
 /// ----------------------------------------------------------------------------
-/// @return {type}
+/// @returns {type}
 /// <return_description>
 /// ----------------------------------------------------------------------------
 function gamemaker_input_get_direction_degrees() {

@@ -139,7 +139,7 @@ function gamemaker_primitive_get_texture(parameters = {}) {
 /// @parameter {struct.Texture|undefined} texture
 /// The texture to use when drawing the primitive or undefined to not use a texture.
 /// ----------------------------------------------------------------------------
-/// @return {struct} The static struct of the 'Primitive' constructor.
+/// @returns {struct} The static struct of the 'Primitive' constructor.
 /// ----------------------------------------------------------------------------
 function gamemaker_primitive_set_texture(parameters = {}) {
 	static _PRIMITIVE = PRIMITIVE
@@ -163,7 +163,7 @@ function gamemaker_primitive_set_texture(parameters = {}) {
 /// @parameter {struct.Primitive} primitive
 /// The primitive to target.
 /// ----------------------------------------------------------------------------
-/// @return {struct.Texture}
+/// @returns {struct.Texture}
 /// <return_description>
 /// ----------------------------------------------------------------------------
 function gamemaker_primitive_add_vertex(parameters = {}) {
@@ -194,7 +194,7 @@ function gamemaker_primitive_add_vertex(parameters = {}) {
 /// The number of vertices to draw. This value is clamped to the size of the vertex buffer.
 ///
 /// ----------------------------------------------------------------------------
-/// @return {type}
+/// @returns {type}
 /// <return_description>
 /// ----------------------------------------------------------------------------
 function gamemaker_primitive_draw(parameters = {}) {
