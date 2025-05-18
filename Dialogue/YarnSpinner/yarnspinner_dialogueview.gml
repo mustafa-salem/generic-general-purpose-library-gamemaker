@@ -1,15 +1,17 @@
 /// ----------------------------------------------------------------------------
-/// @description
-/// <description>
+/// @function function_name(parameters)
 /// ----------------------------------------------------------------------------
-/// @parameter {struct} parameters
-/// The struct containing the arguments to pass to the function.
-/// @parameter {type} parameters.instance
-/// <description>
+/// @description
+/// <function_description>
+/// ----------------------------------------------------------------------------
+/// @parameter {type} parameter_name
+/// <parameter_description>
+///
 /// ----------------------------------------------------------------------------
 /// @returns {type}
-/// <description>
+/// <return_description>
 /// ----------------------------------------------------------------------------
-function gamemaker_constructinstance_get(parameters = {}) {
+function yarnspinner_dialogueview(parameters = {}) {
     return _return
 }
+

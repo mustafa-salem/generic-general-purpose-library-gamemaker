@@ -77,7 +77,7 @@ function FiniteStateMachine() constructor {
         return true
     }
 
-	// enter_state_event: { exists: "undefined_event", callable: function() {} },
+	// enterstate_event: { exists: "undefined_event", callable: function() {} },
 
 	/// @type {String|Undefined}
 	// Current event
@@ -200,7 +200,7 @@ function FiniteStateMachine() constructor {
 
 			// Check condition
 			if (_transition.condition(_arguments)) {
-				change_state({ state_name : _dest, leave_event : _transition.leave_state_event, enter_event : _transition.enter_state_event, arguments : _arguments })
+				change_state({ state_name : _dest, leave_event : _transition.leavestate_event, enter_event : _transition.enterstate_event, arguments : _arguments })
 				return true
 			}
 		}
@@ -236,8 +236,8 @@ function FiniteStateMachine() constructor {
 	add_state({ name : FINITE_STATE_MACHINE_DEFAULT_STATE })
 
 	// built-in events
-	add_event({ event : "enter_state_event"  })
-	add_event({ event : "leave_state_event"  })
+	add_event({ event : "enterstate_event"  })
+	add_event({ event : "leavestate_event"  })
 	add_event({ event : "change_state_event" })
 
 }

@@ -1,15 +1,17 @@
 /// ----------------------------------------------------------------------------
+/// @function function_name(parameters)
+/// ----------------------------------------------------------------------------
 /// @description
-/// This function is used to check whether a node exists.
+/// <function_description>
 /// ----------------------------------------------------------------------------
-/// @parameter {string} source
-/// The name of the source to check.
+/// @parameter {type} parameter_name
+/// <parameter_description>
 ///
-/// @parameter {string} node
-/// The title of the node to check.
 /// ----------------------------------------------------------------------------
-/// @returns {boolean}
+/// @returns {type}
+/// <return_description>
 /// ----------------------------------------------------------------------------
-function dialogue_node_exists(parameters = {}) {
-    return ChatterboxSourceNodeExists(parameters.source, parameters.node)
+function yarnspinner_dialoguerunner(parameters = {}) {
+    return _return
 }
+

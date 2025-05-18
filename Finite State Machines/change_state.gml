@@ -7,10 +7,10 @@
 	/// @parameter {String} state
 	/// <parameter_description>
 	///
-	/// @parameter {Function} leave_state_event
+	/// @parameter {Function} leavestate_event
 	/// <parameter_description>
 	///
-	/// @parameter {Function} enter_state_event
+	/// @parameter {Function} enterstate_event
 	/// <parameter_description>
 	///
 	/// @parameter {Array<Any>} arguments
@@ -54,7 +54,7 @@
 		// Leave current state
 		if (leave == undefined) { leave = _defLeave }
 		else { private.temp_event = _defLeave }
-		leave_state_event(_data)
+		leavestate_event(_data)
 
 		// Init state
 		private.state_start_time = get_timer()
@@ -63,7 +63,7 @@
 		// Enter next state
 		if (enter == undefined) { enter = _defEnter }
 		else { private.temp_event = _defEnter }
-		enter_state_event(_data)
+		enterstate_event(_data)
 
 		// Reset temp variable
 		private.temp_event = undefined

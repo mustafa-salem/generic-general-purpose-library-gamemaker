@@ -47,7 +47,7 @@ set_global_variable_generic = function(arguments = {}) {
 /// @description <function_description>
 /// @parameter {Struct} arguments <parameter_description>
 /// @returns {type} <return_description>
-function initialise_instance_variable_generic(arguments = {}) {
+function initialize_instance_variable_generic(arguments = {}) {
     var _instance
     var _variable_names
     for () {

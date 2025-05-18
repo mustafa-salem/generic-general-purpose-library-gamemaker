@@ -29,17 +29,9 @@ function GameMakerCommandSequence() constructor {
         private.command_index++
     }
 
-    /// ----------------------------------------------------------------------------
-    /// @description
-    /// This function adds a command to the cutscene.
-    /// ----------------------------------------------------------------------------
-    /// @parameter {callable} callable
-    /// The callable that contains the code to run on the execution.
-    /// @parameter {mixed} execution_context
-    /// The context the command will be executed in. This can be a struct or an
-    /// instance. This will default to the cutscenes default execution context.
     static add_command = function(parameters = {}) {
-        array_push(commands, method(parameters.execution_context, parameters.callable))
+        parameters.commandsequence = self
+        __gamemaker_commandsequence_add_command(parameters)
         return self
     }
 

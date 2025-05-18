@@ -6,10 +6,6 @@
 
 // construct_execute_event({ construct : "regular_bullet_object", event : "create_event" })
 
-function gamemaker_construct_create() {
-
-}
-
 /// ----------------------------------------------------------------------------
 /// @function value_is_instance_of_construct(parameters)
 /// ----------------------------------------------------------------------------
