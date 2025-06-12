@@ -108,11 +108,7 @@ function GameMakerRoom() constructor {
         return self
     }
 
-    static add_label = function(arguments) {
-        // add_label
-        // remove_label
-        // get_labels
-        // set_labels
+    static add_tags = function(arguments) {
         return _return
     }
 

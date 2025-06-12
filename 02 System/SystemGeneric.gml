@@ -33,18 +33,10 @@ for initializing and controlling the other controllers in the generic library.
 ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 *******************************************************************************/
 
+/// adds an instance of generic_controller_object to the first room (permanently)
+room_instance_add(room_first, 0, 0, generic_controller_object)
+
 function SystemControllerGeneric() constructor {
-
-    /*******************************************************************************/
-    #region    –––––––––––––––––––– LIBRARY_INITIALIZATION ––––––––––––––––––––
-    /*******************************************************************************/
-
-    // adds an instance of generic_controller_object to the first room (permanently)
-    room_instance_add(room_first, 0, 0, generic_controller_object)
-
-    /*******************************************************************************/
-    #endregion –––––––––––––––––––– LIBRARY_INITIALIZATION ––––––––––––––––––––
-    /*******************************************************************************/
 
     /*******************************************************************************/
     #region    –––––––––––––––––––– CONTROLLERS ––––––––––––––––––––
@@ -67,15 +59,6 @@ function SystemControllerGeneric() constructor {
 
     }
 
-    static execute_event_controllers = function(_event_name) {
-        var _controller_names = struct_get_names(controllers)
-        for (var i = 0; i < array_length(_controller_names); i++) {
-            var _controller = controllers[$ _controller_names[i]]
-            if (!is_callable(_controller[$ _event_name])) { continue }
-            with (_controller) { self[$ _event_name]() }
-        }
-    }
-
     /*******************************************************************************/
     #endregion –––––––––––––––––––– CONTROLLERS ––––––––––––––––––––
     /*******************************************************************************/
@@ -85,7 +68,7 @@ function SystemControllerGeneric() constructor {
     /*******************************************************************************/
 
     /// ----------------------------------------------------------------------------
-    /// @function create_event()
+    /// 
     /// ----------------------------------------------------------------------------
     static create_event = function() {
         // game_launch_event
@@ -97,7 +80,7 @@ function SystemControllerGeneric() constructor {
     }
 
     /// ----------------------------------------------------------------------------
-    /// @function create_event()
+    /// 
     /// ----------------------------------------------------------------------------
     static cleanup_event = function() {
         if (instance_number > 1) { return }
@@ -109,131 +92,115 @@ function SystemControllerGeneric() constructor {
     }
 
     /// ----------------------------------------------------------------------------
-    /// @function begin_step_event()
+    /// 
     /// ----------------------------------------------------------------------------
     static begin_step_event = function() {
         static _event_name = "begin_step_event"
-        execute_event_controllers(_event_name)
     }
 
     /// ----------------------------------------------------------------------------
-    /// @function step_event()
+    /// 
     /// ----------------------------------------------------------------------------
     static step_event = function() {
         static _event_name = "step_event"
-        execute_event_controllers(_event_name)
     }
 
     /// ----------------------------------------------------------------------------
-    /// @function end_step_event()
+    /// 
     /// ----------------------------------------------------------------------------
     static end_step_event = function() {
         static _event_name = "end_step_event"
-        execute_event_controllers(_event_name)
     }
 
     /// ----------------------------------------------------------------------------
-    /// @function pre_draw_event()
+    /// 
     /// ----------------------------------------------------------------------------
     static pre_draw_event = function() {
         static _event_name = "pre_draw_event"
-        execute_event_controllers(_event_name)
     }
 
     /// ----------------------------------------------------------------------------
-    /// @function draw_begin_event()
+    /// 
     /// ----------------------------------------------------------------------------
     static draw_begin_event = function() {
         static _event_name = "draw_begin_event"
-        execute_event_controllers(_event_name)
     }
 
     /// ----------------------------------------------------------------------------
-    /// @function draw_event()
+    /// 
     /// ----------------------------------------------------------------------------
     static draw_event = function() {
         static _event_name = "draw_event"
-        execute_event_controllers(_event_name)
     }
 
     /// ----------------------------------------------------------------------------
-    /// @function draw_end_event()
+    /// 
     /// ----------------------------------------------------------------------------
     static draw_end_event = function() {
         static _event_name = "draw_end_event"
-        execute_event_controllers(_event_name)
     }
 
     /// ----------------------------------------------------------------------------
-    /// @function post_draw_event()
+    /// 
     /// ----------------------------------------------------------------------------
     static post_draw_event = function() {
         static _event_name = "post_draw_event"
-        execute_event_controllers(_event_name)
     }
 
     /// ----------------------------------------------------------------------------
-    /// @function draw_gui_begin_event()
+    /// 
     /// ----------------------------------------------------------------------------
     static draw_gui_begin_event = function() {
         static _event_name = "draw_gui_begin_event"
-        execute_event_controllers(_event_name)
     }
 
     /// ----------------------------------------------------------------------------
-    /// @function draw_gui_event()
+    /// 
     /// ----------------------------------------------------------------------------
     static draw_gui_event = function() {
         static _event_name = "draw_gui_event"
-        execute_event_controllers(_event_name)
     }
 
     /// ----------------------------------------------------------------------------
-    /// @function draw_gui_end_event()
+    /// 
     /// ----------------------------------------------------------------------------
     static draw_gui_end_event = function() {
         static _event_name = "draw_gui_end_event"
-        execute_event_controllers(_event_name)
     }
 
     /// ----------------------------------------------------------------------------
-    /// @function game_launch_event()
+    /// 
     /// ----------------------------------------------------------------------------
     static game_launch_event = function() {
         static _event_name = "game_launch_event"
-        execute_event_controllers(_event_name)
     }
 
     /// ----------------------------------------------------------------------------
-    /// @function game_start_event()
+    /// 
     /// ----------------------------------------------------------------------------
     static game_start_event = function() {
         static _event_name = "game_start_event"
-        execute_event_controllers(_event_name)
     }
 
     /// ----------------------------------------------------------------------------
-    /// @function game_end_event()
+    /// 
     /// ----------------------------------------------------------------------------
     static game_end_event = function() {
         static _event_name = "game_end_event"
-        execute_event_controllers(_event_name)
     }
 
     /// ----------------------------------------------------------------------------
-    /// @function room_start_event()
+    /// 
     /// ----------------------------------------------------------------------------
     static room_start_event = function() {
         static _event_name = "room_start_event"
-        execute_event_controllers(_event_name)
     }
 
     /// ----------------------------------------------------------------------------
-    /// @function room_end_event()
+    /// 
     /// ----------------------------------------------------------------------------
     static room_end_event = function() {
         static _event_name = "room_end_event"
-        execute_event_controllers(_event_name)
     }
 
     /*******************************************************************************/

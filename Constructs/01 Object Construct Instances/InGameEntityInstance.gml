@@ -20,7 +20,7 @@ function ingame_entity_precreate(parameters = {}) {
 }
 
 /// ----------------------------------------------------------------------------
-/// @function gamemaker_constructinstance_create(parameters)
+/// @function gamemaker_construct_create_instance(parameters)
 /// ----------------------------------------------------------------------------
 /// @description
 /// <function_description>
@@ -43,9 +43,9 @@ function ingame_entity_precreate(parameters = {}) {
 /// ----------------------------------------------------------------------------
 /// @returns {struct}
 /// ----------------------------------------------------------------------------
-function gamemaker_constructinstance_create(parameters = {}) {
+function gamemaker_construct_create_instance(parameters = {}) {
     var _ingame_entity = new InGameEntityInstance()
-    var _object_instance = gamemaker_object_instance_create({ x : 0, y : 0 })
+    var _object_instance = gamemaker_object_create_instance({ x : 0, y : 0 })
     _ingame_entity.private.object_instance = _object_instance
     return _ingame_entity
 }
@@ -116,23 +116,6 @@ function gamemaker_constructinstance_reconfigure(parameters = {}) {
     }
 }
 
-/// ----------------------------------------------------------------------------
-/// @function ingame_entity_instance_execute_event(parameters)
-/// ----------------------------------------------------------------------------
-/// @description
-/// <function_description>
-/// ----------------------------------------------------------------------------
-/// @parameter {type} parameter_name
-/// <parameter_description>
-///
-/// ----------------------------------------------------------------------------
-/// @returns {type}
-/// <return_description>
-/// ----------------------------------------------------------------------------
-function ingame_entity_instance_execute_event(parameters = {}) {
-    return _return
-}
-
 /******************************************************************************/
 #endregion –––––––––––––––––––– FUNCTIONS ––––––––––––––––––––
 /******************************************************************************/
@@ -153,7 +136,7 @@ function InGameEntityInstance() constructor {
 
     static create = function(parameters = {}) {
         if (parameters.object_instance == undefined) {
-            private.object_instance = gamemaker_object_instance_create({
+            private.object_instance = gamemaker_object_create_instance({
                 object     : ingame_entity_object,
                 x_position : 0,
                 y_position : 0,
@@ -187,12 +170,12 @@ function InGameEntityInstance() constructor {
 gamemaker_object_get({ object : ingame_entity_object })
 .set_event({ event : "create_event", callable : function(parameters = {}) {
     if (self[$ "ingame_entity"] == undefined) {
-        ingame_entity = gamemaker_constructinstance_create({ object_instance : self })
+        ingame_entity = gamemaker_construct_create_instance({ object_instance : self })
     }
 }})
 .set_event({ event : "step_event", callable : function(parameters = {}) {
-    ingame_entity.execute_event({ event : "step_event" })
+    ingame_entity.trigger_event({ event : "step_event" })
 }})
 .set_event({ event : "draw_event", callable : function(parameters = {}) {
-    ingame_entity.execute_event({ event : "draw_event" })
+    ingame_entity.trigger_event({ event : "draw_event" })
 }})

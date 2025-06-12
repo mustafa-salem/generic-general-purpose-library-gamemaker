@@ -18,16 +18,16 @@
 ///
 /// ----------------------------------------------------------------------------
 #macro GAMEMAKER_OBJECT_EVENTSCRIPTCONTENTS_CREATE                             \
-gamemaker_object_execute_event({ object : object_index, execute : "create_event" })
+gamemaker_object_get_eventmethod({ object : object_index, event : "create_event" })()
 
 #macro GAMEMAKER_OBJECT_EVENTSCRIPTCONTENTS_CLEANUP                            \
-gamemaker_object_execute_event({ object : object_index, execute : "cleanup_event" })
+gamemaker_object_get_eventmethod({ object : object_index, event : "cleanup_event" })()
 
 #macro GAMEMAKER_OBJECT_EVENTSCRIPTCONTENTS_STEP                               \
-gamemaker_object_execute_event({ object : object_index, execute : "step_event" })
+gamemaker_object_get_eventmethod({ object : object_index, event : "step_event" })()
 
 #macro GAMEMAKER_OBJECT_EVENTSCRIPTCONTENTS_DRAW                               \
-gamemaker_object_execute_event({ object : object_index, execute : "draw_event" })
+gamemaker_object_get_eventmethod({ object : object_index, event : "draw_event" })()
 
 /******************************************************************************/
 #endregion –––––––––––––––––––– CONSTANTS ––––––––––––––––––––
@@ -188,27 +188,6 @@ function gamemaker_object_set_visible(parameters = {}) {
 /// @returns {type}
 /// <return_description>
 /// ----------------------------------------------------------------------------
-function gamemaker_object_get_instances(parameters = {}) {
-    var _object_handle = gamemaker_object_get({ object : parameters.object })
-    var _instances = []
-    for (var i = 0; i < instance_number(_object_handle); i++) {
-        var _instance = instance_find(_object_handle, i)
-        if (_instance == noone) { break }
-        array_push(_instances, _instance)
-    }
-    return _instances
-}
-
-/// ----------------------------------------------------------------------------
-/// @description
-/// <function_description>
-/// ----------------------------------------------------------------------------
-/// @parameter {type} parameter_name
-/// <parameter_description>
-/// ----------------------------------------------------------------------------
-/// @returns {type}
-/// <return_description>
-/// ----------------------------------------------------------------------------
 function gamemaker_object_set_event(parameters) {
     for (var i = 0; i < ; i++) {
         .set_default_event(parameters)
@@ -225,7 +204,7 @@ function gamemaker_object_set_event(parameters) {
 /// @returns {type}
 /// <return_description>
 /// ----------------------------------------------------------------------------
-function gamemaker_object_execute_event(parameters) {
+function gamemaker_object_get_eventmethod(parameters) {
     return _return
 }
 
@@ -284,10 +263,9 @@ function Object() : AssetGeneric() constructor {
         return self
     }
 
-    execute_event = function(parameters = {}) {
+    get_eventmethod = function(parameters = {}) {
         parameters.object = self
-        gamemaker_object_execute_event(parameters)
-        return self
+        return gamemaker_object_get_eventmethod(parameters)
     }
 
     static set_default_event = function(parameters) {
@@ -346,6 +324,10 @@ function ObjectConstructor() constructor {
     static define_default_event = function(arguments) {
         return _return
     }
+    
+}
+
+function GameMakerObject () constructor {
     
 }
 

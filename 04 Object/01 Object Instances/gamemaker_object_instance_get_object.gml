@@ -1,13 +1,15 @@
 /// ----------------------------------------------------------------------------
 /// @description
-/// 'object_index'
+/// <description>
 /// ----------------------------------------------------------------------------
-/// @parameter {type} parameter_name
-/// <parameter_description>
+/// @parameter {struct} parameters
+/// The struct containing the arguments to pass to the function.
+/// @parameter {type} parameters.name
+/// <description>
 /// ----------------------------------------------------------------------------
 /// @returns {type}
-/// <return_description>
+/// <description>
 /// ----------------------------------------------------------------------------
-function object_get_id(parameters = {}) {
+function gamemaker_object_instance_get_object(parameters = {}) {
     return _return
 }

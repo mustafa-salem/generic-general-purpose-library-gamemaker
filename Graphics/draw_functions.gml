@@ -12,7 +12,7 @@ TILING
 Tiling simply requires looping over the target. May add additional settings.
 
 POS
-Built in function not useable, also cant use fragment or colour.
+Built in function not usable, also cant use fragment or colour.
 
 NINE SLICE DOESN'T WORK WITH GENERIC FUNCTIONS
 

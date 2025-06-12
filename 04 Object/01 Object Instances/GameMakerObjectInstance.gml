@@ -252,11 +252,6 @@ function object_instance_get(parameters = {}) {
     return _return
 }
 
-function is_instance_of_object(arguments) {
-    var _child_object_index  = arguments[$ "child_object_index"] ?? self.object_index
-    var _parent_object_index = arguments.parent_object_index
-}
-
 function object_instance_set_position(arguments) {
 	if (!is_struct(arguments)) {
 		arguments = {
@@ -444,11 +439,7 @@ function gamemaker_object_instance_draw(parameters = {}) {
 #region    –––––––––––––––––––– CONSTRUCTORS ––––––––––––––––––––
 /******************************************************************************/
 
-#macro OBJECT_INSTANCE INITIALIZED_CONSTRUCTOR(ObjectInstance)
-
-OBJECT_INSTANCE
-
-function ObjectInstance() : AssetInstanceGeneric() constructor {
+function GameMakerObjectInstance() : AssetInstanceGeneric() constructor {
 
     static initialize = function(arguments) {
         with (_object_instance_id) {
@@ -458,7 +449,7 @@ function ObjectInstance() : AssetInstanceGeneric() constructor {
         with (_object_instance_id.private) {
 
         }
-            self[$ "object_instance"] ??= ObjectInstance.create({
+            self[$ "object_instance"] ??= GameMakerObjectInstance.create({
                 object_instance : id
             })
 
@@ -523,7 +514,7 @@ function ObjectInstance() : AssetInstanceGeneric() constructor {
         private.object_instance.private = private
     }
 
-    static exists = object_instance_exists
+    static exists = gamemaker_object_instance_exists
 
     static create = function(arguments) {
         arguments[$ "object"]
@@ -557,14 +548,14 @@ function ObjectInstance() : AssetInstanceGeneric() constructor {
     }
 
     create_wrapper = function(arguments = {}) {
-        var _object_instance = new ObjectInstance()
+        var _object_instance = new GameMakerObjectInstance()
         with (_object_instance) {
 
         }
         return _object_instance
     }
 
-    static destroy = object_instance_destroy
+    static destroy = gamemaker_object_instance_destroy
 
     static get_visible = function(arguments) {
         return object_instance.visible

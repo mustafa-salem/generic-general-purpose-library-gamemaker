@@ -13,7 +13,22 @@ function gamemaker_quest_create(parameters = {}) {
 }
 
 /// ----------------------------------------------------------------------------
-/// @function gamemaker_quest_get_progress(parameters)
+/// @description
+/// gamemaker_quest("NAME")
+/// gamemaker_quest({ quest : "NAME" })
+/// ----------------------------------------------------------------------------
+/// @parameter {struct} parameters
+/// The struct containing the arguments to pass to the function.
+/// @parameter {type} parameters.name
+/// <description>
+/// ----------------------------------------------------------------------------
+/// @returns {type}
+/// <description>
+/// ----------------------------------------------------------------------------
+function gamemaker_quest(parameters = {}) {
+    return _return
+}
+
 /// ----------------------------------------------------------------------------
 /// @description
 /// <function_description>
@@ -42,6 +57,24 @@ function gamemaker_quest_get_progress(parameters = {}) {
 /// <return_description>
 /// ----------------------------------------------------------------------------
 function gamemaker_quest_set_progress(parameters = {}) {
+    return _return
+}
+
+/// ----------------------------------------------------------------------------
+/// @description
+/// <description>
+/// ----------------------------------------------------------------------------
+/// @parameter {struct} parameters
+/// The struct containing the arguments to pass to the function.
+/// @parameter {type} parameters.quest
+/// <description>
+/// @parameter {type} parameters.milestone
+/// <description>
+/// ----------------------------------------------------------------------------
+/// @returns {type}
+/// <description>
+/// ----------------------------------------------------------------------------
+function gamemaker_quest_advanceto_milestone(parameters = {}) {
     return _return
 }
 

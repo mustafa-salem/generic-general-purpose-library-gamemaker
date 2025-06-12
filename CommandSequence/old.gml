@@ -317,7 +317,7 @@ function scr_cutscene_commands() {
 
     if (_c == "walk") {
         if (!instant) {
-            actor_move = gamemaker_object_instance_create(0, 0, obj_move_actor)
+            actor_move = gamemaker_object_create_instance(0, 0, obj_move_actor)
             actor_move.target = command_actor[i]
             actor_move.direction_word = command_arg1[i]
             actor_move.speed = command_arg2[i]
@@ -333,7 +333,7 @@ function scr_cutscene_commands() {
 
     // MOVE NO RESET
     if (_c == "move") {
-        actor_move = gamemaker_object_instance_create(0, 0, obj_move_actor_no_reset)
+        actor_move = gamemaker_object_create_instance(0, 0, obj_move_actor_no_reset)
         actor_move.target = command_actor[i]
         actor_move.direction_word = command_arg1[i]
         actor_move.speed = command_arg2[i]
@@ -343,7 +343,7 @@ function scr_cutscene_commands() {
 
     if (_c == "walkdirect") {
         if (!instant) {
-            actor_move = gamemaker_object_instance_create(0, 0, obj_move_to_point)
+            actor_move = gamemaker_object_create_instance(0, 0, obj_move_to_point)
             actor_move.target = command_actor[i]
             actor_move.movex = command_arg1[i]
             actor_move.movey = command_arg2[i]
@@ -385,7 +385,7 @@ function scr_cutscene_commands() {
     if (_c == "speaker") { scr_speaker(command_arg1[i]) }
 
     if (_c == "instancecreate") {
-        _instance = gamemaker_object_instance_create(command_arg1[i], command_arg2[i], command_arg3[i])
+        _instance = gamemaker_object_create_instance(command_arg1[i], command_arg2[i], command_arg3[i])
         if (instance_exists(cutscene_object)) { cutscene_object.cutscene_instance = _instance }
     }
 
@@ -536,7 +536,7 @@ function scr_cutscene_commands() {
     // ANIMATE ACTOR
     if (_c == "animate_actor") {
         if (instance_exists(command_actor[i])) {
-            var actor_animator = gamemaker_object_instance_create(command_actor[i].x, command_actor[i].y, obj_actor_animator)
+            var actor_animator = gamemaker_object_create_instance(command_actor[i].x, command_actor[i].y, obj_actor_animator)
             actor_animator.target = command_actor[i]
 
             actor_animator.animation_start_frame = command_arg1[i]
@@ -668,7 +668,7 @@ function scr_cutscene_commands() {
     }
 
     if (_c == "actortoobject") {
-        gamemaker_object_instance_create(command_actor[i].x, command_actor[i].y, command_arg1[i])
+        gamemaker_object_create_instance(command_actor[i].x, command_actor[i].y, command_arg1[i])
         command_actor[i].visible = false
     }
 

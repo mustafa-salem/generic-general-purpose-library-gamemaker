@@ -1,10 +1,8 @@
 /// collision_get_collidees
 
-/// construct_execute_event({ construct : "obj_laserscythe" })
+/// gamemaker_construct_get_eventmethod({ construct : "obj_laserscythe" })
 
-// gamemaker_constructinstance_execute_inherited_event()
-
-// construct_execute_event({ construct : "regular_bullet_object", event : "create_event" })
+// gamemaker_construct_get_eventmethod({ construct : "regular_bullet_object", event : "create_event" })
 
 /// ----------------------------------------------------------------------------
 /// @function value_is_instance_of_construct(parameters)
@@ -55,12 +53,10 @@ function gamemaker_construct_set_constructor(parameters = {}) {
 /// @returns {type}
 /// <return_description>
 /// ----------------------------------------------------------------------------
-function construct_execute_event(parameters = {}) {
+function gamemaker_construct_get_eventmethod(parameters = {}) {
     return _return
 }
 
-/// ----------------------------------------------------------------------------
-/// @function construct_get_instances(parameters)
 /// ----------------------------------------------------------------------------
 /// @description
 /// This function is used to get an array of all instances of constructs that
@@ -77,11 +73,65 @@ function construct_execute_event(parameters = {}) {
 /// ----------------------------------------------------------------------------
 /// @returns {array<struct>}
 /// ----------------------------------------------------------------------------
-function construct_get_instances(parameters) {
+function gamemaker_construct_get_instances(parameters) {
     return _return
 }
 
 function Construct() constructor {
+
+    static create_instance = function(parameters = {}) {
+        var _instance = new ConstructInstance()
+        /// variables
+        var _variables
+        for (var i = 0; i < <expression>; i++) {
+            _instance[$ ""] = _variable
+        }
+        return _instance
+    }
+
+    /// ----------------------------------------------------------------------------
+    /// @description
+    /// <description>
+    /// ----------------------------------------------------------------------------
+    /// @parameter {struct} parameters
+    /// The struct containing the arguments to pass to the function.
+    /// @parameter {type} parameters.name
+    /// <description>
+    /// ----------------------------------------------------------------------------
+    /// @returns {any}
+    /// <description>
+    /// ----------------------------------------------------------------------------
+    static get_variable = function(parameters = {}) {
+        return _return
+    }
+
+    /// ----------------------------------------------------------------------------
+    /// @description
+    /// <description>
+    /// ----------------------------------------------------------------------------
+    /// @parameter {struct} parameters
+    /// The struct containing the arguments to pass to the function.
+    /// @parameter {type} parameters.name
+    /// <description>
+    /// @parameter {type} parameters.value
+    /// <description>
+    /// @parameter {type} parameters.expression
+    /// <description>
+    /// ----------------------------------------------------------------------------
+    /// @returns {struct} self
+    /// ----------------------------------------------------------------------------
+    static set_variable = function(parameters = {}) {
+        return _return
+    }
+
+    /// ----------------------------------------------------------------------------
+    /// Events
+    /// ----------------------------------------------------------------------------
+    private.eventhandlers = get_construct().private.eventhandlers
+
+    trigger_event    = method(self, eventtarget_trigger_event)
+    attach_eventhandler = method(self, eventtarget_get_eventhandler)
+    attach_eventhandler = method(self, eventtarget_attach_eventhandler)
 
 }
 
@@ -96,14 +146,14 @@ gamemaker_object_get({ object : construct_object })
     execute_parentevent(argument0)
 }})
 .set_event({ event : "destroy_event", callable : function() {
-    construct_instance.execute_event({ event : "destroy_event" })
+    construct_instance.trigger_event({ event : "destroy_event" })
     execute_parentevent(argument0)
 }})
 .set_event({ event : "cleanup_event", callable : function() {
-    construct_instance.execute_event({ event : "cleanup_event" })
+    construct_instance.trigger_event({ event : "cleanup_event" })
     execute_parentevent(argument0)
 }})
 .set_event({ event : "step_event", callable : function() {
-    construct_instance.execute_event({ event : "step_event" })
+    construct_instance.trigger_event({ event : "step_event" })
     execute_parentevent(argument0)
 }})

@@ -1,7 +1,7 @@
 /// ----------------------------------------------------------------------------
 /// @description
 /// This script function serves as a proxy for the static method function:
-/// ObjectInstance.create
+/// GameMakerObjectInstance.create
 /// ----------------------------------------------------------------------------
 /// @parameter {type} object
 /// <parameter_description>
@@ -28,7 +28,7 @@
 /// @returns {type}
 /// <return_description>
 /// ----------------------------------------------------------------------------
-function gamemaker_object_instance_create(parameters = {}) {
+function gamemaker_object_create_instance(parameters = {}) {
     var _x_position    =
     var _y_position    =
     var _layer_handle  =

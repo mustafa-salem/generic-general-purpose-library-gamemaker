@@ -7,30 +7,30 @@
 /// getter/setter functions. Properties belonging together have combined acessor
 /// functions alongside their basic accessors.
 ///
-/// @property {Struct} position { x : Real, y : Real }
+/// @parameter {Struct} position { x : Real, y : Real }
 /// The x and y coordinates of the rectangle origin on the render target.
 ///
-/// @property {Struct} dimensions { x : Real, y : Real }
+/// @parameter {Struct} dimensions { x : Real, y : Real }
 /// The (base) x and y dimensions of the rectangle on the render target.
 ///
-/// @property {Struct} alignment { x : Real, y : Real }
+/// @parameter {Struct} alignment { x : Real, y : Real }
 /// The x and y alignment of the rectangle relative to it's origin. Ranges from
 /// 0 to 1. 0 meaning top/left and 1 meaning bottom/right. 0.5 means centered.
 ///
-/// @property {Struct} scale { x : Real, y : Real }
+/// @parameter {Struct} scale { x : Real, y : Real }
 /// The x and y scaling factors applied to the rectangle's dimensional components.
 ///
-/// @property {Struct} rotation { x : Real, y : Real, z : Real }
+/// @parameter {Struct} rotation { x : Real, y : Real, z : Real }
 /// The rotation of the rectangle around it's origin around the x, y and z axis.
 /// These values are normalized. 1 meaning being equal to 360° or 2pi radiants.
 ///
-/// @property {Struct} solid_fill
+/// @parameter {Struct} solid_fill
 /// The container for information regarding the rectangles solid fill.
 ///
-/// @property {Struct} solid_fill.colour
+/// @parameter {Struct} solid_fill.colour
 /// The colour of the solid fill in GameMaker decimal format.
 ///
-/// @property {Struct} solid_fill.alpha
+/// @parameter {Struct} solid_fill.alpha
 /// The normalized alpha of the solid fill. 0 to 1
 ///
 /// ----------------------------------------------------------------------------

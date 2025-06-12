@@ -44,6 +44,38 @@ function is_primitive_type_constant(_value) {
     return array_contains(_array, _value)
 }
 
+/// ----------------------------------------------------------------------------
+/// @description
+/// <description>
+/// ----------------------------------------------------------------------------
+/// @parameter {struct} parameters
+/// The struct containing the arguments to pass to the function.
+/// @parameter {type} parameters.name
+/// <description>
+/// ----------------------------------------------------------------------------
+/// @returns {type}
+/// <description>
+/// ----------------------------------------------------------------------------
+function is_script_function (parameters = {}) {
+    return _return
+}
+
+/// ----------------------------------------------------------------------------
+/// @description
+/// <description>
+/// ----------------------------------------------------------------------------
+/// @parameter {struct} parameters
+/// The struct containing the arguments to pass to the function.
+/// @parameter {type} parameters.name
+/// <description>
+/// ----------------------------------------------------------------------------
+/// @returns {type}
+/// <description>
+/// ----------------------------------------------------------------------------
+function is_builtin_function (parameters = {}) {
+    return _return
+}
+
 /******************************************************************************/
 #region    –––––––––––––––––––– HANDLE ––––––––––––––––––––
 /******************************************************************************/

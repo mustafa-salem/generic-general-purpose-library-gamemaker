@@ -3,7 +3,7 @@
 /******************************************************************************/
 
 /// ----------------------------------------------------------------------------
-/// @function gamemaker_constructinstance_create(parameters)
+/// @function gamemaker_construct_create_instance(parameters)
 /// ----------------------------------------------------------------------------
 /// @description
 /// <function_description>
@@ -15,7 +15,7 @@
 /// @returns {type}
 /// <return_description>
 /// ----------------------------------------------------------------------------
-function gamemaker_constructinstance_create(parameters = {}) {
+function gamemaker_construct_create_instance(parameters = {}) {
     return _return
 }
 

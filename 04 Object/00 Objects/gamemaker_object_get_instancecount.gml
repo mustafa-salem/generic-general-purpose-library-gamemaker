@@ -1,19 +1,15 @@
 /// ----------------------------------------------------------------------------
 /// @description
-/// <function_description>
+/// <description>
 /// ----------------------------------------------------------------------------
-/// @parameter {type} construct
-/// <parameter_description>
-/// @parameter {type} [x_position]
-/// <parameter_description>
-/// @parameter {type} [y_position]
-/// <parameter_description>
-/// @parameter {type} parameter_name
-/// <parameter_description>
+/// @parameter {struct} parameters
+/// The struct containing the arguments to pass to the function.
+/// @parameter {type} parameters.name
+/// <description>
 /// ----------------------------------------------------------------------------
 /// @returns {type}
-/// <return_description>
+/// <description>
 /// ----------------------------------------------------------------------------
-function gamemaker_constructinstance_create(parameters = {}) {
+function gamemaker_object_get_instancecount(parameters = {}) {
     return _return
 }
