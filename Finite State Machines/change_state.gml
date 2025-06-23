@@ -4,16 +4,16 @@
 	/// @description
 	/// This method is used to change the finite state machine to another state.
 	/// ----------------------------------------------------------------------------
-	/// @parameter {String} state
+	/// @param {String} state
 	/// <parameter_description>
 	///
-	/// @parameter {Function} leavestate_event
+	/// @param {Function} leavestate_event
 	/// <parameter_description>
 	///
-	/// @parameter {Function} enterstate_event
+	/// @param {Function} enterstate_event
 	/// <parameter_description>
 	///
-	/// @parameter {Array<Any>} arguments
+	/// @param {Array<Any>} arguments
 	/// <parameter_description>
 	///
 	/// ----------------------------------------------------------------------------

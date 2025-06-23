@@ -2,9 +2,9 @@
 /// @description
 /// <description>
 /// ----------------------------------------------------------------------------
-/// @parameter {struct} parameters
+/// @param {struct} parameters
 /// The struct containing the arguments to pass to the function.
-/// @parameter {type} parameters.name
+/// @param {type} parameters.name
 /// <description>
 /// ----------------------------------------------------------------------------
 /// @returns {struct|undefined}
@@ -18,15 +18,15 @@ function eventtarget_get_eventhandler(parameters = {}) {
 /// @description
 /// <description>
 /// ----------------------------------------------------------------------------
-/// @parameter {struct} parameters
+/// @param {struct} parameters
 /// The struct containing the arguments to pass to the function.
-/// @parameter {type} parameters.event
+/// @param {type} parameters.event
 /// <description>
-/// @parameter {type} parameters.name
+/// @param {type} parameters.name
 /// <description>
-/// @parameter {type} parameters.priority
+/// @param {type} parameters.priority
 /// <description>
-/// @parameter {struct|callable} parameters.handler
+/// @param {struct|callable} parameters.handler
 /// This can be a callable or a struct with a `handle_event` method.
 ///
 /// NOTE: The function is stored as an unbound method.
@@ -58,9 +58,9 @@ function eventtarget_detach_eventhandler(parameters = {}) {
 /// @description
 /// <description>
 /// ----------------------------------------------------------------------------
-/// @parameter {struct} parameters
+/// @param {struct} parameters
 /// The struct containing the arguments to pass to the function.
-/// @parameter {type} parameters.event
+/// @param {type} parameters.event
 /// <description>
 /// ----------------------------------------------------------------------------
 /// @returns {struct} self

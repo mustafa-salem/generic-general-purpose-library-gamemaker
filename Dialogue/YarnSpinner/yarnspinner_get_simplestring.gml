@@ -2,7 +2,7 @@
 /// @description
 /// <function_description>
 /// ----------------------------------------------------------------------------
-/// @parameter {string} node
+/// @param {string} node
 /// <parameter_description>
 /// ----------------------------------------------------------------------------
 /// @returns {string}

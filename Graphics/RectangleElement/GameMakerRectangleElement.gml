@@ -116,7 +116,7 @@ function GameMakerRectangleElement() constructor {
 	/// ----------------------------------------------------------------------------
 	/// @function set_colour_solid_fill(_colour_solid_fill)
 	/// ----------------------------------------------------------------------------
-	/// @parameter {Real}
+	/// @param {Real}
 	/// _colour_solid_fill
 	/// ----------------------------------------------------------------------------
 	/// @returns {Struct.GameMakerRectangleElement}
@@ -147,7 +147,7 @@ function GameMakerRectangleElement() constructor {
 	/// ----------------------------------------------------------------------------
 	/// @function set_alpha_solid_fill(_alpha_solid_fill)
 	/// ----------------------------------------------------------------------------
-	/// @parameter {Real} _alpha_solid_fill
+	/// @param {Real} _alpha_solid_fill
 	/// _alpha_solid_fill
 	/// ----------------------------------------------------------------------------
 	/// @returns {Struct.GameMakerRectangleElement} self
@@ -295,7 +295,7 @@ function GameMakerRectangleElement() constructor {
 	/// ----------------------------------------------------------------------------
 	/// @function set_colour_solid_outline(_colour_solid_outline)
 	/// ----------------------------------------------------------------------------
-	/// @parameter {Real} _colour_solid_outline
+	/// @param {Real} _colour_solid_outline
 	/// colour_solid_outline
 	/// ----------------------------------------------------------------------------
 	/// @returns {Struct.GameMakerRectangleElement}
@@ -326,7 +326,7 @@ function GameMakerRectangleElement() constructor {
 	/// ----------------------------------------------------------------------------
 	/// @function set_alpha_solid_fill(_alpha_solid_outline)
 	/// ----------------------------------------------------------------------------
-	/// @parameter {Real} _alpha_solid_outline
+	/// @param {Real} _alpha_solid_outline
 	/// alpha_solid_outline
 	/// ----------------------------------------------------------------------------
 	/// @returns {Struct.GameMakerRectangleElement} self

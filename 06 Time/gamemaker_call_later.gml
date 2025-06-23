@@ -2,15 +2,15 @@
 /// @description
 /// This function is used to create a Time Source
 /// ----------------------------------------------------------------------------
-/// @parameter {callable} callable
+/// @param {callable} callable
 /// <parameter_description>
-/// @parameter {type} delay_seconds
+/// @param {type} delay_seconds
 /// <parameter_description>
-/// @parameter {type} delay_frames
+/// @param {type} delay_frames
 /// <parameter_description>
-/// @parameter {type} arguments
+/// @param {type} arguments
 /// <parameter_description>
-/// @parameter {type} parameter_name
+/// @param {type} parameter_name
 /// <parameter_description>
 /// ----------------------------------------------------------------------------
 /// @returns {type}

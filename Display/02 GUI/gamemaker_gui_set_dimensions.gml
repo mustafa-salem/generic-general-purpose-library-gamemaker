@@ -2,9 +2,9 @@
 /// @description
 /// This function is used to set the dimensions of the gui.
 /// ----------------------------------------------------------------------------
-/// @parameter {number} x
+/// @param {number} x
 /// <parameter_description>
-/// @parameter {number} y
+/// @param {number} y
 /// <parameter_description>
 /// ----------------------------------------------------------------------------
 /// @returns {undefined}

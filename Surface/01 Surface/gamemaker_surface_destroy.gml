@@ -2,7 +2,7 @@
 /// @description
 /// * surface_free
 /// ----------------------------------------------------------------------------
-/// @parameter {mixed} surface
+/// @param {mixed} surface
 /// The value or the array of values that identify the surface to destroy.
 /// ----------------------------------------------------------------------------
 function gamemaker_surface_destroy(parameters) {

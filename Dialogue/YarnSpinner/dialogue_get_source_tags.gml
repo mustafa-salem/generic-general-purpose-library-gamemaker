@@ -2,7 +2,7 @@
 /// @description
 /// This function is used to get the tags associated with a source.
 /// ----------------------------------------------------------------------------
-/// @parameter {string} source
+/// @param {string} source
 /// The name of the source to target.
 /// ----------------------------------------------------------------------------
 /// @returns {array<string>}

@@ -2,9 +2,9 @@
 /// @description
 /// <function_description>
 /// ----------------------------------------------------------------------------
-/// @parameter {type} instance
+/// @param {type} instance
 /// <parameter_description>
-/// @parameter {boolean} visible
+/// @param {boolean} visible
 /// <parameter_description>
 /// ----------------------------------------------------------------------------
 /// @returns {undefined}

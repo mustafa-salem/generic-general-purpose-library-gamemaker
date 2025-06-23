@@ -6,7 +6,7 @@
 ///
 /// This function checks if a surface exists.
 /// ----------------------------------------------------------------------------
-/// @parameter {mixed} surface
+/// @param {mixed} surface
 /// The value that identifies the surface to target. (id|handle|struct)
 /// ----------------------------------------------------------------------------
 /// @returns {boolean}

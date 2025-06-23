@@ -6,14 +6,14 @@
 /// with the specified name and returns its value. If no such variable exists or
 /// an error occurs undefind is returned instead.
 /// ----------------------------------------------------------------------------
-/// @parameter {Struct} arguments
+/// @param {Struct} arguments
 ///
-/// @parameter {Function|Struct} arguments.owner
+/// @param {Function|Struct} arguments.owner
 /// The owner of the static variable to get. This can be a script function,
 /// a method, or a struct. If a struct is provided the constructor function used
 /// to create the struct will be used as owner.
 ///
-/// @parameter {String} arguments.variable_name
+/// @param {String} arguments.variable_name
 /// The name of the static variable to check for.
 ///
 /// ----------------------------------------------------------------------------

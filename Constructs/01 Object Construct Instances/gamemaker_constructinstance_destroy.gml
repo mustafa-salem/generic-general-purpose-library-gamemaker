@@ -2,12 +2,12 @@
 /// @description
 /// This function is used to destroy construct instances.
 /// ----------------------------------------------------------------------------
-/// @parameter {struct} parameters
+/// @param {struct} parameters
 ///
-/// @parameter {type} parameters.instance
+/// @param {type} parameters.instance
 /// <parameter_description>
 ///
-/// @parameter {type} parameters.parameter_name
+/// @param {type} parameters.parameter_name
 /// <parameter_description>
 /// ----------------------------------------------------------------------------
 /// @returns {undefined}

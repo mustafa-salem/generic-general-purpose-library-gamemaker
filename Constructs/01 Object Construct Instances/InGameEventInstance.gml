@@ -8,10 +8,10 @@
 /// @description
 /// <function_description>
 /// ----------------------------------------------------------------------------
-/// @parameter {string} name
+/// @param {string} name
 /// <parameter_description>
 ///
-/// @parameter {type} parameter_name
+/// @param {type} parameter_name
 /// <parameter_description>
 ///
 /// ----------------------------------------------------------------------------
@@ -53,10 +53,10 @@ function InGameEventType() {
     /// * cleanup_event
     /// * step_event
     /// ----------------------------------------------------------------------------
-    /// @parameter {type} event
+    /// @param {type} event
     /// <parameter_description>
     ///
-    /// @parameter {type} callable
+    /// @param {type} callable
     /// <parameter_description>
     ///
     /// ----------------------------------------------------------------------------

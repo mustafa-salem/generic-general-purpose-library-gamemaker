@@ -10,10 +10,10 @@
 /// @description
 /// This function checks whether a given value is an instance of a construct.
 /// ----------------------------------------------------------------------------
-/// @parameter {any} value
+/// @param {any} value
 /// The value to check.
 ///
-/// @parameter {type|array<type>} construct
+/// @param {type|array<type>} construct
 /// The construct or array of constructs to check.
 ///
 /// ----------------------------------------------------------------------------
@@ -28,9 +28,9 @@ function value_is_instance_of_construct(parameters = {}) {
 /// @description
 /// <function_description>
 /// ----------------------------------------------------------------------------
-/// @parameter {type} object
+/// @param {type} object
 /// <parameter_description>
-/// @parameter {type} callable
+/// @param {type} callable
 /// <parameter_description>
 /// ----------------------------------------------------------------------------
 /// @returns {type}
@@ -46,7 +46,7 @@ function gamemaker_construct_set_constructor(parameters = {}) {
 /// @description
 /// <function_description>
 /// ----------------------------------------------------------------------------
-/// @parameter {type} parameter_name
+/// @param {type} parameter_name
 /// <parameter_description>
 ///
 /// ----------------------------------------------------------------------------
@@ -62,12 +62,12 @@ function gamemaker_construct_get_eventmethod(parameters = {}) {
 /// This function is used to get an array of all instances of constructs that
 /// pass a predicate.
 /// ----------------------------------------------------------------------------
-/// @parameter {struct} parameters
+/// @param {struct} parameters
 ///
-/// @parameter {all|string|struct|array<string|struct>} parameters.construct
+/// @param {all|string|struct|array<string|struct>} parameters.construct
 /// The constructs of which to return their instances.
 ///
-/// @parameter {callable} [parameters.predicate]
+/// @param {callable} [parameters.predicate]
 /// As argument0 { array, element, index } will be passed to this callable and
 /// it must return a boolean to determine whether to return the element.
 /// ----------------------------------------------------------------------------
@@ -93,9 +93,9 @@ function Construct() constructor {
     /// @description
     /// <description>
     /// ----------------------------------------------------------------------------
-    /// @parameter {struct} parameters
+    /// @param {struct} parameters
     /// The struct containing the arguments to pass to the function.
-    /// @parameter {type} parameters.name
+    /// @param {type} parameters.name
     /// <description>
     /// ----------------------------------------------------------------------------
     /// @returns {any}
@@ -109,13 +109,13 @@ function Construct() constructor {
     /// @description
     /// <description>
     /// ----------------------------------------------------------------------------
-    /// @parameter {struct} parameters
+    /// @param {struct} parameters
     /// The struct containing the arguments to pass to the function.
-    /// @parameter {type} parameters.name
+    /// @param {type} parameters.name
     /// <description>
-    /// @parameter {type} parameters.value
+    /// @param {type} parameters.value
     /// <description>
-    /// @parameter {type} parameters.expression
+    /// @param {type} parameters.expression
     /// <description>
     /// ----------------------------------------------------------------------------
     /// @returns {struct} self
@@ -138,7 +138,7 @@ function Construct() constructor {
 /// ----------------------------------------------------------------------------
 /// construct_object
 /// ----------------------------------------------------------------------------
-gamemaker_object_get({ object : construct_object })
+gamemaker_object(construct_object)
 .set_event({ event : "create_event", callable : function() {
     if (not variable_instance_exists(self, "construct_instance")) {
         construct_instance = myconstructor()

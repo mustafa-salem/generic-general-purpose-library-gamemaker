@@ -5,16 +5,16 @@
 /// This script function serves as a wrapper for the built-in function:
 /// instance_destroy
 /// ----------------------------------------------------------------------------
-/// @parameter {Struct} arguments
+/// @param {Struct} arguments
 ///
-/// @parameter {...} arguments.object_instance
+/// @param {...} arguments.object_instance
 /// * Struct.Object
 /// * Name.Object
 /// * Id.Object
 /// * Struct.GameMakerObjectInstance
 /// * Id.GameMakerObjectInstance
 ///
-/// @parameter {boolean} arguments.execute_destroy_event
+/// @param {boolean} arguments.execute_destroy_event
 /// Whether to execute the destroy event of the object instance being destroyed.
 /// ----------------------------------------------------------------------------
 /// @returns {Any} self

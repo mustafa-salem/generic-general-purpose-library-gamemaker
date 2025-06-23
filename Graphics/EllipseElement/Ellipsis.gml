@@ -5,34 +5,34 @@
 /// This function is a generification of the built-in functions <draw_circle>,
 /// <draw_circle_colour>, <draw_ellipse> and <draw_ellipse_colour>.
 /// ----------------------------------------------------------------------------
-/// @parameter {type} [x_position]
+/// @param {type} [x_position]
 /// default : 0
 ///
-/// @parameter {type} [y_position]
+/// @param {type} [y_position]
 /// default : 0
 ///
-/// @parameter {type} [x_alignment]
+/// @param {type} [x_alignment]
 /// default : 0
 ///
-/// @parameter {type} [y_alignment]
+/// @param {type} [y_alignment]
 /// default : 0
 ///
-/// @parameter {type} x_dimension
+/// @param {type} x_dimension
 /// <parameter_description>
 ///
-/// @parameter {type} y_dimension
+/// @param {type} y_dimension
 /// <parameter_description>
 ///
-/// @parameter {type} outline_thickness
+/// @param {type} outline_thickness
 /// <parameter_description>
 ///
-/// @parameter {type} blend_colour
+/// @param {type} blend_colour
 /// <parameter_description>
 ///
-/// @parameter {type} blend_alpha
+/// @param {type} blend_alpha
 /// <parameter_description>
 ///
-/// @parameter {type} parameter_name
+/// @param {type} parameter_name
 /// <parameter_description>
 ///
 /// ----------------------------------------------------------------------------

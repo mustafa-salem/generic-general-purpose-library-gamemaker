@@ -22,18 +22,18 @@
 /// @description
 /// <function_description>
 /// ----------------------------------------------------------------------------
-/// @parameter {struct} parameters
+/// @param {struct} parameters
 ///
-/// @parameter {type} texture_pointer
+/// @param {type} texture_pointer
 /// <parameter_description>
 ///
-/// @parameter {type} parameters.parameter_name
+/// @param {type} parameters.parameter_name
 /// <parameter_description>
 ///
-/// @parameter {type} parameters.parameter_name
+/// @param {type} parameters.parameter_name
 /// <parameter_description>
 ///
-/// @parameter {type} parameters.parameter_name
+/// @param {type} parameters.parameter_name
 /// <parameter_description>
 ///
 /// ----------------------------------------------------------------------------

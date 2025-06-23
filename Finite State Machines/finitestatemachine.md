@@ -19,7 +19,7 @@
 /// * execute_parentevent
 ///
 /// # Event Listeners
-/// * add_event_listener
+/// * attach_eventhandler
 /// * remove_event_listener
 ///
 /// # Transitions

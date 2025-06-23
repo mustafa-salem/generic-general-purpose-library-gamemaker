@@ -2,10 +2,10 @@
 /// @description
 /// <function_description>
 /// ----------------------------------------------------------------------------
-/// @parameter {string|handle|integer} sprite
+/// @param {string|handle|integer} sprite
 /// The sprite to display.
 ///
-/// @parameter {integer} [frame=0]
+/// @param {integer} [frame=0]
 /// The index of the frame of the sprite to display. Defaults to 0.
 ///
 /// ----------------------------------------------------------------------------

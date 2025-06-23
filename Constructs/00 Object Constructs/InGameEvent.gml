@@ -8,7 +8,7 @@
 /// @description
 /// <function_description>
 /// ----------------------------------------------------------------------------
-/// @parameter {type} parameter_name
+/// @param {type} parameter_name
 /// <parameter_description>
 ///
 /// ----------------------------------------------------------------------------
@@ -26,7 +26,7 @@ function gamemaker_construct_create_instance(parameters = {}) {
 /// This function returns an array of in game events that fit the provided
 /// conditions.
 /// ----------------------------------------------------------------------------
-/// @parameter {string} type
+/// @param {string} type
 /// The name of the in_game_event_type to target.
 /// ----------------------------------------------------------------------------
 /// @returns {array<struct>}
@@ -51,6 +51,6 @@ function InGameEvent() {
 #endregion –––––––––––––––––––– CONSTRUCTORS ––––––––––––––––––––
 /******************************************************************************/
 
-gamemaker_object_get({ object : ingameevent_construct_object })
+gamemaker_object(ingameevent_construct_object)
 
 gamemaker_construct_create({ name : "ingameevent_construct" })

@@ -3,7 +3,7 @@
 /// This script function serves as a proxy for the static method function:
 /// TimeSourceGeneric.exists
 /// ----------------------------------------------------------------------------
-/// @parameter {type} parameter_name
+/// @param {type} parameter_name
 /// <parameter_description>
 /// ----------------------------------------------------------------------------
 /// @returns {type}

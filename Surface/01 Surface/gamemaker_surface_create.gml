@@ -2,20 +2,20 @@
 /// @description
 /// <function_description>
 /// ----------------------------------------------------------------------------
-/// @parameter {integer} x_dimension
+/// @param {integer} x_dimension
 /// <parameter_description>
 ///
-/// @parameter {integer} y_dimension
+/// @param {integer} y_dimension
 /// <parameter_description>
 ///
-/// @parameter {constant} [format]
+/// @param {constant} [format]
 /// <parameter_description>
 ///
-/// @parameter {boolean} [garbage_collection]
+/// @param {boolean} [garbage_collection]
 /// Whether to garbage collect the native surface when the struct is garbage
 /// collected.
 ///
-/// @parameter {boolean} [existance_ensureance]
+/// @param {boolean} [existance_ensureance]
 /// Whether to ensure that the native surface exists when trying to perform a
 /// operation on it.
 ///

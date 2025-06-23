@@ -2,9 +2,9 @@
 /// @description
 /// <function_description>
 /// ----------------------------------------------------------------------------
-/// @parameter {type} instance
+/// @param {type} instance
 /// <parameter_description>
-/// @parameter {type} callable
+/// @param {type} callable
 /// <parameter_description>
 /// ----------------------------------------------------------------------------
 /// @returns {type}

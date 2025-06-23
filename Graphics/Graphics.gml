@@ -137,35 +137,35 @@ bm_src_alpha_sat
 /// same on any surface as on the application_surface.
 /// ----------------------------------------------------------------------------
 #macro DEFAULT_BLENDMODE                                                      \
-gamemaker_blendmode_get({ blendmode : "default_blendmode" })
+gamemaker_blendmode("default_blendmode")
 
 /// ----------------------------------------------------------------------------
 /// @description
 /// Game Maker's default blend mode.
 /// ----------------------------------------------------------------------------
 #macro NORMAL_BLENDMODE                                                       \
-gamemaker_blendmode_get({ blendmode : "normal_blendmode" })
+gamemaker_blendmode("normal_blendmode")
 
 /// ----------------------------------------------------------------------------
 /// @description
 /// <description>
 /// ----------------------------------------------------------------------------
 #macro ADDITIVE_BLENDMODE                                                     \
-gamemaker_blendmode_get({ blendmode : "additive_blendmode" })
+gamemaker_blendmode("additive_blendmode")
 
 /// ----------------------------------------------------------------------------
 /// @description
 /// <description>
 /// ----------------------------------------------------------------------------
 #macro SUBTRACTIVE_BLENDMODE                                                  \
-gamemaker_blendmode_get({ blendmode : "subtractive_blendmode" })
+gamemaker_blendmode("subtractive_blendmode")
 
 /// ----------------------------------------------------------------------------
 /// @description
 /// <description>
 /// ----------------------------------------------------------------------------
 #macro MAXIMUM_BLENDMODE                                                      \
-gamemaker_blendmode_get({ blendmode : "maximum_blendmode" })
+gamemaker_blendmode("maximum_blendmode")
 
 #endregion –––––––––––––––––––– BLENDMODES ––––––––––––––––––––
 
@@ -202,20 +202,18 @@ function gamemaker_blendmode_get_destination_alpha_blendfactor(arguments = {}) {
 }
 
 /// ----------------------------------------------------------------------------
-/// @function gamemaker_blendmode_get(arguments)
-/// ----------------------------------------------------------------------------
 /// @description
 /// <function_description>
 /// ----------------------------------------------------------------------------
-/// @parameter {Struct} arguments
+/// @param {Struct} arguments
 ///
-/// @parameter {Type} arguments.blendmode
+/// @param {Type} arguments.blendmode
 /// <parameter_description>
 /// ----------------------------------------------------------------------------
 /// @returns {Struct.BlendMode}
 /// <return_description>
 /// ----------------------------------------------------------------------------
-function gamemaker_blendmode_get(arguments = {}) {
+function gamemaker_blendmode(arguments = {}) {
     var _blendmode
     return _blendmode
 }

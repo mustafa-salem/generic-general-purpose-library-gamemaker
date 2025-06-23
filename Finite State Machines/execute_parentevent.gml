@@ -4,7 +4,7 @@
 	/// @description
 	/// This function is used to execute the current event of the parent state.
 	/// ----------------------------------------------------------------------------
-	/// @parameter {Struct} parameter_name
+	/// @param {Struct} parameter_name
 	///
 	/// ----------------------------------------------------------------------------
 	/// @returns {struct.FiniteStateMachine} self
@@ -26,7 +26,7 @@
 			for (var i = 0; i < _length; i++) {
 				if (private.child_queue[i] == _state_name) {
 					_index = i
-					break
+					break;
 				}
 			}
 

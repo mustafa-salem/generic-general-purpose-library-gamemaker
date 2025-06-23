@@ -11,70 +11,70 @@
 /// The static struct of the "GameMakerSurface" constructor function is returned for the
 /// purpose of implementing a fluent interface.
 /// ----------------------------------------------------------------------------
-/// @parameter {mixed} surface
+/// @param {mixed} surface
 /// The surface to draw.
 ///
-/// @parameter {type} vertices
+/// @param {type} vertices
 /// Can be used instead of [position, alignment, dimension, scale] to directly set
 /// where the surface is drawn.
 /// { x_position : , y_position : , x_texture_coordinate : , y_texture_coordinate : , blend_colour : , blend_alpha : }
 ///
-/// @parameter {number} x_position
+/// @param {number} x_position
 /// The x position where to draw the surface onto the render target.
 ///
-/// @parameter {number} y_position
+/// @param {number} y_position
 /// The y position where to draw the surface onto the render target.
 ///
-/// @parameter {number} x_alignment
+/// @param {number} x_alignment
 /// valid range : [0, 1]
 ///
-/// @parameter {number} y_alignment
+/// @param {number} y_alignment
 /// valid range : [0, 1]
 ///
-/// @parameter {number} x_dimension
+/// @param {number} x_dimension
 /// The x dimensions the surface should be drawn with.
 ///
-/// @parameter {number} y_dimension
+/// @param {number} y_dimension
 /// The y dimensions the surface should be drawn with.
 ///
-/// @parameter {type} x_rotation
+/// @param {type} x_rotation
 /// valid range : [0, 1]
 ///
-/// @parameter {type} y_rotation
+/// @param {type} y_rotation
 /// valid range : [0, 1]
 ///
-/// @parameter {type} z_rotation
+/// @param {type} z_rotation
 /// valid range : [0, 1]
 ///
-/// @parameter {type} fragment_vertices
+/// @param {type} fragment_vertices
 /// Can be used instead of [position, alignment, dimension, scale] to directly set
 /// what part of the surface is drawn.
 ///
-/// @parameter {type} parameter_name
+/// @param {type} parameter_name
 /// <parameter_description>
 ///
-/// @parameter {type} parameter_name
+/// @param {type} parameter_name
 /// <parameter_description>
 ///
-/// @parameter {type} parameter_name
+/// @param {type} parameter_name
 /// <parameter_description>
 ///
-/// @parameter {type} parameter_name
+/// @param {type} parameter_name
 /// <parameter_description>
 ///
-/// @parameter {type} blend_colour
+/// @param {type} blend_colour
 /// <parameter_description>
 ///
-/// @parameter {type} blend_alpha
+/// @param {type} blend_alpha
 /// <parameter_description>
 ///
-/// @parameter {type} blend_gradient
+/// @param {type} blend_gradient
 /// <parameter_description>
 ///
-/// @parameter {boolean} tiled
+/// @param {boolean} tiled
 /// <parameter_description>
 ///
-/// @parameter {type} parameter_name
+/// @param {type} parameter_name
 /// <parameter_description>
 /// ----------------------------------------------------------------------------
 /// @returns {type}

@@ -2,13 +2,13 @@
 /// @description
 /// This function adds a command to the cutscene.
 /// ----------------------------------------------------------------------------
-/// @parameter {struct} parameters
+/// @param {struct} parameters
 /// The struct containing the arguments to pass to the function.
-/// @parameter {type} parameters.name
+/// @param {type} parameters.name
 /// <description>
-/// @parameter {callable} callable
+/// @param {callable} callable
 /// The callable that contains the code to run on the execution.
-/// @parameter {mixed} execution_context
+/// @param {mixed} execution_context
 /// The context the command will be executed in. This can be a struct or an
 /// instance. This will default to the cutscenes default execution context.
 /// ----------------------------------------------------------------------------

@@ -2,13 +2,13 @@
 /// @description
 /// <description>
 /// ----------------------------------------------------------------------------
-/// @parameter {struct} parameters
+/// @param {struct} parameters
 /// The struct containing the arguments to pass to the function.
-/// @parameter {type} parameters.x
+/// @param {type} parameters.x
 /// <description>
-/// @parameter {type} parameters.y
+/// @param {type} parameters.y
 /// <description>
-/// @parameter {type} parameters.duration_seconds
+/// @param {type} parameters.duration_seconds
 /// <description>
 /// ----------------------------------------------------------------------------
 /// @returns {type}

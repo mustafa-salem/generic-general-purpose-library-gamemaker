@@ -4,15 +4,15 @@
 /// @description
 /// <function_description>
 /// ----------------------------------------------------------------------------
-/// @parameter {Struct} arguments
+/// @param {Struct} arguments
 ///
-/// @parameter {Struct.ViewPortGeneric|Real} arguments.view_port
+/// @param {Struct.ViewPortGeneric|Real} arguments.view_port
 /// The view port to target or its index (0 - 7).
 ///
-/// @parameter {Real} arguments.x
+/// @param {Real} arguments.x
 /// <parameter_description>
 ///
-/// @parameter {Real} arguments.y
+/// @param {Real} arguments.y
 /// <parameter_description>
 /// ----------------------------------------------------------------------------
 function gamemaker_viewport_set_dimensions(arguments = {}) {
@@ -29,11 +29,11 @@ function gamemaker_viewport_set_dimensions(arguments = {}) {
 /// @description
 /// <function_description>
 /// ----------------------------------------------------------------------------
-/// @parameter {type} viewport
+/// @param {type} viewport
 /// <parameter_description>
-/// @parameter {type} x
+/// @param {type} x
 /// <parameter_description>
-/// @parameter {type} y
+/// @param {type} y
 /// <parameter_description>
 /// ----------------------------------------------------------------------------
 /// @returns {undefined}

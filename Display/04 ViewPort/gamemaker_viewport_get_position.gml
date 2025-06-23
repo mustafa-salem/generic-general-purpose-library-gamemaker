@@ -4,9 +4,9 @@
 /// @description
 /// <function_description>
 /// ----------------------------------------------------------------------------
-/// @parameter {Struct} arguments
+/// @param {Struct} arguments
 ///
-/// @parameter {Struct.ViewPortGeneric|Real} arguments.view_port
+/// @param {Struct.ViewPortGeneric|Real} arguments.view_port
 /// The view port to target or its index (0 - 7).
 /// ----------------------------------------------------------------------------
 /// @returns {Struct}

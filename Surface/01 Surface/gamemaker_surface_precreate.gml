@@ -4,7 +4,7 @@
 /// Like gamemaker_surface_create but the actual surface won't be created yet.
 /// Call .create to create the surface.
 /// ----------------------------------------------------------------------------
-/// @parameter {type} parameter_name
+/// @param {type} parameter_name
 /// <parameter_description>
 ///
 /// ----------------------------------------------------------------------------

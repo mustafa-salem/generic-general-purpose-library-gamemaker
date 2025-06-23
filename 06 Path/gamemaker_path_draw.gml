@@ -2,13 +2,13 @@
 /// @description
 /// <function_description>
 /// ----------------------------------------------------------------------------
-/// @parameter {type} parameter_name
+/// @param {type} parameter_name
 /// <parameter_description>
-/// @parameter {type} parameter_name
+/// @param {type} parameter_name
 /// <parameter_description>
-/// @parameter {type} parameter_name
+/// @param {type} parameter_name
 /// <parameter_description>
-/// @parameter {type} parameter_name
+/// @param {type} parameter_name
 /// <parameter_description>
 /// ----------------------------------------------------------------------------
 /// @returns {undefined}

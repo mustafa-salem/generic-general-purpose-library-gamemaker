@@ -41,7 +41,7 @@ gamemaker_object_get_eventmethod({ object : object_index, event : "draw_event" }
 /// @description
 /// 'object_get_parent'
 /// ----------------------------------------------------------------------------
-/// @parameter {type} parameter_name
+/// @param {type} parameter_name
 /// <parameter_description>
 /// ----------------------------------------------------------------------------
 /// @returns {type}
@@ -55,7 +55,7 @@ function function_name(parameters = {}) {
 /// @description
 /// 'object_is_ancestor'
 /// ----------------------------------------------------------------------------
-/// @parameter {type} parameter_name
+/// @param {type} parameter_name
 /// <parameter_description>
 /// ----------------------------------------------------------------------------
 /// @returns {type}
@@ -69,7 +69,7 @@ function function_name(parameters = {}) {
 /// @description
 /// 'object_get_persistent'
 /// ----------------------------------------------------------------------------
-/// @parameter {type} parameter_name
+/// @param {type} parameter_name
 /// <parameter_description>
 /// ----------------------------------------------------------------------------
 /// @returns {type}
@@ -83,7 +83,7 @@ function function_name(parameters = {}) {
 /// @description
 /// 'object_set_persistent'
 /// ----------------------------------------------------------------------------
-/// @parameter {type} parameter_name
+/// @param {type} parameter_name
 /// <parameter_description>
 /// ----------------------------------------------------------------------------
 /// @returns {type}
@@ -97,7 +97,7 @@ function function_name(parameters = {}) {
 /// @description
 /// 'object_get_sprite'
 /// ----------------------------------------------------------------------------
-/// @parameter {type} parameter_name
+/// @param {type} parameter_name
 /// <parameter_description>
 /// ----------------------------------------------------------------------------
 /// @returns {type}
@@ -111,7 +111,7 @@ function function_name(parameters = {}) {
 /// @description
 /// 'object_set_sprite'
 /// ----------------------------------------------------------------------------
-/// @parameter {type} parameter_name
+/// @param {type} parameter_name
 /// <parameter_description>
 /// ----------------------------------------------------------------------------
 /// @returns {type}
@@ -125,7 +125,7 @@ function function_name(parameters = {}) {
 /// @description
 /// 'object_get_mask'
 /// ----------------------------------------------------------------------------
-/// @parameter {type} parameter_name
+/// @param {type} parameter_name
 /// <parameter_description>
 /// ----------------------------------------------------------------------------
 /// @returns {type}
@@ -139,7 +139,7 @@ function function_name(parameters = {}) {
 /// @description
 /// 'object_set_mask'
 /// ----------------------------------------------------------------------------
-/// @parameter {type} parameter_name
+/// @param {type} parameter_name
 /// <parameter_description>
 /// ----------------------------------------------------------------------------
 /// @returns {type}
@@ -153,7 +153,7 @@ function function_name(parameters = {}) {
 /// @description
 /// 'object_get_visible'
 /// ----------------------------------------------------------------------------
-/// @parameter {type} object
+/// @param {type} object
 /// <parameter_description>
 /// ----------------------------------------------------------------------------
 /// @returns {boolean}
@@ -166,9 +166,9 @@ function gamemaker_object_get_visible(parameters = {}) {
 /// @description
 /// 'object_set_visible'
 /// ----------------------------------------------------------------------------
-/// @parameter {type} object
+/// @param {type} object
 /// <parameter_description>
-/// @parameter {boolean} visible
+/// @param {boolean} visible
 /// <parameter_description>
 /// ----------------------------------------------------------------------------
 /// @returns {undefined}
@@ -182,7 +182,7 @@ function gamemaker_object_set_visible(parameters = {}) {
 /// @description
 /// <function_description>
 /// ----------------------------------------------------------------------------
-/// @parameter {type} parameter_name
+/// @param {type} parameter_name
 /// <parameter_description>
 /// ----------------------------------------------------------------------------
 /// @returns {type}
@@ -198,7 +198,7 @@ function gamemaker_object_set_event(parameters) {
 /// @description
 /// <function_description>
 /// ----------------------------------------------------------------------------
-/// @parameter {type} parameter_name
+/// @param {type} parameter_name
 /// <parameter_description>
 /// ----------------------------------------------------------------------------
 /// @returns {type}
@@ -291,9 +291,9 @@ function Object() : AssetGeneric() constructor {
     /// @description This function returns whether the given object is a direct or
     /// indirect child of the given parent_object.
     /// ----------------------------------------------------------------------------
-    /// @parameter {Struct} arguments
-    /// @parameter {Asset.GMObject} [arguments.object=object_index] - Object
-    /// @parameter {Asset.GMObject}  arguments.parent_object        - Parent Object
+    /// @param {Struct} arguments
+    /// @param {Asset.GMObject} [arguments.object=object_index] - Object
+    /// @param {Asset.GMObject}  arguments.parent_object        - Parent Object
     /// ----------------------------------------------------------------------------
     /// @returns {boolean}
     /// ----------------------------------------------------------------------------

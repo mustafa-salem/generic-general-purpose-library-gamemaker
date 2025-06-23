@@ -6,18 +6,18 @@ function ArrayGeneric() constructor {
     /// @description
     /// <function_description>
     /// ----------------------------------------------------------------------------
-    /// @parameter {Struct} arguments
+    /// @param {Struct} arguments
     ///
-    /// @parameter {Type} arguments.array
+    /// @param {Type} arguments.array
     /// <parameter_description>
     ///
-    /// @parameter {Type} arguments.index
+    /// @param {Type} arguments.index
     /// <parameter_description>
     ///
-    /// @parameter {Type} arguments.parameter_name
+    /// @param {Type} arguments.parameter_name
     /// <parameter_description>
     ///
-    /// @parameter {Type} arguments.parameter_name
+    /// @param {Type} arguments.parameter_name
     /// <parameter_description>
     ///
     /// ----------------------------------------------------------------------------
@@ -34,12 +34,12 @@ function ArrayGeneric() constructor {
     /// @description
     /// <function_description>
     /// ----------------------------------------------------------------------------
-    /// @parameter {Struct} arguments
+    /// @param {Struct} arguments
     ///
-    /// @parameter {Type} arguments.array
+    /// @param {Type} arguments.array
     /// <parameter_description>
     ///
-    /// @parameter {Type} arguments.index
+    /// @param {Type} arguments.index
     /// <parameter_description>
     /// ----------------------------------------------------------------------------
     /// @returns {boolean}

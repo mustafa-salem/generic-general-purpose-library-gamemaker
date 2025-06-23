@@ -2,11 +2,11 @@
 /// @description
 /// <function_description>
 /// ----------------------------------------------------------------------------
-/// @parameter {type} callable
+/// @param {type} callable
 /// <parameter_description>
-/// @parameter {type} arguments
+/// @param {type} arguments
 /// <parameter_description>
-/// @parameter {type} executioncontext
+/// @param {type} executioncontext
 /// <parameter_description>
 /// ----------------------------------------------------------------------------
 /// @returns {type}
@@ -14,7 +14,7 @@
 /// ----------------------------------------------------------------------------
 /// @description Calls a callable using the provided options.
 /// ----------------------------------------------------------------------------
-/// @parameter {Struct} arguments
+/// @param {Struct} arguments
 ///
 /// {Function} callable : Callable to be called.
 ///

@@ -2,7 +2,7 @@
 /// @description
 /// <function_description>
 /// ----------------------------------------------------------------------------
-/// @parameter {type} parameter_name
+/// @param {type} parameter_name
 /// <parameter_description>
 /// ----------------------------------------------------------------------------
 /// @returns {type}
@@ -17,9 +17,9 @@ function gamemaker_quest_create(parameters = {}) {
 /// gamemaker_quest("NAME")
 /// gamemaker_quest({ quest : "NAME" })
 /// ----------------------------------------------------------------------------
-/// @parameter {struct} parameters
+/// @param {struct} parameters
 /// The struct containing the arguments to pass to the function.
-/// @parameter {type} parameters.name
+/// @param {type} parameters.name
 /// <description>
 /// ----------------------------------------------------------------------------
 /// @returns {type}
@@ -33,7 +33,7 @@ function gamemaker_quest(parameters = {}) {
 /// @description
 /// <function_description>
 /// ----------------------------------------------------------------------------
-/// @parameter {type} parameter_name
+/// @param {type} parameter_name
 /// <parameter_description>
 ///
 /// ----------------------------------------------------------------------------
@@ -48,9 +48,9 @@ function gamemaker_quest_get_progress(parameters = {}) {
 /// @description
 /// <function_description>
 /// ----------------------------------------------------------------------------
-/// @parameter {type} quest
+/// @param {type} quest
 /// <parameter_description>
-/// @parameter {type} progress
+/// @param {type} progress
 /// <parameter_description>
 /// ----------------------------------------------------------------------------
 /// @returns {type}
@@ -64,11 +64,11 @@ function gamemaker_quest_set_progress(parameters = {}) {
 /// @description
 /// <description>
 /// ----------------------------------------------------------------------------
-/// @parameter {struct} parameters
+/// @param {struct} parameters
 /// The struct containing the arguments to pass to the function.
-/// @parameter {type} parameters.quest
+/// @param {type} parameters.quest
 /// <description>
-/// @parameter {type} parameters.milestone
+/// @param {type} parameters.milestone
 /// <description>
 /// ----------------------------------------------------------------------------
 /// @returns {type}
@@ -82,9 +82,9 @@ function gamemaker_quest_advanceto_milestone(parameters = {}) {
 /// @description
 /// <function_description>
 /// ----------------------------------------------------------------------------
-/// @parameter {type} quest
+/// @param {type} quest
 /// <parameter_description>
-/// @parameter {type} status
+/// @param {type} status
 /// <parameter_description>
 /// ----------------------------------------------------------------------------
 /// @returns {undefined}
@@ -98,7 +98,7 @@ function gamemaker_quest_set_status(parameters = {}) {
 /// @description
 /// <function_description>
 /// ----------------------------------------------------------------------------
-/// @parameter {type} quest
+/// @param {type} quest
 /// <parameter_description>
 /// ----------------------------------------------------------------------------
 /// @returns {type}

@@ -5,12 +5,12 @@
 ///
 /// NOTE: If the room doesn't exist this function returns `undefined`.
 /// ----------------------------------------------------------------------------
-/// @parameter {string|Asset.GMRoom|struct.GameMakerRoom} room
+/// @param {string|Asset.GMRoom|struct.GameMakerRoom} room
 /// room name, room handle, room struct
 /// ----------------------------------------------------------------------------
 /// @returns {struct.GameMakerRoom|undefined}
 /// ----------------------------------------------------------------------------
-function gamemaker_room_get(parameters = {}) {
+function gamemaker_room(parameters = {}) {
     var _room = parameters.room
     /// is a room name
     if (is_string(_room)) {

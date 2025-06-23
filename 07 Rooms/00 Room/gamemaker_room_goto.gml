@@ -4,13 +4,13 @@
 /// @description
 /// <function_description>
 /// ----------------------------------------------------------------------------
-/// @parameter {mixed} room
+/// @param {mixed} room
 /// The value identifying the room to go to.
 ///
-/// @parameter {mixed} [exit_point]
+/// @param {mixed} [exit_point]
 /// The value identifying the room's exit to use.
 ///
-/// @parameter {mixed} [entry_point]
+/// @param {mixed} [entry_point]
 /// The value identifying the room's entrance to use.
 /// ----------------------------------------------------------------------------
 /// @returns {type}

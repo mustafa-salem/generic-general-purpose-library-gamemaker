@@ -2,9 +2,9 @@
 /// @description
 /// `surface_reset_target`
 /// ----------------------------------------------------------------------------
-/// @parameter {struct} parameters
+/// @param {struct} parameters
 /// The struct containing the arguments to pass to the function.
-/// @parameter {type} parameters.name
+/// @param {type} parameters.name
 /// <description>
 /// ----------------------------------------------------------------------------
 /// @returns {type}

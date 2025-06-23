@@ -7,30 +7,30 @@
 /// getter/setter functions. Properties belonging together have combined acessor
 /// functions alongside their basic accessors.
 ///
-/// @parameter {Struct} position { x : Real, y : Real }
+/// @param {Struct} position { x : Real, y : Real }
 /// The x and y coordinates of the rectangle origin on the render target.
 ///
-/// @parameter {Struct} dimensions { x : Real, y : Real }
+/// @param {Struct} dimensions { x : Real, y : Real }
 /// The (base) x and y dimensions of the rectangle on the render target.
 ///
-/// @parameter {Struct} alignment { x : Real, y : Real }
+/// @param {Struct} alignment { x : Real, y : Real }
 /// The x and y alignment of the rectangle relative to it's origin. Ranges from
 /// 0 to 1. 0 meaning top/left and 1 meaning bottom/right. 0.5 means centered.
 ///
-/// @parameter {Struct} scale { x : Real, y : Real }
+/// @param {Struct} scale { x : Real, y : Real }
 /// The x and y scaling factors applied to the rectangle's dimensional components.
 ///
-/// @parameter {Struct} rotation { x : Real, y : Real, z : Real }
+/// @param {Struct} rotation { x : Real, y : Real, z : Real }
 /// The rotation of the rectangle around it's origin around the x, y and z axis.
 /// These values are normalized. 1 meaning being equal to 360° or 2pi radiants.
 ///
-/// @parameter {Struct} solid_fill
+/// @param {Struct} solid_fill
 /// The container for information regarding the rectangles solid fill.
 ///
-/// @parameter {Struct} solid_fill.colour
+/// @param {Struct} solid_fill.colour
 /// The colour of the solid fill in GameMaker decimal format.
 ///
-/// @parameter {Struct} solid_fill.alpha
+/// @param {Struct} solid_fill.alpha
 /// The normalized alpha of the solid fill. 0 to 1
 ///
 /// ----------------------------------------------------------------------------
@@ -43,31 +43,31 @@
 /// 'draw_rectangle_colour', 'draw_roundrect', 'draw_roundrect_colour',
 /// 'draw_roundrect_ext' and 'draw_roundrect_colour_ext'.
 /// ----------------------------------------------------------------------------
-/// @parameter {number} x_position
+/// @param {number} x_position
 /// The x position of the rectangle's origin point on the render target.
 ///
-/// @parameter {number} y_position
+/// @param {number} y_position
 /// The y position of the rectangle's origin point on the render target.
 ///
-/// @parameter {number} x_alignment
+/// @param {number} x_alignment
 /// The relative x alignment of the rectangle's origin point. [0 - 1]
 ///
-/// @parameter {number} y_alignment
+/// @param {number} y_alignment
 /// The relative y alignment of the rectangle's origin point. [0 - 1]
 ///
-/// @parameter {number} x_dimension
+/// @param {number} x_dimension
 /// The width of the rectangle.
 ///
-/// @parameter {number} y_dimension
+/// @param {number} y_dimension
 /// The height of the rectangle.
 ///
-/// @parameter {type} blend_colour
+/// @param {type} blend_colour
 /// The colour to blend the rectange with.
 ///
-/// @parameter {type} blend_alpha
+/// @param {type} blend_alpha
 /// The alpha to blend the rectange with.
 ///
-/// @parameter {type} parameter_name
+/// @param {type} parameter_name
 /// <parameter_description>
 ///
 /// ----------------------------------------------------------------------------

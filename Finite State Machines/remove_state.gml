@@ -4,7 +4,7 @@
 	/// @description
 	/// This function is used to remove a state.
 	/// ----------------------------------------------------------------------------
-	/// @parameter {type} state
+	/// @param {type} state
 	/// <parameter_description>
 	/// ----------------------------------------------------------------------------
 	/// @returns {struct.FiniteStateMachine} self

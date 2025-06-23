@@ -2,7 +2,7 @@
 /// @description
 /// This function is used to create a new room asset.
 /// ----------------------------------------------------------------------------
-/// @parameter {string} name
+/// @param {string} name
 /// <parameter_description>
 /// ----------------------------------------------------------------------------
 /// @returns {struct}

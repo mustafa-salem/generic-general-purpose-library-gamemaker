@@ -7,10 +7,10 @@
 ///
 /// NOTE: This is the GML equivalent to the YarnScript <<declare>> command.
 /// ----------------------------------------------------------------------------
-/// @parameter {string} name
+/// @param {string} name
 /// The name of the variable to define.
 ///
-/// @parameter {boolean|number|string} value
+/// @param {boolean|number|string} value
 /// The value to assign to the variable.
 /// ----------------------------------------------------------------------------
 /// @returns {undefined}

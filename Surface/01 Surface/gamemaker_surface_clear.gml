@@ -7,10 +7,10 @@
 /// the colour values are simply overwritten.
 /// `draw_clear`, `draw_clear_alpha`
 /// ----------------------------------------------------------------------------
-/// @parameter {number} [colour]
+/// @param {number} [colour]
 /// The colour with which to clear the surface. [0, #FFFFFF]
 ///
-/// @parameter {number} [alpha]
+/// @param {number} [alpha]
 /// The transparency of the colour with which to clear the surface. [0, 1]
 ///
 /// ----------------------------------------------------------------------------

@@ -5,7 +5,7 @@
 /// This function is used to load a YarnScript source from a file, string or
 /// buffer.
 /// ----------------------------------------------------------------------------
-/// @parameter {string} name
+/// @param {string} name
 /// The name that should be used to reference the source.
 ///
 /// NOTE: When loading from a file this value will default to the filepath.
@@ -16,17 +16,17 @@
 /// action will enter any existing dialogue instances using that source into a
 /// "stopped" state.
 ///
-/// @parameter {string} filepath
+/// @param {string} filepath
 /// The filepath to load the YarnScript source from.
 ///
 /// NOTE: The filepath must be relative to CHATTERBOX_INCLUDED_FILES_SUBDIRECTORY.
 ///
-/// @parameter {string} string
+/// @param {string} string
 /// The string to load the YarnScript source from.
 ///
 /// NOTE: The string must be correctly formatted as a .yarn file.
 ///
-/// @parameter {type} buffer
+/// @param {type} buffer
 /// The handle or index of the buffer to load the YarnScript source from.
 /// ----------------------------------------------------------------------------
 /// @returns {undefined}

@@ -2,7 +2,7 @@
 /// @description
 /// This function is used to check whether a value is a dialogue instance.
 /// ----------------------------------------------------------------------------
-/// @parameter {any} value - The value to check.
+/// @param {any} value - The value to check.
 /// ----------------------------------------------------------------------------
 /// @returns {boolean}
 /// ----------------------------------------------------------------------------

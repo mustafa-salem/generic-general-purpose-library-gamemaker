@@ -242,7 +242,7 @@ set_z_rotation
 /// @description
 /// <function_description>
 /// ----------------------------------------------------------------------------
-/// @parameter {type} parameter_name
+/// @param {type} parameter_name
 /// <parameter_description>
 ///
 /// ----------------------------------------------------------------------------
@@ -297,10 +297,10 @@ function vertical_movement_object_instance(_object_instance = self) {
 /// @description
 /// <function_description>
 /// ----------------------------------------------------------------------------
-/// @parameter {mixed} object_instance
+/// @param {mixed} object_instance
 /// The object instance to target.
 ///
-/// @parameter {number} y_position
+/// @param {number} y_position
 /// The y position to use as a basis for the depth sorting algorithm.
 /// ----------------------------------------------------------------------------
 function gamemaker_objectinstance_depthsort(parameters) {
@@ -314,7 +314,7 @@ function gamemaker_objectinstance_depthsort(parameters) {
 /// @description
 /// <function_description>
 /// ----------------------------------------------------------------------------
-/// @parameter {type} parameter_name
+/// @param {type} parameter_name
 /// <parameter_description>
 ///
 /// ----------------------------------------------------------------------------
@@ -348,7 +348,7 @@ function object_instance_get_bounding_box_y_dimension(parameters = {}) {
 /// @description
 /// <function_description>
 /// ----------------------------------------------------------------------------
-/// @parameter {type} object_instance
+/// @param {type} object_instance
 /// <parameter_description>
 /// ----------------------------------------------------------------------------
 /// @returns {boolean}
@@ -365,7 +365,7 @@ function object_instance_is_in_sequence(parameters = {}) {
 /// @description
 /// <function_description>
 /// ----------------------------------------------------------------------------
-/// @parameter {type} object_instance
+/// @param {type} object_instance
 /// <parameter_description>
 /// ----------------------------------------------------------------------------
 /// @returns {struct|undefined}
@@ -381,7 +381,7 @@ function object_instance_get_sequence_instance(parameters = {}) {
 /// This is a generification of 'event_inherited'.
 ///
 /// ----------------------------------------------------------------------------
-/// @parameter {type} object_instance
+/// @param {type} object_instance
 /// <parameter_description>
 ///
 /// ----------------------------------------------------------------------------
@@ -398,19 +398,19 @@ function gamemaker_object_instance_execute_parentevent(parameters = {}) {
 /// @description
 /// <function_description>
 /// ----------------------------------------------------------------------------
-/// @parameter {type} object_instance
+/// @param {type} object_instance
 /// <parameter_description>
 ///
-/// @parameter {type} flash_colour
+/// @param {type} flash_colour
 /// <parameter_description>
 ///
-/// @parameter {type} flash_alpha
+/// @param {type} flash_alpha
 /// <parameter_description>
 ///
-/// @parameter {shader} [shader]
+/// @param {shader} [shader]
 /// The shader to use while drawing.
 ///
-/// @parameter {struct} [shader_variables]
+/// @param {struct} [shader_variables]
 /// The variables to pass to the shader.
 ///
 /// ----------------------------------------------------------------------------
@@ -479,9 +479,9 @@ function GameMakerObjectInstance() : AssetInstanceGeneric() constructor {
     /// an instance of the given object or an instance of an object that is a
     /// direct or indirect child of the given object.
     /// ----------------------------------------------------------------------------
-    /// @parameter {Struct} arguments
-    /// @parameter {Id.Instance}   [arguments.object_instance=id] - Object Instance
-    /// @parameter {Asset.GMObject} arguments.object              - Object
+    /// @param {Struct} arguments
+    /// @param {Id.Instance}   [arguments.object_instance=id] - Object Instance
+    /// @param {Asset.GMObject} arguments.object              - Object
     /// ----------------------------------------------------------------------------
     /// @returns {boolean}
     /// ----------------------------------------------------------------------------

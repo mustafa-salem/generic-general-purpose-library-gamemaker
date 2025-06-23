@@ -5,10 +5,10 @@
 ///
 /// surface_reset_target must be used when render_target 0 is changed.
 /// ----------------------------------------------------------------------------
-/// @parameter {type} surface
+/// @param {type} surface
 /// <parameter_description>
 ///
-/// @parameter {type} render_target
+/// @param {type} render_target
 /// render target index [0, 3]
 ///
 /// ----------------------------------------------------------------------------

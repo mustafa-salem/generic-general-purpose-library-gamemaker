@@ -4,7 +4,7 @@
 /// @description
 /// This function is used to check if a source is loaded to memory.
 /// ----------------------------------------------------------------------------
-/// @parameter {string} source
+/// @param {string} source
 /// The name of the source to check.
 /// ----------------------------------------------------------------------------
 /// @returns {boolean}

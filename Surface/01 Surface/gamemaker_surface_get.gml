@@ -1,3 +1,3 @@
-function gamemaker_surface_get(arguments = {}) {
+function gamemaker_surface(arguments = {}) {
     
 }

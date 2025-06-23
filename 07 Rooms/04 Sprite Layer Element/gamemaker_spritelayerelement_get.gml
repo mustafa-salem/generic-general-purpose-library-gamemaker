@@ -2,9 +2,9 @@
 /// @description
 /// <function_description>
 /// ----------------------------------------------------------------------------
-/// @parameter {type} layer
+/// @param {type} layer
 /// <parameter_description>
-/// @parameter {type} element
+/// @param {type} element
 /// <parameter_description>
 /// ----------------------------------------------------------------------------
 /// @returns {type}

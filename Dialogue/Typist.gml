@@ -10,9 +10,9 @@ function typist_create() {
 /// @description
 /// <function_description>
 /// ----------------------------------------------------------------------------
-/// @parameter {type} parameter_name
+/// @param {type} parameter_name
 /// <parameter_description>
-/// @parameter {type} parameter_name
+/// @param {type} parameter_name
 /// <parameter_description>
 /// ----------------------------------------------------------------------------
 /// @returns {type}
@@ -44,10 +44,10 @@ function Typist() {
     /// @description
     /// <function_description>
     /// ----------------------------------------------------------------------------
-    /// @parameter {type} parameters.parameter_name
+    /// @param {type} parameters.parameter_name
     /// <parameter_description>
     ///
-    /// @parameter {type} parameters.parameter_name
+    /// @param {type} parameters.parameter_name
     /// <parameter_description>
     /// ----------------------------------------------------------------------------
     /// @returns {struct.Typist} self
@@ -62,13 +62,13 @@ function Typist() {
     /// @description
     /// <function_description>
     /// ----------------------------------------------------------------------------
-    /// @parameter {type} parameters.parameter_name
+    /// @param {type} parameters.parameter_name
     /// <parameter_description>
     ///
-    /// @parameter {type} parameters.parameter_name
+    /// @param {type} parameters.parameter_name
     /// <parameter_description>
     ///
-    /// @parameter {type} parameters.parameter_name
+    /// @param {type} parameters.parameter_name
     /// <parameter_description>
     /// ----------------------------------------------------------------------------
     /// @returns {struct.Typist} self
@@ -83,18 +83,18 @@ function Typist() {
     /// @descriptio
     /// <function_description>
     /// ----------------------------------------------------------------------------
-    /// @parameter {struct} parameters
+    /// @param {struct} parameters
     ///
-    /// @parameter {type} parameters.parameter_name
+    /// @param {type} parameters.parameter_name
     /// <parameter_description>
     ///
-    /// @parameter {type} parameters.parameter_name
+    /// @param {type} parameters.parameter_name
     /// <parameter_description>
     ///
-    /// @parameter {type} parameters.parameter_name
+    /// @param {type} parameters.parameter_name
     /// <parameter_description>
     ///
-    /// @parameter {type} parameters.parameter_name
+    /// @param {type} parameters.parameter_name
     /// <parameter_description>
     ///
     /// ----------------------------------------------------------------------------
@@ -124,18 +124,18 @@ function Typist() {
     /// @description
     /// <function_description>
     /// ----------------------------------------------------------------------------
-    /// @parameter {struct} parameters
+    /// @param {struct} parameters
     ///
-    /// @parameter {type} parameters.parameter_name
+    /// @param {type} parameters.parameter_name
     /// <parameter_description>
     ///
-    /// @parameter {type} parameters.parameter_name
+    /// @param {type} parameters.parameter_name
     /// <parameter_description>
     ///
-    /// @parameter {type} parameters.parameter_name
+    /// @param {type} parameters.parameter_name
     /// <parameter_description>
     ///
-    /// @parameter {type} parameters.parameter_name
+    /// @param {type} parameters.parameter_name
     /// <parameter_description>
     ///
     /// ----------------------------------------------------------------------------
@@ -152,18 +152,18 @@ function Typist() {
     /// @description
     /// <function_description>
     /// ----------------------------------------------------------------------------
-    /// @parameter {struct} parameters
+    /// @param {struct} parameters
     ///
-    /// @parameter {type} parameters.parameter_name
+    /// @param {type} parameters.parameter_name
     /// <parameter_description>
     ///
-    /// @parameter {type} parameters.parameter_name
+    /// @param {type} parameters.parameter_name
     /// <parameter_description>
     ///
-    /// @parameter {type} parameters.parameter_name
+    /// @param {type} parameters.parameter_name
     /// <parameter_description>
     ///
-    /// @parameter {type} parameters.parameter_name
+    /// @param {type} parameters.parameter_name
     /// <parameter_description>
     ///
     /// ----------------------------------------------------------------------------
@@ -180,18 +180,18 @@ function Typist() {
     /// @description
     /// <function_description>
     /// ----------------------------------------------------------------------------
-    /// @parameter {struct} parameters
+    /// @param {struct} parameters
     ///
-    /// @parameter {type} parameters.parameter_name
+    /// @param {type} parameters.parameter_name
     /// <parameter_description>
     ///
-    /// @parameter {type} parameters.parameter_name
+    /// @param {type} parameters.parameter_name
     /// <parameter_description>
     ///
-    /// @parameter {type} parameters.parameter_name
+    /// @param {type} parameters.parameter_name
     /// <parameter_description>
     ///
-    /// @parameter {type} parameters.parameter_name
+    /// @param {type} parameters.parameter_name
     /// <parameter_description>
     ///
     /// ----------------------------------------------------------------------------
@@ -225,10 +225,10 @@ function Typist() {
     /// @description
     /// <function_description>
     /// ----------------------------------------------------------------------------
-    /// @parameter {type} skipping_animation
+    /// @param {type} skipping_animation
     /// <parameter_description>
     ///
-    /// @parameter {type} ignore_pause
+    /// @param {type} ignore_pause
     /// <parameter_description>
     /// ----------------------------------------------------------------------------
     /// @returns {struct.Typist} self
@@ -264,7 +264,7 @@ function Typist() {
     /// @description
     /// <function_description>
     /// ----------------------------------------------------------------------------
-    /// @parameter {type} parameters.parameter_name
+    /// @param {type} parameters.parameter_name
     /// <parameter_description>
     /// ----------------------------------------------------------------------------
     /// @returns {struct.Typist} self
@@ -280,18 +280,18 @@ function Typist() {
     /// @description
     /// <function_description>
     /// ----------------------------------------------------------------------------
-    /// @parameter {struct} parameters
+    /// @param {struct} parameters
     ///
-    /// @parameter {type} parameters.parameter_name
+    /// @param {type} parameters.parameter_name
     /// <parameter_description>
     ///
-    /// @parameter {type} parameters.parameter_name
+    /// @param {type} parameters.parameter_name
     /// <parameter_description>
     ///
-    /// @parameter {type} parameters.parameter_name
+    /// @param {type} parameters.parameter_name
     /// <parameter_description>
     ///
-    /// @parameter {type} parameters.parameter_name
+    /// @param {type} parameters.parameter_name
     /// <parameter_description>
     ///
     /// ----------------------------------------------------------------------------
@@ -308,18 +308,18 @@ function Typist() {
     /// @description
     /// <function_description>
     /// ----------------------------------------------------------------------------
-    /// @parameter {struct} parameters
+    /// @param {struct} parameters
     ///
-    /// @parameter {type} parameters.parameter_name
+    /// @param {type} parameters.parameter_name
     /// <parameter_description>
     ///
-    /// @parameter {type} parameters.parameter_name
+    /// @param {type} parameters.parameter_name
     /// <parameter_description>
     ///
-    /// @parameter {type} parameters.parameter_name
+    /// @param {type} parameters.parameter_name
     /// <parameter_description>
     ///
-    /// @parameter {type} parameters.parameter_name
+    /// @param {type} parameters.parameter_name
     /// <parameter_description>
     ///
     /// ----------------------------------------------------------------------------
@@ -347,7 +347,7 @@ function Typist() {
     /// ----------------------------------------------------------------------------
     /// @function set_ignore_delay(parameters)
     /// ----------------------------------------------------------------------------
-    /// @parameter {boolean} ignore_delay
+    /// @param {boolean} ignore_delay
     /// Whether the typewriter should ignore character and tag delays.
     /// ----------------------------------------------------------------------------
     /// @returns {struct.Typist} self
@@ -363,13 +363,13 @@ function Typist() {
     /// @description
     /// <function_description>
     /// ----------------------------------------------------------------------------
-    /// @parameter {string} character
+    /// @param {string} character
     /// <parameter_description>
     ///
-    /// @parameter {number} delay_frames
+    /// @param {number} delay_frames
     /// <parameter_description>
     ///
-    /// @parameter {number} delay_milliseconds
+    /// @param {number} delay_milliseconds
     /// <parameter_description>
     /// ----------------------------------------------------------------------------
     /// @returns {struct.Typist} self
@@ -397,7 +397,7 @@ function Typist() {
     /// @description
     /// <function_description>
     /// ----------------------------------------------------------------------------
-    /// @parameter {callable|undefined} callable
+    /// @param {callable|undefined} callable
     /// The function that will be executed once per character as that character is revealed
     /// ----------------------------------------------------------------------------
     /// @returns {struct.Typist} self
@@ -413,7 +413,7 @@ function Typist() {
     /// @description
     /// <function_description>
     /// ----------------------------------------------------------------------------
-    /// @parameter {callable|undefined} callable
+    /// @param {callable|undefined} callable
     /// <parameter_description>
     /// ----------------------------------------------------------------------------
     /// @returns {struct.Typist} self
@@ -443,7 +443,7 @@ function Typist() {
     /// @description
     /// <function_description>
     /// ----------------------------------------------------------------------------
-    /// @parameter {mixed} execution_scope
+    /// @param {mixed} execution_scope
     /// <parameter_description>
     /// ----------------------------------------------------------------------------
     /// @returns {struct.Typist} self

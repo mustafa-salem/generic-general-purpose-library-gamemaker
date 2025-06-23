@@ -2,13 +2,13 @@
 /// @description
 /// <function_description>
 /// ----------------------------------------------------------------------------
-/// @parameter {Type} input
+/// @param {Type} input
 /// <parameter_description>
 ///
-/// @parameter {Type} player
+/// @param {Type} player
 /// <parameter_description>
 ///
-/// @parameter {Type} buffer_duration
+/// @param {Type} buffer_duration
 /// <parameter_description>
 /// ----------------------------------------------------------------------------
 /// @returns {boolean}

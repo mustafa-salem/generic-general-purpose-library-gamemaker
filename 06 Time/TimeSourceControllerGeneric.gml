@@ -60,7 +60,7 @@ function TimeSourceControllerGeneric() constructor {
     /// @description
     /// Sets the default value used for the parent time source when creating a time source.
     /// ----------------------------------------------------------------------------
-    /// @parameter {Struct} arguments
+    /// @param {Struct} arguments
     /// {Id.TimeSource or Struct.TimeSourceGeneric} time_source
     /// ----------------------------------------------------------------------------
     static set_default_parent = function(arguments = {}) {

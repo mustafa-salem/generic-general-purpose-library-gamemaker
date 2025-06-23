@@ -7,7 +7,7 @@
 /// <description>
 /// ----------------------------------------------------------------------------
 #macro GAMEMAKER_APPLICATION_SURFACE                                                     \
-gamemaker_surface_get({ surface : application_surface })
+gamemaker_surface(application_surface)
 
 #macro ENABLE_COMBATIBILITY_SIZE_SURFACE_GENERIC false
 #macro ENSURE_EXISTS_SURFACE_GENERIC true

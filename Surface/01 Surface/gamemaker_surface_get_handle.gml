@@ -4,7 +4,7 @@
 /// @description
 /// <function_description>
 /// ----------------------------------------------------------------------------
-/// @parameter {mixed} surface
+/// @param {mixed} surface
 /// <parameter_description>
 /// ----------------------------------------------------------------------------
 /// @returns {handle.surface|undefined}
@@ -20,7 +20,7 @@ function gamemaker_surface_get_handle(parameters = {}) {
 /// @description
 /// <function_description>
 /// ----------------------------------------------------------------------------
-/// @parameter {mixed} surface
+/// @param {mixed} surface
 /// <parameter_description>
 /// ----------------------------------------------------------------------------
 /// @returns {id.surface|undefined}

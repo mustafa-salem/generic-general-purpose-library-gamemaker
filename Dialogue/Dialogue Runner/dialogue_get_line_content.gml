@@ -2,11 +2,11 @@
 /// @description
 /// <function_description>
 /// ----------------------------------------------------------------------------
-/// @parameter {struct} dialogue
+/// @param {struct} dialogue
 /// <parameter_description>
-/// @parameter {numer} index
+/// @param {numer} index
 /// <parameter_description>
-/// @parameter {string} separator
+/// @param {string} separator
 /// <parameter_description>
 /// ----------------------------------------------------------------------------
 /// @returns {string}

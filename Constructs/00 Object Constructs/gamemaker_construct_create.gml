@@ -2,11 +2,11 @@
 /// @description
 /// <description>
 /// ----------------------------------------------------------------------------
-/// @parameter {struct} parameters
+/// @param {struct} parameters
 /// The struct containing the arguments to pass to the function.
-/// @parameter {string} parameters.name
+/// @param {string} parameters.name
 /// <description>
-/// @parameter {string} parameters.parent
+/// @param {string} parameters.parent
 /// <description>
 /// ----------------------------------------------------------------------------
 /// @returns {type}

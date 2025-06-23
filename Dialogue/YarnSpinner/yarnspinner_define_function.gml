@@ -11,10 +11,10 @@
 ///
 /// NOTE: This action SHOULD NOT be performed after YarnScript sources were loaded.
 /// ----------------------------------------------------------------------------
-/// @parameter {string} name
+/// @param {string} name
 /// The name used to refer to the function/command in YarnScript.
 ///
-/// @parameter {callable} callable
+/// @param {callable} callable
 /// The callable to link the name to.
 /// ----------------------------------------------------------------------------
 /// @returns {boolean}

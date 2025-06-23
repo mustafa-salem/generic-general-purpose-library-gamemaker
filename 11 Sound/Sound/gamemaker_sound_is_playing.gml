@@ -2,7 +2,7 @@
 /// @description
 /// This function is used to check if a sound is currently playing.
 /// ----------------------------------------------------------------------------
-/// @parameter {type} sound
+/// @param {type} sound
 /// <parameter_description>
 /// ----------------------------------------------------------------------------
 /// @returns {boolean}

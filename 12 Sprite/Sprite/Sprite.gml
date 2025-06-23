@@ -657,18 +657,18 @@ function gamemaker_sprite_draw(arguments) {
 /// @description
 /// <function_description>
 /// ----------------------------------------------------------------------------
-/// @parameter {Struct} parameters
+/// @param {Struct} parameters
 ///
-/// @parameter {Type} parameters.parameter_name
+/// @param {Type} parameters.parameter_name
 /// <parameter_description>
 ///
-/// @parameter {Type} parameters.parameter_name
+/// @param {Type} parameters.parameter_name
 /// <parameter_description>
 ///
-/// @parameter {Type} parameters.parameter_name
+/// @param {Type} parameters.parameter_name
 /// <parameter_description>
 ///
-/// @parameter {Type} parameters.parameter_name
+/// @param {Type} parameters.parameter_name
 /// <parameter_description>
 ///
 /// ----------------------------------------------------------------------------
@@ -685,7 +685,7 @@ function gamemaker_sprite_get_texture(parameters) {
 /// @description
 /// <function_description>
 /// ----------------------------------------------------------------------------
-/// @parameter {struct.Sprite|handle.Sprite|id.Sprite} sprite
+/// @param {struct.Sprite|handle.Sprite|id.Sprite} sprite
 /// <parameter_description>
 /// ----------------------------------------------------------------------------
 /// @returns {pointer.Texture}

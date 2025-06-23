@@ -2,9 +2,9 @@
 /// @description
 /// <function_description>
 /// ----------------------------------------------------------------------------
-/// @parameter {type} camera
+/// @param {type} camera
 /// <parameter_description>
-/// @parameter {type} alignment
+/// @param {type} alignment
 /// <parameter_description>
 /// ----------------------------------------------------------------------------
 /// @returns {number}

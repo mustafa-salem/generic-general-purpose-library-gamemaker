@@ -12,7 +12,7 @@ function Drawable() constructor {
     /// @description
     /// <function_description>
     /// ----------------------------------------------------------------------------
-    /// @parameter {number} alignment
+    /// @param {number} alignment
     /// 0 to 1
     /// ----------------------------------------------------------------------------
     /// @returns {number}
@@ -27,7 +27,7 @@ function Drawable() constructor {
     /// @description
     /// <function_description>
     /// ----------------------------------------------------------------------------
-    /// @parameter {number} alignment
+    /// @param {number} alignment
     /// 0 to 1
     /// ----------------------------------------------------------------------------
     /// @returns {number}
@@ -42,10 +42,10 @@ function Drawable() constructor {
     /// @description
     /// <function_description>
     /// ----------------------------------------------------------------------------
-    /// @parameter {type} x
+    /// @param {type} x
     /// <parameter_description>
     ///
-    /// @parameter {type} y
+    /// @param {type} y
     /// <parameter_description>
     ///
     /// ----------------------------------------------------------------------------
@@ -74,7 +74,7 @@ function Drawable() constructor {
     /// ----------------------------------------------------------------------------
     /// @function set_x_dimensions(_x_dimensions)
     /// ----------------------------------------------------------------------------
-    /// @parameter {Real} _x_dimensions
+    /// @param {Real} _x_dimensions
     /// x_dimensions
     /// ----------------------------------------------------------------------------
     /// @returns {Struct.GameMakerRectangleElement} self
@@ -101,7 +101,7 @@ function Drawable() constructor {
     /// ----------------------------------------------------------------------------
     /// @function set_y_dimensions(_y_dimensions)
     /// ----------------------------------------------------------------------------
-    /// @parameter {Real} _y_dimensions
+    /// @param {Real} _y_dimensions
     /// y_dimensions
     /// ----------------------------------------------------------------------------
     /// @returns {Struct.GameMakerRectangleElement} self
@@ -128,12 +128,12 @@ function Drawable() constructor {
     /// ----------------------------------------------------------------------------
     /// @function set_dimensions(arguments)
     /// ----------------------------------------------------------------------------
-    /// @parameter {Struct} [arguments]
+    /// @param {Struct} [arguments]
     ///
-    /// @parameter {Real} [arguments.x]
+    /// @param {Real} [arguments.x]
     /// x_dimensions
     ///
-    /// @parameter {Real} [arguments.y]
+    /// @param {Real} [arguments.y]
     /// y_dimensions
     /// ----------------------------------------------------------------------------
     /// @returns {Struct.GameMakerRectangleElement} self
@@ -165,7 +165,7 @@ function Drawable() constructor {
     /// ----------------------------------------------------------------------------
     /// @function set_x_alignment(_x_alignment)
     /// ----------------------------------------------------------------------------
-    /// @parameter {Struct} _x_alignment
+    /// @param {Struct} _x_alignment
     /// x_alignment
     /// ----------------------------------------------------------------------------
     /// @returns {Struct.GameMakerRectangleElement}
@@ -192,7 +192,7 @@ function Drawable() constructor {
     /// ----------------------------------------------------------------------------
     /// @function set_y_alignment(_y_alignment)
     /// ----------------------------------------------------------------------------
-    /// @parameter {Struct} _y_alignment
+    /// @param {Struct} _y_alignment
     /// y_alignment
     /// ----------------------------------------------------------------------------
     /// @returns {Struct.GameMakerRectangleElement}
@@ -219,12 +219,12 @@ function Drawable() constructor {
     /// ----------------------------------------------------------------------------
     /// @function set_alignment(arguments)
     /// ----------------------------------------------------------------------------
-    /// @parameter {Struct} [arguments]
+    /// @param {Struct} [arguments]
     ///
-    /// @parameter {Real} [arguments.x]
+    /// @param {Real} [arguments.x]
     /// x_alignment
     ///
-    /// @parameter {Real} [arguments.y]
+    /// @param {Real} [arguments.y]
     /// y_alignment
     /// ----------------------------------------------------------------------------
     /// @returns {Struct.GameMakerRectangleElement} self
@@ -273,10 +273,10 @@ function Drawable() constructor {
     /// @description
     /// This function is used to set the scale properties of the element.
     /// ----------------------------------------------------------------------------
-    /// @parameter {number} x
+    /// @param {number} x
     /// The scaling on the x axis.
     ///
-    /// @parameter {number} y
+    /// @param {number} y
     /// The scaling on the y axis.
     ///
     /// ----------------------------------------------------------------------------
@@ -325,15 +325,15 @@ function Drawable() constructor {
 	/// ----------------------------------------------------------------------------
 	/// @function function_name(arguments)
 	/// ----------------------------------------------------------------------------
-	/// @parameter {Struct} [arguments]
+	/// @param {Struct} [arguments]
 	///
-	/// @parameter {Real} [arguments.x]
+	/// @param {Real} [arguments.x]
 	/// x_dimensions
 	///
-	/// @parameter {Real} [arguments.y]
+	/// @param {Real} [arguments.y]
 	/// y_dimensions
 	///
-	/// @parameter {Real} [arguments.z]
+	/// @param {Real} [arguments.z]
 	/// z_dimensions
 	/// ----------------------------------------------------------------------------
 	/// @returns {Struct.GameMakerRectangleElement} self
@@ -359,7 +359,7 @@ function Drawable() constructor {
     /// @description
     /// <function_description>
     /// ----------------------------------------------------------------------------
-    /// @parameter {type} parameter_name
+    /// @param {type} parameter_name
     /// <parameter_description>
     ///
     /// ----------------------------------------------------------------------------
@@ -376,7 +376,7 @@ function Drawable() constructor {
     /// @description
     /// <function_description>
     /// ----------------------------------------------------------------------------
-    /// @parameter {type} parameter_name
+    /// @param {type} parameter_name
     /// <parameter_description>
     ///
     /// ----------------------------------------------------------------------------
@@ -393,7 +393,7 @@ function Drawable() constructor {
     /// @description
     /// <function_description>
     /// ----------------------------------------------------------------------------
-    /// @parameter {type} parameter_name
+    /// @param {type} parameter_name
     /// <parameter_description>
     ///
     /// ----------------------------------------------------------------------------
@@ -410,7 +410,7 @@ function Drawable() constructor {
     /// @description
     /// <function_description>
     /// ----------------------------------------------------------------------------
-    /// @parameter {type} parameter_name
+    /// @param {type} parameter_name
     /// <parameter_description>
     ///
     /// ----------------------------------------------------------------------------
@@ -431,7 +431,7 @@ function Drawable() constructor {
     /// @description
     /// <function_description>
     /// ----------------------------------------------------------------------------
-    /// @parameter {type} parameter_name
+    /// @param {type} parameter_name
     /// <parameter_description>
     ///
     /// ----------------------------------------------------------------------------
@@ -448,7 +448,7 @@ function Drawable() constructor {
     /// @description
     /// <function_description>
     /// ----------------------------------------------------------------------------
-    /// @parameter {type} parameter_name
+    /// @param {type} parameter_name
     /// <parameter_description>
     ///
     /// ----------------------------------------------------------------------------
@@ -465,7 +465,7 @@ function Drawable() constructor {
     /// @description
     /// <function_description>
     /// ----------------------------------------------------------------------------
-    /// @parameter {type} parameter_name
+    /// @param {type} parameter_name
     /// <parameter_description>
     ///
     /// ----------------------------------------------------------------------------

@@ -2,9 +2,9 @@
 /// @description
 /// <function_description>
 /// ----------------------------------------------------------------------------
-/// @parameter {string} string
+/// @param {string} string
 /// <parameter_description>
-/// @parameter {type} parameter_name
+/// @param {type} parameter_name
 /// <parameter_description>
 /// ----------------------------------------------------------------------------
 /// @returns {struct.GameMakerTextElement}

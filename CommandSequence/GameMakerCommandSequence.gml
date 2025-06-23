@@ -37,6 +37,12 @@ function GameMakerCommandSequence() constructor {
 
     self.add_command = method(self, add_command)
 
+    static add_wait = function(parameters = {}) {
+        return self
+    }
+
+    self.add_wait = method(self, add_wait)
+
     static exists = function(parameters = {}) {
         return _return
     }
@@ -67,8 +73,8 @@ function GameMakerCommandSequence() constructor {
 
     self.resume = method(self, resume)
 
-    /// @parameter {type} duration_seconds
-    /// @parameter {type} condition
+    /// @param {type} duration_seconds
+    /// @param {type} condition
     static wait = function(parameters = {}) {
         return self
     }
@@ -137,7 +143,7 @@ gamemaker_construct_create({ name : "cutscene_object", parent : "ingameevent_con
             scr_cutscene_commands()
             if (breakme == 1) {
                 breakme = 0
-                break
+                break;
             } else {
                 i++
                 continue

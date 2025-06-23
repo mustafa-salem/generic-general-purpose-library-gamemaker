@@ -2,9 +2,9 @@
 /// @description
 /// <function_description>
 /// ----------------------------------------------------------------------------
-/// @parameter {type} room
+/// @param {type} room
 /// <parameter_description>
-/// @parameter {boolean} persistent
+/// @param {boolean} persistent
 /// <parameter_description>
 /// ----------------------------------------------------------------------------
 /// @returns {undefined}

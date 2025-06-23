@@ -17,7 +17,7 @@ INITIALIZED_CONSTRUCTOR(VertexFormat)
 /// <description>
 /// ----------------------------------------------------------------------------
 #macro DEFAULT_VERTEX_FORMAT                                                   \
-gamemaker_vertexformat_get({ vertex_format : "default_vertex_format" })
+gamemaker_vertexformat("default_vertex_format")
 
 /******************************************************************************/
 /* –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -99,7 +99,7 @@ VERTEX_FORMAT
 function VertexFormat() constructor {
 
     /// @function get(parameters)
-    static get = gamemaker_vertexformat_get
+    static get = gamemaker_vertexformat
 
     /// @function get_handle(parameters)
     static get_handle = gamemaker_vertexformat_get_handle

@@ -2,13 +2,13 @@
 /// @description
 /// <description>
 /// ----------------------------------------------------------------------------
-/// @parameter {struct} parameters
+/// @param {struct} parameters
 /// The struct containing the arguments to pass to the function.
-/// @parameter {type} parameters.surface
+/// @param {type} parameters.surface
 /// <description>
-/// @parameter {number} [parameters.x]
+/// @param {number} [parameters.x]
 /// <description>
-/// @parameter {number} [parameters.y]
+/// @param {number} [parameters.y]
 /// <description>
 /// NOTE: `surface_resize`
 /// ----------------------------------------------------------------------------

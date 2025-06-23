@@ -2,9 +2,9 @@
 /// @description
 /// This function is used to select an option available to a dialogue instance.
 /// ----------------------------------------------------------------------------
-/// @parameter {type} dialogue
+/// @param {type} dialogue
 /// The dialogue instance to target.
-/// @parameter {integer} option
+/// @param {integer} option
 /// The index of the option to select.
 /// ----------------------------------------------------------------------------
 /// @returns {undefined}

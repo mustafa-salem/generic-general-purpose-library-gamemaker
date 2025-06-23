@@ -4,7 +4,7 @@
 /// @description
 /// <function_description>
 /// ----------------------------------------------------------------------------
-/// @parameter {type} parameter_name
+/// @param {type} parameter_name
 /// <parameter_description>
 ///
 /// ----------------------------------------------------------------------------
@@ -24,7 +24,7 @@ function AudioStack() constructor {
  /// @description
  /// <function_description>
  /// ----------------------------------------------------------------------------
- /// @parameter {type} parameter_name
+ /// @param {type} parameter_name
  /// <parameter_description>
  ///
  /// ----------------------------------------------------------------------------

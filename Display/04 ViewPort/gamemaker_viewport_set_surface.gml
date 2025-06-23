@@ -2,11 +2,11 @@
 /// @description
 /// `view_surface_id` `view_set_surface_id`
 /// ----------------------------------------------------------------------------
-/// @parameter {struct} parameters
+/// @param {struct} parameters
 /// The struct containing the arguments to pass to the function.
-/// @parameter {Struct.ViewPortGeneric|Real} parameters.viewport
+/// @param {Struct.ViewPortGeneric|Real} parameters.viewport
 /// The view port to target or its index (0 - 7).
-/// @parameter {Type} parameters.surface_id
+/// @param {Type} parameters.surface_id
 /// <parameter_description>
 /// ----------------------------------------------------------------------------
 /// @returns {undefined}

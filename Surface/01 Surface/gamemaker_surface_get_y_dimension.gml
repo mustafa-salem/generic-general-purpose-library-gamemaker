@@ -2,7 +2,7 @@
 /// @description
 /// <function_description>
 /// ----------------------------------------------------------------------------
-/// @parameter {type} surface
+/// @param {type} surface
 /// <parameter_description>
 /// ----------------------------------------------------------------------------
 /// @returns {number}

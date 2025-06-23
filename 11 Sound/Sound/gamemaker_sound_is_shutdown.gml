@@ -2,7 +2,7 @@
 /// @description
 /// whether a voice is in “shutdown mode”
 /// ----------------------------------------------------------------------------
-/// @parameter {type} parameter_name
+/// @param {type} parameter_name
 /// <parameter_description>
 /// ----------------------------------------------------------------------------
 /// @returns {boolean}

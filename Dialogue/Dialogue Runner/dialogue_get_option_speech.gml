@@ -2,9 +2,9 @@
 /// This function is used to get the speech string of an option available to a
 /// dialogue instance.
 /// ----------------------------------------------------------------------------
-/// @parameter {struct} dialogue
+/// @param {struct} dialogue
 /// <parameter_description>
-/// @parameter {integer} option
+/// @param {integer} option
 /// <parameter_description>
 /// ----------------------------------------------------------------------------
 /// @returns {string}

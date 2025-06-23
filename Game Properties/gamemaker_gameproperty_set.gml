@@ -2,11 +2,14 @@
 /// @description
 /// <function_description>
 /// ----------------------------------------------------------------------------
-/// @parameter {type} sound
+/// @param {type} name
+/// <parameter_description>
+/// @param {type} value
 /// <parameter_description>
 /// ----------------------------------------------------------------------------
-/// @returns {struct|undefined}
+/// @returns {type}
+/// <return_description>
 /// ----------------------------------------------------------------------------
-function gamemaker_sound_get() {
-
+function gamemaker_gameproperty_set(parameters = {}) {
+    return _return
 }

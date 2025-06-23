@@ -2,7 +2,7 @@
 /// @description
 /// <function_description>
 /// ----------------------------------------------------------------------------
-/// @parameter {type} dialogue
+/// @param {type} dialogue
 /// <parameter_description>
 /// ----------------------------------------------------------------------------
 /// @returns {undefined}

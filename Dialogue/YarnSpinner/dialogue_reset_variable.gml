@@ -5,7 +5,7 @@
 /// This function is used to reset the values of YarnScript variables to the
 /// value assigned to them through a <<declare>> command.
 /// ----------------------------------------------------------------------------
-/// @parameter {string} name
+/// @param {string} name
 /// The name of the variable.
 /// ----------------------------------------------------------------------------
 /// @returns {undefined}

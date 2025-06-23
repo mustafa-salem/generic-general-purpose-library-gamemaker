@@ -65,9 +65,9 @@ function ConstructInstance() constructor {
     /// @description
     /// <description>
     /// ----------------------------------------------------------------------------
-    /// @parameter {struct} parameters
+    /// @param {struct} parameters
     /// The struct containing the arguments to pass to the function.
-    /// @parameter {array<string>} parameters.tags
+    /// @param {array<string>} parameters.tags
     /// <description>
     /// ----------------------------------------------------------------------------
     /// @returns {struct.ConstructInstance} self
@@ -80,9 +80,9 @@ function ConstructInstance() constructor {
     /// @description
     /// <description>
     /// ----------------------------------------------------------------------------
-    /// @parameter {struct} parameters
+    /// @param {struct} parameters
     /// The struct containing the arguments to pass to the function.
-    /// @parameter {array<string>} parameters.tags
+    /// @param {array<string>} parameters.tags
     /// <description>
     /// ----------------------------------------------------------------------------
     /// @returns {struct.ConstructInstance} self
@@ -95,9 +95,9 @@ function ConstructInstance() constructor {
     /// @description
     /// <description>
     /// ----------------------------------------------------------------------------
-    /// @parameter {struct} parameters
+    /// @param {struct} parameters
     /// The struct containing the arguments to pass to the function.
-    /// @parameter {array<string>} parameters.tags
+    /// @param {array<string>} parameters.tags
     /// <description>
     /// ----------------------------------------------------------------------------
     /// @returns {struct.ConstructInstance} self
@@ -110,9 +110,9 @@ function ConstructInstance() constructor {
     /// @description
     /// <description>
     /// ----------------------------------------------------------------------------
-    /// @parameter {struct} parameters
+    /// @param {struct} parameters
     /// The struct containing the arguments to pass to the function.
-    /// @parameter {array<string>} parameters.tags
+    /// @param {array<string>} parameters.tags
     /// <description>
     /// ----------------------------------------------------------------------------
     /// @returns {boolean}
@@ -127,9 +127,9 @@ function ConstructInstance() constructor {
     /// @description
     /// <description>
     /// ----------------------------------------------------------------------------
-    /// @parameter {struct} parameters
+    /// @param {struct} parameters
     /// The struct containing the arguments to pass to the function.
-    /// @parameter {array<string>} parameters.tags
+    /// @param {array<string>} parameters.tags
     /// <description>
     /// ----------------------------------------------------------------------------
     /// @returns {boolean}
@@ -144,9 +144,9 @@ function ConstructInstance() constructor {
     /// @description
     /// <description>
     /// ----------------------------------------------------------------------------
-    /// @parameter {struct} parameters
+    /// @param {struct} parameters
     /// The struct containing the arguments to pass to the function.
-    /// @parameter {array<string>} parameters.tags
+    /// @param {array<string>} parameters.tags
     /// <description>
     /// ----------------------------------------------------------------------------
     /// @returns {number}

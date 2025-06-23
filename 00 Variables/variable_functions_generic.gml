@@ -11,7 +11,7 @@ set_instance_variable_generic
 // variable_global_exists
 /// @function function_name(arguments)
 /// @description <function_description>
-/// @parameter {Struct} arguments <parameter_description>
+/// @param {Struct} arguments <parameter_description>
 /// @returns {type} <return_description>
 exists_global_variable_generic = function(arguments = {}) {
     return _return
@@ -20,7 +20,7 @@ exists_global_variable_generic = function(arguments = {}) {
 // variable_global_get
 /// @function function_name(arguments)
 /// @description <function_description>
-/// @parameter {Struct} arguments <parameter_description>
+/// @param {Struct} arguments <parameter_description>
 /// @returns {type} <return_description>
 get_global_variable_generic = function(arguments = {}) {
     return _return
@@ -29,7 +29,7 @@ get_global_variable_generic = function(arguments = {}) {
 // variable_global_set
 /// @function function_name(arguments)
 /// @description <function_description>
-/// @parameter {Struct} arguments <parameter_description>
+/// @param {Struct} arguments <parameter_description>
 /// @returns {type} <return_description>
 set_global_variable_generic = function(arguments = {}) {
     return _return
@@ -45,7 +45,7 @@ set_global_variable_generic = function(arguments = {}) {
 
 /// @function function_name(arguments)
 /// @description <function_description>
-/// @parameter {Struct} arguments <parameter_description>
+/// @param {Struct} arguments <parameter_description>
 /// @returns {type} <return_description>
 function initialize_instance_variable_generic(arguments = {}) {
     var _instance

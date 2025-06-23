@@ -4,7 +4,7 @@
 /// @description
 /// <function_description>
 /// ----------------------------------------------------------------------------
-/// @parameter {string} variable
+/// @param {string} variable
 /// <parameter_description>
 /// ----------------------------------------------------------------------------
 /// @returns {boolean}

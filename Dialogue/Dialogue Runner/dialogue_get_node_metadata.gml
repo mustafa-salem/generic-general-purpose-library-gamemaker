@@ -2,9 +2,9 @@
 /// @description
 /// This function is used to get the metadata of a node.
 /// ----------------------------------------------------------------------------
-/// @parameter {string} source
+/// @param {string} source
 /// The name of the source.
-/// @parameter {string} node
+/// @param {string} node
 /// The title of the node.
 /// ----------------------------------------------------------------------------
 /// @returns {struct}

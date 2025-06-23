@@ -8,7 +8,7 @@
 /// @description
 /// <function_description>
 /// ----------------------------------------------------------------------------
-/// @parameter {type} parameter_name
+/// @param {type} parameter_name
 /// <parameter_description>
 ///
 /// ----------------------------------------------------------------------------
@@ -25,19 +25,19 @@ function ingame_entity_precreate(parameters = {}) {
 /// @description
 /// <function_description>
 /// ----------------------------------------------------------------------------
-/// @parameter {type} ingame_entity
+/// @param {type} ingame_entity
 /// <parameter_description>
 ///
-/// @parameter {type} x_position
+/// @param {type} x_position
 /// <parameter_description>
 ///
-/// @parameter {type} y_position
+/// @param {type} y_position
 /// <parameter_description>
 ///
-/// @parameter {type} z_position
+/// @param {type} z_position
 /// <parameter_description>
 ///
-/// @parameter {type} layer
+/// @param {type} layer
 /// <parameter_description>
 ///
 /// ----------------------------------------------------------------------------
@@ -54,9 +54,9 @@ function gamemaker_construct_create_instance(parameters = {}) {
 /// @description
 /// <function_description>
 /// ----------------------------------------------------------------------------
-/// @parameter {type} instance
+/// @param {type} instance
 /// <parameter_description>
-/// @parameter {type} parameter_name
+/// @param {type} parameter_name
 /// <parameter_description>
 /// ----------------------------------------------------------------------------
 /// @returns {undefined}
@@ -69,9 +69,9 @@ function gamemaker_constructinstance_destroy(parameters = {}) {
 /// @description
 /// <function_description>
 /// ----------------------------------------------------------------------------
-/// @parameter {type} instance
+/// @param {type} instance
 /// <parameter_description>
-/// @parameter {type} parameter_name
+/// @param {type} parameter_name
 /// <parameter_description>
 /// ----------------------------------------------------------------------------
 /// @returns {undefined}
@@ -86,7 +86,7 @@ function gamemaker_constructinstance_cleanup(parameters = {}) {
 /// @description
 /// <function_description>
 /// ----------------------------------------------------------------------------
-/// @parameter {type} ingame_entity
+/// @param {type} ingame_entity
 /// <parameter_description>
 ///
 /// ----------------------------------------------------------------------------
@@ -102,7 +102,7 @@ function ingame_entity_instance_get(parameters = {}) {
 /// @description
 /// <function_description>
 /// ----------------------------------------------------------------------------
-/// @parameter {type} parameter_name
+/// @param {type} parameter_name
 /// <parameter_description>
 ///
 /// ----------------------------------------------------------------------------
@@ -167,7 +167,7 @@ function InGameEntityInstance() constructor {
 #endregion –––––––––––––––––––– CONSTRUCTORS ––––––––––––––––––––
 /******************************************************************************/
 
-gamemaker_object_get({ object : ingame_entity_object })
+gamemaker_object(ingame_entity_object)
 .set_event({ event : "create_event", callable : function(parameters = {}) {
     if (self[$ "ingame_entity"] == undefined) {
         ingame_entity = gamemaker_construct_create_instance({ object_instance : self })

@@ -48,9 +48,9 @@ function is_primitive_type_constant(_value) {
 /// @description
 /// <description>
 /// ----------------------------------------------------------------------------
-/// @parameter {struct} parameters
+/// @param {struct} parameters
 /// The struct containing the arguments to pass to the function.
-/// @parameter {type} parameters.name
+/// @param {type} parameters.name
 /// <description>
 /// ----------------------------------------------------------------------------
 /// @returns {type}
@@ -64,9 +64,9 @@ function is_script_function (parameters = {}) {
 /// @description
 /// <description>
 /// ----------------------------------------------------------------------------
-/// @parameter {struct} parameters
+/// @param {struct} parameters
 /// The struct containing the arguments to pass to the function.
-/// @parameter {type} parameters.name
+/// @param {type} parameters.name
 /// <description>
 /// ----------------------------------------------------------------------------
 /// @returns {type}

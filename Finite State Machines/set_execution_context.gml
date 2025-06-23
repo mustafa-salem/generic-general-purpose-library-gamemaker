@@ -1,7 +1,7 @@
 	/// ----------------------------------------------------------------------------
 	/// @function set_execution_context(parameters)
 	/// ----------------------------------------------------------------------------
-	/// @parameter {type} execution_context
+	/// @param {type} execution_context
 	/// The object instance handle or struct used as self context for event execution.
 	/// ----------------------------------------------------------------------------
 	/// @returns {struct.FiniteStateMachine} self

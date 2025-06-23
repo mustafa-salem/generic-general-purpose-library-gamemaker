@@ -13,9 +13,9 @@ if (!is_struct(arguments)) {
 /// @description
 /// <function_description>
 /// ----------------------------------------------------------------------------
-/// @parameter {Struct} arguments
+/// @param {Struct} arguments
 ///
-/// @parameter {String} arguments.message
+/// @param {String} arguments.message
 /// <parameter_description>
 /// ----------------------------------------------------------------------------
 function InvalidArgumentException(arguments) constructor {

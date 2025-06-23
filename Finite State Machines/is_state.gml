@@ -5,10 +5,10 @@
 	/// This function is used to check if a given state equals another state or is
 	/// inherits from it.
 	/// ----------------------------------------------------------------------------
-	/// @parameter {string} state
+	/// @param {string} state
 	/// The name of the state to check.
 	///
-	/// @parameter {string} [parent]
+	/// @param {string} [parent]
 	/// The name of the parent state to check. Defaults to the current state.
 	/// ----------------------------------------------------------------------------
 	/// @returns {boolean}

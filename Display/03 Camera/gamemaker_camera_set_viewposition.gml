@@ -3,11 +3,11 @@
 /// This script function serves as a proxy for the static method function:
 /// ViewGeneric.set_position
 /// ----------------------------------------------------------------------------
-/// @parameter {type} camera
+/// @param {type} camera
 /// <parameter_description>
-/// @parameter {number} x
+/// @param {number} x
 /// <parameter_description>
-/// @parameter {number} y
+/// @param {number} y
 /// <parameter_description>
 /// ----------------------------------------------------------------------------
 function gamemaker_camera_set_viewposition(parameters = {}) {

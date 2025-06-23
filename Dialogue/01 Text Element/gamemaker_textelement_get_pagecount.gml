@@ -2,9 +2,9 @@
 /// @description
 /// <function_description>
 /// ----------------------------------------------------------------------------
-/// @parameter {struct} parameters
+/// @param {struct} parameters
 /// The struct containing the arguments to pass to the function.
-/// @parameter {struct.GameMakerTextElement} parameters.textelement
+/// @param {struct.GameMakerTextElement} parameters.textelement
 /// The textelement to target.
 /// ----------------------------------------------------------------------------
 /// @returns {number}

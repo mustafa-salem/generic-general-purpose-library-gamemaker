@@ -4,13 +4,13 @@
 /// @description
 /// <function_description>
 /// ----------------------------------------------------------------------------
-/// @parameter {type} room
+/// @param {type} room
 /// <parameter_description>
 ///
-/// @parameter {integer} x
+/// @param {integer} x
 /// <parameter_description>
 ///
-/// @parameter {integer} y
+/// @param {integer} y
 /// <parameter_description>
 ///
 /// ----------------------------------------------------------------------------

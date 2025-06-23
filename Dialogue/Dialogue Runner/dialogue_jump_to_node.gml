@@ -8,11 +8,11 @@
 /// possible to get dialogue content from the previous node in non 'singleton'
 /// mode.
 /// ----------------------------------------------------------------------------
-/// @parameter {type} dialogue
+/// @param {type} dialogue
 /// The dialogue to target.
-/// @parameter {type} [source]
+/// @param {type} [source]
 /// The name of the source. Defaults to the current source.
-/// @parameter {string} node
+/// @param {string} node
 /// The title of the node to jump to.
 /// ----------------------------------------------------------------------------
 /// @returns {struct.YarnSpinnerDialogueRunner}

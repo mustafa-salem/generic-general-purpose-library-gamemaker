@@ -2,14 +2,14 @@
 /// @description
 /// <description>
 /// ----------------------------------------------------------------------------
-/// @parameter {struct} parameters
+/// @param {struct} parameters
 /// The struct containing the arguments to pass to the function.
-/// @parameter {type} parameters.name
+/// @param {type} parameters.name
 /// <description>
 /// ----------------------------------------------------------------------------
 /// @returns {type}
 /// <description>
 /// ----------------------------------------------------------------------------
-function gamemaker_gameflag_define(parameters = {}) {
+function gamemaker_gameproperty_define(parameters = {}) {
     return _return
 }

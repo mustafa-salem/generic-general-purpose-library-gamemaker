@@ -28,7 +28,7 @@ if (other == static_get(__INITIALIZED_CONSTRUCTOR_GENERIC)) { return }
 /// Makes sure the provided constructor is initialized before returning
 /// its static struct.
 /// ----------------------------------------------------------------------------
-/// @parameter {Function} constructor
+/// @param {Function} constructor
 ///
 /// ----------------------------------------------------------------------------
 /// @returns {Struct|Undefined}
@@ -107,12 +107,12 @@ function StructGeneric() constructor {
     /// @description
     /// <function_description>
     /// ----------------------------------------------------------------------------
-    /// @parameter {Struct} arguments
+    /// @param {Struct} arguments
     ///
-    /// @parameter {Type} arguments.struct
+    /// @param {Type} arguments.struct
     /// <parameter_description>
     ///
-    /// @parameter {Type} arguments.name
+    /// @param {Type} arguments.name
     /// <parameter_description>
     /// ----------------------------------------------------------------------------
     /// @returns {type}

@@ -4,7 +4,7 @@
 	/// @description
 	/// <function_description>
 	/// ----------------------------------------------------------------------------
-	/// @parameter {type} runtime_frames
+	/// @param {type} runtime_frames
 	/// <parameter_description>
 	/// ----------------------------------------------------------------------------
 	/// @returns {struct.FiniteStateMachine} self

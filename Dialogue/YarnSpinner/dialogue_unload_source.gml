@@ -7,7 +7,7 @@
 /// NOTE: This action will enter any existing dialogue instances using those
 /// source into a "stopped" state.
 /// ----------------------------------------------------------------------------
-/// @parameter {string|array<string>} source
+/// @param {string|array<string>} source
 /// The name or the array of names of the sources to unload.
 /// ----------------------------------------------------------------------------
 /// @returns {undefined}

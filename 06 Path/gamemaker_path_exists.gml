@@ -2,7 +2,7 @@
 /// @description
 /// <function_description>
 /// ----------------------------------------------------------------------------
-/// @parameter {type} path
+/// @param {type} path
 /// <parameter_description>
 /// ----------------------------------------------------------------------------
 /// @returns {boolean}

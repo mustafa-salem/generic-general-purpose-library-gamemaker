@@ -1,19 +1,12 @@
 /// ----------------------------------------------------------------------------
-/// @function gamemaker_gameflag_get(parameters)
-/// ----------------------------------------------------------------------------
 /// @description
 /// <function_description>
 /// ----------------------------------------------------------------------------
-/// @parameter {type} name
+/// @param {type} sound
 /// <parameter_description>
-///
-/// @parameter {type} value
-/// <parameter_description>
-///
 /// ----------------------------------------------------------------------------
-/// @returns {type}
-/// <return_description>
+/// @returns {struct|undefined}
 /// ----------------------------------------------------------------------------
-function gamemaker_gameflag_get(parameters = {}) {
-    return _return
+function gamemaker_sound() {
+
 }

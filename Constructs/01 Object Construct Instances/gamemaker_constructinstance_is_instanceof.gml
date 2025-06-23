@@ -3,9 +3,9 @@
 /// This function returns true if and only if instance is a construct instance
 /// and an instance of the provided construct(s).
 /// ----------------------------------------------------------------------------
-/// @parameter {type} instance
+/// @param {type} instance
 /// <parameter_description>
-/// @parameter {type} construct
+/// @param {type} construct
 /// <parameter_description>
 /// ----------------------------------------------------------------------------
 /// @returns {boolean}

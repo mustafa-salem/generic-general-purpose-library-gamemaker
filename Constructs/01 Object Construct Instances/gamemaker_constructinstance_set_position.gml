@@ -2,11 +2,11 @@
 /// @description
 /// <function_description>
 /// ----------------------------------------------------------------------------
-/// @parameter {type} parameter_name
+/// @param {type} parameter_name
 /// <parameter_description>
-/// @parameter {type} [x]
+/// @param {type} [x]
 /// <parameter_description>
-/// @parameter {type} [y]
+/// @param {type} [y]
 /// <parameter_description>
 /// ----------------------------------------------------------------------------
 /// @returns {type}

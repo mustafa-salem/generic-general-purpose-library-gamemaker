@@ -2,7 +2,7 @@
 /// @description
 /// <function_description>
 /// ----------------------------------------------------------------------------
-/// @parameter {type} instance
+/// @param {type} instance
 /// <parameter_description>
 /// ----------------------------------------------------------------------------
 /// @returns {undefined}

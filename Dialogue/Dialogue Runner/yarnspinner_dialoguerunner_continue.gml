@@ -3,7 +3,7 @@
 /// This function is used to advance processing of dialogue instances that are
 /// in a "waiting" state.
 /// ----------------------------------------------------------------------------
-/// @parameter {struct|array<struct>} dialogue
+/// @param {struct|array<struct>} dialogue
 /// The dialogue instance or array of dialogue instances to target.
 /// ----------------------------------------------------------------------------
 /// @returns {undefined}

@@ -4,12 +4,12 @@
 /// @description
 /// <function_description>
 /// ----------------------------------------------------------------------------
-/// @parameter {Struct} arguments
+/// @param {Struct} arguments
 ///
-/// @parameter {Struct.ViewPortGeneric|Real} arguments.view_port
+/// @param {Struct.ViewPortGeneric|Real} arguments.view_port
 /// The view port to target or its index (0 - 7).
 ///
-/// @parameter {Type} arguments.visible
+/// @param {Type} arguments.visible
 /// Whether the view port should be visible.
 /// ----------------------------------------------------------------------------
 function gamemaker_viewport_set_visible(arguments = {}) {

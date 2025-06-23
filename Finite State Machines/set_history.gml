@@ -4,11 +4,11 @@
 	/// @description
 	/// This function is used to set properties regarding history keeping.
 	/// ----------------------------------------------------------------------------
-	/// @parameter {boolean} enabled
+	/// @param {boolean} enabled
 	/// Whether history keeping is enabled. If disabled only the two most recent
 	/// entries are kept.
 	///
-	/// @parameter {integer} capacity
+	/// @param {integer} capacity
 	/// The maxmimum amount of history entries to keep. At least 2.
 	/// ----------------------------------------------------------------------------
 	/// @returns {struct.FiniteStateMachine} self

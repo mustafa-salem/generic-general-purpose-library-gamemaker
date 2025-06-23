@@ -2,25 +2,25 @@
 /// @description
 /// <function_description>
 /// ----------------------------------------------------------------------------
-/// @parameter {type} string
+/// @param {type} string
 /// <parameter_description>
-/// @parameter {type} font
+/// @param {type} font
 /// <parameter_description>
-/// @parameter {type} colour
+/// @param {type} colour
 /// <parameter_description>
-/// @parameter {type} alpha
+/// @param {type} alpha
 /// <parameter_description>
-/// @parameter {type} x_position
+/// @param {type} x_position
 /// <parameter_description>
-/// @parameter {type} y_position
+/// @param {type} y_position
 /// <parameter_description>
-/// @parameter {type} x_alignment
+/// @param {type} x_alignment
 /// <parameter_description>
-/// @parameter {type} y_alignment
+/// @param {type} y_alignment
 /// <parameter_description>
-/// @parameter {type} x_scale
+/// @param {type} x_scale
 /// <parameter_description>
-/// @parameter {type} y_scale
+/// @param {type} y_scale
 /// <parameter_description>
 /// ----------------------------------------------------------------------------
 /// @returns {undefined}
@@ -33,29 +33,29 @@ function gamemaker_text_draw(parameters = {}) {
 /// @description
 /// <function_description>
 /// ----------------------------------------------------------------------------
-/// @parameter {string} string
-/// @parameter {Type} font
-/// @parameter {Type} colour
-/// @parameter {number} x_position
-/// @parameter {number} y_position
+/// @param {string} string
+/// @param {Type} font
+/// @param {Type} colour
+/// @param {number} x_position
+/// @param {number} y_position
 
-/// @parameter {number} x_alignment
-/// @parameter {number} y_alignment
-/// @parameter {number} x_dimension
-/// @parameter {number} y_dimension
-/// @parameter {number} x_scale
-/// @parameter {number} y_scale
-/// @parameter {number} rotation
-/// @parameter {Type} blend_colour
-/// @parameter {Type} blend_alpha
-/// @parameter {Type} gradient_blend_colour_0
-/// @parameter {Type} gradient_blend_colour_1
-/// @parameter {Type} gradient_blend_colour_2
-/// @parameter {Type} gradient_blend_colour_3
-/// @parameter {Type} gradient_blend_alpha
-/// @parameter {Type} target
-/// @parameter {Type} blendmode
-/// @parameter {Type} shader
+/// @param {number} x_alignment
+/// @param {number} y_alignment
+/// @param {number} x_dimension
+/// @param {number} y_dimension
+/// @param {number} x_scale
+/// @param {number} y_scale
+/// @param {number} rotation
+/// @param {Type} blend_colour
+/// @param {Type} blend_alpha
+/// @param {Type} gradient_blend_colour_0
+/// @param {Type} gradient_blend_colour_1
+/// @param {Type} gradient_blend_colour_2
+/// @param {Type} gradient_blend_colour_3
+/// @param {Type} gradient_blend_alpha
+/// @param {Type} target
+/// @param {Type} blendmode
+/// @param {Type} shader
 
 /// ----------------------------------------------------------------------------
 /// @returns {type}
@@ -86,21 +86,21 @@ function gamemaker_text_draw(parameters) {
 /// @description
 /// <function_description>
 /// ----------------------------------------------------------------------------
-/// @parameter {string} string
-/// @parameter {type} font
-/// @parameter {type} colour
-/// @parameter {type} x_alignment
-/// @parameter {type} y_alignment
-/// @parameter {type} blend_colour
-/// @parameter {type} blend_alpha
-/// @parameter {number} x_position
-/// @parameter {number} y_position
-/// @parameter {number} x_scale
-/// @parameter {number} y_scale
-/// @parameter {number} rotation
-/// @parameter {number} rotation_degrees
-/// @parameter {type} maximum_line_width
-/// @parameter {type} distance_between_lines
+/// @param {string} string
+/// @param {type} font
+/// @param {type} colour
+/// @param {type} x_alignment
+/// @param {type} y_alignment
+/// @param {type} blend_colour
+/// @param {type} blend_alpha
+/// @param {number} x_position
+/// @param {number} y_position
+/// @param {number} x_scale
+/// @param {number} y_scale
+/// @param {number} rotation
+/// @param {number} rotation_degrees
+/// @param {type} maximum_line_width
+/// @param {type} distance_between_lines
 /// ----------------------------------------------------------------------------
 function gamemaker_text_draw(arguments) {
 

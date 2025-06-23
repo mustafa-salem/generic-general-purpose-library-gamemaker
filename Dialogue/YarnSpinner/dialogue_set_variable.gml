@@ -13,10 +13,10 @@
 /// * The variable has been declared as a constant.
 /// * The variable doesn't exist.
 /// ----------------------------------------------------------------------------
-/// @parameter {string} name
+/// @param {string} name
 /// The name of the variable
 ///
-/// @parameter {boolean|number|string} value
+/// @param {boolean|number|string} value
 /// The value to set the variable to.
 /// ----------------------------------------------------------------------------
 /// @returns {type}

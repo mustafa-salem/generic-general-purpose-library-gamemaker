@@ -4,10 +4,10 @@
 	/// @description
 	/// <function_description>
 	/// ----------------------------------------------------------------------------
-	/// @parameter {string} name
+	/// @param {string} name
 	/// <parameter_description>
 	///
-	/// @parameter {string|undefined} [state]
+	/// @param {string|undefined} [state]
 	/// <parameter_description>
 	///
 	/// ----------------------------------------------------------------------------

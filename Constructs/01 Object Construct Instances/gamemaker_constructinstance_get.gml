@@ -2,9 +2,9 @@
 /// @description
 /// <description>
 /// ----------------------------------------------------------------------------
-/// @parameter {struct} parameters
+/// @param {struct} parameters
 /// The struct containing the arguments to pass to the function.
-/// @parameter {type} parameters.instance
+/// @param {type} parameters.instance
 /// <description>
 /// ----------------------------------------------------------------------------
 /// @returns {type}

@@ -12,7 +12,7 @@
 /// NOTE: Any lines and options that don't have a #line tag and a corresponding
 /// value in the active localisation file will be displayed in their native language.
 /// ----------------------------------------------------------------------------
-/// @parameter {string} filepath
+/// @param {string} filepath
 /// The filepath of the localisation file to load.
 ///
 /// NOTE: The filepath is relative to CHATTERBOX_INCLUDED_FILES_SUBDIRECTORY.

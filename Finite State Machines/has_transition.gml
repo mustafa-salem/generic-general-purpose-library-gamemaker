@@ -4,10 +4,10 @@
 	/// @description
 	/// <function_description>
 	/// ----------------------------------------------------------------------------
-	/// @parameter {Type} arguments.transition_name
+	/// @param {Type} arguments.transition_name
 	/// <parameter_description>
 	///
-	/// @parameter {String} [arguments.source_state]
+	/// @param {String} [arguments.source_state]
 	/// <parameter_description>
 	/// ----------------------------------------------------------------------------
 	/// @returns {Real}

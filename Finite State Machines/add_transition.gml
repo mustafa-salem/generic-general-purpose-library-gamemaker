@@ -6,7 +6,7 @@
 	/// Leaving destination_state undefined will cause the transition to reenter
 	/// the current state.
 	/// ----------------------------------------------------------------------------
-	/// @parameter {Struct} arguments { transition_name : String, source_state_name : [String], destination_state_name : [String], predicate_method : [Function], leave_event : [Function], enter_event : [Function] }
+	/// @param {Struct} arguments { transition_name : String, source_state_name : [String], destination_state_name : [String], predicate_method : [Function], leave_event : [Function], enter_event : [Function] }
 	/// ----------------------------------------------------------------------------
 	/// @returns {struct.FiniteStateMachine} self
 	/// ----------------------------------------------------------------------------

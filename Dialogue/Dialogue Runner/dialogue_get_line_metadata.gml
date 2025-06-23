@@ -2,9 +2,9 @@
 /// @description
 /// <function_description>
 /// ----------------------------------------------------------------------------
-/// @parameter {type} dialogue
+/// @param {type} dialogue
 /// <parameter_description>
-/// @parameter {type} line_index
+/// @param {type} line_index
 /// <parameter_description>
 /// ----------------------------------------------------------------------------
 /// @returns {array<string>}

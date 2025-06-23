@@ -2,7 +2,7 @@
 /// @description
 /// This function is used to check if a dialogue is in a 'waiting' state.
 /// ----------------------------------------------------------------------------
-/// @parameter {struct} dialogue
+/// @param {struct} dialogue
 /// The dialogue instance to check.
 /// ----------------------------------------------------------------------------
 /// @returns {boolean}

@@ -15,18 +15,18 @@ function input_check_all_pressed(_verb, _player_index, _buffer_duration) {
 /// @description
 /// <function_description>
 /// ----------------------------------------------------------------------------
-/// @parameter {struct} parameters
+/// @param {struct} parameters
 ///
-/// @parameter {type} parameters.parameter_name
+/// @param {type} parameters.parameter_name
 /// <parameter_description>
 ///
-/// @parameter {type} parameters.parameter_name
+/// @param {type} parameters.parameter_name
 /// <parameter_description>
 ///
-/// @parameter {type} parameters.parameter_name
+/// @param {type} parameters.parameter_name
 /// <parameter_description>
 ///
-/// @parameter {type} parameters.parameter_name
+/// @param {type} parameters.parameter_name
 /// <parameter_description>
 ///
 /// ----------------------------------------------------------------------------
@@ -43,13 +43,13 @@ function gamemaker_input_get_opposing_pressed_sign(parameters) {
 /// @description
 /// <function_description>
 /// ----------------------------------------------------------------------------
-/// @parameter {string} input
+/// @param {string} input
 /// <parameter_description>
 ///
-/// @parameter {integer} player
+/// @param {integer} player
 /// <parameter_description>
 ///
-/// @parameter {boolean} most_recent
+/// @param {boolean} most_recent
 /// <parameter_description>
 /// ----------------------------------------------------------------------------
 /// @returns {string|undefined}
@@ -63,9 +63,9 @@ function gamemaker_input_get_exclusive_active_name(parameters) {
 /// @description
 /// <function_description>
 /// ----------------------------------------------------------------------------
-/// @parameter {type} parameter_name
+/// @param {type} parameter_name
 /// <parameter_description>
-/// @parameter {type} parameter_name
+/// @param {type} parameter_name
 /// <parameter_description>
 /// ----------------------------------------------------------------------------
 /// @returns {string|undefined}
@@ -81,18 +81,18 @@ function gamemaker_input_check_exclusive_pressed(parameters = {}) {
 /// @description
 /// <function_description>
 /// ----------------------------------------------------------------------------
-/// @parameter {struct} parameters
+/// @param {struct} parameters
 ///
-/// @parameter {type} parameters.parameter_name
+/// @param {type} parameters.parameter_name
 /// <parameter_description>
 ///
-/// @parameter {type} parameters.parameter_name
+/// @param {type} parameters.parameter_name
 /// <parameter_description>
 ///
-/// @parameter {type} parameters.parameter_name
+/// @param {type} parameters.parameter_name
 /// <parameter_description>
 ///
-/// @parameter {type} parameters.parameter_name
+/// @param {type} parameters.parameter_name
 /// <parameter_description>
 ///
 /// ----------------------------------------------------------------------------
@@ -117,9 +117,9 @@ function gamemaker_input_check_opposing(parameters) {
 /// @description
 /// <function_description>
 /// ----------------------------------------------------------------------------
-/// @parameter {type} command
+/// @param {type} command
 /// <parameter_description>
-/// @parameter {type} [player]
+/// @param {type} [player]
 /// <parameter_description>
 /// ----------------------------------------------------------------------------
 /// @returns {undefined}
@@ -206,24 +206,24 @@ function gamemaker_input_load_system_data_from_file() {
 /// @description
 /// <function_description>
 /// ----------------------------------------------------------------------------
-/// @parameter {struct} default
+/// @param {struct} default
 ///
-/// @parameter {type} left
+/// @param {type} left
 /// <parameter_description>
 ///
-/// @parameter {type} right
+/// @param {type} right
 /// <parameter_description>
 ///
-/// @parameter {type} up
+/// @param {type} up
 /// <parameter_description>
 ///
-/// @parameter {type} down
+/// @param {type} down
 /// <parameter_description>
 ///
-/// @parameter {type} player
+/// @param {type} player
 /// <parameter_description>
 ///
-/// @parameter {type} most_recent
+/// @param {type} most_recent
 /// <parameter_description>
 ///
 /// ----------------------------------------------------------------------------
@@ -300,7 +300,7 @@ function scr_gamepad_check_any()
             if scr_gamepad_axis_check(obj_gamecontroller.gamepad_id, i)
             {
                 any_input = 1
-                break
+                break;
             }
             else
             {
@@ -314,7 +314,7 @@ function scr_gamepad_check_any()
             if gamepad_button_check(obj_gamecontroller.gamepad_id, global.legacy_input_gamepad[i])
             {
                 any_input = 1
-                break
+                break;
             }
             else
             {
@@ -339,7 +339,7 @@ function scr_gamepad_check_pressed_any()
             if gamepad_button_check_pressed(obj_gamecontroller.gamepad_id, global.legacy_input_gamepad[i])
             {
                 button_pressed = 1
-                break
+                break;
             }
             else
             {
@@ -413,7 +413,7 @@ function scr_gamepad_check_any()
             if scr_gamepad_axis_check(obj_gamecontroller.gamepad_id, i)
             {
                 any_input = 1
-                break
+                break;
             }
             else
             {
@@ -427,7 +427,7 @@ function scr_gamepad_check_any()
             if gamepad_button_check(obj_gamecontroller.gamepad_id, global.legacy_input_gamepad[i])
             {
                 any_input = 1
-                break
+                break;
             }
             else
             {
@@ -452,7 +452,7 @@ function scr_gamepad_check_pressed_any()
             if gamepad_button_check_pressed(obj_gamecontroller.gamepad_id, global.legacy_input_gamepad[i])
             {
                 button_pressed = 1
-                break
+                break;
             }
             else
             {

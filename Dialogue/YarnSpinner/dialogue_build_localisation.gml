@@ -12,13 +12,13 @@
 /// ENSURE YOU HAVE BACKED UP YOUR WORK IN SOURCE CONTROL.
 ///
 /// ----------------------------------------------------------------------------
-/// @parameter {string|array<string>} source_filepath
+/// @param {string|array<string>} source_filepath
 /// The filepath or array of filepaths of the source files for which to create
 /// a localisation.
 ///
 /// NOTE: This filepath must be relative to CHATTERBOX_INCLUDED_FILES_SUBDIRECTORY.
 ///
-/// @parameter {string|array<string>} localisation_filepath
+/// @param {string|array<string>} localisation_filepath
 /// The filepath or array of filepaths where to create localisation files.
 ///
 /// NOTE: This filepath must be relative to CHATTERBOX_INCLUDED_FILES_SUBDIRECTORY.

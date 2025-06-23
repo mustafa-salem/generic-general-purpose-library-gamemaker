@@ -2,13 +2,13 @@
 /// @description
 /// This function is used to create an instance of 'struct.YarnSpinnerDialogueRunner'.
 /// ----------------------------------------------------------------------------
-/// @parameter {string} source
+/// @param {string} source
 /// The name of the YarnScript source to use.
 /// The default argument is the name of the default source.
-/// @parameter {boolean} [singleton]
+/// @param {boolean} [singleton]
 /// Whether the dialogue should be processed in singleton mode.
 /// Defaults to CHATTERBOX_DEFAULT_SINGLETON.
-/// @parameter {mixed} [execution_context]
+/// @param {mixed} [execution_context]
 /// The object instance or struct that should be used as the self context when
 /// executing YarnScript functions and commands.
 /// This value defaults to the self context where this function is being called.

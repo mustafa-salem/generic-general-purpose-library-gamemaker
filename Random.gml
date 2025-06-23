@@ -4,11 +4,11 @@
 /// @description
 /// This function is used to choose a number of elements randomly.
 /// ----------------------------------------------------------------------------
-/// @parameter {array<any>} parameter_name
+/// @param {array<any>} parameter_name
 /// The options.
-/// @parameter {array<number>} [weights]
+/// @param {array<number>} [weights]
 /// The probabilities to choose an option.
-/// @parameter {number} [k=1]
+/// @param {number} [k=1]
 /// The number of elements to choose.
 /// ----------------------------------------------------------------------------
 /// @returns {array<any>}

@@ -3,7 +3,7 @@
 /// This function is used to get the number of lines of content currently
 /// available to a dialogue instance.
 /// ----------------------------------------------------------------------------
-/// @parameter {struct} dialogue
+/// @param {struct} dialogue
 /// The dialogue instance to target.
 /// ----------------------------------------------------------------------------
 /// @returns {integer}

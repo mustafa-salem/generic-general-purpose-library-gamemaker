@@ -2,9 +2,9 @@
 /// @description
 /// <function_description>
 /// ----------------------------------------------------------------------------
-/// @parameter {type} sound
+/// @param {type} sound
 /// <parameter_description>
-/// @parameter {type} duration_seconds
+/// @param {type} duration_seconds
 /// <parameter_description>
 /// ----------------------------------------------------------------------------
 /// @returns {undefined}

@@ -14,7 +14,7 @@
 pr_pointlist
 
 #macro POINT_LIST_PRIMITIVE_TYPE                                               \
-gamemaker_primitive_type_get({ primitive_type : POINT_LIST_PRIMITIVE_TYPE_CONSTANT })
+gamemaker_primitive_type(POINT_LIST_PRIMITIVE_TYPE_CONSTANT)
 
 /// ----------------------------------------------------------------------------
 /// @description
@@ -24,7 +24,7 @@ gamemaker_primitive_type_get({ primitive_type : POINT_LIST_PRIMITIVE_TYPE_CONSTA
 pr_linelist
 
 #macro LINE_LIST_PRIMITIVE_TYPE                                                \
-gamemaker_primitive_type_get({ primitive_type : LINE_LIST_PRIMITIVE_TYPE_CONSTANT })
+gamemaker_primitive_type(LINE_LIST_PRIMITIVE_TYPE_CONSTANT)
 
 /// ----------------------------------------------------------------------------
 /// @description
@@ -34,7 +34,7 @@ gamemaker_primitive_type_get({ primitive_type : LINE_LIST_PRIMITIVE_TYPE_CONSTAN
 pr_linestrip
 
 #macro LINE_STRIP_PRIMITIVE_TYPE                                               \
-gamemaker_primitive_type_get({ primitive_type : LINE_STRIP_PRIMITIVE_TYPE_CONSTANT })
+gamemaker_primitive_type(LINE_STRIP_PRIMITIVE_TYPE_CONSTANT)
 
 /// ----------------------------------------------------------------------------
 /// @description
@@ -44,7 +44,7 @@ gamemaker_primitive_type_get({ primitive_type : LINE_STRIP_PRIMITIVE_TYPE_CONSTA
 pr_trianglelist
 
 #macro TRIANGLE_LIST_PRIMITIVE_TYPE                                            \
-gamemaker_primitive_type_get({ primitive_type : TRIANGLE_LIST_PRIMITIVE_TYPE_CONSTANT })
+gamemaker_primitive_type(TRIANGLE_LIST_PRIMITIVE_TYPE_CONSTANT)
 
 /// ----------------------------------------------------------------------------
 /// @description
@@ -54,7 +54,7 @@ gamemaker_primitive_type_get({ primitive_type : TRIANGLE_LIST_PRIMITIVE_TYPE_CON
 pr_trianglestrip
 
 #macro TRIANGLE_STRIP_PRIMITIVE_TYPE                                           \
-gamemaker_primitive_type_get({ primitive_type : TRIANGLE_STRIP_PRIMITIVE_TYPE_CONSTANT })
+gamemaker_primitive_type(TRIANGLE_STRIP_PRIMITIVE_TYPE_CONSTANT)
 
 /// ----------------------------------------------------------------------------
 /// @description
@@ -64,7 +64,7 @@ gamemaker_primitive_type_get({ primitive_type : TRIANGLE_STRIP_PRIMITIVE_TYPE_CO
 pr_trianglefan
 
 #macro TRIANGLE_FAN_PRIMITIVE_TYPE                                             \
-gamemaker_primitive_type_get({ primitive_type : TRIANGLE_FAN_PRIMITIVE_TYPE_CONSTANT })
+gamemaker_primitive_type(TRIANGLE_FAN_PRIMITIVE_TYPE_CONSTANT)
 
 /******************************************************************************/
 /* –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -78,7 +78,7 @@ gamemaker_primitive_type_get({ primitive_type : TRIANGLE_FAN_PRIMITIVE_TYPE_CONS
 /* –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– */
 /******************************************************************************/
 
-function gamemaker_primitive_type_get() {
+function gamemaker_primitive_type() {
 
 }
 

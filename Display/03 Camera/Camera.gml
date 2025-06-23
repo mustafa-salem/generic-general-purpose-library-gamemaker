@@ -121,9 +121,6 @@ function ViewGeneric(arguments) constructor {
 
     #region    –––––––––––––––––––– POSITION ––––––––––––––––––––
 
-    /// ----------------------------------------------------------------------------
-    /// @function get_x_position(arguments)
-    /// ----------------------------------------------------------------------------
     static get_x_position = function(arguments = {}) {
         if (is_instanceof(self, ViewGeneric)) { arguments.camera = private.camera_id }
         var _camera_id = CAMERA.get_id({ camera : arguments.camera })
@@ -139,9 +136,6 @@ function ViewGeneric(arguments) constructor {
         return camera_get_view_y(_camera_id)
     }
 
-    /// ----------------------------------------------------------------------------
-    /// @function get_position(arguments)
-    /// ----------------------------------------------------------------------------
     static get_position = function(arguments = {}) {
         if (is_instanceof(self, ViewGeneric)) { arguments.camera = private.camera_id }
         var _camera_id = CAMERA.get_id({ camera : arguments.camera })
@@ -329,8 +323,8 @@ function CameraGeneric(arguments) constructor {
     /// @description
     /// wrapper : camera_get_update_script
     /// ----------------------------------------------------------------------------
-    /// @parameter {Struct} arguments
-    /// @parameter {Struct|Real} arguments.camera
+    /// @param {Struct} arguments
+    /// @param {Struct|Real} arguments.camera
     /// <parameter_description>
     /// ----------------------------------------------------------------------------
     /// @returns {Function|Undefined}
@@ -346,10 +340,10 @@ function CameraGeneric(arguments) constructor {
     /// @description
     /// wrapper : camera_set_update_script
     /// ----------------------------------------------------------------------------
-    /// @parameter {Struct} arguments
-    /// @parameter {Struct|Real} arguments.camera
+    /// @param {Struct} arguments
+    /// @param {Struct|Real} arguments.camera
     /// <parameter_description>
-    /// @parameter {Function} arguments.script_function
+    /// @param {Function} arguments.script_function
     /// <parameter_description>
     /// ----------------------------------------------------------------------------
     /// @returns {Struct} self
@@ -365,8 +359,8 @@ function CameraGeneric(arguments) constructor {
     /// @description
     /// wrapper : camera_get_begin_script
     /// ----------------------------------------------------------------------------
-    /// @parameter {Struct} arguments
-    /// @parameter {Struct|Real} arguments.camera
+    /// @param {Struct} arguments
+    /// @param {Struct|Real} arguments.camera
     /// <parameter_description>
     /// ----------------------------------------------------------------------------
     /// @returns {Function|Undefined}
@@ -382,10 +376,10 @@ function CameraGeneric(arguments) constructor {
     /// @description
     /// wrapper : camera_set_begin_script
     /// ----------------------------------------------------------------------------
-    /// @parameter {Struct} arguments
-    /// @parameter {Struct|Real} arguments.camera
+    /// @param {Struct} arguments
+    /// @param {Struct|Real} arguments.camera
     /// <parameter_description>
-    /// @parameter {Function} arguments.script_function
+    /// @param {Function} arguments.script_function
     /// <parameter_description>
     /// ----------------------------------------------------------------------------
     /// @returns {Struct} self
@@ -401,8 +395,8 @@ function CameraGeneric(arguments) constructor {
     /// @description
     /// wrapper : camera_get_end_script
     /// ----------------------------------------------------------------------------
-    /// @parameter {Struct} arguments
-    /// @parameter {Struct|Real} arguments.camera
+    /// @param {Struct} arguments
+    /// @param {Struct|Real} arguments.camera
     /// <parameter_description>
     /// ----------------------------------------------------------------------------
     /// @returns {Function|Undefined}
@@ -418,10 +412,10 @@ function CameraGeneric(arguments) constructor {
     /// @description
     /// wrapper : camera_set_end_script
     /// ----------------------------------------------------------------------------
-    /// @parameter {Struct} arguments
-    /// @parameter {Struct|Real} arguments.camera
+    /// @param {Struct} arguments
+    /// @param {Struct|Real} arguments.camera
     /// <parameter_description>
-    /// @parameter {Function} arguments.script_function
+    /// @param {Function} arguments.script_function
     /// <parameter_description>
     /// ----------------------------------------------------------------------------
     /// @returns {Struct} self

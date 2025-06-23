@@ -2,9 +2,9 @@
 /// @description
 /// <function_description>
 /// ----------------------------------------------------------------------------
-/// @parameter {Path Asset} path
+/// @param {Path Asset} path
 /// The index of the path to check.
-/// @parameter {real} pos
+/// @param {real} pos
 /// How far through the path to check. Between 0 (start) and 1 (end).
 /// ----------------------------------------------------------------------------
 /// @returns {real}

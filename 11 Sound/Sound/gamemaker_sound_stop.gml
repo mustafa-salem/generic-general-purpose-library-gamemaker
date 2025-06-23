@@ -2,7 +2,7 @@
 /// @description
 /// <function_description>
 /// ----------------------------------------------------------------------------
-/// @parameter {type} sound
+/// @param {type} sound
 /// <parameter_description>
 /// ----------------------------------------------------------------------------
 /// @returns {undefined}

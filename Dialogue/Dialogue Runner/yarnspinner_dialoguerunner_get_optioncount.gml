@@ -3,7 +3,7 @@
 /// This function is used to get the number of options available to a dialogue
 /// instance.
 /// ----------------------------------------------------------------------------
-/// @parameter {type} dialogue
+/// @param {type} dialogue
 /// <parameter_description>
 /// ----------------------------------------------------------------------------
 /// @returns {integer}

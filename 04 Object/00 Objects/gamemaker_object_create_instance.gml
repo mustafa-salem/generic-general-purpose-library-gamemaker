@@ -3,25 +3,25 @@
 /// This script function serves as a proxy for the static method function:
 /// GameMakerObjectInstance.create
 /// ----------------------------------------------------------------------------
-/// @parameter {type} object
+/// @param {type} object
 /// <parameter_description>
 ///
-/// @parameter {type} x_position
+/// @param {type} x_position
 /// <parameter_description>
 ///
-/// @parameter {type} y_position
+/// @param {type} y_position
 /// <parameter_description>
 ///
-/// @parameter {type} z_position
+/// @param {type} z_position
 /// <parameter_description>
 ///
-/// @parameter {type} layer
+/// @param {type} layer
 /// <parameter_description>
 ///
-/// @parameter {type} variables
+/// @param {type} variables
 /// <parameter_description>
 ///
-/// @parameter {type} parameter_name
+/// @param {type} parameter_name
 /// <parameter_description>
 ///
 /// ----------------------------------------------------------------------------

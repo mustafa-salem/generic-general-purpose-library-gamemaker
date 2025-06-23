@@ -26,9 +26,9 @@ function gamemaker_window_get_y_dimension() {
 /// @description
 /// <function_description>
 /// ----------------------------------------------------------------------------
-/// @parameter {number} x
+/// @param {number} x
 /// <parameter_description>
-/// @parameter {number} y
+/// @param {number} y
 /// <parameter_description>
 /// ----------------------------------------------------------------------------
 /// @returns {undefined}
@@ -99,7 +99,7 @@ function set_default_caption_window_generic(arguments = {}) {
 /// NOTE: The window caption is independent of the current room even though the
 /// GameMaker manual claims otherwise.
 /// ----------------------------------------------------------------------------
-/// @parameter {string} string
+/// @param {string} string
 /// The caption to display.
 /// ----------------------------------------------------------------------------
 /// @returns {undefined}
@@ -169,7 +169,7 @@ function gamemaker_window_is_fullscreen() {
 /// @description
 /// <function_description>
 /// ----------------------------------------------------------------------------
-/// @parameter {boolean} fullscreen
+/// @param {boolean} fullscreen
 /// <parameter_description>
 /// ----------------------------------------------------------------------------
 /// @returns {undefined}

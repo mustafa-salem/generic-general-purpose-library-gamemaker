@@ -4,10 +4,10 @@
 	/// @description
 	/// <function_description>
 	/// ----------------------------------------------------------------------------
-	/// @parameter {mixed} transition
+	/// @param {mixed} transition
 	/// <parameter_description>
 	///
-	/// @parameter {array<any>} arguments
+	/// @param {array<any>} arguments
 	/// <parameter_description>
 	///
 	/// ----------------------------------------------------------------------------

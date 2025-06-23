@@ -4,7 +4,7 @@
 /// ----------------------------------------------------------------------------
 /// @function show_trace_debug_generic(arguments)
 /// ----------------------------------------------------------------------------
-/// @parameter {Struct} arguments { debug_message : (String|Array<String>), show_popup : [Bool=false] }
+/// @param {Struct} arguments { debug_message : (String|Array<String>), show_popup : [Bool=false] }
 /// ----------------------------------------------------------------------------
 function show_trace_debug_generic(arguments) {
     arguments ??= {}

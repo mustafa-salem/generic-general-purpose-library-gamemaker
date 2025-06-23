@@ -2,9 +2,9 @@
 /// @description
 /// <function_description>
 /// ----------------------------------------------------------------------------
-/// @parameter {Struct} arguments
+/// @param {Struct} arguments
 ///
-/// @parameter {Type} arguments.camera
+/// @param {Type} arguments.camera
 /// <parameter_description>
 /// ----------------------------------------------------------------------------
 /// @returns {Struct.ViewGeneric}

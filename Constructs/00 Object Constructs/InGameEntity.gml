@@ -8,7 +8,7 @@
 /// @description
 /// This function is used to declare a new type of in-game entity.
 /// ----------------------------------------------------------------------------
-/// @parameter {string} name
+/// @param {string} name
 /// The name used to identify the in-game entity.
 /// ----------------------------------------------------------------------------
 /// @returns {struct}
@@ -43,10 +43,10 @@ function InGameEntity() constructor {
     /// @description
     /// <function_description>
     /// ----------------------------------------------------------------------------
-    /// @parameter {type} parameter_name
+    /// @param {type} parameter_name
     /// <parameter_description>
     ///
-    /// @parameter {type} parameter_name
+    /// @param {type} parameter_name
     /// <parameter_description>
     ///
     /// ----------------------------------------------------------------------------
@@ -65,10 +65,10 @@ function InGameEntity() constructor {
     /// @description
     /// <function_description>
     /// ----------------------------------------------------------------------------
-    /// @parameter {string} event
+    /// @param {string} event
     /// <parameter_description>
     ///
-    /// @parameter {type} callable
+    /// @param {type} callable
     /// <parameter_description>
     ///
     /// ----------------------------------------------------------------------------
@@ -87,6 +87,6 @@ function InGameEntity() constructor {
 #endregion –––––––––––––––––––– CONSTRUCTORS ––––––––––––––––––––
 /******************************************************************************/
 
-gamemaker_object_get({ object : ingameentity_construct_object })
+gamemaker_object(ingameentity_construct_object)
 
 gamemaker_construct_create({ name : "ingameentity_construct" })

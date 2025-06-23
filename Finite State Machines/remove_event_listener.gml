@@ -4,13 +4,13 @@
 	/// @description
 	/// This method is used to remove event handlers from events.
 	/// ----------------------------------------------------------------------------
-	/// @parameter {string|array<string>|all} event
+	/// @param {string|array<string>|all} event
 	/// <parameter_description>
 	///
-	/// @parameter {callable|all} callable
+	/// @param {callable|all} callable
 	/// <parameter_description>
 	///
-	/// @parameter {string|all} name
+	/// @param {string|all} name
 	/// <parameter_description>
 	///
 	/// ----------------------------------------------------------------------------

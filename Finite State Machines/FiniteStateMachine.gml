@@ -110,13 +110,13 @@ function FiniteStateMachine() constructor {
 	/// @description
 	/// <function_description>
 	/// ----------------------------------------------------------------------------
-	/// @parameter {string} event_name
+	/// @param {string} event_name
 	/// The name of the event to execute.
 	///
-	/// @parameter {string} state_name
+	/// @param {string} state_name
 	/// The name of the state to execute the event for.
 	///
-	/// @parameter {array<any>} arguments
+	/// @param {array<any>} arguments
 	/// The array of variables to pass into the event callable.
 	///
 	/// ----------------------------------------------------------------------------
@@ -182,7 +182,7 @@ function FiniteStateMachine() constructor {
 	/// ----------------------------------------------------------------------------
 	/// @function __try_triggering_transition(parameters)
 	/// ----------------------------------------------------------------------------
-	/// @parameter {Struct} arguments { transitions : Array<Struct>, source_state_name : String, trigger_name : String, arguments : [Array<Any>] }
+	/// @param {Struct} arguments { transitions : Array<Struct>, source_state_name : String, trigger_name : String, arguments : [Array<Any>] }
 	/// @returns {boolean} Whether the trigger_transition is successful (true), or not (false)
 	__try_triggering_transition = function(arguments = {}) {
 		var _transitions       = arguments[$ "transitions"]

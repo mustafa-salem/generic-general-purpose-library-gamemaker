@@ -6,12 +6,12 @@
 /// If undefined or -1 is provided as a reference to the camera then the current
 /// camera will be removed from the view port without a new camera replacing it.
 /// ----------------------------------------------------------------------------
-/// @parameter {Struct} arguments
+/// @param {Struct} arguments
 ///
-/// @parameter {Struct.ViewPortGeneric|Real} arguments.view_port
+/// @param {Struct.ViewPortGeneric|Real} arguments.view_port
 /// The view port to target or its index (0 - 7).
 ///
-/// @parameter {Struct.CameraGeneric|Real|Undefined} arguments.camera
+/// @param {Struct.CameraGeneric|Real|Undefined} arguments.camera
 /// The camera to use or it
 /// ----------------------------------------------------------------------------
 function gamemaker_viewport_set_camera(arguments = {}) {

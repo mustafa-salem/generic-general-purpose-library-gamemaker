@@ -9,7 +9,7 @@
 /*
 
 # IDENTIFIERS
-* gamemaker_room_get
+* gamemaker_room
 * gamemaker_room_get_id
 * gamemaker_room_get_handle
 * gamemaker_room_get_name
@@ -137,7 +137,7 @@ function GameMakerRoom() constructor {
 /// @description
 /// <function_description>
 /// ----------------------------------------------------------------------------
-/// @parameter {type} parameter_name
+/// @param {type} parameter_name
 /// <parameter_description>
 ///
 /// ----------------------------------------------------------------------------

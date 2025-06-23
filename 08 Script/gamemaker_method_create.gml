@@ -2,9 +2,9 @@
 /// @description
 /// <function_description>
 /// ----------------------------------------------------------------------------
-/// @parameter {type} executioncontext
+/// @param {type} executioncontext
 /// <parameter_description>
-/// @parameter {type} callable
+/// @param {type} callable
 /// <parameter_description>
 /// ----------------------------------------------------------------------------
 /// @returns {method}

@@ -6,10 +6,10 @@
 ///
 /// NOTE: This is the GML equivalent to the YarnScript <<constant>> command.
 /// ----------------------------------------------------------------------------
-/// @parameter {string} name
+/// @param {string} name
 /// The name of the constant to define.
 ///
-/// @parameter {boolean|number|string} value
+/// @param {boolean|number|string} value
 /// The value to assign to the constant.
 /// ----------------------------------------------------------------------------
 /// @returns {undefined}

@@ -22,34 +22,34 @@ function gamemaker_timesource_create(arguments = {}) {
 }
 
 /// ----------------------------------------------------------------------------
-/// @parameter {Struct} arguments
+/// @param {Struct} arguments
 ///
-/// @parameter {Struct.TimeSourceGeneric|Id.TimeSource} arguments.time_source
+/// @param {Struct.TimeSourceGeneric|Id.TimeSource} arguments.time_source
 /// <parameter_description>
 ///
-/// @parameter {Struct.TimeSourceGeneric|Id.TimeSource} arguments.parent
+/// @param {Struct.TimeSourceGeneric|Id.TimeSource} arguments.parent
 /// The parent time source of the new time source.
 ///
-/// @parameter {Real} arguments.period
+/// @param {Real} arguments.period
 /// The period that the time source runs for.
 ///
-/// @parameter {Constant.TimeSourceUnit} arguments.units
+/// @param {Constant.TimeSourceUnit} arguments.units
 /// The units that the given period is in.
 ///
-/// @parameter {Real|Infinity} arguments.repetitions
+/// @param {Real|Infinity} arguments.repetitions
 /// The number of times the Time Source should repeat,
 /// or infinity for indefinite repetition.
 ///
-/// @parameter {Constant.TimeSourceExpiry} arguments.expiry_type
+/// @param {Constant.TimeSourceExpiry} arguments.expiry_type
 /// Whether the Time Source expires on the frame nearest to its expiry,
 /// or on the next frame.
 ///
-/// @parameter {Function} arguments.callback
+/// @param {Function} arguments.callback
 /// The method or script function to call when the Time Source expires.
 ///
-/// @parameter {Array<Any>} arguments.arguments
+/// @param {Array<Any>} arguments.arguments
 /// An array containing the arguments to pass into the method
 ///
-/// @parameter {} arguments.scope
+/// @param {} arguments.scope
 ///
 /// ----------------------------------------------------------------------------

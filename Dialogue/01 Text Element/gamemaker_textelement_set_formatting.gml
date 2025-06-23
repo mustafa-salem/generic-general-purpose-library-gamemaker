@@ -5,11 +5,11 @@
 /// NOTE: Using `[/font]` and `[/colour]` will change the font and colour back
 /// to these values
 /// ----------------------------------------------------------------------------
-/// @parameter {struct.GameMakerTextElement} textelement
+/// @param {struct.GameMakerTextElement} textelement
 /// <parameter_description>
-/// @parameter {type} font
+/// @param {type} font
 /// <parameter_description>
-/// @parameter {type} colour
+/// @param {type} colour
 /// <parameter_description>
 /// ----------------------------------------------------------------------------
 /// @returns {undefined}

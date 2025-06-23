@@ -4,10 +4,10 @@
 	/// @description
 	/// This function is used to set the properties of a state.
 	/// ----------------------------------------------------------------------------
-	/// @parameter {string} name
+	/// @param {string} name
 	/// The name of the state to define.
 	///
-	/// @parameter {string} parent
+	/// @param {string} parent
 	/// The name of the parent state of the state to define.
 	/// ----------------------------------------------------------------------------
 	/// @returns {struct.FiniteStateMachine} self

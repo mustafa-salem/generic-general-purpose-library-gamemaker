@@ -158,9 +158,9 @@ function ViewPortGeneric(arguments) constructor {
     /// @description
     /// <function_description>
     /// ----------------------------------------------------------------------------
-    /// @parameter {Struct} arguments
+    /// @param {Struct} arguments
     ///
-    /// @parameter {Type} arguments.parameter_name
+    /// @param {Type} arguments.parameter_name
     /// <parameter_description>
     /// ----------------------------------------------------------------------------
     /// @returns {type}
@@ -195,9 +195,9 @@ function ViewPortGeneric(arguments) constructor {
     /// @description
     /// <function_description>
     /// ----------------------------------------------------------------------------
-    /// @parameter {Struct} arguments
+    /// @param {Struct} arguments
     ///
-    /// @parameter {Type} arguments.parameter_name
+    /// @param {Type} arguments.parameter_name
     /// <parameter_description>
     /// ----------------------------------------------------------------------------
     /// @returns {type}
@@ -232,12 +232,12 @@ function ViewPortGeneric(arguments) constructor {
     /// @description
     /// <function_description>
     /// ----------------------------------------------------------------------------
-    /// @parameter {Struct} arguments
+    /// @param {Struct} arguments
     ///
-    /// @parameter {Type} arguments.x
+    /// @param {Type} arguments.x
     /// <parameter_description>
     ///
-    /// @parameter {Type} arguments.y
+    /// @param {Type} arguments.y
     /// <parameter_description>
     /// ----------------------------------------------------------------------------
     /// @returns {type}
@@ -280,9 +280,9 @@ function ViewPortGeneric(arguments) constructor {
     /// @description
     /// <function_description>
     /// ----------------------------------------------------------------------------
-    /// @parameter {Struct} arguments
+    /// @param {Struct} arguments
     ///
-    /// @parameter {Type} arguments.parameter_name
+    /// @param {Type} arguments.parameter_name
     /// <parameter_description>
     /// ----------------------------------------------------------------------------
     /// @returns {type}
@@ -317,9 +317,9 @@ function ViewPortGeneric(arguments) constructor {
     /// @description
     /// <function_description>
     /// ----------------------------------------------------------------------------
-    /// @parameter {Struct} arguments
+    /// @param {Struct} arguments
     ///
-    /// @parameter {Type} arguments.parameter_name
+    /// @param {Type} arguments.parameter_name
     /// <parameter_description>
     /// ----------------------------------------------------------------------------
     /// @returns {type}
@@ -354,12 +354,12 @@ function ViewPortGeneric(arguments) constructor {
     /// @description
     /// <function_description>
     /// ----------------------------------------------------------------------------
-    /// @parameter {Struct} arguments
+    /// @param {Struct} arguments
     ///
-    /// @parameter {Type} arguments.x
+    /// @param {Type} arguments.x
     /// <parameter_description>
     ///
-    /// @parameter {Type} arguments.y
+    /// @param {Type} arguments.y
     /// <parameter_description>
     /// ----------------------------------------------------------------------------
     /// @returns {type}

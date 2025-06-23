@@ -7,10 +7,10 @@
 ///
 /// NOTE: This action SHOULD NOT be performed after YarnScript sources were loaded.
 /// ----------------------------------------------------------------------------
-/// @parameter {string} search
+/// @param {string} search
 /// The string to seach for.
 ///
-/// @parameter {string} replace
+/// @param {string} replace
 /// The string to replace it with.
 /// ----------------------------------------------------------------------------
 /// @returns {undefined}

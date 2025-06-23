@@ -5,41 +5,41 @@
 /// @description
 /// <function_description>
 /// ----------------------------------------------------------------------------
-/// @parameter {mixed} sprite
-/// @parameter {number} x_position
-/// @parameter {number} y_position
-/// @parameter {number} x_alignment
-/// @parameter {number} y_alignment
-/// @parameter {number} x_dimension
-/// @parameter {number} y_dimension
-/// @parameter {number} x_scale
-/// @parameter {number} y_scale
+/// @param {mixed} sprite
+/// @param {number} x_position
+/// @param {number} y_position
+/// @param {number} x_alignment
+/// @param {number} y_alignment
+/// @param {number} x_dimension
+/// @param {number} y_dimension
+/// @param {number} x_scale
+/// @param {number} y_scale
 
-/// @parameter {Type} fragment_x0
-/// @parameter {Type} fragment_x1
-/// @parameter {Type} fragment_y0
-/// @parameter {Type} fragment_y1
+/// @param {Type} fragment_x0
+/// @param {Type} fragment_x1
+/// @param {Type} fragment_y0
+/// @param {Type} fragment_y1
 
-/// @parameter {number} x_rotation
-/// @parameter {number} y_rotation
-/// @parameter {number} z_rotation
+/// @param {number} x_rotation
+/// @param {number} y_rotation
+/// @param {number} z_rotation
 
-/// @parameter {Type} solid_blend_colour
-/// @parameter {Type} solid_blend_alpha
+/// @param {Type} solid_blend_colour
+/// @param {Type} solid_blend_alpha
 //
-/// @parameter {Type} gradient_blend_colour_0
-/// @parameter {Type} gradient_blend_colour_1
-/// @parameter {Type} gradient_blend_colour_2
-/// @parameter {Type} gradient_blend_colour_3
-/// @parameter {Type} gradient_blend_alpha_0
-/// @parameter {Type} gradient_blend_alpha_1
-/// @parameter {Type} gradient_blend_alpha_2
-/// @parameter {Type} gradient_blend_alpha_3
+/// @param {Type} gradient_blend_colour_0
+/// @param {Type} gradient_blend_colour_1
+/// @param {Type} gradient_blend_colour_2
+/// @param {Type} gradient_blend_colour_3
+/// @param {Type} gradient_blend_alpha_0
+/// @param {Type} gradient_blend_alpha_1
+/// @param {Type} gradient_blend_alpha_2
+/// @param {Type} gradient_blend_alpha_3
 
-/// @parameter {boolean} tiled
-/// @parameter {Type} target
-/// @parameter {Type} blendmode
-/// @parameter {Type} shader
+/// @param {boolean} tiled
+/// @param {Type} target
+/// @param {Type} blendmode
+/// @param {Type} shader
 /// ----------------------------------------------------------------------------
 /// @returns {type}
 /// <return_description>

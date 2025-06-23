@@ -69,9 +69,9 @@ function AssetGeneric() constructor {
     /// @description
     /// <function_description>
     /// ----------------------------------------------------------------------------
-    /// @parameter {Struct} arguments
+    /// @param {Struct} arguments
     ///
-    /// @parameter {Type} arguments.asset
+    /// @param {Type} arguments.asset
     /// <parameter_description>
     /// ----------------------------------------------------------------------------
     /// @returns {type}
@@ -88,9 +88,9 @@ function AssetGeneric() constructor {
     /// @description
     /// <function_description>
     /// ----------------------------------------------------------------------------
-    /// @parameter {Struct} arguments
+    /// @param {Struct} arguments
     ///
-    /// @parameter {Type} arguments.asset
+    /// @param {Type} arguments.asset
     /// <parameter_description>
     /// ----------------------------------------------------------------------------
     /// @returns {type}
@@ -107,9 +107,9 @@ function AssetGeneric() constructor {
     /// @description
     /// <function_description>
     /// ----------------------------------------------------------------------------
-    /// @parameter {Struct} arguments
+    /// @param {Struct} arguments
     ///
-    /// @parameter {Type} arguments.asset
+    /// @param {Type} arguments.asset
     /// <parameter_description>
     /// ----------------------------------------------------------------------------
     /// @returns {type}
@@ -126,9 +126,9 @@ function AssetGeneric() constructor {
     /// @description
     /// <function_description>
     /// ----------------------------------------------------------------------------
-    /// @parameter {Struct} arguments
+    /// @param {Struct} arguments
     ///
-    /// @parameter {Type} arguments.asset
+    /// @param {Type} arguments.asset
     /// <parameter_description>
     /// ----------------------------------------------------------------------------
     /// @returns {type}
@@ -145,9 +145,9 @@ function AssetGeneric() constructor {
     /// @description
     /// <function_description>
     /// ----------------------------------------------------------------------------
-    /// @parameter {Struct} arguments
+    /// @param {Struct} arguments
     ///
-    /// @parameter {Type} arguments.asset
+    /// @param {Type} arguments.asset
     /// <parameter_description>
     /// ----------------------------------------------------------------------------
     /// @returns {type}
@@ -164,9 +164,9 @@ function AssetGeneric() constructor {
     /// @description
     /// <function_description>
     /// ----------------------------------------------------------------------------
-    /// @parameter {Struct} arguments
+    /// @param {Struct} arguments
     ///
-    /// @parameter {Type} arguments.asset
+    /// @param {Type} arguments.asset
     /// <parameter_description>
     /// ----------------------------------------------------------------------------
     /// @returns {type}
