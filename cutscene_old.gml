@@ -6,7 +6,7 @@ function c_actormoveparty(argument0) {
     __mcactor = scr_findactor("kris")
     if (__mcactor >= 0) {
         c_cmd("select", __mcactor)
-        c_cmd("walkdirect", overworld_character_object.x, overworld_character_object.y, argument0)
+        c_cmd("walkdirect", overworldcharacter_construct.x, overworldcharacter_construct.y, argument0)
     }
     for (__jj = 0; __jj < 2; __jj++) {
         if (instance_exists(CATERPILLAR_CHARACTERS[__jj])) {
@@ -606,7 +606,7 @@ function scr_cutscene_commands() {
     }
 
     if (_c == "pannable") {
-        if (instance_exists(overworld_character_object)) { overworld_character_object.cutscene = command_arg1[i] }
+        if (instance_exists(overworldcharacter_construct)) { overworldcharacter_construct.cutscene = command_arg1[i] }
     }
 
     if (_c == "shakex") {
@@ -679,9 +679,9 @@ function scr_cutscene_commands() {
         _input_actor_instance = actor_id[_input_actor_id]
 
         if(_input_actor_instance.main == true) {
-            overworld_character_object.x = _input_actor_instance.x
-            overworld_character_object.y = _input_actor_instance.y
-            overworld_character_object.visible = true
+            overworldcharacter_construct.x = _input_actor_instance.x
+            overworldcharacter_construct.y = _input_actor_instance.y
+            overworldcharacter_construct.visible = true
             _input_actor_instance.visible = false
             if (_input_actor_instance.facing == "d") { MAIN_CHARACTER_FACING_DIRECTION = DIRECTION.DOWN } if (_input_actor_instance.facing == "r") { MAIN_CHARACTER_FACING_DIRECTION = DIRECTION.RIGHT } if (_input_actor_instance.facing == "u") { MAIN_CHARACTER_FACING_DIRECTION = DIRECTION.UP } if (_input_actor_instance.facing == "l") { MAIN_CHARACTER_FACING_DIRECTION = DIRECTION.LEFT }
         } else {
@@ -700,9 +700,9 @@ function scr_cutscene_commands() {
     if (_c == "actortokris") {
         for (var jjj = 0; jjj < 20; jjj++) {
             if (actor_name[jjj] == "kris" and instance_exists(actor_id[jjj])) {
-                overworld_character_object.x = actor_id[jjj].x
-                overworld_character_object.y = actor_id[jjj].y
-                overworld_character_object.visible = true
+                overworldcharacter_construct.x = actor_id[jjj].x
+                overworldcharacter_construct.y = actor_id[jjj].y
+                overworldcharacter_construct.visible = true
                 actor_id[jjj].visible = false
                 if (actor_id[jjj].facing == "d") { MAIN_CHARACTER_FACING_DIRECTION = DIRECTION.DOWN }
                 if (actor_id[jjj].facing == "r") { MAIN_CHARACTER_FACING_DIRECTION = DIRECTION.RIGHT }
