@@ -85,7 +85,7 @@ function gamemaker_input_check_opposing(parameters) {
 	input_check_opposing_repeat(verbNegative, verbPositive, [playerIndex], [mostRecent], [delay], [predelay])
 }
 
-#region    –––––––––––––––––––– SYSTEM_DATA ––––––––––––––––––––
+#region    ―――――――――――――――――――― SYSTEM_DATA ――――――――――――――――――――
 
 function gamemaker_input_export_system_data(parameters) {
     return input_system_export(parameters.stringify, parameters.prettify)
@@ -152,9 +152,9 @@ function gamemaker_input_load_system_data_from_file() {
     }
 }
 
-#endregion –––––––––––––––––––– SYSTEM_DATA ––––––––––––––––––––
+#endregion ―――――――――――――――――――― SYSTEM_DATA ――――――――――――――――――――
 
-#region    –––––––––––––––––––– SUBREGION_NAME ––––––––––––––––––––
+#region    ―――――――――――――――――――― SUBREGION_NAME ――――――――――――――――――――
 
 /// ----------------------------------------------------------------------------
 /// @function function_name(parameters)
@@ -190,7 +190,7 @@ function gamemaker_input_get_direction_degrees() {
     input_direction(default, verbLeft, verbRight, verbUp, verbDown, [playerIndex], [mostRecent])
 }
 
-#endregion –––––––––––––––––––– SUBREGION_NAME ––––––––––––––––––––
+#endregion ―――――――――――――――――――― SUBREGION_NAME ――――――――――――――――――――
 
 #macro DEFAULT_FILEPATH_SYSTEM_CONFIG_INPUT_GENERIC "controls.json"
 

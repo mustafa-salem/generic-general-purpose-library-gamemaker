@@ -15,7 +15,7 @@
 	/// ----------------------------------------------------------------------------
 	add_event = function(parameters = {}) {
 
-		/* –––––––––––––––––––– ARGUMENT_VALIDATION –––––––––––––––––––– */
+		/* ―――――――――――――――――――― ARGUMENT_VALIDATION ―――――――――――――――――――― */
 
 		var _event_name = parameters[$ "name"]
 		var _state_name = parameters[$ "state"] ?? FINITE_STATE_MACHINE_DEFAULT_STATE
@@ -32,7 +32,7 @@
 			return self
 		}
 
-		/* –––––––––––––––––––– LOGIC –––––––––––––––––––– */
+		/* ―――――――――――――――――――― LOGIC ―――――――――――――――――――― */
 
 		private.events[$ _event_name] = {
 			exists: _defined,

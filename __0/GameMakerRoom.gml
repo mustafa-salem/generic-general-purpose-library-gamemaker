@@ -1,49 +1,44 @@
-/******************************************************************************/
-#region    –––––––––––––––––––– CONSTANTS ––––––––––––––––––––
-/******************************************************************************/
+// ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
+#region    ―――――――――――――――――――― CONSTANTS ――――――――――――――――――――
+// ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
 
-/******************************************************************************/
-#endregion –––––––––––––––––––– CONSTANTS ––––––––––––––––––––
-/******************************************************************************/
+// ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
+#endregion ―――――――――――――――――――― CONSTANTS ――――――――――――――――――――
+// ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
 
-/******************************************************************************/
-#region    –––––––––––––––––––– INITIALIZATION ––––––––––––––––––––
-/******************************************************************************/
+// ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
+#region    ―――――――――――――――――――― INITIALIZATION ――――――――――――――――――――
+// ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
 
+/**
+ * @description description
+ * @param {type} name description
+ * @returns {}
+ */
 function __gamemaker_room_context(parameters = {}) {
-    if (global[$ "#gamemaker"] != undefined) {
-        if (global[$ "#gamemaker"][$ "room"] != undefined) {
-            return global[$ "#gamemaker"][$ "room"];
-        }
-    }
-
-    /// 
-    global[$ "#gamemaker"] ??= {};
-    /// 
-    global[$ "#gamemaker"][$ "room"] ??= {};
-    ///
-    global[$ "#gamemaker"][$ "room"][$ "rooms"] ??= {};
-    
-    return global[$ "#gamemaker"][$ "room"];
+    static __context = (function() {
+        var _context = __gamemaker_context();
+        _context[$ "room"] = {};
+        _context[$ "room"][$ "rooms"] = {};
+        return _context[$ "room"];
+    })();
+    return __context;
 }
 
-/******************************************************************************/
-#endregion –––––––––––––––––––– INITIALIZATION ––––––––––––––––––––
-/******************************************************************************/
+// ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
+#endregion ―――――――――――――――――――― INITIALIZATION ――――――――――――――――――――
+// ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
 
-/******************************************************************************/
-#region    –––––––––––––––––––– FUNCTIONS ––––––––––––––––––––
-/******************************************************************************/
+// ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
+#region    ―――――――――――――――――――― FUNCTIONS ――――――――――――――――――――
+// ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
 
-/*
-global.entrance
-create
-set_event
-.get
-add_tags
-get_id
-*/
+/* global.entrance; create; set_event; .get; add_tags; get_id */
 
+/**
+ * @parameter {Asset} _handle description
+ * @parameter {String} _name description
+ */
 function __gamemaker_room_create(_handle, _name) {
     static __context = __gamemaker_room_context();
     var _room = new GameMakerRoom();
@@ -52,10 +47,14 @@ function __gamemaker_room_create(_handle, _name) {
         _room[$ "#name"] = _name;
     }
     __context[$ "rooms"][$ _name] = _room;
-    room_instance_add(_handle, 0, 0, __gamemaker_roomcontroller_object);
+    var _instance = room_instance_add(_handle, 0, 0, __gamemaker_roomcontroller_object);
     return _room;
 }
 
+/**
+ * @parameter {Asset} argumen0 description
+ * @returns {Struct|Undefined}
+ */
 function __gamemaker_room_get(argumen0) {
     static __context = __gamemaker_room_context();
     if (__context[$ "rooms"][$ argumen0] == undefined) {
@@ -64,29 +63,47 @@ function __gamemaker_room_get(argumen0) {
     return __context[$ "rooms"][$ room_get_name(argumen0)];
 }
 
+/**
+ * @description
+ * Typecasts to the instance of `Struct.GameMakerRoom` associated with a room asset.
+ * **NOTE:** otherwise returns `undefined`.
+ * @param {Asset.GMRoom|String} argumen0
+ * identifies the room
+ * @returns {Struct|Undefined}
+ */
 function gamemaker_room(argumen0) {
-    static __context = __gamemaker_room_context();
-    /// is an instance of `GameMakerRoom`
-    if (is_instanceof(argumen0, GameMakerRoom)) {
-        return argumen0;
-    }
-    /// is a room name
-    if (is_string(argumen0)) {
-        return __gamemaker_room_get(asset_get_index(argumen0));
-    }
-    /// is a room handle
-    if (is_handle(argumen0)) {
+    switch (typeof(argumen0)) {
+    case "number":
+        return __gamemaker_room_get(argumen0);
+    case "ref":
         var _thetobereturned = __gamemaker_room_get(argumen0);
         return _thetobereturned;
+    case "string":
+        var _room = asset_get_index(argumen0);
+        return __gamemaker_room_get(_room);
+    case "struct":
+        return (is_instanceof(argumen0, GameMakerRoom) ? argumen0 : undefined);
+    default:
+        return undefined;
     }
-    /// room_get_name
+}
+
+/**
+ * @description description
+ * @param {Any} argument0 description
+ * @returns {Asset.GMRoom|Undefined} description
+ * @self {undefined}
+ */
+function gamemaker_room_handle(argument0) {
+    static __context = __gamemaker_room_context();
     return undefined;
 }
 
-function gamemaker_room_handle(parameters = {}) {
-    return _return
-}
-
+/**
+ * @description description
+ * @param {type} name description
+ * @returns {type}
+ */
 function gamemaker_room_exists(parameters = {}) {
     var _room_handle;
     if (_room_handle == undefined) {
@@ -95,23 +112,48 @@ function gamemaker_room_exists(parameters = {}) {
     return room_exists(_room_handle);
 }
 
+/**
+ * @description description
+ * @param {type} name description
+ * @returns {type}
+ */
 function gamemaker_room_get_handle(parameters = {}) {
     return _return
 }
 
+/**
+ * @description description
+ * @param {type} name description
+ * @returns {type}
+ */
 function gamemaker_room_get_name(parameters = {}) {
     return _return
 }
 
+/**
+ * @description description
+ * @param {Struct} parameters { name }
+ * @returns {Undefined}
+ */
 function gamemaker_room_create(parameters = {}) {
     var _handle = room_add();
     return new Room();
 } 
 
+/**
+ * @description description
+ * @param {Struct} parameters { room }
+ * @returns {type}
+ */
 function gamemaker_room_get_persistent(parameters = {}) {
     return _return
 }
 
+/**
+ * @description description
+ * @param {Struct} parameters { room, persistent }
+ * @returns {type}
+ */
 function gamemaker_room_set_persistent(parameters = {}) {
     var _room       = parameters[$ "room"]
     var _persistent = parameters[$ "persistent"]
@@ -123,6 +165,11 @@ function gamemaker_room_set_persistent(parameters = {}) {
     return undefined
 }
 
+/**
+ * @description description
+ * @param {Struct} parameters { room }
+ * @returns {type}
+ */
 function gamemaker_room_get_x_dimension(parameters = {}) {
     var _room = parameters[$ "room"];
     if (_room == room) {
@@ -131,6 +178,11 @@ function gamemaker_room_get_x_dimension(parameters = {}) {
     return room_get_info(_room).width;
 }
 
+/**
+ * @description description
+ * @param {Struct} parameters { room }
+ * @returns {type}
+ */
 function gamemaker_room_get_y_dimension(parameters = {}) {
     var _room = parameters[$ "room"];
     if (_room == room) {
@@ -139,6 +191,11 @@ function gamemaker_room_get_y_dimension(parameters = {}) {
     return room_get_info(_room).height;
 }
 
+/**
+ * @description description
+ * @param {Struct} parameters { room, x, y }
+ * @returns {type}
+ */
 function gamemaker_room_set_dimensions(parameters = {}) {
     var _room = gamemaker_room_handle(parameters[$ "room"]);
     var _x    = parameters[$ "x"];
@@ -164,16 +221,31 @@ function gamemaker_room_set_dimensions(parameters = {}) {
     return undefined;
 }
 
+/**
+ * @description description
+ * @param {Struct} parameters { room }
+ * @returns {Undefined}
+ */
 function gamemaker_room_goto(parameters = {}) {
     var _room = parameters[$ "room"];
     var _room_handle = gamemaker_room_get_handle({ room : _room })
     room_goto(_room_handle)
 }
 
+/**
+ * @description description
+ * @param {Struct} parameters { room }
+ * @returns {Undefined}
+ */
 function gamemaker_room_restart(parameters = {}) {
-    room_restart()
+    room_restart();
 }
 
+/**
+ * @description description
+ * @param {Struct} parameters { room, event, handler }
+ * @returns {Undefined}
+ */
 function gamemaker_room_attach_eventhandler(parameters = {}) {
     var _room    = parameters[$ "room"];
     var _event   = parameters[$ "event"];
@@ -183,17 +255,30 @@ function gamemaker_room_attach_eventhandler(parameters = {}) {
     return undefined;
 }
 
-function gamemaker_room_get_entryway(parameters = {}) {
-    Room.private.entrance = parameters.entrance
+/**
+ * @param {Struct} parameters description
+ * @returns {Undefined}
+ */
+function gamemaker_room_trigger_event(parameters = {}) {
+    return undefined;
 }
 
-/******************************************************************************/
-#endregion –––––––––––––––––––– FUNCTIONS ––––––––––––––––––––
-/******************************************************************************/
+/**
+ * @description description
+ * @param {type} name description
+ * @returns {type}
+ */
+function gamemaker_room_get_entryway(parameters = {}) {
+    gamemaker_room(room).private.entrance = parameters.entrance;
+}
 
-/******************************************************************************/
-#region    –––––––––––––––––––– CONSTRUCTORS ––––––––––––––––––––
-/******************************************************************************/
+// ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
+#endregion ―――――――――――――――――――― FUNCTIONS ――――――――――――――――――――
+// ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
+
+// ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
+#region    ―――――――――――――――――――― CONSTRUCTORS ――――――――――――――――――――
+// ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
 
 function GameMakerRoom() constructor {
 
@@ -205,12 +290,48 @@ function GameMakerRoom() constructor {
         return self[$ "#name"];
     };
 
-    static go_to = function(parameters = {}) {
+    static goto = function(parameters = {}) {
         parameters.room = self;
         gamemaker_room_goto(parameters);
         return undefined;
     };
+    
+    static restart = function() {
+        return self;
+    }
+    
+    /**
+     * @self GameMakerRoom
+     * @returns {Real}
+     */
+    static get_x_dimension = function(parameters = {}) {
+        parameters.room = self;
+        return gamemaker_room_get_x_dimension(parameters);
+    }
+    
+    /**
+     * @self GameMakerRoom
+     * @returns {Real}
+     */
+    static get_y_dimension = function(parameters = {}) {
+        parameters.room = self;
+        return gamemaker_room_get_y_dimension(parameters);
+    }
+    
+    /**
+     * @self GameMakerRoom
+     * @returns {Struct.GameMakerRoom} self
+     */
+    static set_dimensions = function(parameters = {}) {
+        parameters.room = self;
+        gamemaker_room_set_dimensions(parameters);
+        return self;
+    }
 
+    /**
+     * @self GameMakerRoom
+     * @returns {Struct.GameMakerRoom} self
+     */
     static attach_eventhandler = function(parameters = {}) {
         parameters.room = self;
         gamemaker_room_attach_eventhandler(parameters);
@@ -225,7 +346,11 @@ function GameMakerRoom() constructor {
     
     self.get_handle          = method(self, get_handle);
     self.get_name            = method(self, get_name);
-    self.go_to               = method(self, go_to);
+    self.goto                = method(self, goto);
+    self.get_x_dimension     = method(self, get_x_dimension);
+    self.get_y_dimension     = method(self, get_y_dimension);
+    self.set_dimensions      = method(self, set_dimensions);
+    self.restart             = method(self, restart);
     self.attach_eventhandler = method(self, attach_eventhandler);
     self.trigger_event       = method(self, trigger_event);
     
@@ -235,13 +360,13 @@ function GameMakerRoom() constructor {
 
 }
 
-/******************************************************************************/
-#endregion –––––––––––––––––––– CONSTRUCTORS ––––––––––––––––––––
-/******************************************************************************/
+// ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
+#endregion ―――――――――――――――――――― CONSTRUCTORS ――――――――――――――――――――
+// ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
 
-/******************************************************************************/
-#region    –––––––––––––––––––– OBJECTS ––––––––––––––––––––
-/******************************************************************************/
+// ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
+#region    ―――――――――――――――――――― OBJECTS ――――――――――――――――――――
+// ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
 
 gamemaker_object(__gamemaker_roomcontroller_object)
 .attach_eventhandler({ event : "create_event", handler : function() {
@@ -251,6 +376,6 @@ gamemaker_object(__gamemaker_roomcontroller_object)
     gamemaker_room(room).trigger_event({ event : "room_start_event" });
 }})
 
-/******************************************************************************/
-#endregion –––––––––––––––––––– OBJECTS ––––––––––––––––––––
-/******************************************************************************/
+// ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
+#endregion ―――――――――――――――――――― OBJECTS ――――――――――――――――――――
+// ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――

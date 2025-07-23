@@ -42,7 +42,7 @@ function gamemaker_ellipsis_draw(parameters) {
 
 function draw_ring_generic(arguments) {
 
-    #region    –––––––––––––––––––– PARAMETERS ––––––––––––––––––––
+    #region    ―――――――――――――――――――― PARAMETERS ――――――――――――――――――――
 
     var a = arguments
 
@@ -68,7 +68,7 @@ function draw_ring_generic(arguments) {
     parameters.precision ??= round(max(24, min(128, p.width / 100 * 48)))
     parameters.precision = max(4, parameters.precision)
 
-    #region    –––––––––––––––––––– CONVENIENCE ––––––––––––––––––––
+    #region    ―――――――――――――――――――― CONVENIENCE ――――――――――――――――――――
 
     /*
     if (arguments[$ "image_blend"]) { p.colour = a.image_blend }
@@ -76,11 +76,11 @@ function draw_ring_generic(arguments) {
     if (arguments[$ "sprite_width"]) { p.radius = a.sprite_width / 2 }
     */
 
-    #endregion –––––––––––––––––––– CONVENIENCE ––––––––––––––––––––
+    #endregion ―――――――――――――――――――― CONVENIENCE ――――――――――――――――――――
 
-    #endregion –––––––––––––––––––– PARAMETERS ––––––––––––––––––––
+    #endregion ―――――――――――――――――――― PARAMETERS ――――――――――――――――――――
 
-    #region    –––––––––––––––––––– GET CURRENT DRAW SETTINGS ––––––––––––––––––––
+    #region    ―――――――――――――――――――― GET CURRENT DRAW SETTINGS ――――――――――――――――――――
 
     var preserved = {
         colour : draw_get_colour(),
@@ -89,17 +89,17 @@ function draw_ring_generic(arguments) {
 
     var pre = preserved
 
-    #endregion    –––––––––––––––––––– GET CURRENT DRAW SETTINGS ––––––––––––––––––––
+    #endregion    ―――――――――――――――――――― GET CURRENT DRAW SETTINGS ――――――――――――――――――――
 
-    #region    –––––––––––––––––––– SET NEW DRAW SETTINGS ––––––––––––––––––––
+    #region    ―――――――――――――――――――― SET NEW DRAW SETTINGS ――――――――――――――――――――
 
     draw_set_colour(p.colour)
     draw_set_alpha(p.alpha)
 
-    #endregion –––––––––––––––––––– SET NEW DRAW SETTINGS ––––––––––––––––––––
+    #endregion ―――――――――――――――――――― SET NEW DRAW SETTINGS ――――――――――――――――――――
 
     /*******************************************************************************/
-    #region    –––––––––––––––––––– DRAW ––––––––––––––––––––
+    #region    ―――――――――――――――――――― DRAW ――――――――――――――――――――
     /*******************************************************************************/
 
     var segment_size = 360 / p.precision
@@ -119,15 +119,15 @@ function draw_ring_generic(arguments) {
     draw_primitive_end()
 
     /*******************************************************************************/
-    #endregion –––––––––––––––––––– DRAW ––––––––––––––––––––
+    #endregion ―――――――――――――――――――― DRAW ――――――――――――――――――――
     /*******************************************************************************/
 
-    #region    –––––––––––––––––––– RESTORE PREVIOUS DRAW SETTINGS ––––––––––––––––––––
+    #region    ―――――――――――――――――――― RESTORE PREVIOUS DRAW SETTINGS ――――――――――――――――――――
 
     draw_set_colour(pre.colour)
     draw_set_alpha(pre.alpha)
 
-    #endregion    –––––––––––––––––––– RESTORE PREVIOUS DRAW SETTINGS ––––––––––––––––––––
+    #endregion    ―――――――――――――――――――― RESTORE PREVIOUS DRAW SETTINGS ――――――――――――――――――――
 
 }
 

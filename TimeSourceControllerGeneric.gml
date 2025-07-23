@@ -1,13 +1,13 @@
 
 /*******************************************************************************
-––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
 time_source_controller_generic.gml
 
 @overview
 This file defines the constructor for the TimeSourceControllerGeneric struct.
 This struct caches time sources created by gamemaker_call_later and automatically
 garbage collects them once they have called their callback method.
-––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
 *******************************************************************************/
 
 /// @function TimeSourceControllerGeneric()
@@ -28,7 +28,7 @@ function TimeSourceControllerGeneric() constructor {
     /// caches time sources created by gamemaker_call_later
     static call_later_time_sources = []
 
-    #region    –––––––––––––––––––– STEP_EVENT ––––––––––––––––––––
+    #region    ―――――――――――――――――――― STEP_EVENT ――――――――――――――――――――
 
     static step_event = function() {
         // remove time sources used with gamemaker_call_later once they have run their callback method
@@ -45,7 +45,7 @@ function TimeSourceControllerGeneric() constructor {
         }
     }
 
-    #endregion –––––––––––––––––––– STEP_EVENT ––––––––––––––––––––
+    #endregion ―――――――――――――――――――― STEP_EVENT ――――――――――――――――――――
 
     static get_default_parent = function() {
         return default_parent

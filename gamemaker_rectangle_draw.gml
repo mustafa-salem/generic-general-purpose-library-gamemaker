@@ -77,7 +77,7 @@
 function gamemaker_rectangle_draw(parameters) {
 
     /*******************************************************************************
-    –––––––––––––––––––– PARAMETERS ––––––––––––––––––––
+    ―――――――――――――――――――― PARAMETERS ――――――――――――――――――――
     *******************************************************************************/
 
 	var a = arguments
@@ -105,7 +105,7 @@ function gamemaker_rectangle_draw(parameters) {
 	var p = parameters
 
 	/*******************************************************************************
-	–––––––––––––––––––– RESCALE ––––––––––––––––––––
+	―――――――――――――――――――― RESCALE ――――――――――――――――――――
 	*******************************************************************************/
 
 	if (struct_exists(arguments, "canvas_scale")) {
@@ -117,19 +117,19 @@ function gamemaker_rectangle_draw(parameters) {
 	}
 
     /*******************************************************************************
-    –––––––––––––––––––– EFFECTS ––––––––––––––––––––
+    ―――――――――――――――――――― EFFECTS ――――――――――――――――――――
     *******************************************************************************/
 
-    /* –––––––––––––––––––– HOVER –––––––––––––––––––– */
+    /* ―――――――――――――――――――― HOVER ―――――――――――――――――――― */
     if (struct_exists(arguments, "yhover")) {
         parameters.y1 += sin(((get_timer() / 1000000) * (2 * pi) * a.yhover.frequency)) * a.yhover.amplitude
     }
 
     /*******************************************************************************
-    –––––––––––––––––––– CONVENIENCE ––––––––––––––––––––
+    ―――――――――――――――――――― CONVENIENCE ――――――――――――――――――――
     *******************************************************************************/
 
-    /* –––––––––––––––––––– FILL VIEW –––––––––––––––––––– */
+    /* ―――――――――――――――――――― FILL VIEW ―――――――――――――――――――― */
     if (is_struct_instance({ instance : a[$ "fill_view"], constructor : View })) {
         with (a.fill_view) {
             p.x1 = x1()
@@ -139,13 +139,13 @@ function gamemaker_rectangle_draw(parameters) {
         }
     }
 
-	/* –––––––––––––––––––– SCALE –––––––––––––––––––– */
+	/* ―――――――――――――――――――― SCALE ―――――――――――――――――――― */
 	if (struct_exists(arguments, "scale")) {
 		a.width *= a.scale
 		a.height *= a.scale
 	}
 
-	/* –––––––––––––––––––– ALIGNMENT –––––––––––––––––––– */
+	/* ―――――――――――――――――――― ALIGNMENT ―――――――――――――――――――― */
 	if (struct_exists(arguments, "align")) {
 		if (arguments.align == "center") {
 			a.halign = fa_center
@@ -163,12 +163,12 @@ function gamemaker_rectangle_draw(parameters) {
 		}
 	}
 
-    /* –––––––––––––––––––– WIDTH & HEIGHT –––––––––––––––––––– */
+    /* ―――――――――――――――――――― WIDTH & HEIGHT ―――――――――――――――――――― */
     if (struct_exists(arguments, "width")) { parameters.x2 = p.x1 + (a.width - 1) }
     if (struct_exists(arguments, "height")) { parameters.y2 = p.y1 + (a.height - 1) }
 
 
-    /* –––––––––––––––––––– GRADIENT –––––––––––––––––––– */
+    /* ―――――――――――――――――――― GRADIENT ―――――――――――――――――――― */
     with (p.gradient) {
         if (struct_exists(self, "top")) {
             top_left = top
@@ -188,7 +188,7 @@ function gamemaker_rectangle_draw(parameters) {
         }
     }
 
-    /* –––––––––––––––––––– COLOUR –––––––––––––––––––– */
+    /* ―――――――――――――――――――― COLOUR ―――――――――――――――――――― */
     if (struct_exists(arguments, "colour")) {
         with (parameters.gradient) {
             top_left = a.colour
@@ -199,7 +199,7 @@ function gamemaker_rectangle_draw(parameters) {
     }
 
     /*******************************************************************************
-    –––––––––––––––––––– PRE-DRAW ––––––––––––––––––––
+    ―――――――――――――――――――― PRE-DRAW ――――――――――――――――――――
     *******************************************************************************/
 
 	var preserved = {
@@ -209,7 +209,7 @@ function gamemaker_rectangle_draw(parameters) {
 	draw_set_alpha(p.alpha)
 
     /*******************************************************************************
-    –––––––––––––––––––– DRAWING ––––––––––––––––––––
+    ―――――――――――――――――――― DRAWING ――――――――――――――――――――
     *******************************************************************************/
 
     draw_rectangle_colour(
@@ -225,7 +225,7 @@ function gamemaker_rectangle_draw(parameters) {
     )
 
     /*******************************************************************************
-    –––––––––––––––––––– POST-DRAW ––––––––––––––––––––
+    ―――――――――――――――――――― POST-DRAW ――――――――――――――――――――
     *******************************************************************************/
 
 	draw_set_alpha(preserved.alpha)

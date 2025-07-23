@@ -12,7 +12,7 @@
 	/// ----------------------------------------------------------------------------
 	add_transition = function(arguments = {}) {
 
-		/* –––––––––––––––––––– ARGUMENT_VALIDATION –––––––––––––––––––– */
+		/* ―――――――――――――――――――― ARGUMENT_VALIDATION ―――――――――――――――――――― */
 
 		// the name string of the transition
 		var _transition_name = arguments[$ "transition_name"]
@@ -52,7 +52,7 @@
 			return self
 		}
 
-		/* –––––––––––––––––––– LOGIC –––––––––––––––––––– */
+		/* ―――――――――――――――――――― LOGIC ―――――――――――――――――――― */
 
 		if (!is_array(_source)) { _source = [_source] }
 

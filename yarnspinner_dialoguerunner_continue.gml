@@ -9,11 +9,11 @@
 /// @returns {undefined}
 /// ----------------------------------------------------------------------------
 function yarnspinner_dialoguerunner_continue(parameters = {}) {
-    /* –––––––––––––––––––– ARGUMENTS –––––––––––––––––––– */
+    /* ―――――――――――――――――――― ARGUMENTS ―――――――――――――――――――― */
     if (!is_struct(parameters)) { parameters = {} }
     var _dialogue = parameters[$ "dialogue"] ?? is_dialogue(self) ? self : []
     if (!is_array(_dialogue)) { _dialogue = [_dialogue] }
-    /* –––––––––––––––––––– LOGIC –––––––––––––––––––– */
+    /* ―――――――――――――――――――― LOGIC ―――――――――――――――――――― */
     for (var i = 0; i < array_length(_dialogue); i++) {
         if (!is_dialogue(_dialogue[i])) { continue }
         var _chatterbox = _dialogue[i].private.chatterbox

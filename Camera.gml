@@ -1,5 +1,5 @@
 /*******************************************************************************/
-#region    –––––––––––––––––––– CONSTANTS ––––––––––––––––––––
+#region    ―――――――――――――――――――― CONSTANTS ――――――――――――――――――――
 /*******************************************************************************/
 
 /*
@@ -15,7 +15,7 @@
 
 */
 
-#region    –––––––––––––––––––– INITIALIZE_CONSTRUCTOR ––––––––––––––––––––
+#region    ―――――――――――――――――――― INITIALIZE_CONSTRUCTOR ――――――――――――――――――――
 
 #macro Camera CameraGeneric
 #macro CAMERA CAMERA_GENERIC
@@ -30,7 +30,7 @@ function __CameraGeneric() {
 __CameraGeneric()
 struct_remove(static_get(__CameraGeneric), "instance")
 
-#endregion –––––––––––––––––––– INITIALIZE_CONSTRUCTOR ––––––––––––––––––––
+#endregion ―――――――――――――――――――― INITIALIZE_CONSTRUCTOR ――――――――――――――――――――
 
 #macro CAMERAS __CAMERAS()
 
@@ -56,7 +56,7 @@ function __CAMERAS() {
 #macro CAMERA_6 
 #macro CAMERA_7 
 
-#region    –––––––––––––––––––– INITIALIZE_CONSTRUCTOR ––––––––––––––––––––
+#region    ―――――――――――――――――――― INITIALIZE_CONSTRUCTOR ――――――――――――――――――――
 
 #macro View ViewGeneric
 #macro VIEW VIEW_GENERIC
@@ -71,7 +71,7 @@ function __ViewGeneric() {
 __ViewGeneric()
 struct_remove(static_get(__ViewGeneric), "instance")
 
-#endregion –––––––––––––––––––– INITIALIZE_CONSTRUCTOR ––––––––––––––––––––
+#endregion ―――――――――――――――――――― INITIALIZE_CONSTRUCTOR ――――――――――――――――――――
 
 #macro VIEWS __VIEWS()
 
@@ -97,11 +97,11 @@ function __VIEWS() {
 #macro VIEW_7 CAMERA_7.get_view()
 
 /*******************************************************************************/
-#endregion –––––––––––––––––––– CONSTANTS ––––––––––––––––––––
+#endregion ―――――――――――――――――――― CONSTANTS ――――――――――――――――――――
 /*******************************************************************************/
 
 /*******************************************************************************/
-#region    –––––––––––––––––––– CONSTRUCTOR ––––––––––––––––––––
+#region    ―――――――――――――――――――― CONSTRUCTOR ――――――――――――――――――――
 /*******************************************************************************/
 
 function ViewGeneric(arguments) constructor {
@@ -119,7 +119,7 @@ function ViewGeneric(arguments) constructor {
         return new ViewGeneric(arguments)
     }
 
-    #region    –––––––––––––––––––– POSITION ––––––––––––––––––––
+    #region    ―――――――――――――――――――― POSITION ――――――――――――――――――――
 
     static get_x_position = function(arguments = {}) {
         if (is_instanceof(self, ViewGeneric)) { arguments.camera = private.camera_id }
@@ -157,9 +157,9 @@ function ViewGeneric(arguments) constructor {
         return self
     }
 
-    #endregion –––––––––––––––––––– POSITION ––––––––––––––––––––
+    #endregion ―――――――――――――――――――― POSITION ――――――――――――――――――――
 
-    #region    –––––––––––––––––––– DIMENSIONS ––––––––––––––––––––
+    #region    ―――――――――――――――――――― DIMENSIONS ――――――――――――――――――――
 
     /// ----------------------------------------------------------------------------
     /// @function get_x_dimension(arguments)
@@ -203,7 +203,7 @@ function ViewGeneric(arguments) constructor {
         return self
     }
 
-    #endregion –––––––––––––––––––– DIMENSIONS ––––––––––––––––––––
+    #endregion ―――――――――――――――――――― DIMENSIONS ――――――――――――――――――――
 
 }
 
@@ -316,7 +316,7 @@ function CameraGeneric(arguments) constructor {
     /// ----------------------------------------------------------------------------
 
     /*******************************************************************************/
-    #region    –––––––––––––––––––– ATTACHED_FUNCTIONS ––––––––––––––––––––
+    #region    ―――――――――――――――――――― ATTACHED_FUNCTIONS ――――――――――――――――――――
     /*******************************************************************************/
 
     /// ----------------------------------------------------------------------------
@@ -427,10 +427,10 @@ function CameraGeneric(arguments) constructor {
         return self
     }
 
-    #endregion –––––––––––––––––––– ATTACHED_FUNCTIONS ––––––––––––––––––––
+    #endregion ―――――――――――――――――――― ATTACHED_FUNCTIONS ――――――――――――――――――――
 
 }
 
 /*******************************************************************************/
-#endregion –––––––––––––––––––– CONSTRUCTOR ––––––––––––––––––––
+#endregion ―――――――――――――――――――― CONSTRUCTOR ――――――――――――――――――――
 /*******************************************************************************/

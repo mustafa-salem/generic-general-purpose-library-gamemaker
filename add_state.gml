@@ -14,7 +14,7 @@
 	/// ----------------------------------------------------------------------------
 	add_state = function(parameters = {}) {
 
-		/* –––––––––––––––––––– ARGUMENT_VALIDATION –––––––––––––––––––– */
+		/* ―――――――――――――――――――― ARGUMENT_VALIDATION ―――――――――――――――――――― */
 
 		// the name string of the state
 		var _state_name  = parameters[$ "state"]
@@ -46,7 +46,7 @@
 			return self
 		}
 
-		/* –––––––––––––––––––– LOGIC –––––––––––––––––––– */
+		/* ―――――――――――――――――――― LOGIC ―――――――――――――――――――― */
 
 		// create new
 		private.states[$ _state_name] ??= {

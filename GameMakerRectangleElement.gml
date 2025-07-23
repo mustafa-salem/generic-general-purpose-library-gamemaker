@@ -1,6 +1,6 @@
-/******************************************************************************/
-#region    –––––––––––––––––––– CONSTRUCTORS ––––––––––––––––––––
-/******************************************************************************/
+// ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
+#region    ―――――――――――――――――――― CONSTRUCTORS ――――――――――――――――――――
+// ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
 
 function GameMakerRectangleElement() constructor {
 
@@ -101,7 +101,7 @@ function GameMakerRectangleElement() constructor {
 	self.get_blendmode   = method(self, Drawable.get_blendmode)
 	self.set_blend        = method(self, Drawable.set_blend)
 
-	#region    –––––––––––––––––––– COLOUR_SOLID_FILL ––––––––––––––––––––
+	#region    ―――――――――――――――――――― COLOUR_SOLID_FILL ――――――――――――――――――――
 
 	/// ----------------------------------------------------------------------------
 	/// @function get_colour_solid_fill()
@@ -130,9 +130,9 @@ function GameMakerRectangleElement() constructor {
 		return self
 	}
 
-	#endregion –––––––––––––––––––– COLOUR_SOLID_FILL ––––––––––––––––––––
+	#endregion ―――――――――――――――――――― COLOUR_SOLID_FILL ――――――――――――――――――――
 
-	#region    –––––––––––––––––––– ALPHA_SOLID_FILL ––––––––––––––––––––
+	#region    ―――――――――――――――――――― ALPHA_SOLID_FILL ――――――――――――――――――――
 
 	/// ----------------------------------------------------------------------------
 	/// @function get_alpha_solid_fill()
@@ -161,9 +161,9 @@ function GameMakerRectangleElement() constructor {
 		return self
 	}
 
-	#endregion –––––––––––––––––––– ALPHA_SOLID_FILL ––––––––––––––––––––
+	#endregion ―――――――――――――――――――― ALPHA_SOLID_FILL ――――――――――――――――――――
 
-	#region    –––––––––––––––––––– SOLID_FILL ––––––––––––––––––––
+	#region    ―――――――――――――――――――― SOLID_FILL ――――――――――――――――――――
 
 	/// ----------------------------------------------------------------------------
 	/// @function get_solid_fill()
@@ -185,9 +185,9 @@ function GameMakerRectangleElement() constructor {
 		return self
 	}
 
-	#endregion –––––––––––––––––––– SOLID_FILL ––––––––––––––––––––
+	#endregion ―――――――――――――――――――― SOLID_FILL ――――――――――――――――――――
 
-	#region    –––––––––––––––––––– COLOUR_GRADIENT_FILL ––––––––––––––––––––
+	#region    ―――――――――――――――――――― COLOUR_GRADIENT_FILL ――――――――――――――――――――
 
 	static get_colour_gradient_fill = function() {
 
@@ -197,9 +197,9 @@ function GameMakerRectangleElement() constructor {
 
 	}
 
-	#endregion –––––––––––––––––––– COLOUR_GRADIENT_FILL ––––––––––––––––––––
+	#endregion ―――――――――――――――――――― COLOUR_GRADIENT_FILL ――――――――――――――――――――
 
-	#region    –––––––––––––––––––– ALPHA_GRADIENT_FILL ––––––––––––––––––––
+	#region    ―――――――――――――――――――― ALPHA_GRADIENT_FILL ――――――――――――――――――――
 
 	static get_alpha_gradient_fill = function() {
 
@@ -209,9 +209,9 @@ function GameMakerRectangleElement() constructor {
 
 	}
 
-	#endregion –––––––––––––––––––– ALPHA_GRADIENT_FILL ––––––––––––––––––––
+	#endregion ―――――――――――――――――――― ALPHA_GRADIENT_FILL ――――――――――――――――――――
 
-	#region    –––––––––––––––––––– GRADIENT_FILL ––––––––––––––––––––
+	#region    ―――――――――――――――――――― GRADIENT_FILL ――――――――――――――――――――
 
 	/// ----------------------------------------------------------------------------
 	/// @function get_gradient_fill()
@@ -254,9 +254,9 @@ function GameMakerRectangleElement() constructor {
 		return self
 	}
 
-	#endregion –––––––––––––––––––– GRADIENT_FILL ––––––––––––––––––––
+	#endregion ―――――――――――――――――――― GRADIENT_FILL ――――――――――――――――――――
 
-	#region    –––––––––––––––––––– THICKNESS_SOLID_OUTLINE ––––––––––––––––––––
+	#region    ―――――――――――――――――――― THICKNESS_SOLID_OUTLINE ――――――――――――――――――――
 
 	static get_thickness_solid_outline = function() {
 		return private.solid_outline.thickness
@@ -266,9 +266,9 @@ function GameMakerRectangleElement() constructor {
 		return self
 	}
 
-	#endregion –––––––––––––––––––– THICKNESS_SOLID_OUTLINE ––––––––––––––––––––
+	#endregion ―――――――――――――――――――― THICKNESS_SOLID_OUTLINE ――――――――――――――――――――
 
-	#region    –––––––––––––––––––– ALIGNMENT_SOLID_OUTLINE ––––––––––––––––––––
+	#region    ―――――――――――――――――――― ALIGNMENT_SOLID_OUTLINE ――――――――――――――――――――
 
 	static get_alignment_solid_outline = function() {
 		return private.solid_outline.alignment
@@ -278,9 +278,9 @@ function GameMakerRectangleElement() constructor {
 		return self
 	}
 
-	#endregion –––––––––––––––––––– ALIGNMENT_SOLID_OUTLINE ––––––––––––––––––––
+	#endregion ―――――――――――――――――――― ALIGNMENT_SOLID_OUTLINE ――――――――――――――――――――
 
-	#region    –––––––––––––––––––– COLOUR_SOLID_OUTLINE ––––––––––––––––––––
+	#region    ―――――――――――――――――――― COLOUR_SOLID_OUTLINE ――――――――――――――――――――
 
 	/// ----------------------------------------------------------------------------
 	/// @function get_colour_solid_outline()
@@ -309,9 +309,9 @@ function GameMakerRectangleElement() constructor {
 		return self
 	}
 
-	#endregion –––––––––––––––––––– COLOUR_SOLID_OUTLINE ––––––––––––––––––––
+	#endregion ―――――――――――――――――――― COLOUR_SOLID_OUTLINE ――――――――――――――――――――
 
-	#region    –––––––––––––––––––– ALPHA_SOLID_OUTLINE ––––––––––––––––––––
+	#region    ―――――――――――――――――――― ALPHA_SOLID_OUTLINE ――――――――――――――――――――
 
 	/// ----------------------------------------------------------------------------
 	/// @function get_alpha_solid_outline()
@@ -340,9 +340,9 @@ function GameMakerRectangleElement() constructor {
 		return self
 	}
 
-	#endregion –––––––––––––––––––– ALPHA_SOLID_OUTLINE ––––––––––––––––––––
+	#endregion ―――――――――――――――――――― ALPHA_SOLID_OUTLINE ――――――――――――――――――――
 
-	#region    –––––––––––––––––––– SOLID_OUTLINE ––––––––––––––––––––
+	#region    ―――――――――――――――――――― SOLID_OUTLINE ――――――――――――――――――――
 
 	/// ----------------------------------------------------------------------------
 	/// @function get_solid_outline()
@@ -366,7 +366,7 @@ function GameMakerRectangleElement() constructor {
 		return self
 	}
 
-	#endregion –––––––––––––––––––– SOLID_OUTLINE ––––––––––––––––––––
+	#endregion ―――――――――――――――――――― SOLID_OUTLINE ――――――――――――――――――――
 
 	/// ----------------------------------------------------------------------------
 	/// @function draw(arguments)
@@ -398,7 +398,7 @@ function GameMakerRectangleElement() constructor {
 
 			var _vertex = _vertices[i]
 
-			/* –––––––––––––––––––– GLOBAL_ORIGIN –––––––––––––––––––– */
+			/* ―――――――――――――――――――― GLOBAL_ORIGIN ―――――――――――――――――――― */
 			var _x = _vertex.x
 			var _y = _vertex.y
 			var _z = 0
@@ -406,7 +406,7 @@ function GameMakerRectangleElement() constructor {
 			_x -= get_x_position()
 			_y -= get_y_position()
 
-			/* –––––––––––––––––––– X_ROTATION –––––––––––––––––––– */
+			/* ―――――――――――――――――――― X_ROTATION ―――――――――――――――――――― */
 			_rotation = - get_x_rotation() * 2 * pi
 
 			if (_rotation != 0) {
@@ -418,7 +418,7 @@ function GameMakerRectangleElement() constructor {
 
 			}
 
-			/* –––––––––––––––––––– Y_ROTATION –––––––––––––––––––– */
+			/* ―――――――――――――――――――― Y_ROTATION ―――――――――――――――――――― */
 			_rotation = - get_y_rotation() * 2 * pi
 
 			if (_rotation != 0) {
@@ -429,7 +429,7 @@ function GameMakerRectangleElement() constructor {
 				_z = _new_z
 			}
 
-			/* –––––––––––––––––––– Z_ROTATION –––––––––––––––––––– */
+			/* ―――――――――――――――――――― Z_ROTATION ―――――――――――――――――――― */
 			_rotation = - get_z_rotation() * 2 * pi
 
 			if (_rotation != 0) {
@@ -440,7 +440,7 @@ function GameMakerRectangleElement() constructor {
 				_y = _new_y
 			}
 
-			/* –––––––––––––––––––– LOCAL_ORIGIN –––––––––––––––––––– */
+			/* ―――――――――――――――――――― LOCAL_ORIGIN ―――――――――――――――――――― */
 			_x += get_x_position()
 			_y += get_y_position()
 
@@ -458,6 +458,6 @@ function GameMakerRectangleElement() constructor {
 
 }
 
-/******************************************************************************/
-#endregion –––––––––––––––––––– CONSTRUCTORS ––––––––––––––––––––
-/******************************************************************************/
+// ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
+#endregion ―――――――――――――――――――― CONSTRUCTORS ――――――――――――――――――――
+// ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――

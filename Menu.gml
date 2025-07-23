@@ -1,7 +1,7 @@
 function Menu(_row_count, _column_count, _visible_count, _page_flip_type, _wrap_horizontally = true, _wrap_vertically = true) constructor {
 
     /*******************************************************************************
-    –––––––––––––––––––– BASIC PROPERTIES ––––––––––––––––––––
+    ―――――――――――――――――――― BASIC PROPERTIES ――――――――――――――――――――
     *******************************************************************************/
 
     enum PAGE_FLIP_TYPE {
@@ -39,7 +39,7 @@ function Menu(_row_count, _column_count, _visible_count, _page_flip_type, _wrap_
 
 
     /*******************************************************************************
-    –––––––––––––––––––– CALCULATED PROPERTIES ––––––––––––––––––––
+    ―――――――――――――――――――― CALCULATED PROPERTIES ――――――――――――――――――――
     *******************************************************************************/
 
     page_size = function() { return (row_count() * column_count()) }
@@ -108,10 +108,10 @@ function Menu(_row_count, _column_count, _visible_count, _page_flip_type, _wrap_
     }
 
     /*******************************************************************************
-    –––––––––––––––––––– NAVIGATION ––––––––––––––––––––
+    ―――――――――――――――――――― NAVIGATION ――――――――――――――――――――
     *******************************************************************************/
 
-    /* –––––––––––––––––––– LEFT –––––––––––––––––––– */
+    /* ―――――――――――――――――――― LEFT ―――――――――――――――――――― */
 
     move_left = function() {
         var _old_index = current_index()
@@ -136,7 +136,7 @@ function Menu(_row_count, _column_count, _visible_count, _page_flip_type, _wrap_
         return (_new_index - _old_index)
     }
 
-    /* –––––––––––––––––––– RIGHT –––––––––––––––––––– */
+    /* ―――――――――――――――――――― RIGHT ―――――――――――――――――――― */
 
     move_right = function() {
         var _old_index = current_index()
@@ -161,7 +161,7 @@ function Menu(_row_count, _column_count, _visible_count, _page_flip_type, _wrap_
         return (_new_index - _old_index)
     }
 
-    /* –––––––––––––––––––– UP –––––––––––––––––––– */
+    /* ―――――――――――――――――――― UP ―――――――――――――――――――― */
 
     move_up = function() {
         var _old_index = current_index()
@@ -186,7 +186,7 @@ function Menu(_row_count, _column_count, _visible_count, _page_flip_type, _wrap_
         return (_new_index - _old_index)
     }
 
-    /* –––––––––––––––––––– DOWN –––––––––––––––––––– */
+    /* ―――――――――――――――――――― DOWN ―――――――――――――――――――― */
 
     move_down = function() {
         var _old_index = current_index()
