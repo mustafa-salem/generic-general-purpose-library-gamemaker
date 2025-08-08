@@ -1,3 +1,0 @@
-ObjectInstanceAbstraction
-ObjectAbstraction
-StatefulObjectAbstraction

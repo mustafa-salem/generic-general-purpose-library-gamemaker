@@ -1,0 +1,35 @@
+/// 
+/// @param {type} parameter_name
+/// <parameter_description>
+///
+/// @returns {type}
+function audio_stack_create(parameters = {}) {
+    return _return
+}
+
+function AudioStack() constructor {
+
+}
+ /// ----------------------------------------------------------------------------
+ ///
+ /// ----------------------------------------------------------------------------
+ /// <function_description>
+ /// ----------------------------------------------------------------------------
+ /// @param {type} parameter_name
+ /// <parameter_description>
+ ///
+ /// ----------------------------------------------------------------------------
+ /// @returns {Struct|Undefined}
+ /// <return_description>
+ /// ----------------------------------------------------------------------------
+ function audio_stack_get_sound_instance(parameters = {}) {
+     // audio stack
+     var _audio_stack = parameters[$ "audio_stack"]
+     if (!is_string(_audio_stack)) { return undefined }
+
+     // priority
+     var _priority = parameters[$ "priority"] ?? VinylStackMaxPriorityGet(_audio_stack)
+     if (!is_numeric(_priority)) { return undefined }
+
+     return VinylStackGet(_audio_stack, _priority)
+ }

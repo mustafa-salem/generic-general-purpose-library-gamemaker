@@ -1,1 +1,0 @@
-function gamemaker_rendertarget_get_surface(arguments = {}) {}

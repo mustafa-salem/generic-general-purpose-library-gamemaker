@@ -1,1 +1,0 @@
-part_system_angle(ind, angle);

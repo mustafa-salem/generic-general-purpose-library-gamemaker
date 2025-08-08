@@ -1,1 +1,0 @@
-part_particles_clear(ind);
