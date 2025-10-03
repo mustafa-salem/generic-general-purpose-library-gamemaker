@@ -2,9 +2,13 @@
 #region    ―――――――――――――――――――――――――――――――――――――――――― FUNCTIONS ――――――――――――――――――――――――――――――――――――――――――――――――――――――――
 // ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
 
-layer_sprite_get_id
-
-layer_sprite_get_x
+/// 
+/// @param {type} layer
+/// @param {type} element
+/// @returns {type}
+function gamemaker_spritelayerelement(parameters) {
+    return _return
+}
 
 /// 
 /// @param {type} parameter_name
@@ -17,14 +21,6 @@ function gamemaker_spritelayerelement_get_x_position(parameters = {}) {
 /// @param {type} parameter_name
 /// @returns {type}
 function gamemaker_spritelayerelement_get_y_position(parameters = {}) {
-    return _return
-}
-
-/// 
-/// @param {type} layer
-/// @param {type} element
-/// @returns {type}
-function gamemaker_spritelayerelement_get(parameters = {}) {
     return _return
 }
 

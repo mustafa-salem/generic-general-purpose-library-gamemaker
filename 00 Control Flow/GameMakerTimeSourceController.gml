@@ -29,7 +29,7 @@ function TimeSourceControllerGeneric() constructor {
 
     #region    ―――――――――――――――――――― STEP_EVENT ――――――――――――――――――――
 
-    static step_event = function() {
+    static "Step Event" = function() {
         // remove time sources used with gamemaker_call_later once they have run their callback method
         for (var i = 0; i < array_length(call_later_time_sources); i++) {
             var _time_source = call_later_time_sources[i]

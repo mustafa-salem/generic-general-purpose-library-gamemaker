@@ -97,41 +97,41 @@ function VertexBuffer() constructor {
     /// @type {function}
     static get_index = method(static_get(VertexBuffer), gamemaker_vertexbuffer_get_index)
 
-	/// @type {function}
-	static create = method(static_get(VertexBuffer), function(arguments = {}) {
+    /// @type {function}
+    static create = method(static_get(VertexBuffer), function(arguments = {}) {
 
     })
 
-	/// @type {function}
-	static destroy = method(static_get(VertexBuffer), function(arguments = {}) {
+    /// @type {function}
+    static destroy = method(static_get(VertexBuffer), function(arguments = {}) {
 
     })
 
-	/// @type {function}
-	static duplicate = method(static_get(VertexBuffer), function(arguments = {}) {
+    /// @type {function}
+    static duplicate = method(static_get(VertexBuffer), function(arguments = {}) {
 
     })
 
-	/// @type {function}
-	static update = method(static_get(VertexBuffer), function(arguments = {}) {
+    /// @type {function}
+    static update = method(static_get(VertexBuffer), function(arguments = {}) {
 
     })
 
-	/// @type {function}
-	static add_vertex = method(static_get(VertexBuffer), function(arguments = {}) {
+    /// @type {function}
+    static add_vertex = method(static_get(VertexBuffer), function(arguments = {}) {
 
     })
 
-	/// @type {function}
-	static get_byte_count = method(static_get(VertexBuffer), function(arguments = {}) {
+    /// @type {function}
+    static get_byte_count = method(static_get(VertexBuffer), function(arguments = {}) {
 
     })
 
-	/// @type {function}
-	static get_vertex_count = method(static_get(VertexBuffer), gamemaker_vertexbuffer_get_vertex_count)
+    /// @type {function}
+    static get_vertex_count = method(static_get(VertexBuffer), gamemaker_vertexbuffer_get_vertex_count)
 
-	/// @type {function}
-	static freeze = method(static_get(VertexBuffer), function(arguments = {}) {
+    /// @type {function}
+    static freeze = method(static_get(VertexBuffer), function(arguments = {}) {
 
     })
 

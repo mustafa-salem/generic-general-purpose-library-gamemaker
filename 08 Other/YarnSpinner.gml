@@ -69,10 +69,10 @@ function yarnspinner_dialoguerunner_create(parameters = {}) {
     var _singleton_mode    = parameters[$ "singleton_mode"]    ?? undefined
     var _execution_context = parameters[$ "execution_context"] ?? self
 
-	ChatterboxCreate(_source, _singleton_mode, _execution_context)
+    ChatterboxCreate(_source, _singleton_mode, _execution_context)
 
     var _dialogue = new YarnSpinnerDialogueRunner()
-	return _dialogue
+    return _dialogue
 }
 
 /// 
@@ -175,8 +175,7 @@ function yarnspinner_get_simplestring(parameters = {}) {
 }
 
 /// 
-/// @param {Struct} parameters
-/// The struct containing the arguments to pass to the function.
+/// @param {Struct} parameters The struct containing the arguments to pass to the function.
 /// @param {type} parameters.name
 /// <description>
 /// @returns {type}
@@ -197,8 +196,7 @@ function dialogue_node_exists(parameters = {}) {
 }
 
 /// 
-/// @param {Struct} parameters
-/// The struct containing the arguments to pass to the function.
+/// @param {Struct} parameters The struct containing the arguments to pass to the function.
 /// @param {type} parameters.name
 /// <description>
 /// @returns {type}

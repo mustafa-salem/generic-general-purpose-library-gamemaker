@@ -218,22 +218,22 @@ function gamemaker_surface_draw(parameters) {
     .add_vertex({
         position : { x : _position.left, y : _position.top },
         texture_coordinates : { x : _texture_coordinates.left, y : _texture_coordinates.top },
-        blend : { colour : , alpha  :  },
+        blend : { colour: , alpha  :  },
     })
     .add_vertex({
         position : { x : _position.left, y : _position.bottom },
         texture_coordinates : { x : _texture_coordinates.left, y : _texture_coordinates.bottom },
-        blend : { colour : , alpha  :  },
+        blend : { colour: , alpha  :  },
     })
     .add_vertex({
         position : { x : _position.right, y : _position.top },
         texture_coordinates : { x : _texture_coordinates.right, y : _texture_coordinates.top },
-        blend : { colour : , alpha  :  },
+        blend : { colour: , alpha  :  },
     })
     .add_vertex({
         position : { _position.right, y : _position.bottom },
         texture_coordinates : { _texture_coordinates.right, y : _texture_coordinates.bottom },,
-        blend : { colour : , alpha  :  },
+        blend : { colour: , alpha  :  },
     })
 
     _primitive.draw()
@@ -367,8 +367,12 @@ function gamemaker_surface_get_x_dimension(parameters = {}) {
 /// @param {Struct} parameters The struct containing the arguments to pass to the function.
 /// @returns {Real}
 function gamemaker_surface_get_y_dimension(parameters = {}) {
-    gamemaker_guard(argument_count != 1, new ArgumentCountError($"'argument_count' must be 1, but is {argument_count}."));
-    gamemaker_guard((typeof(parameters) != "struct"), new InvalidArgumentException($"'parameters' must be a struct, but is a {typeof(parameters)} (value: {parameters})."));
+    if (argument_count != 1) {
+        throw new ArgumentCountError($"'argument_count' must be 1, but is {argument_count}.");
+    }
+    if (typeof(parameters) != "struct") {
+        throw new InvalidArgumentException($"'parameters' must be a struct, but is a {typeof(parameters)} (value: {parameters}).");
+    }
     gamemaker_guard(not struct_exists(parameters, "surface"), "'surface' must be passed.");
     var _surface = parameters[$ "surface"];
     gamemaker_guard(_surface, "'surface' must be resolvable to a surface.");
@@ -384,8 +388,12 @@ function gamemaker_surface_get_y_dimension(parameters = {}) {
 /// @param {Struct} parameters The struct containing the arguments to pass to the function.
 /// @returns {Undefined}
 function gamemaker_surface_set_dimensions(parameters) {
-    gamemaker_guard(argument_count != 1, new ArgumentCountError($"'argument_count' must be 1, but is {argument_count}."));
-    gamemaker_guard((typeof(parameters) != "struct"), new InvalidArgumentException($"'parameters' must be a struct, but is a {typeof(parameters)} (value: {parameters})."));
+    if (argument_count != 1) {
+        throw new ArgumentCountError($"'argument_count' must be 1, but is {argument_count}.");
+    }
+    if (typeof(parameters) != "struct") {
+        throw new InvalidArgumentException($"'parameters' must be a struct, but is a {typeof(parameters)} (value: {parameters}).");
+    }
     var _surface     = parameters[$ "surface"];
     var _x_dimension = parameters[$ "x"];
     var _y_dimension = parameters[$ "y"];
@@ -398,7 +406,7 @@ function gamemaker_surface_set_dimensions(parameters) {
     return undefined;
 }
 
-/// This function is used to prepare a surface for its creation in an create event.
+/// This function is used to prepare a surface for its creation in an 'Create Event'.
 /// Like gamemaker_surface_create but the actual surface won't be created yet.
 /// Call .create to create the surface.
 /// @param {type} parameter_name

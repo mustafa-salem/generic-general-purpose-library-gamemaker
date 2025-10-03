@@ -134,7 +134,7 @@ function scr_draw_circle_width(argument0, argument1, argument2, argument3) {
     ring_surf = -1
     if (!gamemaker_surface_exists({ surface : ring_surf })) {
         ring_surf = gamemaker_surface_create()
-        .set_dimensions({ x : argument2 * 2, y : argument2 * 2 })
+        .set_dimensions({ x: argument2 * 2, y: argument2 * 2 })
         gamemaker_rendertarget_set_surface(ring_surf)
         draw_clear_alpha(#000000, 0)
         draw_circle(argument2, argument2, argument2, 0)
@@ -144,10 +144,10 @@ function scr_draw_circle_width(argument0, argument1, argument2, argument3) {
         gamemaker_rendertarget_reset_surface()
     }
     gamemaker_surface_draw({
-		surface    : ring_surf,
-		x_position : argument0 - argument2,
-		y_position : argument1 - argument2,
-	})
+        surface    : ring_surf,
+        x_position : argument0 - argument2,
+        y_position : argument1 - argument2,
+    })
 }
 
 function scr_draw_circle_width_qb(argument0, argument1, argument2, argument3, argument4) {

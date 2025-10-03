@@ -10,7 +10,7 @@ function cutscene_exists() { return instance_exists(cutscene_object) }
 /// ---
 /// @returns {Struct.GameMakerCommandSequence}
 function gamemaker_commandsequence_create(parameters) {
-    var _cutscene_master = gamemaker_object_create_instance(0, 0, cutscene_object);
+    var _cutscene_master = gamemaker_object_instantiate(0, 0, cutscene_object);
     _cutscene_master.cutscene_object = id;
     return _cutscene_master;
 }
@@ -33,8 +33,7 @@ function __gamemaker_commandsequence_add_command(parameters = {}) {
 }
 
 /// 
-/// @param {Struct} parameters
-/// The struct containing the arguments to pass to the function.
+/// @param {Struct} parameters The struct containing the arguments to pass to the function.
 /// @param {type} parameters.name
 /// <description>
 /// @returns {type}
@@ -43,8 +42,7 @@ function gamemaker_commandsequence_wait(parameters = {}) {
 }
 
 /// 
-/// @param {Struct} parameters
-/// The struct containing the arguments to pass to the function.
+/// @param {Struct} parameters The struct containing the arguments to pass to the function.
 /// @param {type} parameters.name
 /// <description>
 /// @returns {type}
@@ -298,7 +296,7 @@ function scr_cutscene_loadstate() {
         }
     }
     for (var i = 0; i < array_length_1d(masterArray); i++) { variable_instance_set(id, masterArray[i], myVar[i]) }
-    gamemaker_camera_set_viewposition({ camera : view_camera[0], x : remCameraX, y : remCameraY })
+    gamemaker_camera(view_camera[0]).set_viewposition({ x: remCameraX, y: remCameraY })
     gamemaker_constructinstance_destroy({ instance : [obj_panner, obj_move_actor, obj_move_to_point, instance_shake_object, deltarune_dialoguer_construct, typewriter_object, dialogue_face_object, obj_jump_to_point, obj_stickto, obj_lerpvar] })
     screen_shake_effect_destroy()
     loadedState = 1
@@ -309,8 +307,8 @@ function scr_cutscene_loadstate() {
 function scr_cutscene_savestate() {
     masterArray = variable_instance_get_names(id)
     for (var i = 0; i < array_length_1d(masterArray); i++) { myVar[i] = variable_instance_get(id, masterArray[i]) }
-    remCameraX = gamemaker_camera_get_x_viewposition({ camera : view_camera[0] })
-    remCameraY = gamemaker_camera_get_y_viewposition({ camera : view_camera[0] })
+    remCameraX = gamemaker_camera(view_camera[0]).get_x_viewposition()
+    remCameraY = gamemaker_camera(view_camera[0]).get_y_viewposition()
     for (var i = 0; i < 20; i++) {
         actorSaved[i] = 0
         if (instance_exists(actor_id[i])) {
@@ -367,7 +365,7 @@ function scr_cutscene_commands() {
 
     if (_c == "walk") {
         if (!instant) {
-            actor_move = gamemaker_object_create_instance(0, 0, obj_move_actor)
+            actor_move = gamemaker_object_instantiate(0, 0, obj_move_actor)
             actor_move.target = command_actor[i]
             actor_move.direction_word = command_arg1[i]
             actor_move.speed = command_arg2[i]
@@ -383,7 +381,7 @@ function scr_cutscene_commands() {
 
     // MOVE NO RESET
     if (_c == "move") {
-        actor_move = gamemaker_object_create_instance(0, 0, obj_move_actor_no_reset)
+        actor_move = gamemaker_object_instantiate(0, 0, obj_move_actor_no_reset)
         actor_move.target = command_actor[i]
         actor_move.direction_word = command_arg1[i]
         actor_move.speed = command_arg2[i]
@@ -393,7 +391,7 @@ function scr_cutscene_commands() {
 
     if (_c == "walkdirect") {
         if (!instant) {
-            actor_move = gamemaker_object_create_instance(0, 0, obj_move_to_point)
+            actor_move = gamemaker_object_instantiate(0, 0, obj_move_to_point)
             actor_move.target = command_actor[i]
             actor_move.movex = command_arg1[i]
             actor_move.movey = command_arg2[i]
@@ -420,22 +418,22 @@ function scr_cutscene_commands() {
             command_actor[i].__arg1 = command_arg2[i]
             command_actor[i].__arg2 = command_arg3[i]
 
-			with (command_actor[i]) {
-				var _creation_arguments = {
-					target_object_instance : self,
-					emote_type             : __arg0,
-					lifetime_frames        : __arg1,
-				}
-				if (command_arg3[i] == 0 ) { _creation_arguments.xoffset = __arg2 }
-				new EmoteBubble(_creation_arguments)
-			}
+            with (command_actor[i]) {
+                var _creation_arguments = {
+                    target_object_instance : self,
+                    emote_type             : __arg0,
+                    lifetime_frames        : __arg1,
+                }
+                if (command_arg3[i] == 0 ) { _creation_arguments.xoffset = __arg2 }
+                new EmoteBubble(_creation_arguments)
+            }
         }
     }
 
     if (_c == "speaker") { scr_speaker(command_arg1[i]) }
 
     if (_c == "instancecreate") {
-        _instance = gamemaker_object_create_instance(command_arg1[i], command_arg2[i], command_arg3[i])
+        _instance = gamemaker_object_instantiate(command_arg1[i], command_arg2[i], command_arg3[i])
         if (instance_exists(cutscene_object)) { cutscene_object.cutscene_instance = _instance }
     }
 
@@ -508,7 +506,7 @@ function scr_cutscene_commands() {
             var __commandscript = command_arg2[i]
             with (obj_script_delayed) {
                 if (script == __commandscript and target == __commandtarget) {
-                    instance_destroy()
+                    self.destroy();
                     alarm[0] = -5
                     max_time = -300
                 }
@@ -586,7 +584,7 @@ function scr_cutscene_commands() {
     // ANIMATE ACTOR
     if (_c == "animate_actor") {
         if (instance_exists(command_actor[i])) {
-            var actor_animator = gamemaker_object_create_instance(command_actor[i].x, command_actor[i].y, obj_actor_animator)
+            var actor_animator = gamemaker_object_instantiate(command_actor[i].x, command_actor[i].y, obj_actor_animator)
             actor_animator.target = command_actor[i]
 
             actor_animator.animation_start_frame = command_arg1[i]
@@ -601,20 +599,20 @@ function scr_cutscene_commands() {
         if (command_arg1[i] == "loop") {  }
         if (command_arg1[i] == "play") { /* play -> (deltarune_get_overworldbgm()) */ }
         if (command_arg1[i] == "stop") { deltarune_get_overworldbgm().stop() }
-        if (command_arg1[i] == "free_all") { gamemaker_sound_stop({ sound : "MUSIC_AUDIO_LABEL" }) }
+        if (command_arg1[i] == "free_all") { gamemaker_sound_stop({ sound: "MUSIC_AUDIO_LABEL" }) }
         if (command_arg1[i] == "free") { deltarune_get_overworldbgm().stop() }
         if (command_arg1[i] == "pause") { deltarune_get_overworldbgm().pause() }
         if (command_arg1[i] == "resume") { deltarune_get_overworldbgm().resume() }
-        if (command_arg1[i] == "init") { gamemaker_sound_play({ sound : command_arg2[i] }) }
-        if (command_arg1[i] == "initplay") { gamemaker_sound_play({ sound : command_arg2[i] }) }
-        if (command_arg1[i] == "initloop") { gamemaker_sound_play({ sound : command_arg2[i], loop : true }) }
+        if (command_arg1[i] == "init") { gamemaker_sound_play({ sound: command_arg2[i] }) }
+        if (command_arg1[i] == "initplay") { gamemaker_sound_play({ sound: command_arg2[i] }) }
+        if (command_arg1[i] == "initloop") { gamemaker_sound_play({ sound: command_arg2[i], loop : true }) }
         if (command_arg1[i] == "volume") { gamemaker_sound_set_gain(deltarune_get_overworldbgm(), command_arg2[i], command_arg3[i]) }
         if (command_arg1[i] == "pitch") { gamemaker_sound_set_pitch(deltarune_get_overworldbgm(), command_arg2[i]) }
         if (command_arg1[i] == "pitchtime") { gamemaker_sound_set_pitch(deltarune_get_overworldbgm(), command_arg2[i], command_arg3[i]) }
-        if (command_arg1[i] == "loopsfx") { mysound = gamemaker_sound_play({ loop : true, sound : command_arg2[i]) }
+        if (command_arg1[i] == "loopsfx") { mysound = gamemaker_sound_play({ loop : true, sound: command_arg2[i]) }
         if (command_arg1[i] == "loopsfxpitch") { gamemaker_sound_set_pitch(mysound, command_arg2[i]) }
         if (command_arg1[i] == "loopsfxpitchtime") { gamemaker_sound_set_pitch(mysound, command_arg2[i], command_arg3[i]) }
-        if (command_arg1[i] == "loopsfxstop") { gamemaker_sound_stop({ sound : mysound }) }
+        if (command_arg1[i] == "loopsfxstop") { gamemaker_sound_stop({ sound: mysound }) }
         if (command_arg1[i] == "loopsfxvolume") { gamemaker_sound_set_gain(mysound, command_arg2[i], command_arg3[i]) }
     }
 
@@ -633,7 +631,7 @@ function scr_cutscene_commands() {
 
     if (_c == "panspeed") {
         if (!instant) { scr_pan(command_arg1[i], command_arg2[i], command_arg3[i]) } else {
-            gamemaker_camera_set_viewposition({ camera : view_camera[0], x : gamemaker_camera_get_x_viewposition({ camera : view_camera[0] }) + command_arg1[i] * command_arg3[i], y : gamemaker_camera_get_y_viewposition({ camera : view_camera[0] }) + command_arg2[i] * command_arg3[i] })
+            gamemaker_camera(view_camera[0]).set_viewposition({ x: gamemaker_camera(view_camera[0]).get_x_viewposition() + command_arg1[i] * command_arg3[i], y : gamemaker_camera(view_camera[0]).get_y_viewposition() + command_arg2[i] * command_arg3[i] })
         }
     }
 
@@ -641,7 +639,7 @@ function scr_cutscene_commands() {
         if (!instant) {
             scr_pan_lerp(command_arg1[i], command_arg2[i], command_arg3[i])
         } else {
-            gamemaker_camera_set_viewposition({ camera : view_camera[0], x : command_arg1[i], y : command_arg2[i] })
+            gamemaker_camera(view_camera[0]).set_viewposition({ x: command_arg1[i], y: command_arg2[i] })
         }
     }
 
@@ -649,8 +647,8 @@ function scr_cutscene_commands() {
         scr_pan_to_obj(command_arg1[i], command_arg2[i])
         if (instant) {
             with (obj_panner) {
-                gamemaker_camera_set_viewposition({ camera : view_camera[0], x : finalx, y : finaly })
-                instance_destroy()
+                gamemaker_camera(view_camera[0]).set_viewposition({ x: finalx, y: finaly })
+                self.destroy();
             }
         }
     }
@@ -718,7 +716,7 @@ function scr_cutscene_commands() {
     }
 
     if (_c == "actortoobject") {
-        gamemaker_object_create_instance(command_actor[i].x, command_actor[i].y, command_arg1[i])
+        gamemaker_object_instantiate(command_actor[i].x, command_actor[i].y, command_arg1[i])
         command_actor[i].visible = false
     }
 
@@ -921,9 +919,9 @@ function GameMakerCommandSequence() constructor {
 #region    ―――――――――――――――――――― CONSTRUCTS ――――――――――――――――――――
 // ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
 
-gamemaker_construct_create({ name : "cutscene_object", parent : "ingameevent_construct" })
+gamemaker_construct_create({ name: "cutscene_object", parent: "In-Game Event" })
 
-.set_event({ event : "create_event", callable : function() {
+.attach_eventhandler({ event: "Create Event", handler: function() {
     waiting = 0
     cs_wait_timer = 0
     cs_wait_amount = 0
@@ -953,7 +951,7 @@ gamemaker_construct_create({ name : "cutscene_object", parent : "ingameevent_con
     terminate_this_frame = 0
 }})
 
-.set_event({ event : "step_event", callable : function() {
+.attach_eventhandler({ event: "Step Event", handler: function() {
     if (initialized == 0) {
         initialized = 1
     if (waiting == 0) {
@@ -962,7 +960,7 @@ gamemaker_construct_create({ name : "cutscene_object", parent : "ingameevent_con
             command_actor[i] = actor_selected_id
             _c = command[i]
 
-    		debug_log_event("command: " + string(_c))
+            debug_log_event("command: " + string(_c))
 
             scr_cutscene_commands()
             if (breakme == 1) {
@@ -976,7 +974,7 @@ gamemaker_construct_create({ name : "cutscene_object", parent : "ingameevent_con
     }
     current_command = (i + 1)
     if (waiting == 1) {
-    	debug_log_event("waiting")
+        debug_log_event("waiting")
 
         if (cs_wait_amount > 0) {
             cs_wait_timer++
@@ -1012,7 +1010,7 @@ gamemaker_construct_create({ name : "cutscene_object", parent : "ingameevent_con
                 gamemaker_constructinstance_destroy({ instance : actor_id[jj] })
             }
         }
-        instance_destroy()
+        self.destroy();
     }
 }})
 

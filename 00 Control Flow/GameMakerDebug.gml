@@ -50,7 +50,7 @@ function DebugGeneric() constructor {
 
 function debug_event_type_name() {
     switch (event_type) {
-        // CREATE EVENT
+        // 'Create Event'
         case ev_create:
             _event_name = "create"
         break;
@@ -155,7 +155,7 @@ function debug_event_type_name() {
 }
 
 function debug_log_event(_debug_note = "") {
-	if (global.debug_setting_log_events == true) {
+    if (global.debug_setting_log_events == true) {
 
         _event_name = ""
         _sub_event_name = ""
@@ -168,7 +168,7 @@ function debug_log_event(_debug_note = "") {
         if (_debug_note != "") { _debug_message = _debug_message + " -> " + _debug_note}
 
         show_debug_message(_debug_message)
-	}
+    }
 }
 
 function debug_printline(argument0, argument1)
@@ -212,3 +212,64 @@ expected_type : "struct",
 
 */
 // InvalidTypeErrorGeneric
+
+// ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
+#region    ―――――――――――――――――――― REGION_NAME ――――――――――――――――――――
+// ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
+
+
+// ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
+#endregion ―――――――――――――――――――― REGION_NAME ――――――――――――――――――――
+// ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
+
+// ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
+#region    ―――――――――――――――――――― REGION_NAME ――――――――――――――――――――
+// ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
+
+function gamemaker_exception_throw() {
+    
+}
+
+function exception_create(parameters = {}) {
+    return _return
+}
+
+function invalid_argument_exception_create(parameters = {}) {
+    return _return
+}
+
+// ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
+#endregion ―――――――――――――――――――― REGION_NAME ――――――――――――――――――――
+// ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
+
+// ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
+#region    ―――――――――――――――――――― REGION_NAME ――――――――――――――――――――
+// ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
+
+function Throwable(parameters) constructor {
+
+}
+
+function Error(parameters) : Throwable(parameters) constructor {
+
+}
+
+function Exception(parameters) : Throwable(parameters) constructor {
+
+    private.message
+
+    private.cause
+
+}
+
+function ArgumentCountError(parameters) : Error(parameters) constructor {
+
+}
+
+function InvalidArgumentException(parameters) : Exception(parameters) constructor {
+
+}
+
+// ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
+#endregion ―――――――――――――――――――― REGION_NAME ――――――――――――――――――――
+// ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――

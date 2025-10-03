@@ -166,8 +166,7 @@ function gamemaker_camera_set_viewposition(parameters = {}) {
 }
 
 /// 
-/// @param {Struct} parameters
-/// The struct containing the arguments to pass to the function.
+/// @param {Struct} parameters The struct containing the arguments to pass to the function.
 /// @param {type} parameters.name
 /// @returns {Struct|Undefined}
 function gamemaker_camera(parameters = {}) {
@@ -364,7 +363,7 @@ function View(arguments = { }) constructor {
     height = function(arguments = {}) { return camera_get_view_height(camera()) }
     xcenter = function(arguments = {}) { return x1() + (width() / 2) }
     ycenter = function(arguments = {}) { return y1() + (height() / 2) }
-	viewport_width = function(arguments = {}) { return view_wport[private.camera_index] }
+    viewport_width = function(arguments = {}) { return view_wport[private.camera_index] }
     viewport_height = function(arguments = {}) { return view_hport[private.camera_index] }
     xscale = function(arguments = {}) { return viewport_width() / width() }
     yscale = function(arguments = {}) { return viewport_height() / height() }
@@ -468,7 +467,7 @@ function CameraGeneric(arguments) constructor {
         var _script_function = arguments.script_function ?? -1
         camera_set_update_script(_camera_id, _script_function)
         return self
-	}
+    }
 
     /// wrapper : camera_get_begin_script
     /// @param {Struct} arguments

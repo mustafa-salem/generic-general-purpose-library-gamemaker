@@ -1,10 +1,13 @@
+/// set_alpha
+/// set_default_scale animate set_origin set_alignment set_fragment set_gradient_fill rectangle({})
+/// .set_blending({ colour: , alpha:  })
+/// .set_blending({ alpha:  }) .set_blending({ colour:  })
+/// .set_fragmentposition .set_fragmentdimensions
+ 
 /// 
-/// @param {string|handle|integer} sprite
-/// The sprite to display.
-///
-/// @param {integer} [frame=0]
-/// The index of the frame of the sprite to display. Defaults to 0.
-///
+/// ---
+/// {string|handle|integer} parameters.sprite The sprite to display.
+/// {integer} [parameters.frame=0] The index of the frame of the sprite to display. Defaults to 0.
 /// @returns {Struct.GameMakerSpriteElement}
 function gamemaker_spriteelement_create(parameters = {}) {
 
@@ -30,7 +33,6 @@ function gamemaker_spriteelement_create(parameters = {}) {
     return _spriteelement
 }
 
-
 /// 
 /// @param {mixed} sprite
 /// @param {Real} x_position
@@ -41,11 +43,6 @@ function gamemaker_spriteelement_create(parameters = {}) {
 /// @param {Real} y_dimension
 /// @param {Real} x_scale
 /// @param {Real} y_scale
-
-/// @param {Type} fragment_x0
-/// @param {Type} fragment_x1
-/// @param {Type} fragment_y0
-/// @param {Type} fragment_y1
 
 /// @param {Real} x_rotation
 /// @param {Real} y_rotation
@@ -133,25 +130,25 @@ function GameMakerSpriteElement() constructor {
     self.y_offset = method(self, Drawable.y_offset)
     self.offset   = method(self, Drawable.offset)
 
-	/// ----------------------------------------------------------------------------
-	/// # alignment
-	/// ----------------------------------------------------------------------------
+    /// ----------------------------------------------------------------------------
+    /// # alignment
+    /// ----------------------------------------------------------------------------
     private.x_alignment = 0
     private.y_alignment = 0
 
     self.get_x_alignment = method(self, Drawable.get_x_alignment)
-	self.get_y_alignment = method(self, Drawable.get_y_alignment)
-	self.set_alignment   = method(self, Drawable.set_alignment)
+    self.get_y_alignment = method(self, Drawable.get_y_alignment)
+    self.set_alignment   = method(self, Drawable.set_alignment)
 
-	/// ----------------------------------------------------------------------------
-	/// # dimensions
-	/// ----------------------------------------------------------------------------
+    /// ----------------------------------------------------------------------------
+    /// # dimensions
+    /// ----------------------------------------------------------------------------
     private.x_dimensions = 0
     private.y_dimensions = 0
 
     self.get_x_dimension = method(self, Drawable.get_x_dimension)
-	self.get_y_dimension = method(self, Drawable.get_y_dimension)
-	self.set_dimensions   = method(self, Drawable.set_dimensions)
+    self.get_y_dimension = method(self, Drawable.get_y_dimension)
+    self.set_dimensions   = method(self, Drawable.set_dimensions)
 
     /// ----------------------------------------------------------------------------
     /// # scale
@@ -161,7 +158,7 @@ function GameMakerSpriteElement() constructor {
 
     self.get_x_scale = method(self, Drawable.get_x_scale)
     self.get_y_scale = method(self, Drawable.get_y_scale)
-    self.set_scale   = method(self, Drawable.set_scale)
+    self.set_scaling   = method(self, Drawable.set_scaling)
 
     /// ----------------------------------------------------------------------------
     /// # rotation
@@ -176,22 +173,31 @@ function GameMakerSpriteElement() constructor {
     self.set_rotation   = method(self, Drawable.set_rotation)
 
     /// ----------------------------------------------------------------------------
-	/// # blending
-	/// ----------------------------------------------------------------------------
-	private.blend_colour = 0
-	private.blend_alpha  = 0
-	private.blendmode   = 0
+    /// # blending
+    /// ----------------------------------------------------------------------------
+    private.blend_colour = 0
+    private.blend_alpha  = 0
+    private.blendmode   = 0
 
-	self.get_blend_colour = method(self, Drawable.get_blend_colour)
-	self.get_blend_alpha  = method(self, Drawable.get_blend_alpha)
-	self.get_blendmode   = method(self, Drawable.get_blendmode)
-	self.set_blend        = method(self, Drawable.set_blend)
+    self.get_blend_colour = method(self, Drawable.get_blend_colour)
+    self.get_blend_alpha  = method(self, Drawable.get_blend_alpha)
+    self.get_blendmode    = method(self, Drawable.get_blendmode)
+    self.set_blending     = method(self, Drawable.set_blending)
 
     /// ----------------------------------------------------------------------------
     /// # shading
     /// ----------------------------------------------------------------------------
     private.shader
     private.shader_variables
+
+    /// ----------------------------------------------------------------------------
+    /// # drawing
+    /// ----------------------------------------------------------------------------
+
+    /// 
+    self.draw = function() {
+
+    };
 
 }
 

@@ -3,10 +3,10 @@
 // ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
 
 /// 
-#macro GAMEMAKER_FIXEDDELTATIME Time.fixed_delta_time
+#macro GAMEMAKER_FIXEDDELTATIME static_get(GameMakerTime)[$ "fixed_delta_time"]
 
 /// 
-#macro GAMEMAKER_FIXEDUNSCALEDDELTATIME Time.fixed_unscaled_delta_time
+#macro GAMEMAKER_FIXEDUNSCALEDDELTATIME static_get(GameMakerTime)[$ "fixed_unscaled_delta_time"]
 
 // ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
 #endregion ―――――――――――――――――――――――――――――――――――――――――― CONSTANTS ――――――――――――――――――――――――――――――――――――――――――――――――――――――――
@@ -24,10 +24,13 @@
 #region    ――――――――――――――――――――――――――――――――――――――――― CONSTRUCTORS ――――――――――――――――――――――――――――――――――――――――――――――――――――――
 // ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
 
-new Time()
-
-function Time() constructor {
-    static private = { fixed_delta_time : game_get_speed(gamespeed_microseconds) * 0.000001 }
+function GameMakerTime() constructor {
+    
+    static __ = (function () {
+        self[$ "fixed_delta_time"] = game_get_speed(gamespeed_microseconds) * 0.000001;
+        self[$ "fixed_unscaled_delta_time"] = game_get_speed(gamespeed_microseconds) * 0.000001;
+    })();
+    
 }
 
 // ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――

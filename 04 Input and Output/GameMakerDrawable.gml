@@ -4,69 +4,55 @@
 
 function Drawable() constructor {
 
-    #region    ―――――――――――――――――――― POSITION ――――――――――――――――――――
+    /// parameters.sprite
+    /// parameters.frame
+    static set_image(parameters) {
 
-    /// ----------------------------------------------------------------------------
-    ///
-    /// <function_description>
-    /// ----------------------------------------------------------------------------
+    }
+
+    /* -----------------------------------------------------------------------------------------------------------------
+    POSITION
+    ----------------------------------------------------------------------------------------------------------------- */
+
+    /// 
     /// @param {Real} alignment
     /// 0 to 1
-    /// ----------------------------------------------------------------------------
     /// @returns {Real}
-    /// ----------------------------------------------------------------------------
     static get_x_position = function(parameters = {}) {
         return private.position.x
     }
 
-    /// ----------------------------------------------------------------------------
-    ///
-    /// <function_description>
-    /// ----------------------------------------------------------------------------
+    /// 
     /// @param {Real} alignment
     /// 0 to 1
-    /// ----------------------------------------------------------------------------
     /// @returns {Real}
-    /// ----------------------------------------------------------------------------
     static get_y_position = function(parameters = {}) {
         return private.position.y
     }
 
-    /// ----------------------------------------------------------------------------
-    ///
-    /// <function_description>
-    /// ----------------------------------------------------------------------------
+    /// 
     /// @param {type} x
-    /// <parameter_description>
-    ///
     /// @param {type} y
-    /// <parameter_description>
-    ///
-    /// ----------------------------------------------------------------------------
     /// @returns {Struct} self
-    /// ----------------------------------------------------------------------------
     static set_position = function(parameters = {}) {
         if (arguments[$ "x"] != undefined) { set_x_position(arguments.x) }
         if (arguments[$ "y"] != undefined) { set_y_position(arguments.y) }
         return self
     }
 
-    #endregion ―――――――――――――――――――― POSITION ――――――――――――――――――――
-
-    #region    ―――――――――――――――――――― DIMENSIONS ――――――――――――――――――――
+    /* -----------------------------------------------------------------------------------------------------------------
+    DIMENSIONS
+    ----------------------------------------------------------------------------------------------------------------- */
 
     /// @returns {Real}
     /// x_dimensions
-    /// ----------------------------------------------------------------------------
     static get_x_dimension = function() {
         return private.dimensions.x
     }
 
     /// @param {Real} _x_dimensions
     /// x_dimensions
-    /// ----------------------------------------------------------------------------
     /// @returns {Struct.GameMakerRectangleElement} self
-    /// ----------------------------------------------------------------------------
     static set_x_dimensions = function(_x_dimensions) {
         if (!is_real(_x_dimensions)) {
             // new InvalidTypeErrorGeneric()
@@ -78,16 +64,13 @@ function Drawable() constructor {
 
     /// @returns {Real}
     /// y_dimensions
-    /// ----------------------------------------------------------------------------
     static get_y_dimension = function() {
         return private.dimensions.y
     }
 
     /// @param {Real} _y_dimensions
     /// y_dimensions
-    /// ----------------------------------------------------------------------------
     /// @returns {Struct.GameMakerRectangleElement} self
-    /// ----------------------------------------------------------------------------
     static set_y_dimensions = function(_y_dimensions) {
         if (!is_real(_y_dimensions)) {
             // new InvalidTypeErrorGeneric()
@@ -99,7 +82,6 @@ function Drawable() constructor {
 
     /// @returns {Struct}
     /// dimensions { x : Real, y : Real }
-    /// ----------------------------------------------------------------------------
     static get_dimensions = function() {
         return private.dimensions
     }
@@ -111,9 +93,7 @@ function Drawable() constructor {
     ///
     /// @param {Real} [arguments.y]
     /// y_dimensions
-    /// ----------------------------------------------------------------------------
     /// @returns {Struct.GameMakerRectangleElement} self
-    /// ----------------------------------------------------------------------------
     static set_dimensions = function(arguments = {}) {
         if (!is_struct(arguments)) {
             // new InvalidTypeErrorGeneric()
@@ -124,22 +104,19 @@ function Drawable() constructor {
         return self
     }
 
-    #endregion ―――――――――――――――――――― DIMENSIONS ――――――――――――――――――――
-
-    #region    ―――――――――――――――――――― ALIGNMENT ――――――――――――――――――――
+    /* -----------------------------------------------------------------------------------------------------------------
+    ALIGNMENT
+    ----------------------------------------------------------------------------------------------------------------- */
 
     /// @returns {Real}
     /// x_alignment
-    /// ----------------------------------------------------------------------------
     static get_x_alignment = function() {
         return private.alignment.x
     }
 
     /// @param {Struct} _x_alignment
     /// x_alignment
-    /// ----------------------------------------------------------------------------
     /// @returns {Struct.GameMakerRectangleElement}
-    /// ----------------------------------------------------------------------------
     static set_x_alignment = function(_x_alignment) {
         if (!is_real(_x_alignment)) {
             // new InvalidTypeErrorGeneric()
@@ -151,16 +128,13 @@ function Drawable() constructor {
 
     /// @returns {Real}
     /// y_alignment
-    /// ----------------------------------------------------------------------------
     static get_y_alignment = function() {
         return private.alignment.y
     }
 
     /// @param {Struct} _y_alignment
     /// y_alignment
-    /// ----------------------------------------------------------------------------
     /// @returns {Struct.GameMakerRectangleElement}
-    /// ----------------------------------------------------------------------------
     static set_y_alignment = function(_y_alignment) {
         if (!is_real(_y_alignment)) {
             // new InvalidTypeErrorGeneric()
@@ -172,21 +146,14 @@ function Drawable() constructor {
 
     /// @returns {Struct}
     /// alignment { x : Real, y : Real }
-    /// ----------------------------------------------------------------------------
     static get_alignment = function() {
         return private.alignment
     }
 
     /// @param {Struct} [arguments]
-    ///
-    /// @param {Real} [arguments.x]
-    /// x_alignment
-    ///
-    /// @param {Real} [arguments.y]
-    /// y_alignment
-    /// ----------------------------------------------------------------------------
+    /// @param {Real} [arguments.x] x_alignment
+    /// @param {Real} [arguments.y] y_alignment
     /// @returns {Struct.GameMakerRectangleElement} self
-    /// ----------------------------------------------------------------------------
     static set_alignment = function(arguments = {}) {
         if (!is_struct(arguments)) {
             // new InvalidTypeErrorGeneric()
@@ -197,213 +164,130 @@ function Drawable() constructor {
         return self
     }
 
-    #endregion ―――――――――――――――――――― ALIGNMENT ――――――――――――――――――――
+    /* -----------------------------------------------------------------------------------------------------------------
+    SCALE
+    ----------------------------------------------------------------------------------------------------------------- */
 
-    #region    ―――――――――――――――――――― SCALE ――――――――――――――――――――
-
-    /// ----------------------------------------------------------------------------
     ///
     /// This function is used to get the x component of the scale of the element.
-    /// ----------------------------------------------------------------------------
     /// @returns {Real}
-    /// ----------------------------------------------------------------------------
     static get_x_scale = function() {
         return private.x_scale
     }
 
-    /// ----------------------------------------------------------------------------
     ///
     /// This function is used to get the y component of the scale of the element.
-    /// ----------------------------------------------------------------------------
     /// @returns {Real}
-    /// ----------------------------------------------------------------------------
     static get_y_scale = function() {
         return private.y_scale
     }
 
-    /// ----------------------------------------------------------------------------
-    ///
     /// This function is used to set the scale properties of the element.
-    /// ----------------------------------------------------------------------------
-    /// @param {Real} x
-    /// The scaling on the x axis.
-    ///
-    /// @param {Real} y
-    /// The scaling on the y axis.
-    ///
-    /// ----------------------------------------------------------------------------
+    /// ---
+    /// @param {Real} x The scaling on the x axis.
+    /// @param {Real} y The scaling on the y axis.
     /// @returns {Struct} self
-    /// ----------------------------------------------------------------------------
-    static set_scale = function(parameters = {}) {
+    static set_scaling = function(parameters = {}) {
         if (parameters[$ "x"] != undefined) { private.x_scale = parameters.x }
         if (parameters[$ "y"] != undefined) { private.y_scale = parameters.y }
         return self
     }
 
-    #endregion ―――――――――――――――――――― SCALE ――――――――――――――――――――
+    /* -----------------------------------------------------------------------------------------------------------------
+    ROTATION
+    ----------------------------------------------------------------------------------------------------------------- */
 
-	#region    ―――――――――――――――――――― ROTATION ――――――――――――――――――――
+    /// @returns {Real} x_rotation
+    static get_x_rotation = function() {
+        return private.rotation.x
+    }
 
-	/// @returns {Real}
-	/// x_rotation
-	/// ----------------------------------------------------------------------------
-	static get_x_rotation = function() {
-		return private.rotation.x
-	}
+    /// @returns {Real} y_rotation
+    static get_y_rotation = function() {
+        return private.rotation.y
+    }
 
-	/// @returns {Real}
-	/// y_rotation
-	/// ----------------------------------------------------------------------------
-	static get_y_rotation = function() {
-		return private.rotation.y
-	}
+    /// @returns {Real} z_rotation
+    static get_z_rotation = function() {
+        return private.rotation.z
+    }
 
-	/// @returns {Real}
-	/// z_rotation
-	/// ----------------------------------------------------------------------------
-	static get_z_rotation = function() {
-		return private.rotation.z
-	}
-
-	/// ----------------------------------------------------------------------------
-	///
-	/// @param {Struct} [arguments]
-	///
-	/// @param {Real} [arguments.x]
-	/// x_dimensions
-	///
-	/// @param {Real} [arguments.y]
-	/// y_dimensions
-	///
-	/// @param {Real} [arguments.z]
-	/// z_dimensions
-	/// @returns {Struct.GameMakerRectangleElement} self
-	/// ----------------------------------------------------------------------------
-	static set_rotation = function(arguments) {
-		if (!is_struct(arguments)) {
-			// new InvalidTypeErrorGeneric()
-			return self
-		}
-		if (arguments[$ "x"] != undefined) { set_x_rotation(arguments.x) }
-		if (arguments[$ "y"] != undefined) { set_y_rotation(arguments.y) }
-		if (arguments[$ "z"] != undefined) { set_z_rotation(arguments.z) }
-		return self
-	}
-
-	#endregion ―――――――――――――――――――― ROTATION ――――――――――――――――――――
-
-    #region    ―――――――――――――――――――― BLEND ――――――――――――――――――――
-
-    /// ----------------------------------------------------------------------------
     ///
-    /// <function_description>
-    /// ----------------------------------------------------------------------------
+    /// @param {Struct} [arguments]
+    /// @param {Real} [arguments.x] 
+    /// @param {Real} [arguments.y] 
+    /// @param {Real} [arguments.z] 
+    /// @returns {Struct.GameMakerRectangleElement} self
+    static set_rotation = function(arguments) {
+        if (!is_struct(arguments)) {
+            // new InvalidTypeErrorGeneric()
+            return self
+        }
+        if (arguments[$ "x"] != undefined) { set_x_rotation(arguments.x) }
+        if (arguments[$ "y"] != undefined) { set_y_rotation(arguments.y) }
+        if (arguments[$ "z"] != undefined) { set_z_rotation(arguments.z) }
+        return self
+    }
+
+    /* -----------------------------------------------------------------------------------------------------------------
+    BLEND
+    ----------------------------------------------------------------------------------------------------------------- */
+
+    /// 
     /// @param {type} parameter_name
-    /// <parameter_description>
-    ///
-    /// ----------------------------------------------------------------------------
     /// @returns {type}
-    /// <return_description>
-    /// ----------------------------------------------------------------------------
     get_blend_colour = function(parameters = {}) {
         return _return
     }
 
-    /// ----------------------------------------------------------------------------
-    ///
-    /// <function_description>
-    /// ----------------------------------------------------------------------------
+    /// 
     /// @param {type} parameter_name
-    /// <parameter_description>
-    ///
-    /// ----------------------------------------------------------------------------
     /// @returns {type}
-    /// <return_description>
-    /// ----------------------------------------------------------------------------
     get_blend_alpha = function(parameters = {}) {
         return _return
     }
 
-    /// ----------------------------------------------------------------------------
-    ///
-    /// <function_description>
-    /// ----------------------------------------------------------------------------
+    /// 
     /// @param {type} parameter_name
-    /// <parameter_description>
-    ///
-    /// ----------------------------------------------------------------------------
     /// @returns {type}
-    /// <return_description>
-    /// ----------------------------------------------------------------------------
     get_blendmode = function(parameters = {}) {
         return _return
     }
 
-    /// ----------------------------------------------------------------------------
-    ///
-    /// <function_description>
-    /// ----------------------------------------------------------------------------
-    /// @param {type} parameter_name
-    /// <parameter_description>
-    ///
-    /// ----------------------------------------------------------------------------
-    /// @returns {type}
-    /// <return_description>
-    /// ----------------------------------------------------------------------------
-    set_blend = function(parameters = {}) {
-        return _return
+    /// Sets the blending settings.
+    /// ---
+    /// `parameters.colour` The blending colour.
+    /// `parameters.alpha` The blending alpha.
+    /// @param {Struct} parameters The struct containing the arguments to pass to the function.
+    /// @returns {Struct} self
+    set_blending = function(parameters) {
+        return self;
     }
 
-    #endregion ―――――――――――――――――――― BLEND ――――――――――――――――――――
+    /* -----------------------------------------------------------------------------------------------------------------
+    SHADER
+    ----------------------------------------------------------------------------------------------------------------- */
 
-    #region    ―――――――――――――――――――― SHADER ――――――――――――――――――――
-
-    /// ----------------------------------------------------------------------------
-    ///
-    /// <function_description>
-    /// ----------------------------------------------------------------------------
+    /// 
     /// @param {type} parameter_name
-    /// <parameter_description>
-    ///
-    /// ----------------------------------------------------------------------------
     /// @returns {type}
-    /// <return_description>
-    /// ----------------------------------------------------------------------------
     get_shader = function(parameters = {}) {
         return _return
     }
 
-    /// ----------------------------------------------------------------------------
-    ///
-    /// <function_description>
-    /// ----------------------------------------------------------------------------
+    /// 
     /// @param {type} parameter_name
-    /// <parameter_description>
-    ///
-    /// ----------------------------------------------------------------------------
     /// @returns {type}
-    /// <return_description>
-    /// ----------------------------------------------------------------------------
     get_shader_variables = function(parameters = {}) {
         return _return
     }
 
-    /// ----------------------------------------------------------------------------
-    ///
-    /// <function_description>
-    /// ----------------------------------------------------------------------------
+    /// 
     /// @param {type} parameter_name
-    /// <parameter_description>
-    ///
-    /// ----------------------------------------------------------------------------
     /// @returns {type}
-    /// <return_description>
-    /// ----------------------------------------------------------------------------
     set_shader = function(parameters = {}) {
         return _return
     }
-
-    #endregion ―――――――――――――――――――― SHADER ――――――――――――――――――――
 
 }
 

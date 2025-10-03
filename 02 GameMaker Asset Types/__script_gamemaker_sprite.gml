@@ -123,7 +123,7 @@ function gamemaker_sprite_draw(arguments) {
         }
 
         var surface = gamemaker_surface_create()
-        .set_dimensions({ x : _surface_width, y : _surface_height })
+        .set_dimensions({ x: _surface_width, y: _surface_height })
         gamemaker_rendertarget_set_surface({ surface })
         draw_clear_alpha(#FFFFFF, 0)
 

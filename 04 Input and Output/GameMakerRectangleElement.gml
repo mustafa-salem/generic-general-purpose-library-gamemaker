@@ -75,7 +75,7 @@ function gamemaker_rectangle_draw(parameters) {
     ―――――――――――――――――――― PARAMETERS ――――――――――――――――――――
     *******************************************************************************/
 
-	var a = arguments
+    var a = arguments
 
     var parameters = {
         x1 : a[$ "x"] ?? 0,
@@ -84,7 +84,7 @@ function gamemaker_rectangle_draw(parameters) {
         y2 : a[$ "y2"] ?? 0,
 
         colour : a[$ "colour"] ?? #FFFFFF,
-		alpha : a[$ "alpha"] ?? 1,
+        alpha : a[$ "alpha"] ?? 1,
         gradient : a[$ "gradient"] ?? {
             top_left : #FFFFFF,
             top_right : #FFFFFF,
@@ -94,22 +94,22 @@ function gamemaker_rectangle_draw(parameters) {
 
         outline : false,
 
-		canvas_scale : a[$ "canvas_scale"] ?? 1,
+        canvas_scale : a[$ "canvas_scale"] ?? 1,
     }
 
-	var p = parameters
+    var p = parameters
 
-	/*******************************************************************************
-	―――――――――――――――――――― RESCALE ――――――――――――――――――――
-	*******************************************************************************/
+    /*******************************************************************************
+    ―――――――――――――――――――― RESCALE ――――――――――――――――――――
+    *******************************************************************************/
 
-	if (struct_exists(arguments, "canvas_scale")) {
-		p.x1 *= a.canvas_scale
-		a.width *= a.canvas_scale
+    if (struct_exists(arguments, "canvas_scale")) {
+        p.x1 *= a.canvas_scale
+        a.width *= a.canvas_scale
 
-		p.y1 *= a.canvas_scale
-		a.height *= a.canvas_scale
-	}
+        p.y1 *= a.canvas_scale
+        a.height *= a.canvas_scale
+    }
 
     /*******************************************************************************
     ―――――――――――――――――――― EFFECTS ――――――――――――――――――――
@@ -134,29 +134,29 @@ function gamemaker_rectangle_draw(parameters) {
         }
     }
 
-	/* ―――――――――――――――――――― SCALE ―――――――――――――――――――― */
-	if (struct_exists(arguments, "scale")) {
-		a.width *= a.scale
-		a.height *= a.scale
-	}
+    /* ―――――――――――――――――――― SCALE ―――――――――――――――――――― */
+    if (struct_exists(arguments, "scale")) {
+        a.width *= a.scale
+        a.height *= a.scale
+    }
 
-	/* ―――――――――――――――――――― ALIGNMENT ―――――――――――――――――――― */
-	if (struct_exists(arguments, "align")) {
-		if (arguments.align == "center") {
-			a.halign = fa_center
-			a.valign = fa_middle
-		}
-	}
-	if (struct_exists(arguments, "halign")) {
-		if (arguments.halign == fa_center) {
-			p.x1 -= a.width / 2
-		}
-	}
-	if (struct_exists(arguments, "valign")) {
-		if (arguments.valign == fa_middle) {
-			p.y1 -= a.height / 2
-		}
-	}
+    /* ―――――――――――――――――――― ALIGNMENT ―――――――――――――――――――― */
+    if (struct_exists(arguments, "align")) {
+        if (arguments.align == "center") {
+            a.halign = fa_center
+            a.valign = fa_middle
+        }
+    }
+    if (struct_exists(arguments, "halign")) {
+        if (arguments.halign == fa_center) {
+            p.x1 -= a.width / 2
+        }
+    }
+    if (struct_exists(arguments, "valign")) {
+        if (arguments.valign == fa_middle) {
+            p.y1 -= a.height / 2
+        }
+    }
 
     /* ―――――――――――――――――――― WIDTH & HEIGHT ―――――――――――――――――――― */
     if (struct_exists(arguments, "width")) { parameters.x2 = p.x1 + (a.width - 1) }
@@ -197,11 +197,11 @@ function gamemaker_rectangle_draw(parameters) {
     ―――――――――――――――――――― PRE-DRAW ――――――――――――――――――――
     *******************************************************************************/
 
-	var preserved = {
-		alpha : draw_get_alpha(),
-	}
+    var preserved = {
+        alpha : draw_get_alpha(),
+    }
 
-	draw_set_alpha(p.alpha)
+    draw_set_alpha(p.alpha)
 
     /*******************************************************************************
     ―――――――――――――――――――― DRAWING ――――――――――――――――――――
@@ -223,15 +223,14 @@ function gamemaker_rectangle_draw(parameters) {
     ―――――――――――――――――――― POST-DRAW ――――――――――――――――――――
     *******************************************************************************/
 
-	draw_set_alpha(preserved.alpha)
+    draw_set_alpha(preserved.alpha)
 
 }
 
 /// <description>
 /// NOTE: `draw_rectangle`
 /// ----------------------------------------------------------------------------
-/// @param {Struct} parameters
-/// The struct containing the arguments to pass to the function.
+/// @param {Struct} parameters The struct containing the arguments to pass to the function.
 /// @param {type} parameters.name
 /// <description>
 /// @returns {Struct.GameMakerRectangleElement}
@@ -241,431 +240,431 @@ function gamemaker_rectangleelement_create(parameters = {}) {
 
 function GameMakerRectangleElement() constructor {
 
-	private = {
-		position : {
-			x : 0,
-			y : 0,
-		},
-		dimensions : {
-			x : 0,
-			y : 0,
-		},
-		alignment : {
-			x : 0,
-			y : 0,
-		},
-		scale : {
-			x : 1,
-			y : 1,
-		},
-		rotation : {
-			x : 0,
-			y : 0,
-			z : 0,
-		},
-		solid_fill : {
-			colour : #FFFFFF,
-			alpha  : 0,
-		},
-		gradient_fill : {
-			colour : {
-				top_left     : #FFFFFF,
-				top_right    : #FFFFFF,
-				bottom_left  : #FFFFFF,
-				bottom_right : #FFFFFF,
-			},
-			alpha : {
-				top_left     : 0,
-				top_right    : 0,
-				bottom_left  : 0,
-				bottom_right : 0,
-			},
-		},
-		solid_outline : {
-			thickness : 0,
-			alignment : 0,
-			colour    : #FFFFFF,
-			alpha     : 0,
-		},
-		alpha : 1,
-	}
+    private = {
+        position : {
+            x : 0,
+            y : 0,
+        },
+        dimensions : {
+            x : 0,
+            y : 0,
+        },
+        alignment: {
+            x : 0,
+            y : 0,
+        },
+        scale : {
+            x : 1,
+            y : 1,
+        },
+        rotation : {
+            x : 0,
+            y : 0,
+            z : 0,
+        },
+        solid_fill : {
+            colour : #FFFFFF,
+            alpha  : 0,
+        },
+        gradient_fill : {
+            colour : {
+                top_left     : #FFFFFF,
+                top_right    : #FFFFFF,
+                bottom_left  : #FFFFFF,
+                bottom_right : #FFFFFF,
+            },
+            alpha : {
+                top_left     : 0,
+                top_right    : 0,
+                bottom_left  : 0,
+                bottom_right : 0,
+            },
+        },
+        solid_outline : {
+            thickness : 0,
+            alignment: 0,
+            colour    : #FFFFFF,
+            alpha     : 0,
+        },
+        alpha : 1,
+    }
 
-	/// ----------------------------------------------------------------------------
+    /// ----------------------------------------------------------------------------
     /// # position
     /// ----------------------------------------------------------------------------
     self.get_x_position = method(self, Drawable.get_x_position)
     self.get_y_position = method(self, Drawable.get_y_position)
     self.set_position   = method(self, Drawable.set_position)
 
-	/// ----------------------------------------------------------------------------
-	/// # alignment
-	/// ----------------------------------------------------------------------------
-	self.get_x_alignment = method(self, Drawable.get_x_alignment)
-	self.get_y_alignment = method(self, Drawable.get_y_alignment)
-	self.set_alignment   = method(self, Drawable.set_alignment)
+    /// ----------------------------------------------------------------------------
+    /// # alignment
+    /// ----------------------------------------------------------------------------
+    self.get_x_alignment = method(self, Drawable.get_x_alignment)
+    self.get_y_alignment = method(self, Drawable.get_y_alignment)
+    self.set_alignment   = method(self, Drawable.set_alignment)
 
-	/// ----------------------------------------------------------------------------
-	/// # dimensions
-	/// ----------------------------------------------------------------------------
-	self.get_x_dimension = method(self, Drawable.get_x_dimension)
-	self.get_y_dimension = method(self, Drawable.get_y_dimension)
-	self.set_dimensions   = method(self, Drawable.set_dimensions)
+    /// ----------------------------------------------------------------------------
+    /// # dimensions
+    /// ----------------------------------------------------------------------------
+    self.get_x_dimension = method(self, Drawable.get_x_dimension)
+    self.get_y_dimension = method(self, Drawable.get_y_dimension)
+    self.set_dimensions   = method(self, Drawable.set_dimensions)
 
     /// ----------------------------------------------------------------------------
     /// # scale
     /// ----------------------------------------------------------------------------
     self.get_x_scale = method(self, Drawable.get_x_scale)
     self.get_y_scale = method(self, Drawable.get_y_scale)
-    self.set_scale   = method(self, Drawable.set_scale)
+    self.set_scaling   = method(self, Drawable.set_scaling)
 
-	/// ----------------------------------------------------------------------------
-	/// # rotation
-	/// ----------------------------------------------------------------------------
-	self.get_x_rotation = method(self, Drawable.get_x_rotation)
-	self.get_y_rotation = method(self, Drawable.get_y_rotation)
-	self.get_z_rotation = method(self, Drawable.get_z_rotation)
-	self.set_rotation   = method(self, Drawable.set_rotation)
+    /// ----------------------------------------------------------------------------
+    /// # rotation
+    /// ----------------------------------------------------------------------------
+    self.get_x_rotation = method(self, Drawable.get_x_rotation)
+    self.get_y_rotation = method(self, Drawable.get_y_rotation)
+    self.get_z_rotation = method(self, Drawable.get_z_rotation)
+    self.set_rotation   = method(self, Drawable.set_rotation)
 
-	/// ----------------------------------------------------------------------------
-	/// # blending
-	/// ----------------------------------------------------------------------------
-	private.blend_colour = 0
-	private.blend_alpha  = 0
-	private.blendmode   = 0
+    /// ----------------------------------------------------------------------------
+    /// # blending
+    /// ----------------------------------------------------------------------------
+    private.blend_colour = 0
+    private.blend_alpha  = 0
+    private.blendmode   = 0
 
-	self.get_blend_colour = method(self, Drawable.get_blend_colour)
-	self.get_blend_alpha  = method(self, Drawable.get_blend_alpha)
-	self.get_blendmode   = method(self, Drawable.get_blendmode)
-	self.set_blend        = method(self, Drawable.set_blend)
+    self.get_blend_colour = method(self, Drawable.get_blend_colour)
+    self.get_blend_alpha  = method(self, Drawable.get_blend_alpha)
+    self.get_blendmode   = method(self, Drawable.get_blendmode)
+    self.set_blending        = method(self, Drawable.set_blending)
 
-	#region    ―――――――――――――――――――― COLOUR_SOLID_FILL ――――――――――――――――――――
+    #region    ―――――――――――――――――――― COLOUR_SOLID_FILL ――――――――――――――――――――
 
-	/// @returns {Real}
-	/// _colour_solid_fill
-	static get_colour_solid_fill = function() {
-		return private.solid_fill.colour
-	}
+    /// @returns {Real}
+    /// _colour_solid_fill
+    static get_colour_solid_fill = function() {
+        return private.solid_fill.colour
+    }
 
-	///
-	/// @param {Real}
-	/// _colour_solid_fill
-	/// @returns {Struct.GameMakerRectangleElement}
-	static set_colour_solid_fill = function(_colour_solid_fill) {
-		if (!is_real(_colour_solid_fill)) {
-			// new InvalidTypeErrorGeneric()
-			return self
-		}
-		private.solid_fill.colour = clamp(_colour_solid_fill, #000000, #FFFFFF)
-		return self
-	}
+    ///
+    /// @param {Real}
+    /// _colour_solid_fill
+    /// @returns {Struct.GameMakerRectangleElement}
+    static set_colour_solid_fill = function(_colour_solid_fill) {
+        if (!is_real(_colour_solid_fill)) {
+            // new InvalidTypeErrorGeneric()
+            return self
+        }
+        private.solid_fill.colour = clamp(_colour_solid_fill, #000000, #FFFFFF)
+        return self
+    }
 
-	#endregion ―――――――――――――――――――― COLOUR_SOLID_FILL ――――――――――――――――――――
+    #endregion ―――――――――――――――――――― COLOUR_SOLID_FILL ――――――――――――――――――――
 
-	#region    ―――――――――――――――――――― ALPHA_SOLID_FILL ――――――――――――――――――――
+    #region    ―――――――――――――――――――― ALPHA_SOLID_FILL ――――――――――――――――――――
 
-	/// @returns {Real}
-	/// _alpha_solid_fill
-	static get_alpha_solid_fill = function() {
-		return private.solid_fill.alpha
-	}
+    /// @returns {Real}
+    /// _alpha_solid_fill
+    static get_alpha_solid_fill = function() {
+        return private.solid_fill.alpha
+    }
 
-	///
-	/// @param {Real} _alpha_solid_fill
-	/// _alpha_solid_fill
-	/// @returns {Struct.GameMakerRectangleElement} self
-	static set_alpha_solid_fill = function(_alpha_solid_fill) {
-		if (!is_real(_alpha_solid_fill)) {
-			// new InvalidTypeErrorGeneric()
-			return self
-		}
-		private.solid_fill.alpha = clamp(_alpha_solid_fill, 0, 1)
-		return self
-	}
+    ///
+    /// @param {Real} _alpha_solid_fill
+    /// _alpha_solid_fill
+    /// @returns {Struct.GameMakerRectangleElement} self
+    static set_alpha_solid_fill = function(_alpha_solid_fill) {
+        if (!is_real(_alpha_solid_fill)) {
+            // new InvalidTypeErrorGeneric()
+            return self
+        }
+        private.solid_fill.alpha = clamp(_alpha_solid_fill, 0, 1)
+        return self
+    }
 
-	#endregion ―――――――――――――――――――― ALPHA_SOLID_FILL ――――――――――――――――――――
+    #endregion ―――――――――――――――――――― ALPHA_SOLID_FILL ――――――――――――――――――――
 
-	#region    ―――――――――――――――――――― SOLID_FILL ――――――――――――――――――――
+    #region    ―――――――――――――――――――― SOLID_FILL ――――――――――――――――――――
 
-	/// ----------------------------------------------------------------------------
-	///
-	/// ----------------------------------------------------------------------------
-	static get_solid_fill = function() {
-		return variable_clone(private.solid_fill)
-	}
-
-	/// ----------------------------------------------------------------------------
+    /// ----------------------------------------------------------------------------
     ///
     /// ----------------------------------------------------------------------------
-	static set_solid_fill = function(arguments = {}) {
-		if (!is_struct(arguments)) {
-			// new InvalidTypeErrorGeneric()
-			return self
-		}
-		if (arguments[$ "colour"] != undefined) { set_colour_solid_fill(arguments.colour) }
-		if (arguments[$ "alpha"]  != undefined) { set_alpha_solid_fill(arguments.alpha)   }
-		return self
-	}
+    static get_solid_fill = function() {
+        return variable_clone(private.solid_fill)
+    }
 
-	#endregion ―――――――――――――――――――― SOLID_FILL ――――――――――――――――――――
+    /// ----------------------------------------------------------------------------
+    ///
+    /// ----------------------------------------------------------------------------
+    static set_solid_fill = function(arguments = {}) {
+        if (!is_struct(arguments)) {
+            // new InvalidTypeErrorGeneric()
+            return self
+        }
+        if (arguments[$ "colour"] != undefined) { set_colour_solid_fill(arguments.colour) }
+        if (arguments[$ "alpha"]  != undefined) { set_alpha_solid_fill(arguments.alpha)   }
+        return self
+    }
 
-	#region    ―――――――――――――――――――― COLOUR_GRADIENT_FILL ――――――――――――――――――――
+    #endregion ―――――――――――――――――――― SOLID_FILL ――――――――――――――――――――
 
-	static get_colour_gradient_fill = function() {
+    #region    ―――――――――――――――――――― COLOUR_GRADIENT_FILL ――――――――――――――――――――
 
-	}
+    static get_colour_gradient_fill = function() {
 
-	static set_colour_gradient_fill = function() {
+    }
 
-	}
+    static set_colour_gradient_fill = function() {
 
-	#endregion ―――――――――――――――――――― COLOUR_GRADIENT_FILL ――――――――――――――――――――
+    }
 
-	#region    ―――――――――――――――――――― ALPHA_GRADIENT_FILL ――――――――――――――――――――
+    #endregion ―――――――――――――――――――― COLOUR_GRADIENT_FILL ――――――――――――――――――――
 
-	static get_alpha_gradient_fill = function() {
+    #region    ―――――――――――――――――――― ALPHA_GRADIENT_FILL ――――――――――――――――――――
 
-	}
+    static get_alpha_gradient_fill = function() {
 
-	static set_alpha_gradient_fill = function() {
+    }
 
-	}
+    static set_alpha_gradient_fill = function() {
 
-	#endregion ―――――――――――――――――――― ALPHA_GRADIENT_FILL ――――――――――――――――――――
+    }
 
-	#region    ―――――――――――――――――――― GRADIENT_FILL ――――――――――――――――――――
+    #endregion ―――――――――――――――――――― ALPHA_GRADIENT_FILL ――――――――――――――――――――
 
-	/// ----------------------------------------------------------------------------
-	///
-	/// ----------------------------------------------------------------------------
-	static get_gradient_fill = function() {
-		return variable_clone(private.gradient_fill)
-	}
+    #region    ―――――――――――――――――――― GRADIENT_FILL ――――――――――――――――――――
 
-	/// ----------------------------------------------------------------------------
-	///
-	/// ----------------------------------------------------------------------------
-	static set_gradient_fill = function(arguments = {}) {
-		if (!is_struct(arguments)) {
-			// new InvalidTypeErrorGeneric()
-			return self
-		}
-		if (arguments[$ "all"] != undefined) {
+    /// ----------------------------------------------------------------------------
+    ///
+    /// ----------------------------------------------------------------------------
+    static get_gradient_fill = function() {
+        return variable_clone(private.gradient_fill)
+    }
 
-		}
-		if (arguments[$ "top"] != undefined) {
-			arguments.top_left  = arguments.top
-			arguments.top_right = arguments.top
-		}
-		if (arguments[$ "bottom"] != undefined) {
-			arguments.bottom_left  = arguments.bottom
-			arguments.bottom_right = arguments.bottom
-		}
-		if (arguments[$ "left"] != undefined) {
-			arguments.top_left    = arguments.left
-			arguments.bottom_left = arguments.left
-		}
-		if (arguments[$ "right"] != undefined) {
-			arguments.top_right    = arguments.right
-			arguments.bottom_right = arguments.right
-		}
-		if (arguments[$ "top_left"] != undefined)      {  }
-		if (arguments[$ "top_right"]  != undefined)    {  }
-		if (arguments[$ "bottom_left"] != undefined)   {  }
-		if (arguments[$ "bottom_right"]  != undefined) {  }
-		return self
-	}
+    /// ----------------------------------------------------------------------------
+    ///
+    /// ----------------------------------------------------------------------------
+    static set_gradient_fill = function(arguments = {}) {
+        if (!is_struct(arguments)) {
+            // new InvalidTypeErrorGeneric()
+            return self
+        }
+        if (arguments[$ "all"] != undefined) {
 
-	#endregion ―――――――――――――――――――― GRADIENT_FILL ――――――――――――――――――――
+        }
+        if (arguments[$ "top"] != undefined) {
+            arguments.top_left  = arguments.top
+            arguments.top_right = arguments.top
+        }
+        if (arguments[$ "bottom"] != undefined) {
+            arguments.bottom_left  = arguments.bottom
+            arguments.bottom_right = arguments.bottom
+        }
+        if (arguments[$ "left"] != undefined) {
+            arguments.top_left    = arguments.left
+            arguments.bottom_left = arguments.left
+        }
+        if (arguments[$ "right"] != undefined) {
+            arguments.top_right    = arguments.right
+            arguments.bottom_right = arguments.right
+        }
+        if (arguments[$ "top_left"] != undefined)      {  }
+        if (arguments[$ "top_right"]  != undefined)    {  }
+        if (arguments[$ "bottom_left"] != undefined)   {  }
+        if (arguments[$ "bottom_right"]  != undefined) {  }
+        return self
+    }
 
-	#region    ―――――――――――――――――――― THICKNESS_SOLID_OUTLINE ――――――――――――――――――――
+    #endregion ―――――――――――――――――――― GRADIENT_FILL ――――――――――――――――――――
 
-	static get_thickness_solid_outline = function() {
-		return private.solid_outline.thickness
-	}
+    #region    ―――――――――――――――――――― THICKNESS_SOLID_OUTLINE ――――――――――――――――――――
 
-	static set_thickness_solid_outline = function(_thickness) {
-		return self
-	}
+    static get_thickness_solid_outline = function() {
+        return private.solid_outline.thickness
+    }
 
-	#endregion ―――――――――――――――――――― THICKNESS_SOLID_OUTLINE ――――――――――――――――――――
+    static set_thickness_solid_outline = function(_thickness) {
+        return self
+    }
 
-	#region    ―――――――――――――――――――― ALIGNMENT_SOLID_OUTLINE ――――――――――――――――――――
+    #endregion ―――――――――――――――――――― THICKNESS_SOLID_OUTLINE ――――――――――――――――――――
 
-	static get_alignment_solid_outline = function() {
-		return private.solid_outline.alignment
-	}
+    #region    ―――――――――――――――――――― ALIGNMENT_SOLID_OUTLINE ――――――――――――――――――――
 
-	static set_alignment_solid_outline = function(_alignment) {
-		return self
-	}
+    static get_alignment_solid_outline = function() {
+        return private.solid_outline.alignment
+    }
 
-	#endregion ―――――――――――――――――――― ALIGNMENT_SOLID_OUTLINE ――――――――――――――――――――
+    static set_alignment_solid_outline = function(_alignment) {
+        return self
+    }
 
-	#region    ―――――――――――――――――――― COLOUR_SOLID_OUTLINE ――――――――――――――――――――
+    #endregion ―――――――――――――――――――― ALIGNMENT_SOLID_OUTLINE ――――――――――――――――――――
 
-	/// @returns {Real}
-	/// colour_solid_outline
-	/// ----------------------------------------------------------------------------
-	static get_colour_solid_outline = function() {
-		return private.solid_outline.colour
-	}
+    #region    ―――――――――――――――――――― COLOUR_SOLID_OUTLINE ――――――――――――――――――――
 
-	/// ----------------------------------------------------------------------------
-	///
-	/// @param {Real} _colour_solid_outline
-	/// colour_solid_outline
-	/// @returns {Struct.GameMakerRectangleElement}
-	/// ----------------------------------------------------------------------------
-	static set_colour_solid_outline = function(_colour_solid_outline) {
-		if (!is_real(_colour_solid_outline)) {
-			// new InvalidTypeErrorGeneric()
-			return self
-		}
-		private.solid_outline.colour = clamp(_colour_solid_outline, #000000, #FFFFFF)
-		return self
-	}
+    /// @returns {Real}
+    /// colour_solid_outline
+    /// ----------------------------------------------------------------------------
+    static get_colour_solid_outline = function() {
+        return private.solid_outline.colour
+    }
 
-	#endregion ―――――――――――――――――――― COLOUR_SOLID_OUTLINE ――――――――――――――――――――
+    /// ----------------------------------------------------------------------------
+    ///
+    /// @param {Real} _colour_solid_outline
+    /// colour_solid_outline
+    /// @returns {Struct.GameMakerRectangleElement}
+    /// ----------------------------------------------------------------------------
+    static set_colour_solid_outline = function(_colour_solid_outline) {
+        if (!is_real(_colour_solid_outline)) {
+            // new InvalidTypeErrorGeneric()
+            return self
+        }
+        private.solid_outline.colour = clamp(_colour_solid_outline, #000000, #FFFFFF)
+        return self
+    }
 
-	#region    ―――――――――――――――――――― ALPHA_SOLID_OUTLINE ――――――――――――――――――――
+    #endregion ―――――――――――――――――――― COLOUR_SOLID_OUTLINE ――――――――――――――――――――
 
-	/// @returns {Real}
-	/// alpha_solid_outline
-	/// ----------------------------------------------------------------------------
-	static get_alpha_solid_outline = function() {
-		return private.solid_outline.alpha
-	}
+    #region    ―――――――――――――――――――― ALPHA_SOLID_OUTLINE ――――――――――――――――――――
 
-	/// ----------------------------------------------------------------------------
-	///
-	/// @param {Real} _alpha_solid_outline
-	/// alpha_solid_outline
-	/// @returns {Struct.GameMakerRectangleElement} self
-	/// ----------------------------------------------------------------------------
-	static set_alpha_solid_outline = function(_alpha_solid_outline) {
-		if (!is_real(_alpha_solid_outline)) {
-			// new InvalidTypeErrorGeneric()
-			return self
-		}
-		private.solid_outline.alpha = clamp(_alpha_solid_outline, 0, 1)
-		return self
-	}
+    /// @returns {Real}
+    /// alpha_solid_outline
+    /// ----------------------------------------------------------------------------
+    static get_alpha_solid_outline = function() {
+        return private.solid_outline.alpha
+    }
 
-	#endregion ―――――――――――――――――――― ALPHA_SOLID_OUTLINE ――――――――――――――――――――
+    /// ----------------------------------------------------------------------------
+    ///
+    /// @param {Real} _alpha_solid_outline
+    /// alpha_solid_outline
+    /// @returns {Struct.GameMakerRectangleElement} self
+    /// ----------------------------------------------------------------------------
+    static set_alpha_solid_outline = function(_alpha_solid_outline) {
+        if (!is_real(_alpha_solid_outline)) {
+            // new InvalidTypeErrorGeneric()
+            return self
+        }
+        private.solid_outline.alpha = clamp(_alpha_solid_outline, 0, 1)
+        return self
+    }
 
-	#region    ―――――――――――――――――――― SOLID_OUTLINE ――――――――――――――――――――
+    #endregion ―――――――――――――――――――― ALPHA_SOLID_OUTLINE ――――――――――――――――――――
 
-	/// ----------------------------------------------------------------------------
-	///
-	/// ----------------------------------------------------------------------------
-	static get_solid_outline = function() {
-		return variable_clone(private.solid_outline)
-	}
+    #region    ―――――――――――――――――――― SOLID_OUTLINE ――――――――――――――――――――
 
-	/// ----------------------------------------------------------------------------
-	///
-	/// ----------------------------------------------------------------------------
-	static set_solid_outline = function(arguments = {}) {
-		if (!is_struct(arguments)) {
-			// new InvalidTypeErrorGeneric()
-			return self
-		}
-		if (arguments[$ "thickness"] != undefined) { set_thickness_solid_outline(arguments.colour) }
-		if (arguments[$ "alignment"] != undefined) { set_alignment_solid_outline(arguments.alpha)  }
-		if (arguments[$ "colour"]    != undefined) { set_colour_solid_outline(arguments.colour)    }
-		if (arguments[$ "alpha"]     != undefined) { set_alpha_solid_outline(arguments.alpha)      }
-		return self
-	}
+    /// ----------------------------------------------------------------------------
+    ///
+    /// ----------------------------------------------------------------------------
+    static get_solid_outline = function() {
+        return variable_clone(private.solid_outline)
+    }
 
-	#endregion ―――――――――――――――――――― SOLID_OUTLINE ――――――――――――――――――――
+    /// ----------------------------------------------------------------------------
+    ///
+    /// ----------------------------------------------------------------------------
+    static set_solid_outline = function(arguments = {}) {
+        if (!is_struct(arguments)) {
+            // new InvalidTypeErrorGeneric()
+            return self
+        }
+        if (arguments[$ "thickness"] != undefined) { set_thickness_solid_outline(arguments.colour) }
+        if (arguments[$ "alignment"] != undefined) { set_alignment_solid_outline(arguments.alpha)  }
+        if (arguments[$ "colour"]    != undefined) { set_colour_solid_outline(arguments.colour)    }
+        if (arguments[$ "alpha"]     != undefined) { set_alpha_solid_outline(arguments.alpha)      }
+        return self
+    }
 
-	/// ----------------------------------------------------------------------------
-	///
-	/// ----------------------------------------------------------------------------
-	static draw = function() {
+    #endregion ―――――――――――――――――――― SOLID_OUTLINE ――――――――――――――――――――
 
-		var _x1 = get_x_position() - get_x_alignment() * get_x_dimension() * get_x_scale()
-		var _y1 = get_y_position() - get_y_alignment() * get_y_dimension() * get_y_scale()
-		var _x2 = _x1 + get_x_dimension() * get_x_scale()
-		var _y2 = _y1 + get_y_dimension() * get_y_scale()
+    /// ----------------------------------------------------------------------------
+    ///
+    /// ----------------------------------------------------------------------------
+    static draw = function() {
 
-		var _colour = get_colour_solid_fill()
-		var _alpha  = get_alpha_solid_fill()
+        var _x1 = get_x_position() - get_x_alignment() * get_x_dimension() * get_x_scale()
+        var _y1 = get_y_position() - get_y_alignment() * get_y_dimension() * get_y_scale()
+        var _x2 = _x1 + get_x_dimension() * get_x_scale()
+        var _y2 = _y1 + get_y_dimension() * get_y_scale()
 
-		var _vertices = [
-			{ x : _x1, y : _y1 },
-			{ x : _x1, y : _y2 },
-			{ x : _x2, y : _y1 },
-			{ x : _x1, y : _y2 },
-			{ x : _x2, y : _y1 },
-			{ x : _x2, y : _y2 },
-		]
+        var _colour = get_colour_solid_fill()
+        var _alpha  = get_alpha_solid_fill()
 
-		// BEGIN_DRAW
-		draw_primitive_begin(pr_trianglelist);
+        var _vertices = [
+            { x : _x1, y : _y1 },
+            { x : _x1, y : _y2 },
+            { x : _x2, y : _y1 },
+            { x : _x1, y : _y2 },
+            { x : _x2, y : _y1 },
+            { x : _x2, y : _y2 },
+        ]
 
-		for (var i = 0; i < array_length(_vertices); i++) {
-			var _new_x, _new_y, _new_z, _rotation
+        // BEGIN_DRAW
+        draw_primitive_begin(pr_trianglelist);
 
-			var _vertex = _vertices[i]
+        for (var i = 0; i < array_length(_vertices); i++) {
+            var _new_x, _new_y, _new_z, _rotation
 
-			/* ―――――――――――――――――――― GLOBAL_ORIGIN ―――――――――――――――――――― */
-			var _x = _vertex.x
-			var _y = _vertex.y
-			var _z = 0
+            var _vertex = _vertices[i]
 
-			_x -= get_x_position()
-			_y -= get_y_position()
+            /* ―――――――――――――――――――― GLOBAL_ORIGIN ―――――――――――――――――――― */
+            var _x = _vertex.x
+            var _y = _vertex.y
+            var _z = 0
 
-			/* ―――――――――――――――――――― X_ROTATION ―――――――――――――――――――― */
-			_rotation = - get_x_rotation() * 2 * pi
+            _x -= get_x_position()
+            _y -= get_y_position()
 
-			if (_rotation != 0) {
-				_new_y = _y * cos(_rotation) - _z * sin(_rotation)
-				_new_z = _y * sin(_rotation) + _z * cos(_rotation)
+            /* ―――――――――――――――――――― X_ROTATION ―――――――――――――――――――― */
+            _rotation = - get_x_rotation() * 2 * pi
 
-				_y = _new_y
-				_z = _new_z
+            if (_rotation != 0) {
+                _new_y = _y * cos(_rotation) - _z * sin(_rotation)
+                _new_z = _y * sin(_rotation) + _z * cos(_rotation)
 
-			}
+                _y = _new_y
+                _z = _new_z
 
-			/* ―――――――――――――――――――― Y_ROTATION ―――――――――――――――――――― */
-			_rotation = - get_y_rotation() * 2 * pi
+            }
 
-			if (_rotation != 0) {
-				_new_x =  _x * cos(_rotation) + _z * sin(_rotation)
-				_new_z = -_x * cos(_rotation) + _z * cos(_rotation)
+            /* ―――――――――――――――――――― Y_ROTATION ―――――――――――――――――――― */
+            _rotation = - get_y_rotation() * 2 * pi
 
-				_x = _new_x
-				_z = _new_z
-			}
+            if (_rotation != 0) {
+                _new_x =  _x * cos(_rotation) + _z * sin(_rotation)
+                _new_z = -_x * cos(_rotation) + _z * cos(_rotation)
 
-			/* ―――――――――――――――――――― Z_ROTATION ―――――――――――――――――――― */
-			_rotation = - get_z_rotation() * 2 * pi
+                _x = _new_x
+                _z = _new_z
+            }
 
-			if (_rotation != 0) {
-				_new_x = _x * cos(_rotation) - _y * sin(_rotation)
-				_new_y = _x * sin(_rotation) + _y * cos(_rotation)
+            /* ―――――――――――――――――――― Z_ROTATION ―――――――――――――――――――― */
+            _rotation = - get_z_rotation() * 2 * pi
 
-				_x = _new_x
-				_y = _new_y
-			}
+            if (_rotation != 0) {
+                _new_x = _x * cos(_rotation) - _y * sin(_rotation)
+                _new_y = _x * sin(_rotation) + _y * cos(_rotation)
 
-			/* ―――――――――――――――――――― LOCAL_ORIGIN ―――――――――――――――――――― */
-			_x += get_x_position()
-			_y += get_y_position()
+                _x = _new_x
+                _y = _new_y
+            }
 
-			_vertex.x = _x
-			_vertex.y = _y
+            /* ―――――――――――――――――――― LOCAL_ORIGIN ―――――――――――――――――――― */
+            _x += get_x_position()
+            _y += get_y_position()
 
-			 draw_vertex_colour(_vertex.x, _vertex.y, _colour, _alpha)
-		}
+            _vertex.x = _x
+            _vertex.y = _y
 
-		// END_DRAW
-		draw_primitive_end()
+             draw_vertex_colour(_vertex.x, _vertex.y, _colour, _alpha)
+        }
 
-		return self
-	}
+        // END_DRAW
+        draw_primitive_end()
+
+        return self
+    }
 
 }
 

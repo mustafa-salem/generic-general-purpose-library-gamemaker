@@ -162,8 +162,7 @@ function gamemaker_viewport_set_position(parameters = {}) {
 }
 
 /// `view_surface_id` `view_set_surface_id`
-/// @param {Struct} parameters
-/// The struct containing the arguments to pass to the function.
+/// @param {Struct} parameters The struct containing the arguments to pass to the function.
 /// @param {Struct.ViewPortGeneric|Real} parameters.viewport
 /// The view port to target or its index (0 - 7).
 /// @param {Type} parameters.surface_id
@@ -231,8 +230,7 @@ function gamemaker_viewport_set_y_position(parameters = {}) {
 }
 
 /// 
-/// @param {Struct} parameters
-/// The struct containing the arguments to pass to the function.
+/// @param {Struct} parameters The struct containing the arguments to pass to the function.
 /// @param {type} parameters.name
 /// @returns {type}
 function gamemaker_viewport(parameters = {}) {

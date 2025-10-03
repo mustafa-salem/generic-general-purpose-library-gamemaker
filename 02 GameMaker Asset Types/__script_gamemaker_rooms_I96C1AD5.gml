@@ -1,6 +1,12 @@
+/* global.entrance; create; set_event; .get; add_tags; get_id */
+
 // ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
 #region    ―――――――――――――――――――――――――――――――――――――――――― CONSTANTS ――――――――――――――――――――――――――――――――――――――――――――――――――――――――
 // ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
+
+#macro __GAMEMAKER_ROOM_CONTEXT __gamemaker_room_context()
+
+#macro __GAMEMAKER_ROOM_ASSETS __gamemaker_room_context()[$ "assets"]
 
 // ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
 #endregion ―――――――――――――――――――――――――――――――――――――――――― CONSTANTS ――――――――――――――――――――――――――――――――――――――――――――――――――――――――
@@ -10,14 +16,26 @@
 #region    ―――――――――――――――――――――――――――――――――――――――― INITIALIZATION ―――――――――――――――――――――――――――――――――――――――――――――――――――――
 // ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
 
-/// @param {type} name description
-/// @returns {Struct}
-function __gamemaker_room_context(parameters = {}) {
+__gamemaker_room_initialize();
+
+function __gamemaker_room_initialize() {
+    /// early return
+    if (global[$ "#gamemaker"] != undefined) {
+        return undefined;
+    }
+    var _roomhandles = asset_get_ids(asset_room);
+    for (var i = 0; i < array_length(_roomhandles); i++) {
+        var _room = new GameMakerObject();
+        _room[$ "#handle"] = _roomhandles[i];
+        __GAMEMAKER_CONTEXT[$ "rooms"][$ "assets"][$ i] = _room;
+    }
+    return undefined;
+}
+
+function __gamemaker_room_context() {
     static __context = (function() {
-        var _context = __gamemaker_context();
-        _context[$ "room"] = {};
-        _context[$ "room"][$ "rooms"] = {};
-        return _context[$ "room"];
+        __gamemaker_room_initialize();
+        return __GAMEMAKER_CONTEXT[$ "rooms"];
     })();
     return __context;
 }
@@ -30,100 +48,69 @@ function __gamemaker_room_context(parameters = {}) {
 #region    ―――――――――――――――――――――――――――――――――――――――――― FUNCTIONS ――――――――――――――――――――――――――――――――――――――――――――――――――――――――
 // ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
 
-/* global.entrance; create; set_event; .get; add_tags; get_id */
-
 /// @param {Asset} _handle description
 /// @param {String} _name description
 /// @returns {Struct.GameMakerRoom|Undefined}
 function __gamemaker_room_create(_handle, _name) {
-    static __context = __gamemaker_room_context();
+    ///
     var _room = new GameMakerRoom();
     _room[$ "#handle"] = _handle;
-    _room[$ "#name"] = _name;
+    _room[$ "#name"]   = _name;
     /// save room to lookup
-    __context[$ "rooms"][$ _name] = _room;
+    __GAMEMAKER_ROOM_ASSETS[$ _name] = _room;
     /// add room controller to room
-    var _instance = room_instance_add(_handle, 0, 0, __gamemaker_roomcontroller_object);
+    var _instance = room_instance_add(_handle, 0, 0, __object_gamemaker_roomcontroller);
+    ///
     return _room;
 }
 
-/// @param {Asset} argumen0 description
+/// @param {Asset} argument0 description
 /// @returns {Struct|Undefined}
-function __gamemaker_room_get(argumen0) {
-    static __context = __gamemaker_room_context();
-    if (__context[$ "rooms"][$ argumen0] == undefined) {
-        __gamemaker_room_create(argumen0, room_get_name(argumen0));
+function __gamemaker_room_get(argument0) {
+    ///
+    if (__GAMEMAKER_ROOM_ASSETS[$ argument0] == undefined) {
+        __gamemaker_room_create(argument0, room_get_name(argument0));
     }
-    return __context[$ "rooms"][$ room_get_name(argumen0)];
+    ///
+    return __GAMEMAKER_ROOM_ASSETS[$ room_get_name(argument0)];
 }
 
 // ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
+// ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
 
 /// If possible, resolves a value to an instance of `GameMakerRoom`; otherwise, returns `undefined`.
-/// @param {Asset.GMRoom|String} argumen0 The value to resolve.
+/// @param {Asset.GMRoom|String} argument0 The value to resolve.
 /// @returns {Struct.GameMakerRoom|Undefined}
-function gamemaker_room(argumen0) {
-    switch (typeof(argumen0)) {
+function gamemaker_room(argument0) {
+    var _room = undefined;
+    var _type = typeof(argument0);
+    switch (_type) {
     case "number":
-        return __gamemaker_room_get(argumen0);
+        return __gamemaker_room_get(argument0);
     case "ref":
-        var _thetobereturned = __gamemaker_room_get(argumen0);
-        return _thetobereturned;
+        _room = __gamemaker_room_get(argument0);
+        break;
     case "string":
-        var _room = asset_get_index(argumen0);
-        return __gamemaker_room_get(_room);
+        _room = asset_get_index(argument0);
+        _room = __gamemaker_room_get(_room);
+        break;
     case "struct":
-        return (is_instanceof(argumen0, GameMakerRoom) ? argumen0 : undefined);
-    default:
-        return undefined;
+        _room = (is_instanceof(argument0, GameMakerRoom) ? argument0 : undefined);
+        break;
     }
+    return _room;
 }
 
 /// If possible, resolves a value to the handle of a room; otherwise, returns `undefined`.
 /// @param {Any} argument0 The value to resolve.
 /// @returns {Asset.GMRoom|Undefined}
 function gamemaker_roomhandle(argument0) {
+    if (argument_count != 1) {
+        throw new ArgumentCountError($"'argument_count' must be 1, but is {argument_count}.");
+    }
     /// gamemaker_room_exists
     static __context = __gamemaker_room_context();
     return undefined;
-}
-
-/// Checks whether a room exists.
-/// ---
-/// `parameters.room` The room to target; it must be resolvable to a room.
-/// @param {Struct} parameters The struct containing the arguments to pass to the function.
-/// @returns {Bool}
-function gamemaker_room_exists(parameters) {
-    gamemaker_guard(argument_count != 1, new ArgumentCountError($"'argument_count' must be 1, but is {argument_count}."));
-    gamemaker_guard((typeof(parameters) != "struct"), new InvalidArgumentException($"'parameters' must be a struct, but is a {typeof(parameters)} (value: {parameters})."));
-    gamemaker_guard((not struct_exists(parameters, "room")), new InvalidArgumentException("'parameters.room' must be passed."));
-    var _room = parameters.room;
-    var _exists;
-    return _exists;
-}
-
-/// Gets the handle of a room.
-/// ---
-/// `parameters.room` The room to target; it must be resolvable to a room.
-/// @param {Struct} parameters The struct containing the arguments to pass to the function.
-/// @returns {Asset.GMRoom|Undefined}
-function gamemaker_room_get_handle(parameters) {
-    gamemaker_guard(argument_count != 1, new ArgumentCountError($"'argument_count' must be 1, but is {argument_count}."));
-    gamemaker_guard((typeof(parameters) != "struct"), new InvalidArgumentException($"'parameters' must be a struct, but is a {typeof(parameters)} (value: {parameters})."));
-    gamemaker_guard((not struct_exists(parameters, "room")), new InvalidArgumentException("'parameters.room' must be passed."));
-    return _return;
-}
-
-/// Gets the name of a room.
-/// ---
-/// `parameters.room` The room to target; it must be resolvable to a room.
-/// @param {Struct} parameters The struct containing the arguments to pass to the function.
-/// @returns {String|Undefined}
-function gamemaker_room_get_name(parameters) {
-    gamemaker_guard(argument_count != 1, new ArgumentCountError($"'argument_count' must be 1, but is {argument_count}."));
-    gamemaker_guard((typeof(parameters) != "struct"), new InvalidArgumentException($"'parameters' must be a struct, but is a {typeof(parameters)} (value: {parameters})."));
-    gamemaker_guard((not struct_exists(parameters, "room")), new InvalidArgumentException("'parameters.room' must be passed."));
-    return _return;
 }
 
 /// Creates a new, empty, room and adds it permanently to the game (until the executable is closed).
@@ -133,14 +120,61 @@ function gamemaker_room_get_name(parameters) {
 /// @param {Struct} [parameters]
 /// @returns {Struct.GameMakerRoom|Undefined}
 function gamemaker_room_create(parameters = {}) {
-    static __context = __gamemaker_room_context();
-    gamemaker_guard(argument_count != 1, new ArgumentCountError($"'argument_count' must be 1, but is {argument_count}."));
-    gamemaker_guard((typeof(parameters) != "struct"), new InvalidArgumentException($"'parameters' must be a struct, but is a {typeof(parameters)} (value: {parameters})."));
-    gamemaker_guard((not struct_exists(parameters, "room")), new InvalidArgumentException("'parameters.room' must be passed."));
+    /// Guard Clauses
+    if (argument_count != 1) {
+        throw new ArgumentCountError($"'argument_count' must be 1, but is {argument_count}.");
+    }
+    if (typeof(parameters) != "struct") {
+        throw new InvalidArgumentException($"'parameters' must be a struct, but is a {typeof(parameters)} (value: {parameters}).");
+    }
+    if (not struct_exists(parameters, "room")) {
+        throw new InvalidArgumentException("'parameters.room' must be passed.");
+    }
+    /// Main Functionality
     var _name = parameters.name;
     var _handle = room_add();
     var _room = __gamemaker_room_create(_handle, _name);
     return _room;
+}
+
+/// Checks whether a room exists.
+/// ---
+/// `parameters.room` The room to target; it must be resolvable to a room.
+/// @param {Struct} parameters The struct containing the arguments to pass to the function.
+/// @returns {Bool}
+function gamemaker_room_exists(parameters) {
+    /// Guard Clauses
+    if (argument_count != 1) {
+        throw new ArgumentCountError($"'argument_count' must be 1, but is {argument_count}.");
+    }
+    if (typeof(parameters) != "struct") {
+        throw new InvalidArgumentException($"'parameters' must be a struct, but is a {typeof(parameters)} (value: {parameters}).");
+    }
+    if (not struct_exists(parameters, "room")) {
+        throw new InvalidArgumentException("'parameters.room' must be passed.");
+    }
+    /// Main Functionality
+    var _room = parameters.room;
+    var _exists;
+    return _exists;
+}
+
+/// Gets the name of a room.
+/// ---
+/// `parameters.room` The room to target; it must be resolvable to a room.
+/// @param {Struct} parameters The struct containing the arguments to pass to the function.
+/// @returns {String|Undefined}
+function gamemaker_room_get_name(parameters) {
+    if (argument_count != 1) {
+        throw new ArgumentCountError($"'argument_count' must be 1, but is {argument_count}.");
+    }
+    if (typeof(parameters) != "struct") {
+        throw new InvalidArgumentException($"'parameters' must be a struct, but is a {typeof(parameters)} (value: {parameters}).");
+    }
+    if (not struct_exists(parameters, "room")) {
+        throw new InvalidArgumentException("'parameters.room' must be passed.");
+    }
+    return _return;
 }
 
 /// Checks whether the targeted room is persistent.
@@ -149,9 +183,15 @@ function gamemaker_room_create(parameters = {}) {
 /// @param {Struct} parameters The struct containing the arguments to pass to the function.
 /// @returns {Bool}
 function gamemaker_room_get_persistent(parameters) {
-    gamemaker_guard(argument_count != 1, new ArgumentCountError($"'argument_count' must be 1, but is {argument_count}."));
-    gamemaker_guard((typeof(parameters) != "struct"), new InvalidArgumentException($"'parameters' must be a struct, but is a {typeof(parameters)} (value: {parameters})."));
-    gamemaker_guard((not struct_exists(parameters, "room")), new InvalidArgumentException("'parameters.room' must be passed."));
+    if (argument_count != 1) {
+        throw new ArgumentCountError($"'argument_count' must be 1, but is {argument_count}.");
+    }
+    if (typeof(parameters) != "struct") {
+        throw new InvalidArgumentException($"'parameters' must be a struct, but is a {typeof(parameters)} (value: {parameters}).");
+    }
+    if (not struct_exists(parameters, "room")) {
+        throw new InvalidArgumentException("'parameters.room' must be passed.");
+    }
     return _return
 }
 
@@ -163,13 +203,23 @@ function gamemaker_room_get_persistent(parameters) {
 /// @param {Struct} parameters The struct containing the arguments to pass to the function.
 /// @returns {Undefined}
 function gamemaker_room_set_persistent(parameters) {
-    gamemaker_guard(argument_count != 1, new ArgumentCountError($"'argument_count' must be 1, but is {argument_count}."));
-    gamemaker_guard((typeof(parameters) != "struct"), new InvalidArgumentException($"'parameters' must be a struct, but is a {typeof(parameters)} (value: {parameters})."));
-    gamemaker_guard((not struct_exists(parameters, "room")), new InvalidArgumentException("'parameters.room' must be passed."));
-    gamemaker_guard(not struct_exists(parameters, "persistent"), "`parameters.persistent` must be passed");
+    if (argument_count != 1) {
+        throw new ArgumentCountError($"'argument_count' must be 1, but is {argument_count}.");
+    }
+    if (typeof(parameters) != "struct") {
+        throw new InvalidArgumentException($"'parameters' must be a struct, but is a {typeof(parameters)} (value: {parameters}).");
+    }
+    if (not struct_exists(parameters, "room")) {
+        throw new InvalidArgumentException("'parameters.room' must be passed.");
+    }
+    if (not struct_exists(parameters, "persistent")) {
+        throw ("`parameters.persistent` must be passed");
+    }
+    if (not is_bool(parameters.persistent)) {
+        throw ("persistent must be a boolean");
+    }
     var _room       = parameters[$ "room"];
     var _persistent = parameters[$ "persistent"];
-    gamemaker_guard(not is_bool(persistent), "persistent must be a boolean");
     if (_room == room) {
         room_persistent = _persistent
     } else {
@@ -178,15 +228,21 @@ function gamemaker_room_set_persistent(parameters) {
     return undefined;
 }
 
-/// Gets the x dimension, in pixels, of the targeted room.
+/// Gets the x dimension of the targeted room, in pixels.
 /// ---
 /// `parameters.room` The room to target; it must be resolvable to a room.
 /// @param {Struct} parameters The struct containing the arguments to pass to the function.
 /// @returns {Real}
 function gamemaker_room_get_x_dimension(parameters) {
-    gamemaker_guard(argument_count != 1, new ArgumentCountError($"'argument_count' must be 1, but is {argument_count}."));
-    gamemaker_guard((typeof(parameters) != "struct"), new InvalidArgumentException($"'parameters' must be a struct, but is a {typeof(parameters)} (value: {parameters})."));
-    gamemaker_guard((not struct_exists(parameters, "room")), new InvalidArgumentException("'parameters.room' must be passed."));
+    if (argument_count != 1) {
+        throw new ArgumentCountError($"'argument_count' must be 1, but is {argument_count}.");
+    }
+    if (typeof(parameters) != "struct") {
+        throw new InvalidArgumentException($"'parameters' must be a struct, but is a {typeof(parameters)} (value: {parameters}).");
+    }
+    if (not struct_exists(parameters, "room")) {
+        throw new InvalidArgumentException("'parameters.room' must be passed.");
+    }
     var _room = parameters[$ "room"];
     if (_room == room) {
         return room_width;
@@ -194,15 +250,21 @@ function gamemaker_room_get_x_dimension(parameters) {
     return room_get_info(_room).width;
 }
 
-/// Gets the y dimension, in pixels, of the targeted room.
+/// Gets the y dimension of the targeted room, in pixels.
 /// ---
 /// `parameters.room`
 /// @param {Struct} parameters The struct containing the arguments to pass to the function.
 /// @returns {Real}
 function gamemaker_room_get_y_dimension(parameters) {
-    gamemaker_guard(argument_count != 1, new ArgumentCountError($"'argument_count' must be 1, but is {argument_count}."));
-    gamemaker_guard((typeof(parameters) != "struct"), new InvalidArgumentException($"'parameters' must be a struct, but is a {typeof(parameters)} (value: {parameters})."));
-    gamemaker_guard((not struct_exists(parameters, "room")), new InvalidArgumentException("'parameters.room' must be passed."));
+    if (argument_count != 1) {
+        throw new ArgumentCountError($"'argument_count' must be 1, but is {argument_count}.");
+    }
+    if (typeof(parameters) != "struct") {
+        throw new InvalidArgumentException($"'parameters' must be a struct, but is a {typeof(parameters)} (value: {parameters}).");
+    }
+    if (not struct_exists(parameters, "room")) {
+        throw new InvalidArgumentException("'parameters.room' must be passed.");
+    }
     var _room = parameters[$ "room"];
     if (_room == room) {
         return room_height;
@@ -218,19 +280,30 @@ function gamemaker_room_get_y_dimension(parameters) {
 /// @param {Struct} parameters
 /// @returns {Undefined}
 function gamemaker_room_set_dimensions(parameters) {
-    gamemaker_guard(argument_count != 1, new ArgumentCountError($"'argument_count' must be 1, but is {argument_count}."));
-    gamemaker_guard((typeof(parameters) != "struct"), new InvalidArgumentException($"'parameters' must be a struct, but is a {typeof(parameters)} (value: {parameters})."));
-    gamemaker_guard((not struct_exists(parameters, "room")), new InvalidArgumentException("'parameters.room' must be passed."));
-    gamemaker_guard((not (struct_exists(parameters, "x") or struct_exists(parameters, "y"))), new InvalidArgumentException("'parameters' must have property 'x' and/or 'y'."));
-    /// typecheck #1
+    if (argument_count != 1) {
+        throw new ArgumentCountError($"'argument_count' must be 1, but is {argument_count}.");
+    }
+    if (typeof(parameters) != "struct") {
+        throw new InvalidArgumentException($"'parameters' must be a struct, but is a {typeof(parameters)} (value: {parameters}).");
+    }
+    if (not struct_exists(parameters, "room")) {
+        throw new InvalidArgumentException("'parameters.room' must be passed.");
+    }
+    if (not (struct_exists(parameters, "x") or struct_exists(parameters, "y"))) {
+        throw new InvalidArgumentException("'parameters' must have property 'x' and/or 'y'.");
+    }
+    if (_room == undefined) {
+        throw new Throwable("'room' must be a room.");
+    }
+    if (not is_numeric(_x_dimension)) {
+        throw new InvalidArgumentException("If 'parameters' has property 'x', it must be a positive number.");
+    }
+    if (not is_numeric(_y_dimension)) {
+        throw new InvalidArgumentException("If 'parameters' has property 'y', it must be a positive number.");
+    }
     var _room       = gamemaker_roomhandle(parameters[$ "room"]);
     var _x_dimension = parameters[$ "x"];
     var _y_dimension = parameters[$ "y"];
-    /// typecheck #2
-    gamemaker_guard((_room == undefined), new Throwable("'room' must be a room."));
-    gamemaker_guard((not is_numeric(_x_dimension)), new InvalidArgumentException("If 'parameters' has property 'x', it must be a positive number."));
-    gamemaker_guard((not is_numeric(_y_dimension)), new InvalidArgumentException("If 'parameters' has property 'y', it must be a positive number."));
-    /// function
     if (_room == room) {
         if (_x_dimension != undefined) {
             room_width = _x_dimension;
@@ -250,23 +323,29 @@ function gamemaker_room_set_dimensions(parameters) {
 }
 
 /// Makes the game go to a room.
-/// **NOTE:** Calling this function will trigger the Room End event.
-/// **NOTE:** Code in the same event after this function has been called will still run.
-/// **NOTE:** The room will not change until the end of the event where this function was called.
-/// **NOTE:** You cannot create non-persistent object instances for the rest of the event where this function was called.
+/// **NOTE:** If called, the rest of the current event will still be executed, but you cannot create non-persistent object instances for the rest of the event.
 /// **NOTE:** Persistent object instances of persistent objects will have their object variables set, but instances make
 /// persistent upon their creation will not.
+/// **NOTE:** After the current Object Event is done running, the Room End Event is executed for each instance, and then if the room is non-persistent Clean Up for each non-persistent instance.
+/// **NOTE:** `room` will not change until the Pre-Creation Code of the instances in the room to go to.
 /// ---
 /// `parameters.room` The room to target; it must be resolvable to a room.
 /// @param {Struct} parameters The struct containing the arguments to pass to the function.
 /// @returns {Undefined}
 function gamemaker_room_goto(parameters) {
-    gamemaker_guard(argument_count != 1, new ArgumentCountError($"'argument_count' must be 1, but is {argument_count}."));
-    gamemaker_guard((typeof(parameters) != "struct"), new InvalidArgumentException($"'parameters' must be a struct, but is a {typeof(parameters)} (value: {parameters})."));
-    gamemaker_guard((not struct_exists(parameters, "room")), new InvalidArgumentException("'parameters.room' must be passed."));
+    if (argument_count != 1) {
+        throw new ArgumentCountError($"'argument_count' must be 1, but is {argument_count}.");
+    }
+    if (typeof(parameters) != "struct") {
+        throw new InvalidArgumentException($"'parameters' must be a struct, but is a {typeof(parameters)} (value: {parameters}).");
+    }
+    if (not struct_exists(parameters, "room")) {
+        throw new InvalidArgumentException("'parameters.room' must be passed.");
+    }
     var _room = parameters[$ "room"];
-    var _room_handle = gamemaker_room_get_handle({ room : _room });
+    var _room_handle = gamemaker_roomhandle(_room);
     room_goto(_room_handle);
+    return undefined;
 }
 
 /// Restarts the current room.
@@ -280,17 +359,33 @@ function gamemaker_room_restart() {
 /// Attaches an event handler to a room.
 /// ---
 /// `parameters.room` The room to target; it must be resolvable to a room.
-/// `parameters.event` {String} The event to target.
-/// `parameters.handler` {Function} The handler to attach to the event.
+/// `parameters.event` The event to target; must be a string.
+/// `parameters.priority` The priority of the handler; must be a number.
+/// `parameters.handler` The handler to attach to the event; must be a function.
 /// @param {Struct} parameters The struct containing the arguments to pass to the function.
 /// @returns {Undefined}
 function gamemaker_room_attach_eventhandler(parameters) {
-    gamemaker_guard(argument_count != 1, new ArgumentCountError($"'argument_count' must be 1, but is {argument_count}."));
-    gamemaker_guard((typeof(parameters) != "struct"), new InvalidArgumentException($"'parameters' must be a struct, but is a {typeof(parameters)} (value: {parameters})."));
-    gamemaker_guard((not struct_exists(parameters, "room")), new InvalidArgumentException("'parameters.room' must be passed."));
+    /// Guard Clauses
+    if (argument_count != 1) {
+        throw new ArgumentCountError($"'argument_count' must be 1, but is {argument_count}.");
+    }
+    if (typeof(parameters) != "struct") {
+        throw new InvalidArgumentException($"'parameters' must be a struct, but is a {typeof(parameters)} (value: {parameters}).");
+    }
+    if (not struct_exists(parameters, "room")) {
+        throw new InvalidArgumentException("'parameters.room' must be passed.");
+    }
+    if (not struct_exists(parameters, "event")) {
+        throw new InvalidArgumentException("'parameters.event' must be passed.");
+    }
+    if (not struct_exists(parameters, "handler")) {
+        throw new InvalidArgumentException("'parameters.handler' must be passed.");
+    }
+    /// Main Functionality
     var _room    = parameters[$ "room"];
     var _event   = parameters[$ "event"];
     var _handler = parameters[$ "handler"];
+    _room = gamemaker_room(_room);
     _room[$ "#eventhandlers"][$ _event] ??= [];
     array_push(_room[$ "#eventhandlers"][$ _event], _handler);
     return undefined;
@@ -299,13 +394,29 @@ function gamemaker_room_attach_eventhandler(parameters) {
 /// Triggers an event on a room.
 /// ---
 /// `parameters.room` The room to target; it must be resolvable to a room.
-/// `parameters.event`
+/// `parameters.event` The event to trigger; it must be resolvable to an event.
 /// @param {Struct} parameters The struct containing the arguments to pass to the function.
 /// @returns {Undefined}
 function gamemaker_room_trigger_event(parameters) {
-    gamemaker_guard(argument_count != 1, new ArgumentCountError($"'argument_count' must be 1, but is {argument_count}."));
-    gamemaker_guard((typeof(parameters) != "struct"), new InvalidArgumentException($"'parameters' must be a struct, but is a {typeof(parameters)} (value: {parameters})."));
-    gamemaker_guard((not struct_exists(parameters, "room")), new InvalidArgumentException("'parameters.room' must be passed."));
+    var _room;
+    var _event;
+    var _eventhandlers;
+    if (argument_count != 1) {
+        throw new ArgumentCountError($"'argument_count' must be 1, but is {argument_count}.");
+    }
+    if (typeof(parameters) != "struct") {
+        throw new InvalidArgumentException($"'parameters' must be a struct, but is a {typeof(parameters)} (value: {parameters}).");
+    }
+    if (not struct_exists(parameters, "room")) {
+        throw new InvalidArgumentException("'parameters.room' must be passed.");
+    }
+    if (_room[$ "#eventhandlers"][$ _event] == undefined) {
+        return undefined;
+    }
+    _eventhandlers = _room[$ "#eventhandlers"][$ _event];
+    for (var i = 0; i < array_length(_eventhandlers); i++) {
+        _eventhandlers[i]();
+    }
     return undefined;
 }
 
@@ -315,10 +426,16 @@ function gamemaker_room_trigger_event(parameters) {
 /// @param {Struct} parameters The struct containing the arguments to pass to the function.
 /// @returns {Any}
 function gamemaker_room_get_entryway(parameters) {
-    gamemaker_guard(argument_count != 1, new ArgumentCountError($"'argument_count' must be 1, but is {argument_count}."));
-    gamemaker_guard((typeof(parameters) != "struct"), new InvalidArgumentException($"'parameters' must be a struct, but is a {typeof(parameters)} (value: {parameters})."));
-    gamemaker_guard((not struct_exists(parameters, "room")), new InvalidArgumentException("'parameters.room' must be passed."));
-    gamemaker_room(room).private.entrance = parameters.entrance;
+    if (argument_count != 1) {
+        throw new ArgumentCountError($"'argument_count' must be 1, but is {argument_count}.");
+    }
+    if (typeof(parameters) != "struct") {
+        throw new InvalidArgumentException($"'parameters' must be a struct, but is a {typeof(parameters)} (value: {parameters}).");
+    }
+    if (not struct_exists(parameters, "room")) {
+        throw new InvalidArgumentException("'parameters.room' must be passed.");
+    }
+    return gamemaker_room(room).private.entrance;
 }
 
 // ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
@@ -333,75 +450,69 @@ function GameMakerRoom() constructor {
 
     static prototype = {};
 
+    ///
+    self[$ "#handle"] = undefined;
+    /// 
+    self[$ "#name"] = undefined;
+    ///
+    self[$ "#eventhandlers"] = {};
+    
     /// @returns {Asset.GMRoom}
-    static get_handle = function(parameters = {}) {
+    get_handle = function() {
         return self[$ "#handle"];
     };
 
     /// @returns {String}
-    static get_name = function(parameters = {}) {
+    get_name = function() {
+        if (argument_count != 0) {
+            throw new ArgumentCountError($"'argument_count' must be 0, but is {argument_count}.");
+        }
         return self[$ "#name"];
     };
 
-    /// @returns {Struct.GameMakerRoom} self
-    static goto = function(parameters = {}) {
+    /// @returns {Struct} self
+    goto = function(parameters = {}) {
         parameters.room = self;
         gamemaker_room_goto(parameters);
         return undefined;
     };
     
-    /// @returns {Struct.GameMakerRoom} self
-    static restart = function() {
+    /// @returns {Struct} self
+    restart = function() {
         return self;
-    }
+    };
     
     /// @returns {Real}
-    static get_x_dimension = function(parameters = {}) {
+    get_x_dimension = function() {
         parameters.room = self;
         return gamemaker_room_get_x_dimension(parameters);
-    }
+    };
     
     /// @returns {Real}
-    static get_y_dimension = function(parameters = {}) {
+    get_y_dimension = function() {
         parameters.room = self;
         return gamemaker_room_get_y_dimension(parameters);
-    }
+    };
     
-    /// 
-    /// @returns {Struct.GameMakerRoom} self
-    static set_dimensions = function(parameters = {}) {
+    /// @returns {Struct} self
+    set_dimensions = function(parameters) {
         parameters.room = self;
         gamemaker_room_set_dimensions(parameters);
         return self;
-    }
+    };
 
-    /// @returns {Struct.GameMakerRoom} self
-    static attach_eventhandler = function(parameters = {}) {
+    /// @returns {Struct} self
+    attach_eventhandler = function(parameters) {
         parameters.room = self;
         gamemaker_room_attach_eventhandler(parameters);
         return self;
     };
     
-    /// @returns {Struct.GameMakerRoom} self
-    static trigger_event = function(parameters = {}) {
-        parameters.room = self;
-        gamemaker_room_trigger_event(parameters);
+    /// @returns {Struct} self
+    trigger_event = function(_event) {
+        gamemaker_room_trigger_event({ room: self, event: _event });
         return self;
     };
-    
-    self.get_handle          = method(self, get_handle);
-    self.get_name            = method(self, get_name);
-    self.goto                = method(self, goto);
-    self.get_x_dimension     = method(self, get_x_dimension);
-    self.get_y_dimension     = method(self, get_y_dimension);
-    self.set_dimensions      = method(self, set_dimensions);
-    self.restart             = method(self, restart);
-    self.attach_eventhandler = method(self, attach_eventhandler);
-    self.trigger_event       = method(self, trigger_event);
-    
-    self[$ "#handle"] = undefined;
-    self[$ "#name"]   = undefined;
-    self[$ "#eventhandlers"] = {};
 
 }
 
@@ -413,13 +524,19 @@ function GameMakerRoom() constructor {
 #region    ―――――――――――――――――――― OBJECTS ――――――――――――――――――――
 // ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
 
-gamemaker_object(__gamemaker_roomcontroller_object)
-.attach_eventhandler({ event : "create_event", handler : function() {
-    gamemaker_room(room).trigger_event({ event : "create_event" });
+gamemaker_object(__object_gamemaker_roomcontroller)
+.attach_eventhandler({ event: "Create Event", handler: function() {
+    gamemaker_room(room).trigger_event("Create Event");
 }})
-.attach_eventhandler({ event : "room_start_event", handler : function() {
-    gamemaker_room(room).trigger_event({ event : "room_start_event" });
+.attach_eventhandler({ event: "Clean Up Event", handler: function() {
+    gamemaker_room(room).trigger_event("Clean Up Event");
 }})
+.attach_eventhandler({ event: "Room Start Event", handler: function() {
+    gamemaker_room(room).trigger_event("Room Start Event");
+}})
+.attach_eventhandler({ event: "Room End Event", handler: function() {
+    gamemaker_room(room).trigger_event("Room End Event");
+}});
 
 // ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
 #endregion ―――――――――――――――――――― OBJECTS ――――――――――――――――――――

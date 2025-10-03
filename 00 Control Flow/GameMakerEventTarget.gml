@@ -12,8 +12,7 @@ static trigger_event = function(parameters = {}) {
 }
 
 /// 
-/// @param {Struct} parameters
-/// The struct containing the arguments to pass to the function.
+/// @param {Struct} parameters The struct containing the arguments to pass to the function.
 /// @param {type} parameters.name
 /// @returns {Struct|Undefined}
 /// The struct serving as the event handler or undefined if it doesn't exist.
@@ -22,8 +21,7 @@ function eventtarget_get_eventhandler(parameters = {}) {
 }
 
 /// 
-/// @param {Struct} parameters
-/// The struct containing the arguments to pass to the function.
+/// @param {Struct} parameters The struct containing the arguments to pass to the function.
 /// @param {type} parameters.event
 /// @param {type} parameters.name
 /// @param {type} parameters.priority
@@ -52,8 +50,7 @@ function eventtarget_detach_eventhandler(parameters = {}) {
 }
 
 /// 
-/// @param {Struct} parameters
-/// The struct containing the arguments to pass to the function.
+/// @param {Struct} parameters The struct containing the arguments to pass to the function.
 /// @param {type} parameters.event
 /// @returns {Struct} self
 function eventtarget_trigger_event(parameters = {}) {

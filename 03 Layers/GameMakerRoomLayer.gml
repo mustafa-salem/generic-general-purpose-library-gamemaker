@@ -1,73 +1,60 @@
 // ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
-#region    ―――――――――――――――――――――――――――――――――――――――――― CONSTANTS ――――――――――――――――――――――――――――――――――――――――――――――――――――――――
+#region    ―――――――――――――――――――――――――――――――――――――――――― FUNCTIONS ――――――――――――――――――――――――――――――――――――――――――――――――――――――――
 // ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
 
+function gamemaker_roomlayer(argument0) {
+
+}
+
+function gamemaker_roomlayer_exists(parameters) {
+    return layer_exists(parameters.layer)
+}
+
+
+function gamemaker_roomlayer_get_elements(parameters) {
+    return layer_get_all_elements(parameters.layer)
+}
+
+/// 
+/// @param {type} parameter_name
+/// @returns {type}
+function gamemaker_roomlayer_create(parameters = {}) {
+    layer_create(depth, [name])
+    return undefined
+}
+
+/// 
+/// @param {type} parameter_name
+/// @returns {type}
+function gamemaker_roomlayer_destroy(parameters) {
+    layer_destroy(layer_id)
+    return undefined
+}
+
+function gamemaker_roomlayer_set_targetroom() {
+    /// layer_set_target_room
+}
+
+function gamemaker_roomlayer_get_objectinstances() {
+    /// layer_instance_get_instance
+}
+
 // ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
-#endregion ―――――――――――――――――――――――――――――――――――――――――― CONSTANTS ――――――――――――――――――――――――――――――――――――――――――――――――――――――――
+#endregion ―――――――――――――――――――――――――――――――――――――――――― FUNCTIONS ――――――――――――――――――――――――――――――――――――――――――――――――――――――――
 // ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
 
 // ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
 #region    ――――――――――――――――――――――――――――――――――――――――― CONSTRUCTORS ――――――――――――――――――――――――――――――――――――――――――――――――――――――
 // ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
 
-function SoundInstance() constructor {
+function GameMakerRoomLayer() constructor {
 
-    voice = function(arguments = {}) {
-        if (arguments.value) { private.voice = arguments.value }
-        return private.voice
-    }
+    /// get_elements
 
-    exists = function(arguments = {}) {
-        arguments.target = self
-        return gamemaker_sound_exists(arguments)
-    }
-
-    stop = function(arguments = {}) {
-        arguments.target = self
-        gamemaker_sound_stop(arguments)
-    }
-
-    stop_callback = function(arguments = {}) {
-        arguments.target = self
-        return gamemaker_sound_set_stop_callback(arguments)
-    }
-
-    paused = function(arguments = {}) {
-        arguments.target = self
-        return gamemaker_sound_is_paused(arguments)
-    }
-
-    looping = function(arguments = {}) {
-        arguments.target = self
-        return gamemaker_sound_is_looping(arguments)
-    }
-
-    persistent = function(arguments = {}) {
-        arguments.target = self
-        return gamemaker_sound_is_persistent(arguments)
-    }
-
-    gain = function(arguments = {}) {
-        arguments.target = self
-        return gamemaker_sound_get_gain(arguments)
-    }
-
-    pitch = function(arguments = {}) {
-        arguments.target = self
-        return gamemaker_sound_get_pitch(arguments)
-    }
-
-    length = function(arguments = {}) {
-        arguments.target = self
-        return gamemaker_sound_get_length(arguments)
-    }
-
-    playback_position = function(arguments = {}) {
-        arguments.target = self
-        return gamemaker_sound_get_track_position(arguments)
-    }
+    /// get_objectinstances
 
 }
+
 // ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
 #endregion ――――――――――――――――――――――――――――――――――――――――― CONSTRUCTORS ――――――――――――――――――――――――――――――――――――――――――――――――――――――
 // ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――

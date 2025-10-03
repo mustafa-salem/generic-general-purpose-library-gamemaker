@@ -40,10 +40,11 @@ function gamemaker_sound_exists(parameters = {}) {
 
 /// Plays any sound asset using any combination of parameters.
 /// ---
-/// `parameters.sound` <parameter_description>
-/// `parameters.loop` {Bool}
-/// `parameters.gain` <parameter_description>
-/// `parameters.pitch` <parameter_description>
+/// `parameters.sound` (Sound Asset or Audio Queue ID, required)
+/// `parameters.priority` (Real, optional), defaults to 0
+/// `parameters.loop` (Boolean, optional), defaults to false
+/// `parameters.gain` (Real, optional), defaults to 1.0
+/// `parameters.pitch` (Real, optional), defaults to 1.0
 /// @param {Struct} parameters The struct containing the arguments to pass to the function.
 /// @returns {Struct}
 function gamemaker_sound_play(parameters) {
@@ -282,7 +283,7 @@ function gamemaker_sound_get_pitch(arguments = {}) {
         // SET
         if (struct_exists(arguments, "value")) {
             if (struct_exists(arguments, "duration_seconds")) {
-                var _current_value = gamemaker_sound_get_gain({ sound : arguments.target })
+                var _current_value = gamemaker_sound_get_gain({ sound: arguments.target })
                 var _rate = abs((_current_value - arguments.value) / arguments.duration_seconds)
                 VinylPitchTargetSet(arguments.target, arguments.value, _rate)
             } else {
@@ -343,6 +344,81 @@ function Sound() constructor {
 
 }
 
+// ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
+#endregion ――――――――――――――――――――――――――――――――――――――――― CONSTRUCTORS ――――――――――――――――――――――――――――――――――――――――――――――――――――――
+// ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
+
+// ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
+#region    ―――――――――――――――――――――――――――――――――――――――――― CONSTANTS ――――――――――――――――――――――――――――――――――――――――――――――――――――――――
+// ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
+
+// ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
+#endregion ―――――――――――――――――――――――――――――――――――――――――― CONSTANTS ――――――――――――――――――――――――――――――――――――――――――――――――――――――――
+// ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
+
+// ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
+#region    ――――――――――――――――――――――――――――――――――――――――― CONSTRUCTORS ――――――――――――――――――――――――――――――――――――――――――――――――――――――
+// ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
+
+/// GameMakerSoundInstance
+function SoundInstance() constructor {
+
+    voice = function(arguments = {}) {
+        if (arguments.value) { private.voice = arguments.value }
+        return private.voice
+    }
+
+    exists = function(arguments = {}) {
+        arguments.target = self
+        return gamemaker_sound_exists(arguments)
+    }
+
+    stop = function(arguments = {}) {
+        arguments.target = self
+        gamemaker_sound_stop(arguments)
+    }
+
+    stop_callback = function(arguments = {}) {
+        arguments.target = self
+        return gamemaker_sound_set_stop_callback(arguments)
+    }
+
+    paused = function(arguments = {}) {
+        arguments.target = self
+        return gamemaker_sound_is_paused(arguments)
+    }
+
+    looping = function(arguments = {}) {
+        arguments.target = self
+        return gamemaker_sound_is_looping(arguments)
+    }
+
+    persistent = function(arguments = {}) {
+        arguments.target = self
+        return gamemaker_sound_is_persistent(arguments)
+    }
+
+    gain = function(arguments = {}) {
+        arguments.target = self
+        return gamemaker_sound_get_gain(arguments)
+    }
+
+    pitch = function(arguments = {}) {
+        arguments.target = self
+        return gamemaker_sound_get_pitch(arguments)
+    }
+
+    length = function(arguments = {}) {
+        arguments.target = self
+        return gamemaker_sound_get_length(arguments)
+    }
+
+    playback_position = function(arguments = {}) {
+        arguments.target = self
+        return gamemaker_sound_get_track_position(arguments)
+    }
+
+}
 // ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
 #endregion ――――――――――――――――――――――――――――――――――――――――― CONSTRUCTORS ――――――――――――――――――――――――――――――――――――――――――――――――――――――
 // ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――

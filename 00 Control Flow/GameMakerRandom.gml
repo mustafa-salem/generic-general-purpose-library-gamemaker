@@ -11,3 +11,8 @@
 function gamemaker_random_choices(parameters = {}) {
     return _return
 }
+
+/// Checks whether a random event with a certain percentage likelyhood should happen.
+function gm_random_chance(argument0) {
+    return random(1) > argument0; 
+}

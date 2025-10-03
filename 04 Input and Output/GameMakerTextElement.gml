@@ -24,8 +24,7 @@ function gamemaker_textelement_draw(parameters = {}) {
 }
 
 /// 
-/// @param {Struct} parameters
-/// The struct containing the arguments to pass to the function.
+/// @param {Struct} parameters The struct containing the arguments to pass to the function.
 /// @param {Struct.GameMakerTextElement} parameters.textelement
 /// The textelement to target.
 /// @returns {Real}
@@ -311,8 +310,8 @@ function GameMakerTextElement() constructor {
 
     static id_counter = 0
 
-	self.private = {
-		id : 0,
+    self.private = {
+        id : 0,
         font
         colour
         x_alignment
@@ -334,14 +333,14 @@ function GameMakerTextElement() constructor {
         return private.scribble_text_element
     }
 
-    static set_scale = function(parameters = {}) {
+    static set_scaling = function(parameters = {}) {
         if (parameters[$ "x"] != undefined) { private.scale.x = parameters.x }
         if (parameters[$ "y"] != undefined) { private.scale.y = parameters.y }
         private.scribble_text_element.transform(private.scale.x, private.scale.y, private.rotation * 360)
         return self
     }
 
-    self.set_scale = method(self, set_scale)
+    self.set_scaling = method(self, set_scaling)
 
     static set_solid_blend = function(arguments = {}) {
         return self
@@ -392,8 +391,8 @@ function GameMakerTextElement() constructor {
     }
 
     static set_position = function(arguments) {
-		if (!is_undefined(arguments[$ "x"])) { private.position.x = arguments.x }
-		if (!is_undefined(arguments[$ "y"])) { private.position.y = arguments.y }
+        if (!is_undefined(arguments[$ "x"])) { private.position.x = arguments.x }
+        if (!is_undefined(arguments[$ "y"])) { private.position.y = arguments.y }
         return self
     }
 

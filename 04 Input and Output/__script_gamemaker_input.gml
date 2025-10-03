@@ -1,38 +1,43 @@
+/// Checks whether the verb is active; whether the verb is “active” i.e. a button is being held down, an analogue stick has been moved etc.
+/// ---
+/// `parameters.input` Verb to target
+/// `parameters.player` Player to target. If not specified, player 0 is used
+/// @param {Struct} parameters The struct containing the arguments to pass to the function.
+/// @returns {Bool}
 function gamemaker_input_check(parameters) {
-    return input_check(parameters.input, parameters.player, parameters.buffer_duration)
+    var _active = InputCheck(parameters.input, parameters.player);
+    return _active;
 }
 
 function input_check_all_pressed(_verb, _player_index, _buffer_duration) {
-	for (var i = 0; i < (array_length(_verb)); i++) {
-		if (!input_check_pressed(_verb[i], _player_index, _buffer_duration)) { return false }
-	}
-	return true
+    for (var i = 0; i < (array_length(_verb)); i++) {
+        if (!input_check_pressed(_verb[i], _player_index, _buffer_duration)) { return false }
+    }
+    return true
 }
 
-/// 
-/// @param {Type} input
-/// @param {Type} player
-/// @param {Type} buffer_duration
+/// Whether the targeted 'verb' has been newly actived in the most current step.
+/// ---
+/// `parameters.input` 
+/// `parameters.player` 
+/// @param {Struct} parameters The struct containing the arguments to pass to the function.
 /// @returns {Bool}
 function gamemaker_input_check_pressed(parameters) {
-    return input_check_pressed(parameters.input, parameters.player, parameters.buffer_duration)
+    var _pressed = InputPressed(parameters.input, parameters.player);
+    return _pressed;
 }
 
 /// 
-/// @param {Struct} parameters
-/// The struct containing the arguments to pass to the function.
-/// @param {type} parameters.name
-/// @param {type} parameters.name
-/// @param {type} parameters.name
-/// @param {type} parameters.name
+/// ---
+/// @param {Struct} parameters The struct containing the arguments to pass to the function.
 /// @returns {type}
 function gamemaker_input_opposing_pressed(parameters) {
     return InputOpposingPressed(parameters.negative_input, parameters.positive_input, parameters.player, parameters.most_recent);
 }
 
 /// 
-/// @param {Struct} parameters
-/// The struct containing the arguments to pass to the function.
+/// ---
+/// @param {Struct} parameters The struct containing the arguments to pass to the function.
 /// @param {type} parameters.name
 /// @returns {type}
 function gamemaker_input_verbcount(parameters = {}) {
@@ -40,6 +45,8 @@ function gamemaker_input_verbcount(parameters = {}) {
 }
 
 /// 
+/// ---
+/// @param {Struct} parameters The struct containing the arguments to pass to the function.
 /// @param {type} command
 /// @param {type} [player]
 /// @returns {Undefined}
@@ -51,6 +58,8 @@ function gamemaker_input_verb_consume(parameters = {}) {
 }
 
 /// 
+/// ---
+/// @param {Struct} parameters The struct containing the arguments to pass to the function.
 /// @param {string} input
 /// @param {integer} player
 /// @param {Bool} most_recent
@@ -60,19 +69,16 @@ function gamemaker_input_get_exclusive_active_name(parameters) {
 }
 
 /// 
-/// @param {type} parameter_name
-/// @param {type} parameter_name
+/// ---
+/// @param {Struct} parameters The struct containing the arguments to pass to the function.
 /// @returns {string|undefined}
 function gamemaker_input_check_exclusive_pressed(parameters = {}) {
     return _return
 }
 
 /// 
-/// @param {Struct} parameters
-/// @param {type} parameters.parameter_name
-/// @param {type} parameters.parameter_name
-/// @param {type} parameters.parameter_name
-/// @param {type} parameters.parameter_name
+/// ---
+/// @param {Struct} parameters The struct containing the arguments to pass to the function.
 /// @returns {type}
 gamemaker_input_get_held_duration = function(parameters) {
 
@@ -83,12 +89,13 @@ gamemaker_input_get_held_duration = function(parameters) {
     return _return
 }
 
+/// 
+/// ---
+/// @param {Struct} parameters The struct containing the arguments to pass to the function.
 function gamemaker_input_check_opposing(parameters) {
-	input_check_opposing(verbNegative, verbPositive, [playerIndex], [mostRecent])
-	input_check_opposing_repeat(verbNegative, verbPositive, [playerIndex], [mostRecent], [delay], [predelay])
+    input_check_opposing(verbNegative, verbPositive, [playerIndex], [mostRecent])
+    input_check_opposing_repeat(verbNegative, verbPositive, [playerIndex], [mostRecent], [delay], [predelay])
 }
-
-#region    ―――――――――――――――――――― SYSTEM_DATA ――――――――――――――――――――
 
 function gamemaker_input_export_system_data(parameters) {
     return input_system_export(parameters.stringify, parameters.prettify)
@@ -155,10 +162,6 @@ function gamemaker_input_load_system_data_from_file() {
     }
 }
 
-#endregion ―――――――――――――――――――― SYSTEM_DATA ――――――――――――――――――――
-
-#region    ―――――――――――――――――――― SUBREGION_NAME ――――――――――――――――――――
-
 /// 
 /// @param {Struct} default
 /// @param {type} left
@@ -171,8 +174,6 @@ function gamemaker_input_load_system_data_from_file() {
 function gamemaker_input_get_direction_degrees() {
     input_direction(default, verbLeft, verbRight, verbUp, verbDown, [playerIndex], [mostRecent])
 }
-
-#endregion ―――――――――――――――――――― SUBREGION_NAME ――――――――――――――――――――
 
 #macro DEFAULT_FILEPATH_SYSTEM_CONFIG_INPUT_GENERIC "controls.json"
 
@@ -301,10 +302,10 @@ function InputController() : InputControllerGeneric() constructor {
 }
 
 function input_check_all_pressed(_verb, _player_index, _buffer_duration) {
-	for (var i = 0; i < (array_length(_verb)); i++) {
-		if (!input_check_pressed(_verb[i], _player_index, _buffer_duration)) { return false }
-	}
-	return true
+    for (var i = 0; i < (array_length(_verb)); i++) {
+        if (!input_check_pressed(_verb[i], _player_index, _buffer_duration)) { return false }
+    }
+    return true
 }
 
 /*

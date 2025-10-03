@@ -6,9 +6,9 @@
 /// ---
 /// description
 /// @param {Struct} parameters The struct containing the arguments to pass to the function.
-/// @returns {type}
+/// @returns {Struct|Undefined}
 function gamemaker_font(parameters) {
-    return _return
+    return undefined;
 }
 
 /// description
@@ -28,13 +28,13 @@ function gamemaker_font_create(parameters) {
 
 /// description
 /// ---
-/// font
-/// spr
-/// string_map
-/// proportional
-/// space
+/// `parameters.font`
+/// `parameters.spr`
+/// `parameters.string_map`
+/// `parameters.proportional`
+/// `parameters.space`
 /// @param {Struct} parameters The struct containing the arguments to pass to the function.
-/// @returns {type}
+/// @returns {Struct}
 function gamemaker_font_create(parameters) {
     font_add_sprite(spr, first, prop, sep);
     font_add_sprite_ext(spr, string_map, prop, sep);

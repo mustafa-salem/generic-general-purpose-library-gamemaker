@@ -1,48 +1,55 @@
-function GameMakerGameProperty() constructor {
-    
-}
+// ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
+#region    ―――――――――――――――――――――――――――――――――――――――――― FUNCTIONS ――――――――――――――――――――――――――――――――――――――――――――――――――――――――
+// ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
+
+/// property
+/// propertydescriptor
 
 /// `gameproperty`
 /// `gameproperties`
 
 /// 
-/// @param {Struct} parameters
-/// The struct containing the arguments to pass to the function.
-/// @param {type} parameters.name
-/// <description>
-/// @returns {type}
-function gamemaker_gameproperty_define(parameters = {}) {
-    return _return
+/// ---
+/// `parameters.`
+/// @param {Struct} parameters The struct containing the arguments to pass to the function.
+/// @returns {}
+function gamemaker_gameproperty() {
+
 }
 
 /// 
-/// @param {type} name
-/// <parameter_description>
-/// @param {type} value
-/// <parameter_description>
-/// @returns {type}
-function gamemaker_gameproperty_get(parameters = {}) {
-    return _return
+/// ---
+/// `parameters.`
+/// @param {Struct} parameters The struct containing the arguments to pass to the function.
+/// @returns {}
+function gamemaker_gameproperty_define(parameters) {
+    return _return;
 }
 
 /// 
-/// @param {type} name
-/// <parameter_description>
-/// @param {type} value
-/// <parameter_description>
-/// @returns {type}
-function gamemaker_gameproperty_set(parameters = {}) {
-    return _return
+/// ---
+/// `parameters.`
+/// @param {Struct} parameters The struct containing the arguments to pass to the function.
+/// @returns {}
+function gamemaker_gameproperty_get(parameters) {
+    return _return;
 }
 
-
-function gamemaker_gameproperty_stringify(parameters = {}) {
-    return {
-        name : "",
-    };
+/// 
+/// ---
+/// `parameters.`
+/// @param {Struct} parameters The struct containing the arguments to pass to the function.
+/// @returns {}
+function gamemaker_gameproperty_set(parameters) {
+    return _return;
 }
 
-function gamemaker_gameproperties_stringify(parameters = {}) {
+/// 
+/// ---
+/// `parameters.`
+/// @param {Struct} parameters The struct containing the arguments to pass to the function.
+/// @returns {}
+function gamemaker_gamepropertys_stringify(parameters) {
     var _data = {};
     struct_foreach(_data, method(_data, function(_name, _value) {
         self[$ _name] = {
@@ -51,3 +58,106 @@ function gamemaker_gameproperties_stringify(parameters = {}) {
     }))
     return _data;
 }
+
+// ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
+
+/// 
+/// ---
+/// `parameters.name`
+/// `parameters.`
+/// @param {Struct} parameters The struct containing the arguments to pass to the function.
+/// @returns {}
+function gamemaker_quest_create(parameters) {
+    return _return;
+}
+
+/// 
+/// ---
+/// `parameters.quest` The 'Quest' to target.
+/// `parameters.`
+/// @param {Struct} parameters The struct containing the arguments to pass to the function.
+/// @returns {}
+function gamemaker_quest(argument0) {
+    return _return;
+}
+
+/// Gets the progress of the targeted quest.
+/// ---
+/// `parameters.quest` The 'Quest' to target.
+/// `parameters.`
+/// @param {Struct} parameters The struct containing the arguments to pass to the function.
+/// @returns {}
+function gamemaker_quest_get_progress(parameters) {
+    return _return;
+}
+
+/// 
+/// ---
+/// `parameters.quest` The 'Quest' to target.
+/// `parameters.`
+/// @param {Struct} parameters The struct containing the arguments to pass to the function.
+/// @returns {}
+function gamemaker_quest_set_progress(parameters) {
+    return _return;
+}
+
+/// 
+/// ---
+/// `parameters.quest` The 'Quest' to target.
+/// `parameters.`
+/// @param {Struct} parameters The struct containing the arguments to pass to the function.
+/// @returns {}
+function gamemaker_quest_trigger_progress(parameters) {
+    return _return;
+}
+
+/// 
+/// ---
+/// `parameters.quest` The 'Quest' to target.
+/// `parameters.`
+/// @param {Struct} parameters The struct containing the arguments to pass to the function.
+/// @returns {}
+function gamemaker_quest_advanceto_milestone(parameters) {
+    return _return;
+}
+
+/// 
+/// ---
+/// `parameters.quest` The 'Quest' to target.
+/// `parameters.`
+/// @param {Struct} parameters The struct containing the arguments to pass to the function.
+/// @returns {}
+function gamemaker_quest_set_status(parameters) {
+    return undefined;
+}
+
+/// 
+/// ---
+/// `parameters.quest` The 'Quest' to target.
+/// `parameters.`
+/// @param {Struct} parameters The struct containing the arguments to pass to the function.
+/// @returns {}
+function gamemaker_quest_is_failed(parameters) {
+    return _return;
+}
+
+// ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
+#endregion ―――――――――――――――――――――――――――――――――――――――――― FUNCTIONS ――――――――――――――――――――――――――――――――――――――――――――――――――――――――
+// ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
+
+// ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
+#region    ――――――――――――――――――――――――――――――――――――――――― CONSTRUCTORS ――――――――――――――――――――――――――――――――――――――――――――――――――――――
+// ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
+
+function GameMakerGameProperty() constructor {
+    /// get
+    /// set
+}
+
+function GameMakerQuest() constructor {
+
+}
+
+// ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
+#endregion ――――――――――――――――――――――――――――――――――――――――― CONSTRUCTORS ――――――――――――――――――――――――――――――――――――――――――――――――――――――
+// ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
