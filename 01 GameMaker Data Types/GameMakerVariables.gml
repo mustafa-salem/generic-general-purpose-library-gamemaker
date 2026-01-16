@@ -4,44 +4,9 @@ get_count_instance_variable_generic
 get_instance_variable_generic
 set_instance_variable_generic
 
-/*******************************************************************************/
-#region    ―――――――――――――――――――― GLOBAL_VARIABLE ――――――――――――――――――――
-/*******************************************************************************/
-
 // variable_global_exists
-///
-/// <function_description>
-/// @param {Struct} arguments <parameter_description>
-/// @returns {type} <return_description>
-exists_global_variable_generic = function(arguments = {}) {
-    return _return
-}
-
 // variable_global_get
-///
-/// <function_description>
-/// @param {Struct} arguments <parameter_description>
-/// @returns {type} <return_description>
-get_global_variable_generic = function(arguments = {}) {
-    return _return
-}
-
 // variable_global_set
-///
-/// <function_description>
-/// @param {Struct} arguments <parameter_description>
-/// @returns {type} <return_description>
-set_global_variable_generic = function(arguments = {}) {
-    return _return
-}
-
-/*******************************************************************************/
-#endregion ―――――――――――――――――――― GLOBAL_VARIABLE ――――――――――――――――――――
-/*******************************************************************************/
-
-/*******************************************************************************/
-#region    ―――――――――――――――――――― INSTANCE_VARIABLE ――――――――――――――――――――
-/*******************************************************************************/
 
 ///
 /// <function_description>
@@ -57,7 +22,3 @@ function initialize_instance_variable_generic(arguments = {}) {
         }
     }
 }
-
-/*******************************************************************************/
-#endregion ―――――――――――――――――――― INSTANCE_VARIABLE ――――――――――――――――――――
-/*******************************************************************************/

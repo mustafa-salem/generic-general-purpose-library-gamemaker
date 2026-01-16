@@ -30,7 +30,7 @@ function gamemaker_window_reset_caption(parameters = {}) {
 function gamemaker_window_center() {
     window_center();
     return undefined;
-    /// gamemaker_call_later({ delay_frames : 1, callback : window_center });
+    /// gamemaker_call_later({ delay_frames: 1, callback : window_center });
     /// do this manually to avoid delay
     /// window_set_position(x, y)
 }

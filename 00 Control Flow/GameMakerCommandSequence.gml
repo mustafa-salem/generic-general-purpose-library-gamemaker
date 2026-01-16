@@ -939,7 +939,7 @@ gamemaker_construct_create({ name: "cutscene_object", parent: "In-Game Event" })
     msgside = -1
     zurasu = 0
     mysound = -1
-    initialized = 0
+    initialised = 0
     actor_selected = "noone"
     actor_selected_id = 99999999
     for (var i = 0; i < 20; i++) {
@@ -952,8 +952,8 @@ gamemaker_construct_create({ name: "cutscene_object", parent: "In-Game Event" })
 }})
 
 .attach_eventhandler({ event: "Step Event", handler: function() {
-    if (initialized == 0) {
-        initialized = 1
+    if (initialised == 0) {
+        initialised = 1
     if (waiting == 0) {
         i = current_command
         while (i < maximum_command) {

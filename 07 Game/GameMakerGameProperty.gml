@@ -13,7 +13,7 @@
 /// `parameters.`
 /// @param {Struct} parameters The struct containing the arguments to pass to the function.
 /// @returns {}
-function gamemaker_gameproperty() {
+function gamemaker_property() {
 
 }
 
@@ -22,7 +22,7 @@ function gamemaker_gameproperty() {
 /// `parameters.`
 /// @param {Struct} parameters The struct containing the arguments to pass to the function.
 /// @returns {}
-function gamemaker_gameproperty_define(parameters) {
+function gamemaker_property_define(parameters) {
     return _return;
 }
 
@@ -31,7 +31,7 @@ function gamemaker_gameproperty_define(parameters) {
 /// `parameters.`
 /// @param {Struct} parameters The struct containing the arguments to pass to the function.
 /// @returns {}
-function gamemaker_gameproperty_get(parameters) {
+function gamemaker_property_get(parameters) {
     return _return;
 }
 
@@ -40,7 +40,7 @@ function gamemaker_gameproperty_get(parameters) {
 /// `parameters.`
 /// @param {Struct} parameters The struct containing the arguments to pass to the function.
 /// @returns {}
-function gamemaker_gameproperty_set(parameters) {
+function gamemaker_property_set(parameters) {
     return _return;
 }
 
@@ -49,7 +49,7 @@ function gamemaker_gameproperty_set(parameters) {
 /// `parameters.`
 /// @param {Struct} parameters The struct containing the arguments to pass to the function.
 /// @returns {}
-function gamemaker_gamepropertys_stringify(parameters) {
+function gamemaker_propertys_stringify(parameters) {
     var _data = {};
     struct_foreach(_data, method(_data, function(_name, _value) {
         self[$ _name] = {

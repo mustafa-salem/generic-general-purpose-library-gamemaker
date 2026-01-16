@@ -822,7 +822,7 @@ function FiniteStateMachine() constructor {
     }
 
     // built-in state
-    add_state({ name : FINITE_STATE_MACHINE_DEFAULT_STATE })
+    add_state({ name: FINITE_STATE_MACHINE_DEFAULT_STATE })
 
     // built-in events
     add_event({ event : "enterstate_event"  })

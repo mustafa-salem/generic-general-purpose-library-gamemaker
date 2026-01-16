@@ -1,4 +1,9 @@
-/// Checks whether the verb is active; whether the verb is “active” i.e. a button is being held down, an analogue stick has been moved etc.
+/// casts to Input Action
+function gamemaker_inputaction(value) {
+    return {};
+}
+
+/// Checks whether the verb is active; whether the verb is "active" i.e. a button is being held down, an analogue stick has been moved etc.
 /// ---
 /// `parameters.input` Verb to target
 /// `parameters.player` Player to target. If not specified, player 0 is used
@@ -16,10 +21,11 @@ function input_check_all_pressed(_verb, _player_index, _buffer_duration) {
     return true
 }
 
-/// Whether the targeted 'verb' has been newly actived in the most current step.
+/// gamemaker_input_is_action_justpressed
+/// Checks whether the targeted action has been newly actived this frame.
 /// ---
-/// `parameters.input` 
-/// `parameters.player` 
+/// `parameters.input` The input to target.
+/// `parameters.player` The action to target.
 /// @param {Struct} parameters The struct containing the arguments to pass to the function.
 /// @returns {Bool}
 function gamemaker_input_check_pressed(parameters) {
@@ -27,7 +33,7 @@ function gamemaker_input_check_pressed(parameters) {
     return _pressed;
 }
 
-/// 
+/// gamemaker_input_get_opposing_action_justpressed
 /// ---
 /// @param {Struct} parameters The struct containing the arguments to pass to the function.
 /// @returns {type}

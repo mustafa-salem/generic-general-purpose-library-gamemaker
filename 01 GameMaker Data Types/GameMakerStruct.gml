@@ -13,16 +13,16 @@ if (other == static_get(__INITIALIZED_CONSTRUCTOR_GENERIC)) { return }
 /// 
 #macro INITIALIZED_CONSTRUCTOR __INITIALIZED_CONSTRUCTOR_GENERIC
 
-/// Makes sure the provided constructor is initialized before returning
+/// Makes sure the provided constructor is initialised before returning
 /// its static struct.
 /// ----------------------------------------------------------------------------
 /// @param {Function} constructor
 ///
 /// @returns {Struct|Undefined}
 function __INITIALIZED_CONSTRUCTOR_GENERIC(_constructor) {
-    static is_initialized = {}
-    if (is_initialized[$ script_get_name(_constructor)] != true) {
-        is_initialized[$ script_get_name(_constructor)]  = true
+    static is_initialised = {}
+    if (is_initialised[$ script_get_name(_constructor)] != true) {
+        is_initialised[$ script_get_name(_constructor)]  = true
         with (static_get(__INITIALIZED_CONSTRUCTOR_GENERIC)) {
             new _constructor()
         }

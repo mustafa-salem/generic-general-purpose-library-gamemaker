@@ -31,26 +31,6 @@ function yarnspinner_define_function(parameters) {
     return ChatterboxAddFunction(parameters.name, parameters.callable)
 }
 
-/// This function is used to advance processing of dialogue instances that are
-/// in a "waiting" state.
-/// ----------------------------------------------------------------------------
-/// @param {struct|Array<struct>} dialogue
-/// The dialogue instance or array of dialogue instances to target.
-/// @returns {Undefined}
-function yarnspinner_dialoguerunner_continue(parameters = {}) {
-    /* ―――――――――――――――――――― ARGUMENTS ―――――――――――――――――――― */
-    if (!is_struct(parameters)) { parameters = {} }
-    var _dialogue = parameters[$ "dialogue"] ?? is_dialogue(self) ? self : []
-    if (!is_array(_dialogue)) { _dialogue = [_dialogue] }
-    /* ―――――――――――――――――――― LOGIC ―――――――――――――――――――― */
-    for (var i = 0; i < array_length(_dialogue); i++) {
-        if (!is_dialogue(_dialogue[i])) { continue }
-        var _chatterbox = _dialogue[i].private.chatterbox
-        ChatterboxContinue(_chatterbox)
-    }
-    return undefined
-}
-
 /// This function is used to create an instance of 'Struct.YarnSpinnerDialogueRunner'.
 /// ----------------------------------------------------------------------------
 /// @param {string} source
@@ -75,14 +55,6 @@ function yarnspinner_dialoguerunner_create(parameters = {}) {
     return _dialogue
 }
 
-/// 
-/// @param {type} parameter_name
-/// <parameter_description>
-/// @returns {type}
-function yarnspinner_dialoguerunner_fastforeward(parameters = {}) {
-    return ChatterboxFastForward(private.chatterbox)
-}
-
 /// This function is used to get the number of options available to a dialogue
 /// instance.
 /// ----------------------------------------------------------------------------
@@ -90,7 +62,7 @@ function yarnspinner_dialoguerunner_fastforeward(parameters = {}) {
 /// <parameter_description>
 /// @returns {integer}
 function yarnspinner_dialoguerunner_get_optioncount(parameters = {}) {
-    if (!is_struct(parameters)) { parameters = {} }
+    if (!is_struct(parameters)) { parameters = {} }
     var _dialogue = parameters[$ "dialogue"] ?? is_dialogue(self) ? self : undefined
     if (!is_dialogue(_dialogue)) { return 0 }
     var _chatterbox = _dialogue.private.chatterbox
@@ -106,46 +78,6 @@ function yarnspinner_dialoguerunner_hopback(parameters = {}) {
     var _dialogue = parameters[$ "dialogue"] ?? (is_instanceof(self, YarnSpinnerDialogueRunner) ? self : undefined)
     ChatterboxHopBack(private.chatterbox)
     return _dialogue
-}
-
-/// This function is used to check if a dialogue is in a 'stopped' state.
-/// ----------------------------------------------------------------------------
-/// @param {Struct} dialogue
-/// The dialogue instance to check.
-/// @returns {Bool}
-function yarnspinner_dialoguerunner_is_stopped(parameters = {}) {
-    var _dialogue = parameters[$ "dialogue"]
-    if (is_instanceof(self, YarnSpinnerDialogueRunner)) { _dialogue ??= self }
-    ChatterboxIsStopped(_dialogue.private.chatterbox)
-}
-
-/// This function is used to check if a dialogue is in a 'waiting' state.
-/// ----------------------------------------------------------------------------
-/// @param {Struct} dialogue
-/// The dialogue instance to check.
-/// @returns {Bool}
-function yarnspinner_dialoguerunner_is_waiting(parameters = {}) {
-    var _dialogue = parameters[$ "dialogue"]
-    if (is_instanceof(self, YarnSpinnerDialogueRunner)) { _dialogue ??= self }
-    return ChatterboxIsWaiting(_dialogue.private.chatterbox)
-}
-
-/// 
-/// @param {type} dialogue
-/// <parameter_description>
-/// @returns {Undefined}
-function yarnspinner_dialoguerunner_stop(parameters = {}) {
-    var _dialogue   = parameters[$ "dialogue"] ?? is_instanceof(self, YarnSpinnerDialogueRunner) ? self : undefined
-    var _chatterbox = _dialogue.private.chatterbox
-    return ChatterboxStop(_chatterbox)
-}
-
-/// 
-/// @param {type} parameter_name
-/// <parameter_description>
-/// @returns {type}
-function yarnspinner_dialoguerunner_wait(parameters = {}) {
-    ChatterboxWait(private.chatterbox)
 }
 
 /// 
@@ -183,17 +115,6 @@ function yarnspinner_source_exists_node(parameters = {}) {
     return _return
 }
 
-/// This function is used to check whether a node exists.
-/// ----------------------------------------------------------------------------
-/// @param {string} source
-/// The name of the source to check.
-///
-/// @param {string} node
-/// The title of the node to check.
-/// @returns {Bool}
-function dialogue_node_exists(parameters = {}) {
-    return ChatterboxSourceNodeExists(parameters.source, parameters.node)
-}
 
 /// 
 /// @param {Struct} parameters The struct containing the arguments to pass to the function.
@@ -244,7 +165,7 @@ function dialogue_build_localisation(parameters) {
 /// The value to assign to the constant.
 /// @returns {Undefined}
 function dialogue_declare_constant(parameters) {
-    if (!is_struct(parameters)) { parameters = {} }
+    if (!is_struct(parameters)) { parameters = {} }
     ChatterboxVariableSetConstant(parameters.name, parameters.value)
     return undefined
 }
@@ -261,7 +182,7 @@ function dialogue_declare_constant(parameters) {
 /// The value to assign to the variable.
 /// @returns {Undefined}
 function dialogue_declare_variable(parameters) {
-    if (!is_struct(parameters)) { parameters = {} }
+    if (!is_struct(parameters)) { parameters = {} }
     ChatterboxVariableSet(parameters.name, parameters.value)
     return undefined
 }
@@ -318,7 +239,7 @@ function dialogue_find_variables(parameters = {}) {
 /// <parameter_description>
 /// @returns {string}
 function dialogue_get_line_content(parameters = {}) {
-    if (!is_struct(parameters)) { parameters = {} }
+    if (!is_struct(parameters)) { parameters = {} }
     var _dialogue   = parameters[$ "dialogue"] ?? is_dialogue(self) ? self : undefined
     if (!is_dialogue(_dialogue)) { return "" }
     var _chatterbox = _dialogue.private.chatterbox
@@ -333,22 +254,6 @@ function dialogue_get_line_content(parameters = {}) {
 
 yarnspinner_dialoguerunner_line_get_content
 
-/// This function is used to get the number of lines of content currently
-/// available to a dialogue instance.
-/// ----------------------------------------------------------------------------
-/// @param {Struct} dialogue
-/// The dialogue instance to target.
-/// @returns {integer}
-function dialogue_get_line_count(parameters = {}) {
-    if (!is_struct(parameters)) { parameters = {} }
-    var _dialogue   = parameters[$ "dialogue"] ?? is_dialogue(self) ? self : undefined
-    if (!is_dialogue(_dialogue)) { return 0 }
-    var _chatterbox = _dialogue.private.chatterbox
-    return ChatterboxGetContentCount(_chatterbox)
-}
-
-yarnspinner_dialoguerunner_get_linecount
-
 /// 
 /// @param {type} dialogue
 /// <parameter_description>
@@ -357,7 +262,7 @@ yarnspinner_dialoguerunner_get_linecount
 /// @returns {Array<String>}
 /// An array containing the strings of the metadata tags.
 function dialogue_get_line_metadata(parameters = {}) {
-    if (!is_struct(parameters)) { parameters = {} }
+    if (!is_struct(parameters)) { parameters = {} }
     var _dialogue   = parameters[$ "dialogue"] ?? is_dialogue(self) ? self : undefined
     if (!is_dialogue(_dialogue)) { return [] }
     var _chatterbox = _dialogue.private.chatterbox
@@ -367,54 +272,14 @@ function dialogue_get_line_metadata(parameters = {}) {
 
 yarnspinner_dialoguerunner_line_get_metadata
 
-/// 
-/// @param {type} parameter_name
-/// <parameter_description>
-/// @returns {string}
-function dialogue_get_line_speaker_data(parameters = {}) {
-    if (!is_struct(parameters)) { parameters = {} }
-    var _dialogue   = parameters[$ "dialogue"] ?? is_dialogue(self) ? self : undefined
-    if (!is_dialogue(_dialogue)) { return "" }
-    var _chatterbox = _dialogue.private.chatterbox
-    return ChatterboxGetContentSpeakerData(private.chatterbox, _content_index, _default)
-}
 
-yarnspinner_dialoguerunner_line_get_speakerdata
-
-/// 
-/// @param {type} parameter_name
-/// <parameter_description>
-/// @returns {string}
-function dialogue_get_line_speaker(parameters = {}) {
-    if (!is_struct(parameters)) { parameters = {} }
-    var _dialogue   = parameters[$ "dialogue"] ?? is_dialogue(self) ? self : undefined
-    if (!is_dialogue(_dialogue)) { return "" }
-    var _chatterbox = _dialogue.private.chatterbox
-    return ChatterboxGetContentSpeaker(private.chatterbox, _content_index, _default)
-}
-
-yarnspinner_dialoguerunner_line_get_speaker
-
-/// 
-/// @param {type} parameter_name
-/// <parameter_description>
-/// @returns {string}
-function dialogue_get_line_speech(parameters = {}) {
-    if (!is_struct(parameters)) { parameters = {} }
-    var _dialogue   = parameters[$ "dialogue"] ?? is_dialogue(self) ? self : undefined
-    if (!is_dialogue(_dialogue)) { return "" }
-    var _chatterbox = _dialogue.private.chatterbox
-    return ChatterboxGetContentSpeech(private.chatterbox, _content_index, _default)
-}
-
-yarnspinner_dialoguerunner_line_get_speech
 
 /// 
 /// @param {type} parameter_name
 /// <parameter_description>
 /// @returns {array}
 function dialogue_get_lines(parameters = {}) {
-    if (!is_struct(parameters)) { parameters = {} }
+    if (!is_struct(parameters)) { parameters = {} }
     var _dialogue   = parameters[$ "dialogue"] ?? is_dialogue(self) ? self : undefined
     if (!is_dialogue(_dialogue)) { return [] }
     var _chatterbox = _dialogue.private.chatterbox
@@ -422,39 +287,6 @@ function dialogue_get_lines(parameters = {}) {
 }
 
 yarnspinner_dialoguerunner_get_lines
-
-/// This function is used to check how many nodes a source has.
-/// ----------------------------------------------------------------------------
-/// @param {string} source
-/// The name of the source to check.
-/// @returns {Real}
-function dialogue_get_node_count(parameters = {}) {
-    return ChatterboxSourceNodeCount(parameters.source)
-}
-
-/// This function is used to get the metadata of a node.
-/// ----------------------------------------------------------------------------
-/// @param {string} source
-/// The name of the source.
-/// @param {string} node
-/// The title of the node.
-/// @returns {Struct}
-function dialogue_get_node_metadata(parameters = {}) {
-    return ChatterboxGetCurrentMetadata(chatterbox)
-    return ChatterboxSourceGetNodeMetadata(sourceName, nodeTitle)
-}
-
-yarnspinner_dialoguerunner_node_get_metadata
-
-/// 
-/// @param {type} parameter_name
-/// <parameter_description>
-/// @returns {type}
-function dialogue_get_node_title(parameters = {}) {
-    ChatterboxGetCurrent(chatterbox)
-}
-
-yarnspinner_dialoguerunner_node_get_title
 
 /// 
 /// @param {type} parameter_name
@@ -475,7 +307,7 @@ yarnspinner_dialoguerunner_node_get_visitedcount
 /// <parameter_description>
 /// @returns {integer}
 function dialogue_get_option_chosen_count(parameters = {}) {
-    if (!is_struct(parameters)) { parameters = {} }
+    if (!is_struct(parameters)) { parameters = {} }
     var _dialogue = parameters[$ "dialogue"] ?? is_dialogue(self) ? self : undefined
     if (!is_dialogue(_dialogue)) { return 0 }
     var _chatterbox = _dialogue.private.chatterbox
@@ -489,7 +321,7 @@ yarnspinner_dialoguerunner_option_get_chosencount
 /// <parameter_description>
 /// @returns {string}
 function dialogue_get_option_content(parameters = {}) {
-    if (!is_struct(parameters)) { parameters = {} }
+    if (!is_struct(parameters)) { parameters = {} }
     var _dialogue = parameters[$ "dialogue"] ?? is_dialogue(self) ? self : undefined
     if (!is_dialogue(_dialogue)) { return "" }
     var _chatterbox = _dialogue.private.chatterbox
@@ -503,7 +335,7 @@ yarnspinner_dialoguerunner_option_get_content
 /// <parameter_description>
 /// @returns {Array<String>}
 function dialogue_get_option_metadata(parameters = {}) {
-    if (!is_struct(parameters)) { parameters = {} }
+    if (!is_struct(parameters)) { parameters = {} }
     var _dialogue = parameters[$ "dialogue"] ?? is_dialogue(self) ? self : undefined
     if (!is_dialogue(_dialogue)) { return "" }
     var _chatterbox = _dialogue.private.chatterbox
@@ -561,7 +393,7 @@ yarnspinner_dialoguerunner_option_get_speech
 /// <parameter_description>
 /// @returns {Array<struct>}
 function dialogue_get_options(parameters = {}) {
-    if (!is_struct(parameters)) { parameters = {} }
+    if (!is_struct(parameters)) { parameters = {} }
     var _dialogue = parameters[$ "dialogue"] ?? is_dialogue(self) ? self : undefined
     if (!is_dialogue(_dialogue)) { return [] }
     var _chatterbox = _dialogue.private.chatterbox
@@ -639,7 +471,7 @@ function dialogue_is_loaded_source(parameters = {}) {
 /// <parameter_description>
 /// @returns {Bool}
 function dialogue_is_option_condition_satisfied(parameters = {}) {
-    if (!is_struct(parameters)) { parameters = {} }
+    if (!is_struct(parameters)) { parameters = {} }
     var _dialogue = parameters[$ "dialogue"] ?? is_dialogue(self) ? self : undefined
     if (!is_dialogue(_dialogue)) { return false }
     var _chatterbox = _dialogue.private.chatterbox
@@ -647,32 +479,6 @@ function dialogue_is_option_condition_satisfied(parameters = {}) {
 }
 
 yarnspinner_dialoguerunner_option_is_conditionsatisfied
-
-/// This function is used to make dialogue jump to a node in a source.
-///
-/// NOTE: This function differs from a YarnScript <<jump>> command in that it
-/// restarts dialogue processing from the top of the new node. Any progress in
-/// previous nodes will be reset for this dialogue instance and it won't be
-/// possible to get dialogue content from the previous node in non 'singleton'
-/// mode.
-/// ----------------------------------------------------------------------------
-/// @param {type} dialogue
-/// The dialogue to target.
-/// @param {type} [source]
-/// The name of the source. Defaults to the current source.
-/// @param {string} node
-/// The title of the node to jump to.
-/// @returns {Struct.YarnSpinnerDialogueRunner}
-function dialogue_jump_to_node(parameters = {}) {
-    var _dialogue    = parameters[$ "dialogue"]
-    var _chatterbox  = _dialogue.private.chatterbox
-    var _source_name = parameters[$ "source"]
-    var _node_title  = parameters[$ "node"]
-    ChatterboxJump(_chatterbox, _node_title, _source_name)
-    return _dialogue
-}
-
-yarnspinner_dialoguerunner_jump
 
 /// This function is used to load a CSV file generated by "dialogue_build_localisation"
 ///

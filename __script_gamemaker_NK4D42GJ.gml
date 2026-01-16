@@ -1,6 +1,6 @@
 #macro __GAMEMAKER_CONTEXT __gamemaker_context()
 
-/// always initialize even if not referenced
+/// always initialise even if not referenced
 __gamemaker_initialize();
 
 /// initializes the context

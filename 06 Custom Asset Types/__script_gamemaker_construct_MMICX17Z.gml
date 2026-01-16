@@ -40,10 +40,11 @@ function gamemaker_construct_create(argument0) {
     return _construct;
 }
 
+/// @param {Struct} parameters
 /// construct
-/// [x_position]
-/// [y_position]
-/// @param {Struct} parameters 
+/// position
+/// position.x
+/// position.y
 /// @returns {Struct.GameMakerConstructInstance}
 function gamemaker_construct_instantiate(parameters = {}) {
     var _constructinstance = new GameMakerConstructInstance();

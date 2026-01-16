@@ -3,7 +3,7 @@
 // ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
 
 /// This macro gets the static struct of the 'VertexFormat' constructor script
-/// function with its static variables having been initialized.
+/// function with its static variables having been initialised.
 #macro VERTEX_FORMAT                                                           \
 INITIALIZED_CONSTRUCTOR(VertexFormat)
 

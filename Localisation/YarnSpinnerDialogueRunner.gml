@@ -183,81 +183,6 @@
 #region    ―――――――――――――――――――――――――――――――――――――――――― FUNCTIONS ――――――――――――――――――――――――――――――――――――――――――――――――――――――――
 // ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
 
-/// ----------------------------------------------------------------------------
-/// # Localisation
-/// * ChatterboxLocalizationBuild        -> dialogue_build_localisation
-/// * ChatterboxLocalizationLoad         -> dialogue_load_localisation
-/// * ChatterboxLocalizationClear        -> dialogue_reset_localisation
-/// ----------------------------------------------------------------------------
-/// # Setup
-/// * ChatterboxAddFunction              -> yarnspinner_define_function
-/// * ChatterboxAddFindReplace           -> dialogue_find_and_replace
-/// ----------------------------------------------------------------------------
-/// # Dialogue Runner
-/// * IsChatterbox                       -> is_dialogue
-/// * ChatterboxCreate                   -> yarnspinner_dialoguerunner_create
-/// ----------------------------------------------------------------------------
-/// # Sources
-/// * ChatterboxIsLoaded                 -> dialogue_is_loaded_source
-/// * ChatterboxLoadFromFile             -> dialogue_load_source
-/// * ChatterboxLoadFromString           -> dialogue_load_source
-/// * ChatterboxLoadFromBuffer           -> dialogue_load_source
-/// * ChatterboxUnload                   -> dialogue_unload_source
-/// * ChatterboxGetCurrentSource         -> dialogue_get_source_name
-/// * ChatterboxSourceGetTags            -> dialogue_get_source_tags
-/// ----------------------------------------------------------------------------
-/// # Nodes
-/// * ChatterboxSourceNodeCount          -> dialogue_get_node_count
-/// * ChatterboxSourceNodeExists         -> dialogue_node_exists
-/// * ChatterboxGetCurrent               -> dialogue_get_node_title
-/// * ChatterboxGetVisited               -> dialogue_get_node_visited_count
-/// * ChatterboxVariablesClearVisited    -> dialogue_reset_node_visited
-/// * ChatterboxVariablesClearVisitedAll -> dialogue_reset_node_visited
-/// * ChatterboxGetCurrentMetadata       -> dialogue_get_node_metadata
-/// * ChatterboxSourceGetNodeMetadata    -> dialogue_get_node_metadata
-/// ----------------------------------------------------------------------------
-/// # Lines
-/// * ChatterboxGetContentCount          -> dialogue_get_line_count
-/// * ChatterboxGetContentArray          -> dialogue_get_lines
-/// * ChatterboxGetContent               -> dialogue_get_line_content
-/// * ChatterboxGetAllContentString      -> dialogue_get_line_content
-/// * ChatterboxGetContentSpeaker        -> dialogue_get_line_speaker
-/// * ChatterboxGetContentSpeakerData    -> dialogue_get_line_speaker_data
-/// * ChatterboxGetContentSpeech         -> dialogue_get_line_speech
-/// * ChatterboxGetContentMetadata       -> dialogue_get_line_metadata
-/// ----------------------------------------------------------------------------
-/// # Options
-/// * ChatterboxGetOptionCount           -> yarnspinner_dialoguerunner_get_optioncount
-/// * ChatterboxGetOption                -> dialogue_get_option_content
-/// * ChatterboxGetOptionArray           -> dialogue_get_options
-/// * ChatterboxGetOptionMetadata        -> dialogue_get_option_metadata
-/// * ChatterboxGetOptionConditionBool   -> dialogue_is_option_condition_satisfied
-/// * ChatterboxGetOptionChosen          -> dialogue_get_option_chosen_count
-/// * ChatterboxSelect                   -> dialogue_select_option
-/// ----------------------------------------------------------------------------
-/// # Flow Control
-/// * ChatterboxJump                     -> dialogue_jump_to_node
-/// * ChatterboxHop                      -> dialogue_hop_to_node
-/// * ChatterboxHopBack                  -> yarnspinner_dialoguerunner_hopback
-/// * ChatterboxIsWaiting                -> yarnspinner_dialoguerunner_is_waiting
-/// * ChatterboxWait                     -> yarnspinner_dialoguerunner_wait
-/// * ChatterboxContinue                 -> yarnspinner_dialoguerunner_continue
-/// * ChatterboxIsStopped                -> yarnspinner_dialoguerunner_is_stopped
-/// * ChatterboxStop                     -> yarnspinner_dialoguerunner_stop
-/// * ChatterboxFastForward              -> yarnspinner_dialoguerunner_fastforeward
-/// ----------------------------------------------------------------------------
-/// # Variables and Constants
-/// * dialogue_exists_variable
-/// * ChatterboxVariablesFind            -> dialogue_find_variables
-/// * ChatterboxVariableSetConstant      -> dialogue_declare_constant
-/// * ChatterboxVariableDefault          -> dialogue_declare_variable
-/// * ChatterboxVariableGet              -> dialogue_get_variable
-/// * ChatterboxVariableSet              -> dialogue_set_variable
-/// * ChatterboxVariableReset            -> dialogue_reset_variable
-/// * ChatterboxVariablesResetAll        -> dialogue_reset_variable
-/// * ChatterboxVariablesExport          -> dialogue_export_variables
-/// * ChatterboxVariablesImport          -> dialogue_import_variables
-/// ----------------------------------------------------------------------------
 
 // ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
 #endregion ―――――――――――――――――――――――――――――――――――――――――― FUNCTIONS ――――――――――――――――――――――――――――――――――――――――――――――――――――――――
@@ -310,59 +235,235 @@
 /// on the value of CHATTERBOX_END_OF_NODE_HOPBACK.
 function YarnSpinnerDialogueRunner() constructor {
 
-    static node_exists                   = dialogue_node_exists
-    static get_node_count                = dialogue_get_node_count
-    static get_node_tags                 = dialogue_get_node_tags
-    static get_node_metadata             = dialogue_get_node_metadata
-    static get_line_count                = dialogue_get_line_count
-    static get_line_speaker              = dialogue_get_line_speaker
-    static get_line_speaker_data         = dialogue_get_line_speaker_data
-    static get_line_speech               = dialogue_get_line_speech
-    static get_line_metadata             = dialogue_get_line_metadata
-    static get_option_content            = dialogue_get_option_content
-    static get_option_metadata           = dialogue_get_option_metadata
-    static is_option_condition_satisfied = dialogue_is_option_condition_satisfied
-    static get_option_chosen_count       = dialogue_get_option_chosen_count
-    static get_option_count              = yarnspinner_dialoguerunner_get_optioncount
-    static get_option_array              = dialogue_get_options
-    static get_node_title                = dialogue_get_node_title
-    static jump_to_node                  = dialogue_jump_to_node
-    static hop_to_node                   = dialogue_hop_to_node
-    static hop_back                      = yarnspinner_dialoguerunner_hopback
-    static select_option                 = dialogue_select_option
-    static is_waiting                    = yarnspinner_dialoguerunner_is_waiting
-    static wait                          = yarnspinner_dialoguerunner_wait
-    static resume                        = yarnspinner_dialoguerunner_continue
-    static fast_foreward                 = yarnspinner_dialoguerunner_fastforeward
-    static is_stopped                    = yarnspinner_dialoguerunner_is_stopped
-    static stop                          = yarnspinner_dialoguerunner_stop
-
     self.node_exists                   = method(self, dialogue_node_exists)
+
+    /// This function is used to check whether a node exists.
+    /// ----------------------------------------------------------------------------
+    /// @param {string} source
+    /// The name of the source to check.
+    ///
+    /// @param {string} node
+    /// The title of the node to check.
+    /// @returns {Bool}
+    function dialogue_node_exists(parameters = {}) {
+        return ChatterboxSourceNodeExists(parameters.source, parameters.node)
+    }
+
     self.get_node_count                = method(self, dialogue_get_node_count)
+
+    /// This function is used to check how many nodes a source has.
+    /// ----------------------------------------------------------------------------
+    /// @param {string} source
+    /// The name of the source to check.
+    /// @returns {Real}
+    function dialogue_get_node_count(parameters = {}) {
+        return ChatterboxSourceNodeCount(parameters.source)
+    }
+
     self.get_node_tags                 = method(self, dialogue_get_node_tags)
     self.get_node_metadata             = method(self, dialogue_get_node_metadata)
-    self.get_line_count                = method(self, dialogue_get_line_count)
+
+    /// This function is used to get the metadata of a node.
+    /// ----------------------------------------------------------------------------
+    /// @param {string} source
+    /// The name of the source.
+    /// @param {string} node
+    /// The title of the node.
+    /// @returns {Struct}
+    function dialogue_get_node_metadata(parameters = {}) {
+        return ChatterboxGetCurrentMetadata(chatterbox)
+        return ChatterboxSourceGetNodeMetadata(sourceName, nodeTitle)
+    }
+
+    yarnspinner_dialoguerunner_node_get_metadata
+
+    /// This function is used to get the number of lines of content currently
+    /// available to a dialogue instance.
+    /// ----------------------------------------------------------------------------
+    /// @param {Struct} dialogue
+    /// The dialogue instance to target.
+    /// @returns {integer}
+    self.get_linecount = function(parameters = {}) {
+        if (!is_struct(parameters)) { parameters = {} }
+        var _dialogue   = parameters[$ "dialogue"] ?? is_dialogue(self) ? self : undefined
+        if (!is_dialogue(_dialogue)) { return 0 }
+        var _chatterbox = _dialogue.private.chatterbox
+        return ChatterboxGetContentCount(_chatterbox)
+    }
+
     self.get_line_speaker              = method(self, dialogue_get_line_speaker)
+
+    /// 
+    /// @param {type} parameter_name
+    /// <parameter_description>
+    /// @returns {string}
+    function dialogue_get_line_speaker(parameters = {}) {
+        if (!is_struct(parameters)) { parameters = {} }
+        var _dialogue   = parameters[$ "dialogue"] ?? is_dialogue(self) ? self : undefined
+        if (!is_dialogue(_dialogue)) { return "" }
+        var _chatterbox = _dialogue.private.chatterbox
+        return ChatterboxGetContentSpeaker(private.chatterbox, _content_index, _default)
+    }
+
+    yarnspinner_dialoguerunner_line_get_speaker
+
     self.get_line_speaker_data         = method(self, dialogue_get_line_speaker_data)
+    
+    /// 
+    /// @param {type} parameter_name
+    /// <parameter_description>
+    /// @returns {string}
+    function dialogue_get_line_speaker_data(parameters = {}) {
+        if (!is_struct(parameters)) { parameters = {} }
+        var _dialogue   = parameters[$ "dialogue"] ?? is_dialogue(self) ? self : undefined
+        if (!is_dialogue(_dialogue)) { return "" }
+        var _chatterbox = _dialogue.private.chatterbox
+        return ChatterboxGetContentSpeakerData(private.chatterbox, _content_index, _default)
+    }
+
+    yarnspinner_dialoguerunner_line_get_speakerdata
+
     self.get_line_speech               = method(self, dialogue_get_line_speech)
+    
+    /// 
+    /// @param {type} parameter_name
+    /// <parameter_description>
+    /// @returns {string}
+    function dialogue_get_line_speech(parameters = {}) {
+        if (!is_struct(parameters)) { parameters = {} }
+        var _dialogue   = parameters[$ "dialogue"] ?? is_dialogue(self) ? self : undefined
+        if (!is_dialogue(_dialogue)) { return "" }
+        var _chatterbox = _dialogue.private.chatterbox
+        return ChatterboxGetContentSpeech(private.chatterbox, _content_index, _default)
+    }
+
+    yarnspinner_dialoguerunner_line_get_speech
+
     self.get_line_metadata             = method(self, dialogue_get_line_metadata)
+    
     self.get_option_content            = method(self, dialogue_get_option_content)
+    
     self.get_option_metadata           = method(self, dialogue_get_option_metadata)
+    
     self.is_option_condition_satisfied = method(self, dialogue_is_option_condition_satisfied)
+    
     self.get_option_chosen_count       = method(self, dialogue_get_option_chosen_count)
+    
     self.get_option_count              = method(self, yarnspinner_dialoguerunner_get_optioncount)
+    
     self.get_option_array              = method(self, dialogue_get_options)
+
     self.get_node_title                = method(self, dialogue_get_node_title)
-    self.jump_to_node                  = method(self, dialogue_jump_to_node)
+    
+    /// 
+    /// @param {type} parameter_name
+    /// <parameter_description>
+    /// @returns {type}
+    function dialogue_get_node_title(parameters = {}) {
+        ChatterboxGetCurrent(chatterbox)
+    }
+
+    yarnspinner_dialoguerunner_node_get_title
+
+    /// This function is used to make dialogue jump to a node in a source.
+    ///
+    /// NOTE: This function differs from a YarnScript <<jump>> command in that it
+    /// restarts dialogue processing from the top of the new node. Any progress in
+    /// previous nodes will be reset for this dialogue instance and it won't be
+    /// possible to get dialogue content from the previous node in non 'singleton'
+    /// mode.
+    /// ----------------------------------------------------------------------------
+    /// @param {type} dialogue
+    /// The dialogue to target.
+    /// @param {type} [source]
+    /// The name of the source. Defaults to the current source.
+    /// @param {string} node
+    /// The title of the node to jump to.
+    /// @returns {Struct.YarnSpinnerDialogueRunner}
+    self.jump_to_node = function(parameters = {}) {
+        var _dialogue    = parameters[$ "dialogue"]
+        var _chatterbox  = _dialogue.private.chatterbox
+        var _source_name = parameters[$ "source"]
+        var _node_title  = parameters[$ "node"]
+        ChatterboxJump(_chatterbox, _node_title, _source_name);
+        return _dialogue;
+    };
+    
     self.hop_to_node                   = method(self, dialogue_hop_to_node)
+    
     self.hop_back                      = method(self, yarnspinner_dialoguerunner_hopback)
+    
     self.select_option                 = method(self, dialogue_select_option)
+
     self.is_waiting                    = method(self, yarnspinner_dialoguerunner_is_waiting)
-    self.wait                          = method(self, yarnspinner_dialoguerunner_wait)
+    /// This function is used to check if a dialogue is in a 'waiting' state.
+    /// ----------------------------------------------------------------------------
+    /// @param {Struct} dialogue
+    /// The dialogue instance to check.
+    /// @returns {Bool}
+    function yarnspinner_dialoguerunner_is_waiting(parameters = {}) {
+        var _dialogue = parameters[$ "dialogue"]
+        if (is_instanceof(self, YarnSpinnerDialogueRunner)) { _dialogue ??= self }
+        return ChatterboxIsWaiting(_dialogue.private.chatterbox)
+    }
+
+    self.wait = function(parameters = {}) {
+        ChatterboxWait(self.private.chatterbox);
+        return self;
+    };
+
     self.resume                        = method(self, yarnspinner_dialoguerunner_continue)
+    /// This function is used to advance processing of dialogue instances that are
+    /// in a "waiting" state.
+    /// ----------------------------------------------------------------------------
+    /// @param {struct|Array<struct>} dialogue
+    /// The dialogue instance or array of dialogue instances to target.
+    /// @returns {Undefined}
+    function yarnspinner_dialoguerunner_continue(parameters = {}) {
+        /* ―――――――――――――――――――― ARGUMENTS ―――――――――――――――――――― */
+        if (!is_struct(parameters)) { parameters = {} }
+        var _dialogue = parameters[$ "dialogue"] ?? is_dialogue(self) ? self : []
+        if (!is_array(_dialogue)) { _dialogue = [_dialogue] }
+        /* ―――――――――――――――――――― LOGIC ―――――――――――――――――――― */
+        for (var i = 0; i < array_length(_dialogue); i++) {
+            if (!is_dialogue(_dialogue[i])) { continue }
+            var _chatterbox = _dialogue[i].private.chatterbox
+            ChatterboxContinue(_chatterbox)
+        }
+        return undefined
+    }
+
     self.fast_foreward                 = method(self, yarnspinner_dialoguerunner_fastforeward)
+    /// 
+    /// @param {type} parameter_name
+    /// <parameter_description>
+    /// @returns {type}
+    function yarnspinner_dialoguerunner_fastforeward(parameters = {}) {
+        return ChatterboxFastForward(private.chatterbox)
+    }
+
     self.is_stopped                    = method(self, yarnspinner_dialoguerunner_is_stopped)
+    /// This function is used to check if a dialogue is in a 'stopped' state.
+    /// ----------------------------------------------------------------------------
+    /// @param {Struct} dialogue
+    /// The dialogue instance to check.
+    /// @returns {Bool}
+    function yarnspinner_dialoguerunner_is_stopped(parameters = {}) {
+        var _dialogue = parameters[$ "dialogue"]
+        if (is_instanceof(self, YarnSpinnerDialogueRunner)) { _dialogue ??= self }
+        ChatterboxIsStopped(_dialogue.private.chatterbox)
+    }
+
     self.stop                          = method(self, yarnspinner_dialoguerunner_stop)
+    /// 
+    /// @param {type} dialogue
+    /// <parameter_description>
+    /// @returns {Undefined}
+    function yarnspinner_dialoguerunner_stop(parameters = {}) {
+        var _dialogue   = parameters[$ "dialogue"] ?? is_instanceof(self, YarnSpinnerDialogueRunner) ? self : undefined
+        var _chatterbox = _dialogue.private.chatterbox
+        return ChatterboxStop(_chatterbox)
+    }
 
 }
 

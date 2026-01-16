@@ -13,3 +13,9 @@ function visual_effect_create(parameters = {}) {
 gamemaker_object(ingameentity_construct_object)
 
 gamemaker_construct_create({ name: "visual_effect_construct" })
+
+/// ----------------------------------------------------------------------------
+/// visual_effect; ingameentity_construct_object
+/// ----------------------------------------------------------------------------
+
+gamemaker_construct_create({ name: "visual_effect" })
