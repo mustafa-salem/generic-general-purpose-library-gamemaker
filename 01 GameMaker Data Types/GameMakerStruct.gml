@@ -8,7 +8,9 @@
 
 /// 
 #macro CONSTRUCTOR_INITIALIZATION_GUARD                                 \
-if (other == static_get(__INITIALIZED_CONSTRUCTOR_GENERIC)) { return }
+if (other == static_get(__INITIALIZED_CONSTRUCTOR_GENERIC)) {           \
+    return undefined;                                                   \
+}
 
 /// 
 #macro INITIALIZED_CONSTRUCTOR __INITIALIZED_CONSTRUCTOR_GENERIC
@@ -89,8 +91,12 @@ function StructGeneric() constructor {
     /// <return_description>
     /// ----------------------------------------------------------------------------
     static remove_variable = function(arguments = {}) {
-        if (arguments.struct == undefined or !is_struct(arguments.struct)) { return }
-        if (_name == undefined or !is_string(arguments.name)) { return }
+        if (arguments.struct == undefined or !is_struct(arguments.struct)) {
+            return undefined;
+        }
+        if (_name == undefined or !is_string(arguments.name)) {
+            return undefined;
+        }
         if (struct_exists(arguments.struct, arguments.name)) { struct_remove(arguments.struct, arguments.name) }
     }
 

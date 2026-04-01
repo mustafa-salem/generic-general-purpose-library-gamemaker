@@ -286,7 +286,9 @@ function YarnSpinnerDialogueRunner() constructor {
     self.get_linecount = function(parameters = {}) {
         if (!is_struct(parameters)) { parameters = {} }
         var _dialogue   = parameters[$ "dialogue"] ?? is_dialogue(self) ? self : undefined
-        if (!is_dialogue(_dialogue)) { return 0 }
+        if (!is_dialogue(_dialogue)) {
+            return 0;
+        }
         var _chatterbox = _dialogue.private.chatterbox
         return ChatterboxGetContentCount(_chatterbox)
     }
@@ -300,7 +302,9 @@ function YarnSpinnerDialogueRunner() constructor {
     function dialogue_get_line_speaker(parameters = {}) {
         if (!is_struct(parameters)) { parameters = {} }
         var _dialogue   = parameters[$ "dialogue"] ?? is_dialogue(self) ? self : undefined
-        if (!is_dialogue(_dialogue)) { return "" }
+        if (!is_dialogue(_dialogue)) {
+            return "";
+        }
         var _chatterbox = _dialogue.private.chatterbox
         return ChatterboxGetContentSpeaker(private.chatterbox, _content_index, _default)
     }
@@ -316,7 +320,9 @@ function YarnSpinnerDialogueRunner() constructor {
     function dialogue_get_line_speaker_data(parameters = {}) {
         if (!is_struct(parameters)) { parameters = {} }
         var _dialogue   = parameters[$ "dialogue"] ?? is_dialogue(self) ? self : undefined
-        if (!is_dialogue(_dialogue)) { return "" }
+        if (!is_dialogue(_dialogue)) {
+            return "";
+        }
         var _chatterbox = _dialogue.private.chatterbox
         return ChatterboxGetContentSpeakerData(private.chatterbox, _content_index, _default)
     }
@@ -332,7 +338,9 @@ function YarnSpinnerDialogueRunner() constructor {
     function dialogue_get_line_speech(parameters = {}) {
         if (!is_struct(parameters)) { parameters = {} }
         var _dialogue   = parameters[$ "dialogue"] ?? is_dialogue(self) ? self : undefined
-        if (!is_dialogue(_dialogue)) { return "" }
+        if (!is_dialogue(_dialogue)) {
+            return "";
+        }
         var _chatterbox = _dialogue.private.chatterbox
         return ChatterboxGetContentSpeech(private.chatterbox, _content_index, _default)
     }

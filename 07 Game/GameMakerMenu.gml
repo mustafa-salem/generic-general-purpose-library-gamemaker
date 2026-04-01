@@ -62,10 +62,10 @@ function Menu(_row_count, _column_count, _visible_count, _page_flip_type, _wrap_
     page = function(_index) { return floor(_index / page_size()) }
 
     on_first_row = function(_index) { return (row(_index) == 0) }
-    on_last_row = function(_index) { return ((row(_index) == row_wrap()) || (on_last_page(_index) && row(_index) == row(last_index()))) }
+    on_last_row = function(_index) { return ((row(_index) == row_wrap()) || (on_last_page(_index) && row(_index) == row(last_index()))) }
 
     on_first_column = function(_index) { return (column(_index) == 0) }
-    on_last_column = function(_index) { return ((column(_index) == column_wrap()) || (_index == last_index())) }
+    on_last_column = function(_index) { return ((column(_index) == column_wrap()) || (_index == last_index())) }
 
     on_first_page = function(_index) { return (page(_index) == 0) }
     on_last_page = function(_index) { return (page(_index) == last_page()) }
@@ -117,7 +117,7 @@ function Menu(_row_count, _column_count, _visible_count, _page_flip_type, _wrap_
         var _old_index = current_index()
         var _new_index = _old_index
 
-        if (!on_first_column(_old_index) || !wrap_horizontally()) {
+        if (!on_first_column(_old_index) || !wrap_horizontally()) {
             _new_index = _old_index - 1
         } else {
             if (page_flip_type() == PAGE_FLIP_TYPE.VERTICAL) {
@@ -142,7 +142,7 @@ function Menu(_row_count, _column_count, _visible_count, _page_flip_type, _wrap_
         var _old_index = current_index()
         var _new_index = _old_index
 
-        if (!on_last_column(_old_index) && !last_entry() || !wrap_horizontally()) {
+        if (!on_last_column(_old_index) && !last_entry() || !wrap_horizontally()) {
             _new_index = _old_index + 1
         } else {
             if (page_flip_type() == PAGE_FLIP_TYPE.VERTICAL) {
@@ -167,7 +167,7 @@ function Menu(_row_count, _column_count, _visible_count, _page_flip_type, _wrap_
         var _old_index = current_index()
         var _new_index = _old_index
 
-        if (!on_first_row() || !wrap_vertically()) {
+        if (!on_first_row() || !wrap_vertically()) {
             _new_index = _old_index - column_count()
         } else {
             if (page_flip_type() == PAGE_FLIP_TYPE.HORIZONTAL) {

@@ -1,4 +1,6 @@
-function is_even_generic(_number) { return (_number % 2 == 0) }
+function is_even_generic(_number) {
+    return (_number % 2 == 0);
+}
 
 function inverse_lerp_generic(minimum, maximum, value) {
     return (value - minimum) / (maximum - minimum)

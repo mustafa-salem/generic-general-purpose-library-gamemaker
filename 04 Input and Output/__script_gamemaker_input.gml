@@ -3,10 +3,30 @@ function gamemaker_inputaction(value) {
     return {};
 }
 
-/// Checks whether the verb is active; whether the verb is "active" i.e. a button is being held down, an analogue stick has been moved etc.
+function GameMakerInputAction() constructor {
+    
+    self.is_pressed = function() {
+
+    };
+
+    self.is_long_pressed = function() {
+
+    };
+
+    self.is_held = function() {
+
+    };
+
+    self.is_released = function() {
+
+    };
+
+}
+
+/// Checks whether the Input Action is active; whether the verb is "active" i.e. a button is being held down, an analogue stick has been moved etc.
 /// ---
-/// `parameters.input` Verb to target
-/// `parameters.player` Player to target. If not specified, player 0 is used
+/// `parameters.action` The Input Action to target.
+/// `parameters.player` The player to target. If not specified, player 0 is used
 /// @param {Struct} parameters The struct containing the arguments to pass to the function.
 /// @returns {Bool}
 function gamemaker_input_check(parameters) {
@@ -14,14 +34,7 @@ function gamemaker_input_check(parameters) {
     return _active;
 }
 
-function input_check_all_pressed(_verb, _player_index, _buffer_duration) {
-    for (var i = 0; i < (array_length(_verb)); i++) {
-        if (!input_check_pressed(_verb[i], _player_index, _buffer_duration)) { return false }
-    }
-    return true
-}
-
-/// gamemaker_input_is_action_justpressed
+/// input_check_pressed
 /// Checks whether the targeted action has been newly actived this frame.
 /// ---
 /// `parameters.input` The input to target.
@@ -132,10 +145,14 @@ function gamemaker_input_system_deserialize(parameters) {
 }
 
 function gamemaker_input_save_system_data_to_file() {
-    if (!is_struct(arguments)) { return }
+    if (!is_struct(arguments)) {
+        return undefined;
+    }
 
     var _filepath = arguments[$ "filepath"] ?? private.system_config.default_filepath
-    if (!is_string(_filepath)) { return }
+    if (!is_string(_filepath)) {
+        return undefined;
+    }
 
     //Export a nice readable string
     var _string = export_to_string_system_config({ prettify : arguments[$ "prettify"] })
@@ -305,13 +322,6 @@ function InputController() : InputControllerGeneric() constructor {
         import_system_config()
     }
 
-}
-
-function input_check_all_pressed(_verb, _player_index, _buffer_duration) {
-    for (var i = 0; i < (array_length(_verb)); i++) {
-        if (!input_check_pressed(_verb[i], _player_index, _buffer_duration)) { return false }
-    }
-    return true
 }
 
 /*

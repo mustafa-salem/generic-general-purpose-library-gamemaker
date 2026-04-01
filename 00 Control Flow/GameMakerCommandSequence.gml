@@ -4,7 +4,9 @@
 
 /// 
 /// @returns {Bool}
-function cutscene_exists() { return instance_exists(cutscene_object) }
+function cutscene_exists() {
+    return instance_exists(cutscene_object);
+}
 
 /// Creates a new instance of a command sequence.
 /// ---
@@ -345,17 +347,21 @@ function scr_cutscene_master_commands_initialize() {
 }
 
 function c_cmd(argument0, argument1, argument2, argument3, argument4, argument5, argument6) {
-    if (!cutscene_exists()) { return }
-        __cs_i = (cutscene_object.maximum_command - 1)
-        cutscene_object.command[__cs_i] = argument0
-        cutscene_object.command_arg1[__cs_i] = argument1 ?? 0
-        cutscene_object.command_arg2[__cs_i] = argument2 ?? 0
-        cutscene_object.command_arg3[__cs_i] = argument3 ?? 0
-        cutscene_object.command_arg4[__cs_i] = argument4 ?? 0
-        cutscene_object.command_arg5[__cs_i] = argument5 ?? 0
-        cutscene_object.command_arg6[__cs_i] = argument6 ?? 0
-        with (cutscene_object) { maximum_command++ }
+    
+    if (!cutscene_exists()) {
+        return undefined;
     }
+
+    __cs_i = (cutscene_object.maximum_command - 1)
+    cutscene_object.command[__cs_i] = argument0
+    cutscene_object.command_arg1[__cs_i] = argument1 ?? 0
+    cutscene_object.command_arg2[__cs_i] = argument2 ?? 0
+    cutscene_object.command_arg3[__cs_i] = argument3 ?? 0
+    cutscene_object.command_arg4[__cs_i] = argument4 ?? 0
+    cutscene_object.command_arg5[__cs_i] = argument5 ?? 0
+    cutscene_object.command_arg6[__cs_i] = argument6 ?? 0
+    with (cutscene_object) { maximum_command++ }
+
 }
 
 function scr_cutscene_commands() {
@@ -838,7 +844,9 @@ function GameMakerCommandSequence() constructor {
     private.execute_next_command = function() {
         var _parameters = {}
         _parameters.cutscene = self
-        if (array_length(private.commands) < private.command_index - 1) { return }
+        if (array_length(private.commands) < private.command_index - 1) {
+            return undefined;
+        }
         private.commands[private.command_index](_parameters)
         private.command_index++
     }

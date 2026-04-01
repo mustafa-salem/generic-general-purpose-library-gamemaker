@@ -11,7 +11,9 @@
 function gamemaker_viewport_get_camera(parameters = {}) {
     var _view_port_index = gamemaker_viewport_get_index({ view_port : parameters.view_port })
     var _camera_id = view_get_camera(_view_port_index)
-    if (_camera_id = -1) { return undefined }
+    if (_camera_id = -1) {
+        return undefined;
+    }
     return gamemaker_camera_create({ camera_id : _camera_id })
 }
 
@@ -247,7 +249,9 @@ function gamemaker_viewport(parameters = {}) {
 
 function ViewPortGeneric(parameters) constructor {
 
-    if (parameters == undefined) { return }
+    if (parameters == undefined) {
+        return undefined;
+    }
 
     /*******************************************************************************/
     /// PRIVATE

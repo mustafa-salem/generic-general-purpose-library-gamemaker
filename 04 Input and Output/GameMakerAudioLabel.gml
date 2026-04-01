@@ -10,4 +10,4 @@ gamemaker_sound_stop({ sound: "MUSIC_AUDIO_LABEL" })
 /// 
 #macro global.music_audio_label <expression>
 
-AudioLabel.get({ audio_label : "music" })
+AudioLabel.get({ audio_label : "music" })

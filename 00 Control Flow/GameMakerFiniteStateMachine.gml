@@ -110,7 +110,9 @@ get_state_names = function() {
         if (!is_string(_source_state_name)) return false
         if (_source_state_name == FSM_WILDCARD_TRANSITION_NAME_GENERIC) return true
 
-        if (!__is_valid_transition_name({ transition_name : _transition_name, show_error : false })) { return false }
+        if (!__is_valid_transition_name({ transition_name : _transition_name, show_error : false })) {
+            return false
+        }
 
         var _transition_name   = arguments[$ "transition_name"]
         var _source_state_name = arguments[$ "source_state_name"]
@@ -151,13 +153,19 @@ get_state_names = function() {
     is_state = function(parameters = {}) {
         // the name of the state to check
         var _state_name  = parameters[$ "state"]
-        if (!__is_valid_state_name(_state_name)) { return false }
+        if (!__is_valid_state_name(_state_name)) {
+            return false
+        }
         // the name of the state to check as parent
         var _parent_name = parameters[$ "parent"] ?? get_current_state_name()
-        if (!__is_valid_state_name(_parent_name)) { return false }
+        if (!__is_valid_state_name(_parent_name)) {
+            return false
+        }
 
         while (_state_name != undefined) {
-            if (_state_name == _parent_name) { return true }
+            if (_state_name == _parent_name) {
+                return true
+            }
             _state_name = private.state[$ _state_name].parent_name
         }
 
@@ -185,7 +193,9 @@ get_state_names = function() {
                     source_state_name : _currState,
                     trigger_name : _transition_name,
                     arguments : _arguments
-                })) { return true }
+                })) {
+                    return true
+                }
             }
             // Wild triggers
             if (has_transition({ transition_name : _transition_name, source_state_name : WILDCARD_TRANSITION_NAME_FINITE_STATE_MACHINE_GENERIC }) == "defined_trigger") {
@@ -194,7 +204,9 @@ get_state_names = function() {
                     source_state_name : _currState,
                     trigger_name : _transition_name,
                     arguments : _arguments
-                })) { return true }
+                })) {
+                    return true
+                }
             }
             // Parent triggers
             while (struct_exists(private.state_parent_name, _source)) {
@@ -205,7 +217,9 @@ get_state_names = function() {
                         source_state_name : _currState,
                         trigger_name : _transition_name,
                         arguments : _arguments
-                    })) { return true }
+                    })) {
+                        return true
+                    }
                 }
             }
         }
@@ -434,7 +448,9 @@ add_event = function(parameters = {}) {
 
         // the name string of the transition
         var _transition_name = arguments[$ "transition_name"]
-        if (!__is_valid_transition_name(_transition_name)) { return undefined }
+        if (!__is_valid_transition_name(_transition_name)) {
+            return undefined;
+        }
 
         // the name string of the source state
         // if it is undefined the transition is a wildcard transition
@@ -604,7 +620,9 @@ attach_eventhandler = function(parameters = {}) {
     /// Whether the finite state machine has a state with the given name.
     exists_state = function(parameters = {}) {
         var _state_name = parameters[$ "state"]
-        if (!__is_valid_state_name()) { return false }
+        if (!__is_valid_state_name()) {
+            return false
+        }
         return private.states[$ _state_name] != undefined
     }
 
@@ -614,7 +632,7 @@ attach_eventhandler = function(parameters = {}) {
     execute_parentevent = function(parameters = {}) {
         var _state_name = private.history_contents[0]
 
-        if (private.state_parent_name[$ _state_name] == undefined) {
+        if (private.state_parent_name[$ _state_name] == undefined) {
             __debug_message("State '{_state_name}' has no parent state.")
             return self
         }
@@ -748,7 +766,9 @@ function FiniteStateMachine() constructor {
     ///
     __trigger_event_listener = function(_event_name, _arguments = []) {
         var _event_handlers = private.event_handlers[$ _event_name]
-        if (!is_array(_event_handlers)) { return }
+        if (!is_array(_event_handlers)) {
+            return undefined;
+        }
         for (var i = 0; i < array_length(_event_handlers); i++) {
             method(private.execution_context, _event_handlers[i].callable)(_arguments)
         }
@@ -825,9 +845,9 @@ function FiniteStateMachine() constructor {
     add_state({ name: FINITE_STATE_MACHINE_DEFAULT_STATE })
 
     // built-in events
-    add_event({ event : "enterstate_event"  })
-    add_event({ event : "leavestate_event"  })
-    add_event({ event : "change_state_event" })
+    add_event({ event : "enterstate_event"  })
+    add_event({ event : "leavestate_event"  })
+    add_event({ event : "change_state_event" })
 
 }
 

@@ -13,7 +13,7 @@
 // ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
 
 function __gamemaker_object_context() {
-    static __context = (function(){
+    static __context = (function() {
         var _objecthandles = asset_get_ids(asset_object);
         for (var i = 0; i < array_length(_objecthandles); i++) {
             var _object = new GameMakerObject();

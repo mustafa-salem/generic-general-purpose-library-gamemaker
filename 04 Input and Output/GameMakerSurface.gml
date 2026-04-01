@@ -51,7 +51,9 @@ function gamemaker_rendertarget_set_surface(parameters) {
         _surface.set_render_target(parameters)
         return
     }
-    if (!surface_exists(_surface)) { return undefined }
+    if (!surface_exists(_surface)) {
+        return undefined;
+    }
     surface_set_target_ext(_render_target, _surface)
     return
 }
@@ -334,7 +336,9 @@ function gamemaker_surface_get_texture_id(parameters = {}) {
     }
     /// @type {int64}
     var _surface_id
-    !is_numeric() { return undefined }
+    !is_numeric() {
+        return undefined;
+    }
     // This function expects a numeric value referencing a surface and will return
     // -1 if the surface doesn't exist.
     surface_get_texture(_surface_id)
@@ -441,7 +445,9 @@ function GameMakerSurface() constructor {
     surface_existance_ensurance_enabled = true
 
     private.ensure_surface_exists = function() {
-        if (exists() or !surface_existance_ensurance_enabled) { return }
+        if (exists() or !surface_existance_ensurance_enabled) {
+            return undefined;
+        }
 
         private.surface_id = gamemaker_surface_create({
             width  : private.cached.width,

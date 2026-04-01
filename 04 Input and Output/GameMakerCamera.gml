@@ -249,7 +249,9 @@ function get_update_function_camera_generic(arguments = {}) {
 
 function ViewGeneric(arguments) constructor {
 
-    if (arguments == undefined) { return }
+    if (arguments == undefined) {
+        return undefined;
+    }
 
     private = {
         camera_id : gamemaker_camera_get_id({ camera : arguments.camera })
@@ -372,7 +374,9 @@ function View(arguments = { }) constructor {
 
 function CameraGeneric(arguments) constructor {
 
-    if (arguments == undefined) { return }
+    if (arguments == undefined) {
+        return undefined;
+    }
 
     var _camera_id = arguments.camera_id
 
