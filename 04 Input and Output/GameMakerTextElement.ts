@@ -1,10 +1,21 @@
-// ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
-#region    ―――――――――――――――――――――――――――――――――――――――――― CONSTANTS ――――――――――――――――――――――――――――――――――――――――――――――――――――――――
-// ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
+class TextElement {
 
-// ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
-#endregion ―――――――――――――――――――――――――――――――――――――――――― CONSTANTS ――――――――――――――――――――――――――――――――――――――――――――――――――――――――
-// ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
+    /// This function is used to set the original font and colour of the textelement.
+    /// ---
+    /// **NOTE:** Using `[/font]` and `[/colour]` will change the font and colour back to these values.
+    public set_formatting({ font, colour }): object {
+        const _font_name = font ?? private.default_format.font_name;
+        const _colour    = colour ?? private.default_format.colour;
+        if (!is_string(_font_name)) {
+            font_get_name(_font_name);
+        }
+        private.default_format.font_name = _font_name;
+        private.default_format.colour    = _colour;
+        private.scribble_text_element.starting_format(_font_name, _colour);
+        return this;
+    }
+
+}
 
 /// Creates a new Text Element instance and returns it.
 /// ---
@@ -95,25 +106,6 @@ function gamemaker_textelement_set_blending(parameters = {}) {
     private.alpha = _alpha
     private.scribble_text_element.blend(private.colour, _alpha)
     return _return
-}
-
-/// This function is used to set the original font and colour of the textelement.
-/// ---
-/// **NOTE:** Using `[/font]` and `[/colour]` will change the font and colour back to these values.
-/// ---
-/// `parameters.textelement`
-/// `parameters.font`
-/// `parameters.colour`
-/// @param {Struct} parameters The struct containing the arguments to pass to the function.
-/// @returns {Undefined}
-function gamemaker_textelement_set_formatting(parameters) {
-    var _font_name = arguments[$ "font"]   ?? private.default_format.font_name
-    var _colour    = arguments[$ "colour"] ?? private.default_format.colour
-    if (!is_string(_font_name)) { font_get_name(_font_name) }
-    private.default_format.font_name = _font_name
-    private.default_format.colour    = _colour
-    private.scribble_text_element.starting_format(_font_name, _colour)
-    return undefined;
 }
 
 /// 
@@ -223,7 +215,7 @@ function gamemaker_text_draw(arguments) {
     var parameters = {
         x : 0,
         y : 0,
-        string : "STRING_MISSING",
+        string: "STRING_MISSING",
         leading : -1, // typographical leading; -1 -> automatic default
         line_width : -1, // width before linebreak; -1 -> no inserted line breaks
         xscale : 1,
@@ -301,89 +293,73 @@ function gamemaker_text_draw(arguments) {
     return return_data
 }
 
+private = {
+    id : 0,
+}
 
-// ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
-#region    ――――――――――――――――――――――――――――――――――――――――― CONSTRUCTORS ――――――――――――――――――――――――――――――――――――――――――――――――――――――
-// ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
+id_counter = 0
 
-function GameMakerTextElement() constructor {
+self.private = {
+    id : 0,
+    font
+    colour
+    x_alignment
+    y_alignment
+    blend_colour
+}
 
-    #region    ―――――――――――――――――――― SUBREGION_NAME ――――――――――――――――――――
-    
-    static private = {
-        id : 0,
-    }
+private.id = id_counter
+id_counter++
 
-    static id_counter = 0
+// SCRIBBLE_ELEMENT
+private.scribble_text_element.scribble(private.string, private.id)
 
-    self.private = {
-        id : 0,
-        font
-        colour
-        x_alignment
-        y_alignment
-        blend_colour
-    }
+class GameMakerTextElement {
 
-    private.id = id_counter
-    id_counter++
-
-    // SCRIBBLE_ELEMENT
-    private.scribble_text_element.scribble(private.string, private.id)
-
-    static create = function(arguments = {}) {
+    public create({}) {
         return new GameMakerTextElement(arguments)
     }
 
-    static get_scribble_text_element = function(arguments = {}) {
-        return private.scribble_text_element
+    public get_scribble_text_element({}) {
+        return private.scribble_text_element;
     }
 
-    static set_scaling = function(parameters = {}) {
+    public set_scaling({}) {
         if (parameters[$ "x"] != undefined) { private.scale.x = parameters.x }
         if (parameters[$ "y"] != undefined) { private.scale.y = parameters.y }
-        private.scribble_text_element.transform(private.scale.x, private.scale.y, private.rotation * 360)
+        private.scribble_text_element.transform(private.scale.x, private.scale.y, private.rotation * 360);
+        return this;
+    }
+
+    public set_solid_blend({}) {
         return self
     }
 
-    self.set_scaling = method(self, set_scaling)
-
-    static set_solid_blend = function(arguments = {}) {
+    public set_gradient_blend({}) {
         return self
     }
 
-    static set_gradient_blend = function(arguments = {}) {
-        return self
-    }
-
-    static add_drop_shadow = function(arguments = {}) {
+    public add_drop_shadow({}) {
         var _colour, xoffset, yoffset
         return self
     }
 
-    set_line_height = function(parameters = {}) {
+    public set_line_height({}) {
         private.scribble_text_element.line_height(parameters.minimum, parameters.maximum)
         return self
     }
 
-    set_leading = function(parameters = {}) {
+    public set_leading({}) {
         private.scribble_text_element.line_spacing(parameters.leading)
         return self
     }
 
-    set_skew = function(parameters = {}) {
+    public set_skew({}) {
         private.scribble_text_element.skew(parameters.x, parameters.y)
         return self
     }
 
-    #endregion ―――――――――――――――――――― SUBREGION_NAME ――――――――――――――――――――
-
-    static prototype = {
-        set_formatting: function(arguments = {}) {
-            parameters.textelement = self;
-            gamemaker_textelement_set_formatting(parameters);
-            return self;
-        },
+    public prototype = {
         set_alignment: function(parameters = {}) {
             parameters.textelement = self;
             gamemaker_textelement_set_alignment(parameters);
@@ -391,58 +367,42 @@ function GameMakerTextElement() constructor {
         }
     };
 
-    self.set_formatting = method(self, prototype.set_formatting);
-    self.set_alignment  = method(self, prototype.set_alignment);
-
-    static set_blending = function(parameters = {}) {
+    public set_blending({}) {
         parameters.textelement = self
         gamemaker_textelement_set_blending(parameters)
         return self
     }
 
-    static set_position = function(arguments) {
+    public set_position = function(arguments) {
         if (!is_undefined(arguments[$ "x"])) { private.position.x = arguments.x }
         if (!is_undefined(arguments[$ "y"])) { private.position.y = arguments.y }
         return self
     }
 
-    static draw = function(parameters = {}) {
+    public draw({}) {
         parameters.textelement = self
         gamemaker_textelement_draw(parameters)
         return self
     }
     
-    static get_pagecount = function(parameters = {}) {
+    public get_pagecount({}) {
         parameters.textelement = self
         return gamemaker_textelement_get_pagecount(parameters)
     }
 
-    static get_pageindex = function(parameters = {}) {
+    public get_pageindex({}) {
         parameters.textelement = self
         return gamemaker_textelement_get_pageindex(parameters)
     }
 
-    static is_onlastpage = function(parameters = {}) {
+    public is_onlastpage({}) {
         parameters.textelement = self
         return gamemaker_textelement_is_onlastpage(parameters)
     }
 
-    static goto_page = function(parameters = {}) {
+    public goto_page({}) {
         parameters.textelement = self
         return gamemaker_textelement_get_pageindex(parameters)
     }
 
-    self.set_blending   = method(self, set_blending)
-    self.set_position   = method(self, set_position)
-    self.draw           = method(self, draw)
-
-    self.get_pagecount = method(self, get_pagecount)
-    self.get_pageindex = method(self, get_pageindex)
-    self.is_onlastpage = method(self, is_onlastpage)
-    self.goto_page     = method(self, goto_page)
-
 }
-
-// ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
-#endregion ――――――――――――――――――――――――――――――――――――――――― CONSTRUCTORS ――――――――――――――――――――――――――――――――――――――――――――――――――――――
-// ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
