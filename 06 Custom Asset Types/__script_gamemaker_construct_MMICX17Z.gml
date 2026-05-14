@@ -314,7 +314,7 @@ gamemaker_construct_create({ name: "obj_move_to_point", parent: "" })
 }})
 .attach_eventhandler({ event: "Step Event", handler: function() {
     if (!instance_exists(target)) {
-        self.destroy();
+        this.destroy();
         return;
     }
     if (moved == false) {
@@ -348,10 +348,10 @@ gamemaker_construct_create({ name: "obj_move_to_point", parent: "" })
                 scr_caterpillar_interpolate()
             }
         }
-        self.destroy();
+        this.destroy();
     }
     if (target == obj_move_to_point)
-        self.destroy();
+        this.destroy();
 }})
 
 /// <description>

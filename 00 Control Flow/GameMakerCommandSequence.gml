@@ -512,7 +512,7 @@ function scr_cutscene_commands() {
             var __commandscript = command_arg2[i]
             with (obj_script_delayed) {
                 if (script == __commandscript and target == __commandtarget) {
-                    self.destroy();
+                    this.destroy();
                     alarm[0] = -5
                     max_time = -300
                 }
@@ -654,7 +654,7 @@ function scr_cutscene_commands() {
         if (instant) {
             with (obj_panner) {
                 gamemaker_camera(view_camera[0]).set_viewposition({ x: finalx, y: finaly })
-                self.destroy();
+                this.destroy();
             }
         }
     }
@@ -1018,7 +1018,7 @@ gamemaker_construct_create({ name: "cutscene_object", parent: "In-Game Event" })
                 gamemaker_constructinstance_destroy({ instance : actor_id[jj] })
             }
         }
-        self.destroy();
+        this.destroy();
     }
 }})
 
