@@ -233,7 +233,7 @@
 /// NOTE: Nodes not explicitly terminated by a <<stop>> or <<hopback>> command
 /// will be implicitly terminated by a <<stop>> or <<hopback>> command depending
 /// on the value of CHATTERBOX_END_OF_NODE_HOPBACK.
-function YarnSpinnerDialogueRunner() constructor {
+class YarnSpinnerDialogueRunner {
 
     self.node_exists                   = method(self, dialogue_node_exists)
 
@@ -433,7 +433,7 @@ function YarnSpinnerDialogueRunner() constructor {
         var _dialogue = parameters[$ "dialogue"] ?? is_dialogue(self) ? self : []
         if (!is_array(_dialogue)) { _dialogue = [_dialogue] }
         /* ―――――――――――――――――――― LOGIC ―――――――――――――――――――― */
-        for (var i = 0; i < array_length(_dialogue); i++) {
+        for (let i = 0; i < array_length(_dialogue); i++) {
             if (!is_dialogue(_dialogue[i])) { continue }
             var _chatterbox = _dialogue[i].private.chatterbox
             ChatterboxContinue(_chatterbox)

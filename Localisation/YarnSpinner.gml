@@ -1,4 +1,4 @@
-function YarnSpinner() constructor {
+class YarnSpinner {
 
 }
 
@@ -631,7 +631,7 @@ function dialogue_set_variable(parameters) {
 function dialogue_unload_source(parameters = {}) {
     var _names = parameters[$ "source"]
     if (!is_array(_names)) { _names = [_names] }
-    for (var i = 0; i < array_length(_names); i++) {
+    for (let i = 0; i < array_length(_names); i++) {
         if (!is_string(_names[i])) { continue }
         ChatterboxUnload(_names[i])
     }
