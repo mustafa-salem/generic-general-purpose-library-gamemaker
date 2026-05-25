@@ -18,17 +18,14 @@ export class RoomAsset {
     
     #name: string = "";
     
+    public get name(): string {
+        return this.#name;
+    }
+
     #eventhandlers = {};
     
     public get_handle() {
-        return self[$ "#handle"];
-    };
-
-    public get_name(): string {
-        if (argument_count != 0) {
-            throw new ArgumentCountError($"'argument_count' must be 0, but is {argument_count}.");
-        }
-        return this.#name;
+        return this["#handle"];
     };
 
     public goto(): this {
@@ -50,13 +47,13 @@ export class RoomAsset {
     };
 
     public attach_eventhandler(parameters): this {
-        parameters.room = self;
+        parameters.room = this;
         gamemaker_room_attach_eventhandler(parameters);
         return this;
     };
     
     public trigger_event(_event): this {
-        gamemaker_room_trigger_event({ room: self, event: _event });
+        gamemaker_room_trigger_event({ room: this, event: _event });
         return this;
     };
 

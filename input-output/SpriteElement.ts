@@ -20,9 +20,9 @@ function gamemaker_spriteelement_create(parameters = {}) {
         y_origin   : 0,
         x_scale    : 1,
         y_scale    : 1,
-        x_position : 0,
-        y_position : 0,
-        bendcolour : #FFFFFF,
+        x_position: 0,
+        y_position: 0,
+        bendcolour : Colour.White,
         blendalpha : 1,
         x_rotation : 0,
         y_rotation : 0,
@@ -88,10 +88,10 @@ function gamemaker_sprite_draw(parameters) {
     // draw_sprite_general(sprite, subimg, left, top, width, height, x, y, xscale, yscale, rot, c1, c2, c3, c4, alpha)
 
     draw_primitive_begin_texture(pr_trianglestrip, sprite_get_texture(_sprite, _frame))
-    draw_vertex_texture_colour(_x_position               , _y_position               , 0, 0, #FFFFFF, 1)
-    draw_vertex_texture_colour(_x_position               , _y_position + _y_dimension, 0, 1, #FFFFFF, 1)
-    draw_vertex_texture_colour(_x_position + _x_dimension, _y_position               , 1, 0, #FFFFFF, 1)
-    draw_vertex_texture_colour(_x_position + _x_dimension, _y_position + _y_dimension, 1, 1, #FFFFFF, 1)
+    draw_vertex_texture_colour(_x_position               , _y_position               , 0, 0, Colour.White, 1)
+    draw_vertex_texture_colour(_x_position               , _y_position + _y_dimension, 0, 1, Colour.White, 1)
+    draw_vertex_texture_colour(_x_position + _x_dimension, _y_position               , 1, 0, Colour.White, 1)
+    draw_vertex_texture_colour(_x_position + _x_dimension, _y_position + _y_dimension, 1, 1, Colour.White, 1)
     draw_primitive_end()
 
     draw_settings_restore()
@@ -100,25 +100,27 @@ function gamemaker_sprite_draw(parameters) {
 }
 
 // ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
-#region    ――――――――――――――――――――――――――――――――――――――――― CONSTRUCTORS ――――――――――――――――――――――――――――――――――――――――――――――――――――――
+//     ――――――――――――――――――――――――――――――――――――――――― CONSTRUCTORS ――――――――――――――――――――――――――――――――――――――――――――――――――――――
 // ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
 
 ///
 export class SpriteElement {
 
-    private = {}
+    public static create(): SpriteElement {
+        return new SpriteElement();
+    }
 
-    /// ----------------------------------------------------------------------------
-    /// # position
-    /// ----------------------------------------------------------------------------
-    private.x_position = 0
-    private.y_position = 0
-    private.z_position = undefined
+    // private.x_position = 0
+    // private.y_position = 0
+    // private.z_position = undefined
 
-    self.get_x_position = method(self, Drawable.get_x_position)
-    self.get_y_position = method(self, Drawable.get_y_position)
-    self.get_z_position = method(self, Drawable.get_z_position)
-    self.set_position   = method(self, Drawable.set_position)
+    public get position() {
+
+    }
+
+    public set position(position: Vector2) {
+
+    }
 
     /// ----------------------------------------------------------------------------
     /// # offset
@@ -126,9 +128,9 @@ export class SpriteElement {
     private.x_offset = 0
     private.y_offset = 0
 
-    self.x_offset = method(self, Drawable.x_offset)
-    self.y_offset = method(self, Drawable.y_offset)
-    self.offset   = method(self, Drawable.offset)
+    this.x_offset = method(this, Drawable.x_offset)
+    this.y_offset = method(this, Drawable.y_offset)
+    this.offset   = method(this, Drawable.offset)
 
     /// ----------------------------------------------------------------------------
     /// # alignment
@@ -136,9 +138,9 @@ export class SpriteElement {
     private.x_alignment = 0
     private.y_alignment = 0
 
-    self.get_x_alignment = method(self, Drawable.get_x_alignment)
-    self.get_y_alignment = method(self, Drawable.get_y_alignment)
-    self.set_alignment   = method(self, Drawable.set_alignment)
+    this.get_x_alignment = method(this, Drawable.get_x_alignment)
+    this.get_y_alignment = method(this, Drawable.get_y_alignment)
+    this.set_alignment   = method(this, Drawable.set_alignment)
 
     /// ----------------------------------------------------------------------------
     /// # dimensions
@@ -146,9 +148,9 @@ export class SpriteElement {
     private.x_dimensions = 0
     private.y_dimensions = 0
 
-    self.get_x_dimension = method(self, Drawable.get_x_dimension)
-    self.get_y_dimension = method(self, Drawable.get_y_dimension)
-    self.set_dimensions   = method(self, Drawable.set_dimensions)
+    this.get_x_dimension = method(this, Drawable.get_x_dimension)
+    this.get_y_dimension = method(this, Drawable.get_y_dimension)
+    this.set_dimensions   = method(this, Drawable.set_dimensions)
 
     /// ----------------------------------------------------------------------------
     /// # scale
@@ -156,9 +158,8 @@ export class SpriteElement {
     private.x_scale = 0
     private.y_scale = 0
 
-    self.get_x_scale = method(self, Drawable.get_x_scale)
-    self.get_y_scale = method(self, Drawable.get_y_scale)
-    self.set_scaling   = method(self, Drawable.set_scaling)
+    this.get_y_scale = method(this, Drawable.get_y_scale)
+    this.set_scaling   = method(this, Drawable.set_scaling)
 
     /// ----------------------------------------------------------------------------
     /// # rotation
@@ -167,10 +168,10 @@ export class SpriteElement {
     private.y_rotation = 0
     private.z_rotation = 0
 
-    self.get_x_rotation = method(self, Drawable.get_x_rotation)
-    self.get_y_rotation = method(self, Drawable.get_y_rotation)
-    self.get_z_rotation = method(self, Drawable.get_z_rotation)
-    self.set_rotation   = method(self, Drawable.set_rotation)
+    this.get_x_rotation = method(this, Drawable.get_x_rotation)
+    this.get_y_rotation = method(this, Drawable.get_y_rotation)
+    this.get_z_rotation = method(this, Drawable.get_z_rotation)
+    this.set_rotation   = method(this, Drawable.set_rotation)
 
     /// ----------------------------------------------------------------------------
     /// # blending
@@ -179,10 +180,10 @@ export class SpriteElement {
     private.blend_alpha  = 0
     private.blendmode   = 0
 
-    self.get_blend_colour = method(self, Drawable.get_blend_colour)
-    self.get_blend_alpha  = method(self, Drawable.get_blend_alpha)
-    self.get_blendmode    = method(self, Drawable.get_blendmode)
-    self.set_blending     = method(self, Drawable.set_blending)
+    this.get_blend_colour = method(this, Drawable.get_blend_colour)
+    this.get_blend_alpha  = method(this, Drawable.get_blend_alpha)
+    this.get_blendmode    = method(this, Drawable.get_blendmode)
+    this.set_blending     = method(this, Drawable.set_blending)
 
     /// ----------------------------------------------------------------------------
     /// # shading
@@ -194,13 +195,12 @@ export class SpriteElement {
     /// # drawing
     /// ----------------------------------------------------------------------------
 
-    /// 
-    self.draw = function() {
+    public draw(): void {
 
-    };
+    }
 
 }
 
 // ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
-#endregion ――――――――――――――――――――――――――――――――――――――――― CONSTRUCTORS ――――――――――――――――――――――――――――――――――――――――――――――――――――――
+//  ――――――――――――――――――――――――――――――――――――――――― CONSTRUCTORS ――――――――――――――――――――――――――――――――――――――――――――――――――――――
 // ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――

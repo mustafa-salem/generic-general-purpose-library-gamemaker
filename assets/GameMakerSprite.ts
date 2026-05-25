@@ -7,28 +7,28 @@ function gamemaker_sprite_handle(parameters = {}) {
 }
 
 function gamemaker_sprite_get_texture(parameters = {}) {
-    var _sprite   = parameters[$ "sprite"];
-    var _subimage = parameters[$ "subimage"] ?? 0;
+    var _sprite   = parameters["sprite"];
+    var _subimage = parameters["subimage"] ?? 0;
     return sprite_get_texture(_sprite, _subimage);
 }
 
 function gamemaker_sprite_get_x_dimension(parameters = {}) {
-    var _sprite = parameters[$ "sprite"];
+    var _sprite = parameters["sprite"];
     return sprite_get_width(_sprite);
 }
 
 function gamemaker_sprite_get_y_dimension(parameters = {}) {
-    var _sprite = parameters[$ "sprite"];
+    var _sprite = parameters["sprite"];
     return sprite_get_height(_sprite);
 }
 
 function gamemaker_sprite_get_xoffset(parameters = {}) {
-    var _sprite = parameters[$ "sprite"];
+    var _sprite = parameters["sprite"];
     return sprite_get_xoffset(_sprite);
 }
 
 function gamemaker_sprite_get_yoffset(parameters = {}) {
-    var _sprite = parameters[$ "sprite"];
+    var _sprite = parameters["sprite"];
     return sprite_get_yoffset(_sprite);
 }
 
@@ -106,7 +106,7 @@ function gamemaker_sprite_draw(arguments) {
         var _surface_height = arguments.sprite_draw_height
 
         if (arguments.shader == outline_shader) {
-            arguments.outline.width = arguments.outline[$ "width"] ?? 1
+            arguments.outline.width = arguments.outline["width"] ?? 1
 
             _surface_width += 2 * arguments.outline.width
             _surface_height += 2 * arguments.outline.width
@@ -121,7 +121,7 @@ function gamemaker_sprite_draw(arguments) {
         var surface = gamemaker_surface_create()
         .set_dimensions({ x: _surface_width, y: _surface_height })
         gamemaker_rendertarget_set_surface({ surface })
-        draw_clear_alpha(#FFFFFF, 0)
+        draw_clear_alpha(Colour.White, 0)
 
         if (arguments.nine_slice) { gamemaker_sprite_draw.draw_method_nine_slice(arguments) }
         else if (arguments.tiled) { gamemaker_sprite_draw.draw_method_tiled(arguments) }
@@ -144,19 +144,19 @@ function gamemaker_sprite_draw(arguments) {
             var _red = colour_get_red(arguments.outline.colour) / 255
             var _green = colour_get_green(arguments.outline.colour) / 255
             var _blue = colour_get_blue(arguments.outline.colour) / 255
-            var _alpha = arguments.outline[$ "alpha"] ?? 1
+            var _alpha = arguments.outline["alpha"] ?? 1
 
             var _outline_colour = shader_get_uniform(outline_shader, "outline_colour")
             shader_set_uniform_f(_outline_colour, _red, _green, _blue, _alpha)
 
-            if (!is_undefined(arguments[$ "filling"])) {
+            if (!is_undefined(arguments["filling"])) {
                 var _filling_mode = shader_get_uniform(outline_shader, "filling_mode")
                 shader_set_uniform_i(_filling_mode, 2)
 
                 var _red = colour_get_red(arguments.filling.colour) / 255
                 var _green = colour_get_green(arguments.filling.colour) / 255
                 var _blue = colour_get_blue(arguments.filling.colour) / 255
-                var _alpha = arguments.filling[$ "alpha"] ?? 1
+                var _alpha = arguments.filling["alpha"] ?? 1
 
                 var _filling_colour = shader_get_uniform(outline_shader, "filling_colour")
                 shader_set_uniform_f(_filling_colour, _red, _green, _blue, _alpha)
@@ -176,35 +176,35 @@ function gamemaker_sprite_draw(arguments) {
 
     var parameters = {
         sprite : arguments.sprite,
-        frame : arguments[$ "frame"] ?? 0,
-        x : arguments[$ "x"] ?? 0,
-        y : arguments[$ "y"] ?? 0,
-        xscale : arguments[$ "xscale"] ?? 1,
-        yscale : arguments[$ "yscale"] ?? 1,
-        rotation : arguments[$ "rotation"] ?? 0,
-        alpha : arguments[$ "alpha"] ?? 1,
+        frame : arguments["frame"] ?? 0,
+        x : arguments["x"] ?? 0,
+        y : arguments["y"] ?? 0,
+        xscale : arguments["xscale"] ?? 1,
+        yscale : arguments["yscale"] ?? 1,
+        rotation : arguments["rotation"] ?? 0,
+        alpha : arguments["alpha"] ?? 1,
 
-        fragment : arguments[$ "fragment"] ?? {
+        fragment : arguments["fragment"] ?? {
             x : 0,
             y : 0,
             width : gamemaker_sprite_get_x_dimension(arguments.sprite),
             height : sprite_get_y_dimension(arguments.sprite),
         },
 
-        colour : arguments[$ "colour"] ?? #FFFFFF,
-        gradient : arguments[$ "gradient"] ?? {
-            top_left : #FFFFFF,
-            top_right : #FFFFFF,
-            bottom_right : #FFFFFF,
-            bottom_left : #FFFFFF,
+        colour : arguments["colour"] ?? Colour.White,
+        gradient : arguments["gradient"] ?? {
+            top_left : Colour.White,
+            top_right : Colour.White,
+            bottom_right : Colour.White,
+            bottom_left : Colour.White,
         },
 
-        tiled : arguments[$ "tiled"] == undefined ? false : true,
+        tiled : arguments["tiled"] == undefined ? false : true,
 
         nine_slice : sprite_get_nineslice(arguments.sprite).enabled,
-        shader : arguments[$ "shader"] ?? -1,
-        outline : arguments[$ "outline"] ?? undefined,
-        filling : arguments[$ "filling"] ?? undefined,
+        shader : arguments["shader"] ?? -1,
+        outline : arguments["outline"] ?? undefined,
+        filling : arguments["filling"] ?? undefined,
 
         seconds : get_timer() / 1000000,
     }
@@ -225,7 +225,7 @@ function gamemaker_sprite_draw(arguments) {
     }
 
     if (struct_exists(arguments, "yhover")) {
-        parameters.y += sin((parameters.seconds * (2 * pi) * arguments.yhover.frequency)) * arguments.yhover.amplitude
+        parameters.y += Math.sin((parameters.seconds * (2 * Math.PI) * arguments.yhover.frequency)) * arguments.yhover.amplitude
     }
 
     if (struct_exists(arguments, "width")) {
@@ -237,8 +237,8 @@ function gamemaker_sprite_draw(arguments) {
     }
 
     if (struct_exists(arguments, "pulsate")) {
-        parameters.xscale += sin((p.seconds * (2 * pi) * a.pulsate.x.frequency)) * a.pulsate.x.amplitude
-        parameters.yscale += sin((p.seconds * (2 * pi) * a.pulsate.y.frequency)) * a.pulsate.y.amplitude
+        parameters.xscale += Math.sin((p.seconds * (2 * Math.PI) * a.pulsate.x.frequency)) * a.pulsate.x.amplitude
+        parameters.yscale += Math.sin((p.seconds * (2 * Math.PI) * a.pulsate.y.frequency)) * a.pulsate.y.amplitude
     }
 
     if (struct_exists(arguments, "colour")) {

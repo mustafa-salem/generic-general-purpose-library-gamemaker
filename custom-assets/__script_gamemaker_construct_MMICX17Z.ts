@@ -1,23 +1,23 @@
 // ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
-#region    ―――――――――――――――――――――――――――――――――――――――― INITIALIZATION ―――――――――――――――――――――――――――――――――――――――――――――――――――――
+//     ―――――――――――――――――――――――――――――――――――――――― INITIALIZATION ―――――――――――――――――――――――――――――――――――――――――――――――――――――
 // ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
 
 function __gamemaker_construct_context() {
     static __context = (function() {
         var _context = __gamemaker_context();
-        _context[$ "construct"] = {};
-        _context[$ "construct"][$ "constructs"] = {};
-        return _context[$ "construct"];
+        _context["construct"] = {};
+        _context["construct"]["constructs"] = {};
+        return _context["construct"];
     })();
     return __context;
 }
 
 // ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
-#endregion ―――――――――――――――――――――――――――――――――――――――― INITIALIZATION ―――――――――――――――――――――――――――――――――――――――――――――――――――――
+//  ―――――――――――――――――――――――――――――――――――――――― INITIALIZATION ―――――――――――――――――――――――――――――――――――――――――――――――――――――
 // ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
 
 // ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
-#region    ―――――――――――――――――――――――――――――――――――――――――― FUNCTIONS ――――――――――――――――――――――――――――――――――――――――――――――――――――――――
+//     ―――――――――――――――――――――――――――――――――――――――――― FUNCTIONS ――――――――――――――――――――――――――――――――――――――――――――――――――――――――
 // ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
 
 /// If possible, resolves a value to an instance of `GameMakerConstruct`; otherwise, returns `undefined`.
@@ -25,18 +25,18 @@ function __gamemaker_construct_context() {
 /// @returns {Struct.GameMakerConstruct|Undefined}
 function gamemaker_construct(argument0) {
     static __context = __gamemaker_construct_context();
-    return __context[$ "constructs"][$ argument0];
+    return __context["constructs"][argument0];
 }
 
 /// parameters.name
 /// @returns {Struct.GameMakerConstruct}
 function gamemaker_construct_create(argument0) {
     static __context = __gamemaker_construct_context();
-    var _name   = argument0[$ "name"];
-    var _parent = argument0[$ "parent"];
+    var _name   = argument0["name"];
+    var _parent = argument0["parent"];
     var _construct = new GameMakerConstruct();
-    _construct[$ "#parent"] = _parent;
-    __context[$ "constructs"][$ _name] = _construct;
+    _construct["#parent"] = _parent;
+    __context["constructs"][_name] = _construct;
     return _construct;
 }
 
@@ -105,24 +105,24 @@ function gamemaker_construct_get_instances(parameters) {
 }
 
 // ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
-#endregion ―――――――――――――――――――――――――――――――――――――――――― FUNCTIONS ――――――――――――――――――――――――――――――――――――――――――――――――――――――――
+//  ―――――――――――――――――――――――――――――――――――――――――― FUNCTIONS ――――――――――――――――――――――――――――――――――――――――――――――――――――――――
 // ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
 
 // ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
-#region    ――――――――――――――――――――――――――――――――――――――――― CONSTRUCTORS ――――――――――――――――――――――――――――――――――――――――――――――――――――――
+//     ――――――――――――――――――――――――――――――――――――――――― CONSTRUCTORS ――――――――――――――――――――――――――――――――――――――――――――――――――――――
 // ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
 
 class GameMakerConstruct {
 
-    self[$ "#parent"] = undefined;
+    this["#parent"] = undefined;
 
     /// This function is used to get count of all instances of a construct.
     public get instancecount(): number {
         var _construct;
         var _instancecount = 0;
         with (construct_object) {
-            /// variable_instance_exists(self, "#constructinstance")
-            if (self[$ "#constructinstance"].get_construct() == _construct) {
+            /// variable_instance_exists(this, "#constructinstance")
+            if (this["#constructinstance"].get_construct() == _construct) {
                 _instancecount++;
             }
         }
@@ -130,7 +130,7 @@ class GameMakerConstruct {
     }
     
     static attach_eventhandler = function(parameters = {}) {
-        return self;
+        return this;
     };
 
     static instantiate = function(parameters = {}) {
@@ -138,7 +138,7 @@ class GameMakerConstruct {
         /// variables
         var _variables
         for (let i = 0; i < <expression>; i++) {
-            _instance[$ ""] = _variable
+            _instance[""] = _variable
         }
         return _instance
     }
@@ -158,7 +158,7 @@ class GameMakerConstruct {
     /// @param {type} parameters.name
     /// @param {type} parameters.value
     /// @param {type} parameters.expression
-    /// @returns {Struct} self
+    /// @returns {Struct} this
     static set_variable = function(parameters = {}) {
         return _return
     }
@@ -168,14 +168,14 @@ class GameMakerConstruct {
     /// ----------------------------------------------------------------------------
     private.eventhandlers = get_construct().private.eventhandlers
 
-    trigger_event    = method(self, eventtarget_trigger_event)
-    eventtarget_get_eventhandler = method(self, eventtarget_get_eventhandler)
-    attach_eventhandler = method(self, eventtarget_attach_eventhandler)
+    trigger_event    = method(this, eventtarget_trigger_event)
+    eventtarget_get_eventhandler = method(this, eventtarget_get_eventhandler)
+    attach_eventhandler = method(this, eventtarget_attach_eventhandler)
     
 }
 
 // ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
-#endregion ――――――――――――――――――――――――――――――――――――――――― CONSTRUCTORS ――――――――――――――――――――――――――――――――――――――――――――――――――――――
+//  ――――――――――――――――――――――――――――――――――――――――― CONSTRUCTORS ――――――――――――――――――――――――――――――――――――――――――――――――――――――
 // ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
 
 /// ----------------------------------------------------------------------------
@@ -183,7 +183,7 @@ class GameMakerConstruct {
 /// ----------------------------------------------------------------------------
 gamemaker_object(construct_object)
 .attach_eventhandler({ event: "Create Event", handler: function() {
-    if (not variable_instance_exists(self, "construct_instance")) {
+    if (not variable_instance_exists(this, "construct_instance")) {
         construct_instance = myconstructor()
     }
     execute_parentevent(argument0)
@@ -202,7 +202,7 @@ gamemaker_object(construct_object)
 }})
 
 // ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
-#region    ―――――――――――――――――――――――――――――――――――――――――― FUNCTIONS ――――――――――――――――――――――――――――――――――――――――――――――――――――――――
+//     ―――――――――――――――――――――――――――――――――――――――――― FUNCTIONS ――――――――――――――――――――――――――――――――――――――――――――――――――――――――
 // ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
 
 /// <description>
@@ -384,54 +384,52 @@ function gamemaker_constructinstance_set_visible(parameters = {}) {
 /// @returns {Struct|Undefined}
 function gamemaker_constructinstance_reconfigure(parameters = {}) {
     var _instances = <expression>
-    for (let i = 0; i < array_length(_instances); i++) {
+    for (let i = 0; i < _instances.length; i++) {
         var _instance = _instances[i]
         _instance.reconfigure(parameters)
     }
 }
 
-/// self.reconfigure = method(self, reconfigure)
+/// this.reconfigure = method(this, reconfigure)
 
 // ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
-#endregion ―――――――――――――――――――――――――――――――――――――――――― FUNCTIONS ――――――――――――――――――――――――――――――――――――――――――――――――――――――――
+//  ―――――――――――――――――――――――――――――――――――――――――― FUNCTIONS ――――――――――――――――――――――――――――――――――――――――――――――――――――――――
 // ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
 
 // ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
-#region    ――――――――――――――――――――――――――――――――――――――――― CONSTRUCTORS ――――――――――――――――――――――――――――――――――――――――――――――――――――――
+//     ――――――――――――――――――――――――――――――――――――――――― CONSTRUCTORS ――――――――――――――――――――――――――――――――――――――――――――――――――――――
 // ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
 
 class GameMakerConstructInstance {
 
     /// @type {Struct}
     ///
-    self.private = {}
+    this.private = {}
 
     /// <description>
-    self.collision = function() {
+    this.collision = function() {
 
     }
 
     /// <description>
-    self.get_object_instance = gamemaker_constructinstance_get_object_instance
+    this.get_object_instance = gamemaker_constructinstance_get_object_instance
 
     /// <description>
-    self.get_object_instance_handle = gamemaker_constructinstance_get_object_instance_handle
+    this.get_object_instance_handle = gamemaker_constructinstance_get_object_instance_handle
 
     /// <description>
     static is_instanceof = function(parameters = {}) {
-        parameters.instance = self
+        parameters.instance = this
         return gamemaker_constructinstance_is_instanceof(parameters)
     }
     
-    self.is_instanceof = method(self, is_instanceof)
+    this.is_instanceof = method(this, is_instanceof)
 
-    /// <description>
-    static set_position = function(parameters = {}) {
-        parameters.instance = self
+    public set position(position: Vector2) {
+        parameters.instance = this
         gamemaker_constructinstance_set_position(parameters)
-        return self
+        return this
     }
-    self.set_position = method(self, set_position)
 
     /// ----------------------------------------------------------------------------
     /// Tags
@@ -447,25 +445,25 @@ class GameMakerConstructInstance {
     /// <description>
     /// @param {Struct} parameters The struct containing the arguments to pass to the function.
     /// @param {Array<String>} parameters.tags
-    /// @returns {Struct.GameMakerConstructInstance} self
+    /// @returns {Struct.GameMakerConstructInstance} this
     static set_tags = function(parameters = {}) {
-        return self
+        return this
     }
 
     /// <description>
     /// @param {Struct} parameters The struct containing the arguments to pass to the function.
     /// @param {Array<String>} parameters.tags
-    /// @returns {Struct.GameMakerConstructInstance} self
+    /// @returns {Struct.GameMakerConstructInstance} this
     static add_tags = function(parameters = {}) {
-        return self
+        return this
     }
 
     /// <description>
     /// @param {Struct} parameters The struct containing the arguments to pass to the function.
     /// @param {Array<String>} parameters.tags
-    /// @returns {Struct.GameMakerConstructInstance} self
+    /// @returns {Struct.GameMakerConstructInstance} this
     static remove_tags = function(parameters = {}) {
-        return self
+        return this
     }
 
     /// <description>
@@ -498,14 +496,14 @@ class GameMakerConstructInstance {
     /// ----------------------------------------------------------------------------
     /// Events
     /// ----------------------------------------------------------------------------
-    self[$ "#eventhandlers"] = variable_clone(get_construct()[$ "#eventhandlers"])
+    this["#eventhandlers"] = variable_clone(get_construct()["#eventhandlers"])
 
-    trigger_event    = method(self, GameMakerConstruct.trigger_event)
-    get_eventhandler = method(self, GameMakerConstruct.get_eventhandler)
-    attach_eventhandler = method(self, GameMakerConstruct.attach_eventhandler)
+    trigger_event    = method(this, GameMakerConstruct.trigger_event)
+    get_eventhandler = method(this, GameMakerConstruct.get_eventhandler)
+    attach_eventhandler = method(this, GameMakerConstruct.attach_eventhandler)
 
 }
 
 // ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
-#endregion ――――――――――――――――――――――――――――――――――――――――― CONSTRUCTORS ――――――――――――――――――――――――――――――――――――――――――――――――――――――
+//  ――――――――――――――――――――――――――――――――――――――――― CONSTRUCTORS ――――――――――――――――――――――――――――――――――――――――――――――――――――――
 // ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
