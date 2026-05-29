@@ -72,7 +72,7 @@ function gamemaker_room(argument0) {
         _room = __gamemaker_room_get(_room);
         break;
     case "struct":
-        _room = (is_instanceof(argument0, GameMakerRoom) ? argument0 : undefined);
+        _room = (argument0 instanceof GameMakerRoom ? argument0 : undefined);
         break;
     }
     return _room;
@@ -405,15 +405,15 @@ function gamemaker_room_get_entryway(parameters) {
 }
 
 gamemaker_object(__object_gamemaker_roomcontroller)
-.attach_eventhandler({ event: "Create Event", handler: function() {
+protected ["Create Event"](): void {
     gamemaker_room(room).trigger_event("Create Event");
 }})
-.attach_eventhandler({ event: "Clean Up Event", handler: function() {
+protected ["Clean Up Event"](): void {
     gamemaker_room(room).trigger_event("Clean Up Event");
 }})
-.attach_eventhandler({ event: "Room Start Event", handler: function() {
+.attach_eventhandler({ event: "Room Start Event", handler: () => {
     gamemaker_room(room).trigger_event("Room Start Event");
 }})
-.attach_eventhandler({ event: "Room End Event", handler: function() {
+protected ["Room End Event"](): void {
     gamemaker_room(room).trigger_event("Room End Event");
 }});

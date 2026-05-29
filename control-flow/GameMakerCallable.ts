@@ -32,8 +32,8 @@ function gamemaker_callable_execute(parameters = {}) {
     var _scope     = arguments["scope"] ?? this
 
     // ensure arguments are in an array
-    if (!is_array(_arguments)) { _arguments = [_arguments] }
-
+    if (!Array.isArray(_arguments)) { _arguments = [_arguments] }
+    
     // too many arguments
     var _argument_count = _arguments.length
     if (_argument_count > 16) {

@@ -12,14 +12,14 @@ export class GPUControl {
 
     /**
      * Gets the current blend mode being used for drawing. 
-    **/
+     */
     public static get blendmode(): BlendMode {
         return new BlendMode();
     }
 
     /**
      * Sets the blend mode to be used for drawing. 
-    **/
+     */
     public static set blendmode(blendmode: BlendMode) {
 
         /*

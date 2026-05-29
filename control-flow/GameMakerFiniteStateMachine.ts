@@ -90,7 +90,7 @@ get_state_names = function() {
     /// @returns {Bool}
     has_event = function(parameters = {}) {
         var _event_name = parameters["event_name"]
-        if (!is_string(_event_name) or _event_name == "") {
+        if (typeof _event_name != "string" or _event_name == "") {
             __debug_message("Event should be a non-empty string.")
             return false
         }
@@ -106,8 +106,8 @@ get_state_names = function() {
     has_transition = function(arguments = {}) {
         var _transition_name   = arguments["transition_name"]
         var _source_state_name = arguments["source_state_name"]
-        if (!is_string(_transition_name)) return false
-        if (!is_string(_source_state_name)) return false
+        if (typeof _transition_name != "string") return false
+        if (typeof _source_state_name != "string") return false
         if (_source_state_name == FSM_WILDCARD_TRANSITION_NAME_GENERIC) return true
 
         if (!__is_valid_transition_name({ transition_name : _transition_name, show_error : false })) {
@@ -289,7 +289,7 @@ get_state_names = function() {
     /// @returns {Struct.FiniteStateMachine} this
     remove_state = function(parameters = {}) {
         var _state_names = parameters["state"]
-        if (!is_array(_state_names)) { _state_names = [_state_names] }
+        if (!Array.isArray(_state_names)) { _state_names = [_state_names] }
         for (let i = 0; i < _state_names.length; i++) {
             var _state_name = _state_names[i]
             if (!__is_valid_state_name(_state_name)) {
@@ -365,13 +365,8 @@ add_event = function(parameters = {}) {
     ///
     /// @param {type} runtime_frames
     /// @returns {Struct.FiniteStateMachine} this
-    add_state_runtime = function(parameters = {}) {
-        var _time
-        if (!is_real(_time)) {
-            __debug_message("Time should be a number")
-            return this
-        }
-        private.state_start_time = get_timer() - _time * 1000000
+    add_state_runtime = function(time: number) {
+        private.state_start_time = get_timer() - time * 1000000
         return this
     }
 
@@ -452,7 +447,7 @@ add_event = function(parameters = {}) {
         // the name string of the destination state
         // if it is undefined the transition is a reflexive transition
         var _destination_state_name = arguments["destination_state_name"]
-        if (!is_string(_destination_state_name) or (_destination_state_name == "")) {
+        if (typeof _destination_state_name != "string" or (_destination_state_name == "")) {
             __debug_message("State name should be a non-empty string.")
             return undefined
         }
@@ -480,11 +475,11 @@ add_event = function(parameters = {}) {
 
         /* ―――――――――――――――――――― LOGIC ―――――――――――――――――――― */
 
-        if (!is_array(_source)) { _source = [_source] }
+        if (!Array.isArray(_source)) { _source = [_source] }
 
         for (let i = 0; i < _source.length; i++) {
             _source_state_name = _source[i]
-            if (!is_string(_source_state_name) or (_source_state_name == "")) {
+            if (typeof _source_state_name != "string" or (_source_state_name == "")) {
                 __debug_message("State name should be a non-empty string. Transition not added.")
             } else {
                 // Define the transition
@@ -521,7 +516,7 @@ attach_eventhandler = function(parameters = {}) {
     var _callable = parameters["callable"]
     var _execution_context  = parameters["execution_context"] ?? noone
 
-    if (!is_string(_event)) {
+    if (typeof _event != "string") {
         __debug_message("Event name should be a string.")
         return this
     }
@@ -697,14 +692,14 @@ class FiniteStateMachine {
     /// @returns {Bool}
     /// Whether the string is valid as a state name.
     __is_valid_state_name = function(_string) {
-        if (!is_string(_string) or _string == "") {
+        if (typeof _string != "string" or _string == "") {
             __debug_message("The state name should be a non-empty string.")
             return false
         }
         return true
     }
 
-    // enterstate_event: { exists: "undefined_event", callable: function() {} },
+    // enterstate_event: { exists: "undefined_event", callable: () => {} },
 
     /// @type {String|Undefined}
     // Current event
@@ -758,7 +753,7 @@ class FiniteStateMachine {
     ///
     __trigger_event_listener = function(_event_name, _arguments = []) {
         var _event_handlers = private.event_handlers[_event_name]
-        if (!is_array(_event_handlers)) {
+        if (!Array.isArray(_event_handlers)) {
             return undefined;
         }
         for (let i = 0; i < _event_handlers.length; i++) {
@@ -774,7 +769,7 @@ class FiniteStateMachine {
     /// @returns {Bool}
     /// Whether the string is a valid transition name.
     __is_valid_transition_name = function(_string) {
-        if (is_string(_string) and _string != "") {
+        if (typeof _string === "string" and _string != "") {
             return true
         } else {
             __debug_message("Transition name should be a non-empty string.")

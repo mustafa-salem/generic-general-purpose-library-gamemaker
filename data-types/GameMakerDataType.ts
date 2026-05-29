@@ -71,5 +71,5 @@ function is_vertex_buffer(variable) {
 }
 
 function is_vertex_buffer_struct(variable) {
-    return is_struct(argument0) and is_instanceof(argument0, VertexBuffer)
+    return variable instanceof VertexBuffer
 }

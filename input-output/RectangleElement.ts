@@ -6,12 +6,14 @@ export class RectangleElement {
         return new RectangleElement();
     }
 
+    #position: Vector2 = new Vector2({ x: 0, y: 0 });
+
     public get position() {
-        return new Vector2({ x: 0, y: 0 });
+        return this.#position;
     }
 
     public set position(position: Vector2) {
-
+        this.#position = position;
     }
 
     public set dimensions(position: Vector2) {
@@ -108,12 +110,8 @@ export class RectangleElement {
     /// @param {Real}
     /// _colour_solid_fill
     /// @returns {Struct.RectangleElement}
-    static set_colour_solid_fill = function(_colour_solid_fill) {
-        if (!is_real(_colour_solid_fill)) {
-            // new InvalidTypeErrorGeneric()
-            return this
-        }
-        private.solid_fill.colour = clamp(_colour_solid_fill, Colour.Black, Colour.White)
+    static set_colour_solid_fill = function(_colour_solid_fill: number) {
+        private.solid_fill.colour = MathEX.clamp(_colour_solid_fill, Colour.Black, Colour.White)
         return this
     }
 
@@ -131,12 +129,8 @@ export class RectangleElement {
     /// @param {Real} _alpha_solid_fill
     /// _alpha_solid_fill
     /// @returns {Struct.RectangleElement} this
-    static set_alpha_solid_fill = function(_alpha_solid_fill) {
-        if (!is_real(_alpha_solid_fill)) {
-            // new InvalidTypeErrorGeneric()
-            return this
-        }
-        private.solid_fill.alpha = clamp(_alpha_solid_fill, 0, 1)
+    static set_alpha_solid_fill = function(_alpha_solid_fill: number) {
+        private.solid_fill.alpha = MathEX.clamp(_alpha_solid_fill, 0, 1)
         return this
     }
 
@@ -274,12 +268,8 @@ export class RectangleElement {
     /// colour_solid_outline
     /// @returns {Struct.RectangleElement}
     /// ----------------------------------------------------------------------------
-    static set_colour_solid_outline = function(_colour_solid_outline) {
-        if (!is_real(_colour_solid_outline)) {
-            // new InvalidTypeErrorGeneric()
-            return this
-        }
-        private.solid_outline.colour = clamp(_colour_solid_outline, Colour.Black, Colour.White)
+    static set_colour_solid_outline = function(_colour_solid_outline: number) {
+        private.solid_outline.colour = MathEX.clamp(_colour_solid_outline, Colour.Black, Colour.White)
         return this
     }
 
@@ -300,12 +290,8 @@ export class RectangleElement {
     /// alpha_solid_outline
     /// @returns {Struct.RectangleElement} this
     /// ----------------------------------------------------------------------------
-    static set_alpha_solid_outline = function(_alpha_solid_outline) {
-        if (!is_real(_alpha_solid_outline)) {
-            // new InvalidTypeErrorGeneric()
-            return this
-        }
-        private.solid_outline.alpha = clamp(_alpha_solid_outline, 0, 1)
+    static set_alpha_solid_outline = function(_alpha_solid_outline: number) {
+        private.solid_outline.alpha = MathEX.clamp(_alpha_solid_outline, 0, 1)
         return this
     }
 

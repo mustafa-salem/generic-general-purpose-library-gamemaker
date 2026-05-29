@@ -66,16 +66,6 @@ function gamemaker_construct_set_variable(parameters = {}) {
 
 // gamemaker_construct_get_eventmethod({ construct : "regular_bullet_object", event: "Create Event" })
 
-/// This function checks whether a given value is an instance of a construct.
-/// @param {any} value
-/// The value to check.
-/// @param {type|Array<type>} construct
-/// The construct or array of constructs to check.
-/// @returns {Bool}
-function value_is_instanceof_construct(parameters = {}) {
-    return _return
-}
-
 /// 
 /// @param {type} object
 /// @param {type} callable
@@ -182,21 +172,21 @@ class GameMakerConstruct {
 /// Construct Object
 /// ----------------------------------------------------------------------------
 gamemaker_object(construct_object)
-.attach_eventhandler({ event: "Create Event", handler: function() {
+protected ["Create Event"](): void {
     if (not variable_instance_exists(this, "construct_instance")) {
         construct_instance = myconstructor()
     }
     execute_parentevent(argument0)
 }})
-.attach_eventhandler({ event: "Destroy Event", handler: function() {
+protected ["Destroy Event"](): void {
     construct_instance.trigger_event("Destroy Event");
     execute_parentevent(argument0)
 }})
-.attach_eventhandler({ event: "Clean Up Event", handler: function() {
+protected ["Clean Up Event"](): void {
     construct_instance.trigger_event("Clean Up Event");
     execute_parentevent(argument0)
 }})
-.attach_eventhandler({ event: "Step Event", handler: function() {
+protected ["Step Event"](): void {
     construct_instance.trigger_event("Step Event");
     execute_parentevent(argument0)
 }})
@@ -297,7 +287,7 @@ function gamemaker_constructinstance_movetowards_position(parameters = {}) {
 /// obj_move_to_point
 /// ----------------------------------------------------------------------------
 gamemaker_construct_create({ name: "obj_move_to_point", parent: "" })
-.attach_eventhandler({ event: "Create Event", handler: function() {
+protected ["Create Event"](): void {
     target = 923
     moved = 0
     movetimer = 0
@@ -306,7 +296,7 @@ gamemaker_construct_create({ name: "obj_move_to_point", parent: "" })
     movemax = 10
     charmarker = 0
 }})
-.attach_eventhandler({ event: "Step Event", handler: function() {
+protected ["Step Event"](): void {
     if (!instance_exists(target)) {
         this.destroy();
         return;
@@ -328,8 +318,8 @@ gamemaker_construct_create({ name: "obj_move_to_point", parent: "" })
         target.fake_direction = dir
     }
     movetimer += 1
-    target.x = lerp(x, movex, (movetimer / movemax))
-    target.y = lerp(y, movey, (movetimer / movemax))
+    target.x = Interpolation.lerp(x, movex, (movetimer / movemax))
+    target.y = Interpolation.lerp(y, movey, (movetimer / movemax))
     if (movetimer >= movemax) {
         if (target.object_index == obj_actor)
             target.fake_speed = 0
@@ -416,15 +406,7 @@ class GameMakerConstructInstance {
 
     /// <description>
     this.get_object_instance_handle = gamemaker_constructinstance_get_object_instance_handle
-
-    /// <description>
-    static is_instanceof = function(parameters = {}) {
-        parameters.instance = this
-        return gamemaker_constructinstance_is_instanceof(parameters)
-    }
     
-    this.is_instanceof = method(this, is_instanceof)
-
     public set position(position: Vector2) {
         parameters.instance = this
         gamemaker_constructinstance_set_position(parameters)

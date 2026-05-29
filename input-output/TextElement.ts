@@ -24,7 +24,7 @@ export class TextElement {
         /*
         const _font_name = font ?? this.#default_format.font_name;
         const _colour    = colour ?? this.#default_format.colour;
-        if (!is_string(_font_name)) {
+        if (typeof _font_name != "string") {
             font_get_name(_font_name);
         }
         this.#default_format.font_name = _font_name;
@@ -352,7 +352,7 @@ function gamemaker_text_draw(arguments) {
 
     if (variable_instance_exists(parameters, "compress")) {
         if (parameters.compress > 0) {
-            parameters.xscale = clamp(parameters.compress / string_width(parameters.string), 0, 1)
+            parameters.xscale = MathEX.clamp(parameters.compress / string_width(parameters.string), 0, 1)
         }
     }
 

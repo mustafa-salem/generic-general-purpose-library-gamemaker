@@ -25,7 +25,7 @@ class AudioStack {
  function audio_stack_get_sound_instance(parameters = {}) {
      // audio stack
      var _audio_stack = parameters["audio_stack"]
-     if (!is_string(_audio_stack)) {
+     if (typeof _audio_stack != "string") {
         return undefined;
     }
 

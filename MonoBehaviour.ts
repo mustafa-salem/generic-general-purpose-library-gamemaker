@@ -2,7 +2,11 @@ import { GameObject } from "@gamemaker/GameObject";
 
 export class MonoBehaviour {
 
-    gameobject: GameObject;
+    #gameObject: GameObject;
+
+    public get gameObject(): GameObject {
+        return this.#gameObject;
+    }
 
     constructor() {
         

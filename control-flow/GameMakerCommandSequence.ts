@@ -455,7 +455,7 @@ function scr_cutscene_commands() {
         else { __chosenid = command_arg1[i] }
         if (command_arg5[i] == 0) { variable_instance_set(__chosenid, command_arg2[i], command_arg3[i]) }
         } else if (command_arg6[i] == 0) { scr_lerpvar_instance(__chosenid, command_arg2[i], command_arg3[i], command_arg4[i], command_arg5[i]) }
-        } else if (!is_string(command_arg6[i])) { scr_lerpvar_instance(__chosenid, command_arg2[i], command_arg3[i], command_arg4[i], command_arg5[i], command_arg6[i], "in") }
+        } else if (typeof command_arg6[i] != "string") { scr_lerpvar_instance(__chosenid, command_arg2[i], command_arg3[i], command_arg4[i], command_arg5[i], command_arg6[i], "in") }
         else {
             var __easetype = real(string_digits(command_arg6[i]))
             if (string_char_at(command_arg6[i], 1) == "-") {
@@ -929,7 +929,7 @@ class GameMakerCommandSequence {
 
 gamemaker_construct_create({ name: "cutscene_object", parent: "In-Game Event" })
 
-.attach_eventhandler({ event: "Create Event", handler: function() {
+protected ["Create Event"](): void {
     waiting = 0
     cs_wait_timer = 0
     cs_wait_amount = 0
@@ -959,7 +959,7 @@ gamemaker_construct_create({ name: "cutscene_object", parent: "In-Game Event" })
     terminate_this_frame = 0
 }})
 
-.attach_eventhandler({ event: "Step Event", handler: function() {
+protected ["Step Event"](): void {
     if (initialised == 0) {
         initialised = 1
     if (waiting == 0) {

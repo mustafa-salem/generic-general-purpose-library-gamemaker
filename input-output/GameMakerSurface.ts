@@ -81,31 +81,11 @@ function gamemaker_surface_clear(parameters = {}) {
     draw_clear_alpha(_colour, _alpha)
 }
 
-/// 
-/// x_dimension {Real}
-/// y_dimension {Real}
-/// [format] {constant} 
-/// [garbage_collection] {Bool} Whether to garbage collect the native surface when the struct is garbage collected.
-/// [existance_ensureance] {Bool}
-/// Whether to ensure that the native surface exists when trying to perform a
-/// operation on it.
-/// NOTE: `surface_create`, `surface_create_ext`
-/// @returns {Struct.GameMakerSurface}
-function gamemaker_surface_create(parameters) {
-    var _x_dimension          = parameters["x_dimension"]
-    var _y_dimension          = parameters["y_dimension"]
-    var _format               = parameters["format"]               ?? SURFACE_DEFAULT_FORMAT
-    var _garbage_collection   = parameters["garbage_collection"]   ?? SURFACE_DEFAULT_GARBAGE_COLLECTION
-    var _existance_ensureance = parameters["existance_ensureance"] ?? SURFACE_DEFAULT_EXISTANCE_ENSURANCE
-    surface_create(_x_dimension, _y_dimension, _format)
-    return new GameMakerSurface();
-}
-
 /// * surface_free
 /// @param {mixed} surface The value or the array of values that identify the surface to destroy.
 function gamemaker_surface_destroy(parameters) {
     var _surface = parameters["surface"]
-    if (!is_array(_surface)) { _surface = [_surface] }
+    if (!Array.isArray(_surface)) { _surface = [_surface] }
     for (let i = 0; i < _surface.length; i++) {
         if (is_struct(_surface[i])) {
             _surface[i].destroy(parameters)
@@ -261,7 +241,7 @@ function gamemaker_surface_set_dimensions(parameters) {
 }
 
 /// This function is used to prepare a surface for its creation in an 'Create Event'.
-/// Like gamemaker_surface_create but the actual surface won't be created yet.
+/// Like Surface.create but the actual surface won't be created yet.
 /// Call .create to create the surface.
 /// @param {type} parameter_name
 /// @returns {type}
@@ -281,7 +261,7 @@ class GameMakerSurface {
 
     private = {}
 
-    private.surface_id = is_numeric(arguments) ? arguments : gamemaker_surface_create(arguments)
+    private.surface_id = is_numeric(arguments) ? arguments : Surface.create(arguments)
 
     private.cached = {
         width  : get_x_dimension(),
@@ -299,7 +279,7 @@ class GameMakerSurface {
             return undefined;
         }
 
-        private.surface_id = gamemaker_surface_create({
+        private.surface_id = Surface.create({
             width  : private.cached.width,
             height : private.cached.height,
             format : private.cached.format,

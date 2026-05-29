@@ -253,8 +253,6 @@ export class Viewport {
     /// proxy for gamemaker_viewport_is_visible
     /// @returns {Bool}
     static get_visible = function(parameters = {}) {
-        var _is_instance_scope = is_instanceof(this, Viewport)
-        if (_is_instance_scope) { parameters.view_port = this }
         return gamemaker_viewport_is_visible(parameters)
     }
 
@@ -262,18 +260,13 @@ export class Viewport {
     /// proxy for gamemaker_viewport_set_visible
     /// @returns {Struct.Viewport} this
     static set_visible = function(parameters = {}) {
-        var _is_instance_scope = is_instanceof(this, Viewport)
-        if (_is_instance_scope) { parameters.view_port = this }
         gamemaker_viewport_set_visible(parameters)
-        if (_is_instance_scope) { return this }
     }
 
     ///
     /// proxy for gamemaker_viewport_get_surface
     /// @returns {Struct.GameMakerSurface|Undefined}
     static get_surface = function(parameters = {}) {
-        var _is_instance_scope = is_instanceof(this, Viewport)
-        if (_is_instance_scope) { parameters.view_port = this }
         return gamemaker_viewport_get_surface(parameters)
     }
 
@@ -281,8 +274,6 @@ export class Viewport {
     /// proxy for gamemaker_viewport_set_surface
     /// @returns {Struct.Viewport} this
     static set_surface = function(parameters = {}) {
-        var _is_instance_scope = is_instanceof(this, Viewport)
-        if (_is_instance_scope) { parameters.view_port = this }
         gamemaker_viewport_set_surface(parameters)
         if (_is_instance_scope) { return this }
     }
@@ -297,47 +288,28 @@ export class Viewport {
     /// proxy for gamemaker_viewport_set_camera
     /// @returns {Struct.Viewport} this
     static set_camera = function(parameters = {}) {
-        var _is_instance_scope = is_instanceof(this, Viewport)
-        if (_is_instance_scope) { parameters.view_port = this }
         gamemaker_viewport_set_camera(parameters)
         if (_is_instance_scope) { return this }
     }
 
     public get position() {
-        var _is_instance_scope = is_instanceof(this, Viewport)
-        if (_is_instance_scope) { parameters.view_port = this }
         return gamemaker_viewport_get_x_position(parameters)
-        var _is_instance_scope = is_instanceof(this, Viewport)
-        if (_is_instance_scope) { parameters.view_port = this }
         return gamemaker_viewport_get_y_position(parameters)
-        var _is_instance_scope = is_instanceof(this, Viewport)
-        if (_is_instance_scope) { parameters.view_port = this }
         return gamemaker_viewport_get_position(parameters)
     }
 
     public set position(position: Vector2) {
-        var _is_instance_scope = is_instanceof(this, Viewport)
-        if (_is_instance_scope) { parameters.view_port = this }
         gamemaker_viewport_set_x_position(parameters)
-        if (_is_instance_scope) { return this }
-        var _is_instance_scope = is_instanceof(this, Viewport)
-        if (_is_instance_scope) { parameters.view_port = this }
         gamemaker_viewport_set_y_position(parameters)
-        if (_is_instance_scope) { return this }
     }
 
     public set position(position: Vector2) {
-        var _is_instance_scope = is_instanceof(this, Viewport)
-        if (_is_instance_scope) { parameters.view_port = this }
         gamemaker_viewport_set_position(parameters)
-        if (_is_instance_scope) { return this }
     }
 
     /// @returns {Real}
     static get_x_dimension = function(parameters = {}) {
-        var _is_instance_scope = is_instanceof(this, Viewport)
         if (_is_instance_scope) { parameters.view_port = this }
-        return gamemaker_viewport_get_x_dimension(parameters)
     }
 
     /// <function_description>
@@ -345,16 +317,11 @@ export class Viewport {
     /// @param {Type} parameters.parameter_name
     /// @returns {type}
     static set_x_dimensions = function(parameters = {}) {
-        var _is_instance_scope = is_instanceof(this, Viewport)
-        if (_is_instance_scope) { parameters.view_port = this }
         gamemaker_viewport_set_x_dimension(parameters)
-        if (_is_instance_scope) { return this }
     }
 
     /// @returns {type}
     static get_y_dimension = function(parameters = {}) {
-        var _is_instance_scope = is_instanceof(this, Viewport)
-        if (_is_instance_scope) { parameters.view_port = this }
         return gamemaker_viewport_get_y_dimension(parameters)
     }
 
@@ -363,16 +330,11 @@ export class Viewport {
     /// @param {Type} parameters.parameter_name
     /// @returns {type}
     static set_y_dimensions = function(parameters = {}) {
-        var _is_instance_scope = is_instanceof(this, Viewport)
-        if (_is_instance_scope) { parameters.view_port = this }
         gamemaker_viewport_set_y_dimension(parameters)
-        if (_is_instance_scope) { return this }
     }
 
     /// @returns {type}
     static get_dimensions = function(parameters = {}) {
-        var _is_instance_scope = is_instanceof(this, Viewport)
-        if (_is_instance_scope) { parameters.view_port = this }
         return 
     }
 
@@ -383,10 +345,7 @@ export class Viewport {
     /// @param {Type} parameters.y
     /// @returns {type}
     static set_dimensions = function(parameters = {}) {
-        var _is_instance_scope = is_instanceof(this, Viewport)
-        if (_is_instance_scope) { parameters.view_port = this }
         gamemaker_viewport_set_dimensions(parameters)
-        if (_is_instance_scope) { return this }
     }
 
 }

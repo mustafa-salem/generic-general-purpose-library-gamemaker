@@ -488,11 +488,6 @@ class GameMakerObject {
         return gamemaker_object_get_parent(parameters);
     };
 
-    static is_instanceof = function(parameters = {}) {
-        parameters.object = this;
-        return gamemaker_object_is_instanceof(parameters);
-    };
-
     static get_persistent = function(parameters = {}) {
         parameters.object = this;
         /// object_get_persistent
@@ -563,7 +558,7 @@ class GameMakerObject {
         return gamemaker_object_trigger_event(parameters)
     };
 
-    var _method = ["get_handle", "get_parent", "is_instanceof", "get_persistent", "set_persistent", "get_solid", "set_solid", "get_physics", "get_visible", "set_visible", "get_sprite", "set_sprite", "get_mask", "set_mask", "attach_eventhandler", "trigger_event"];
+    var _method = ["get_handle", "get_parent", "get_persistent", "set_persistent", "get_solid", "set_solid", "get_physics", "get_visible", "set_visible", "get_sprite", "set_sprite", "get_mask", "set_mask", "attach_eventhandler", "trigger_event"];
     for (let i = 0; i < _method.length; i++) {
         var _name = _method[i];
         var _static_method = static_get(this)[_name];
@@ -617,11 +612,6 @@ class GameMakerObjectInstance {
         parameters.instance = this;
         gamemaker_objectinstance_set_position(parameters);
         return this;
-    };
-
-    static is_instanceof = function(parameters = {}) {
-        parameters.instance = this;
-        gamemaker_objectinstance_is_instanceof(parameters);
     };
     
     static execute_parentevent = function(parameters) {

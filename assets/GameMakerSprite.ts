@@ -118,7 +118,7 @@ function gamemaker_sprite_draw(arguments) {
             arguments.screen_y -= arguments.outline.width
         }
 
-        var surface = gamemaker_surface_create()
+        var surface = Surface.create()
         .set_dimensions({ x: _surface_width, y: _surface_height })
         gamemaker_rendertarget_set_surface({ surface })
         draw_clear_alpha(Colour.White, 0)

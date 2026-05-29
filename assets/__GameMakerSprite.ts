@@ -207,10 +207,10 @@ function scr_draw_sprite_crop(argument0, argument1, argument2, argument3, argume
         draw_self()
         return;
     }
-    var _leftcrop = clamp((argument2 - _true_xanchor), 0, Math.abs(_sprite_width))
-    var _topcrop = clamp((argument3 - _true_yanchor), 0, Math.abs(_sprite_height))
-    var _rightcrop = clamp((argument4 - _true_xanchor), 0, Math.abs(_sprite_width))
-    var _bottomcrop = clamp((argument5 - _true_yanchor), 0, Math.abs(_sprite_height))
+    var _leftcrop = MathEX.clamp((argument2 - _true_xanchor), 0, Math.abs(_sprite_width))
+    var _topcrop = MathEX.clamp((argument3 - _true_yanchor), 0, Math.abs(_sprite_height))
+    var _rightcrop = MathEX.clamp((argument4 - _true_xanchor), 0, Math.abs(_sprite_width))
+    var _bottomcrop = MathEX.clamp((argument5 - _true_yanchor), 0, Math.abs(_sprite_height))
     draw_sprite_part(argument0, argument1, _leftcrop, _topcrop, _rightcrop, _bottomcrop, ((argument6 - _sprite_xoffset) + _leftcrop), ((argument7 - _sprite_yoffset) + _topcrop))
 }
 
@@ -225,10 +225,10 @@ function scr_draw_sprite_crop_ext(argument0, argument1, argument2, argument3, ar
         draw_sprite_ext(argument0, argument1, argument6, argument7, argument8, argument9, 0, argument10, argument11)
         return;
     }
-    var _leftcrop = clamp((argument2 - _true_xanchor), 0, Math.abs(_sprite_width))
-    var _topcrop = clamp((argument3 - _true_yanchor), 0, Math.abs(_sprite_height))
-    var _rightcrop = clamp((argument4 - _true_xanchor), 0, Math.abs(_sprite_width))
-    var _bottomcrop = clamp((argument5 - _true_yanchor), 0, Math.abs(_sprite_height))
+    var _leftcrop = MathEX.clamp((argument2 - _true_xanchor), 0, Math.abs(_sprite_width))
+    var _topcrop = MathEX.clamp((argument3 - _true_yanchor), 0, Math.abs(_sprite_height))
+    var _rightcrop = MathEX.clamp((argument4 - _true_xanchor), 0, Math.abs(_sprite_width))
+    var _bottomcrop = MathEX.clamp((argument5 - _true_yanchor), 0, Math.abs(_sprite_height))
     draw_sprite_part_ext(argument0, argument1, _leftcrop, _topcrop, _rightcrop, _bottomcrop, ((argument6 - _sprite_xoffset) + _leftcrop), ((argument7 - _sprite_yoffset) + _topcrop), argument8, argument9, argument10, argument11)
 }
 

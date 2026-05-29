@@ -150,7 +150,7 @@ function gamemaker_input_save_system_data_to_file() {
     }
 
     var _filepath = arguments["filepath"] ?? private.system_config.default_filepath
-    if (!is_string(_filepath)) {
+    if (typeof _filepath != "string") {
         return undefined;
     }
 

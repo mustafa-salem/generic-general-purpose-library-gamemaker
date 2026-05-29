@@ -233,7 +233,7 @@
 /// NOTE: Nodes not explicitly terminated by a <<stop>> or <<hopback>> command
 /// will be implicitly terminated by a <<stop>> or <<hopback>> command depending
 /// on the value of CHATTERBOX_END_OF_NODE_HOPBACK.
-class YarnSpinnerDialogueRunner {
+export class DialogueRunner {
 
     this.node_exists                   = method(this, dialogue_node_exists)
 
@@ -387,7 +387,7 @@ class YarnSpinnerDialogueRunner {
     /// The name of the source. Defaults to the current source.
     /// @param {string} node
     /// The title of the node to jump to.
-    /// @returns {Struct.YarnSpinnerDialogueRunner}
+    /// @returns {Struct.DialogueRunner}
     this.jump_to_node = function(parameters = {}) {
         var _dialogue    = parameters["dialogue"]
         var _chatterbox  = _dialogue.private.chatterbox
@@ -411,7 +411,6 @@ class YarnSpinnerDialogueRunner {
     /// @returns {Bool}
     function yarnspinner_dialoguerunner_is_waiting(parameters = {}) {
         var _dialogue = parameters["dialogue"]
-        if (is_instanceof(this, YarnSpinnerDialogueRunner)) { _dialogue ??= this }
         return ChatterboxIsWaiting(_dialogue.private.chatterbox)
     }
 
@@ -431,7 +430,7 @@ class YarnSpinnerDialogueRunner {
         /* ―――――――――――――――――――― ARGUMENTS ―――――――――――――――――――― */
         if (!is_struct(parameters)) { parameters = {} }
         var _dialogue = parameters["dialogue"] ?? is_dialogue(this) ? this : []
-        if (!is_array(_dialogue)) { _dialogue = [_dialogue] }
+        if (!Array.isArray(_dialogue)) { _dialogue = [_dialogue] }
         /* ―――――――――――――――――――― LOGIC ―――――――――――――――――――― */
         for (let i = 0; i < _dialogue.length; i++) {
             if (!is_dialogue(_dialogue[i])) { continue }
@@ -458,7 +457,6 @@ class YarnSpinnerDialogueRunner {
     /// @returns {Bool}
     function yarnspinner_dialoguerunner_is_stopped(parameters = {}) {
         var _dialogue = parameters["dialogue"]
-        if (is_instanceof(this, YarnSpinnerDialogueRunner)) { _dialogue ??= this }
         ChatterboxIsStopped(_dialogue.private.chatterbox)
     }
 
@@ -468,7 +466,7 @@ class YarnSpinnerDialogueRunner {
     /// <parameter_description>
     /// @returns {Undefined}
     function yarnspinner_dialoguerunner_stop(parameters = {}) {
-        var _dialogue   = parameters["dialogue"] ?? is_instanceof(this, YarnSpinnerDialogueRunner) ? this : undefined
+        var _dialogue   = parameters["dialogue"]
         var _chatterbox = _dialogue.private.chatterbox
         return ChatterboxStop(_chatterbox)
     }

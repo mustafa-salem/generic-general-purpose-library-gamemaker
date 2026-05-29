@@ -32,10 +32,8 @@ export class View {
     public get position() {
         var _camera_id = Camera.get_id({ camera : arguments.camera })
         return camera_get_view_x(_camera_id)
-        if (is_instanceof(this, View)) { arguments.camera = private.camera_id }
         var _camera_id = Camera.get_id({ camera : arguments.camera })
         return camera_get_view_y(_camera_id)
-        if (is_instanceof(this, View)) { arguments.camera = private.camera_id }
         var _camera_id = Camera.get_id({ camera : arguments.camera })
         return {
             x : camera_get_view_x(_camera_id),

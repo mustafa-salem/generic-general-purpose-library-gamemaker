@@ -18,7 +18,7 @@ function gamemaker_guard(condition, throwable) {
 function show_trace_debug_generic(arguments) {
     arguments ??= {}
     var _debug_message = arguments["debug_message"] ?? "NO_MESSAGE"
-    if (!is_array(_debug_message)) { _debug_message = [_debug_message] }
+    if (!Array.isArray(_debug_message)) { _debug_message = [_debug_message] }
     var _show_popup = arguments["show_popup"] ?? false
 
     var _string = ""

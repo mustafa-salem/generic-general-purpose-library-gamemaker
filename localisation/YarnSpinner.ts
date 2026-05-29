@@ -31,7 +31,7 @@ function yarnspinner_define_function(parameters) {
     return ChatterboxAddFunction(parameters.name, parameters.callable)
 }
 
-/// This function is used to create an instance of 'Struct.YarnSpinnerDialogueRunner'.
+/// This function is used to create an instance of 'Struct.DialogueRunner'.
 /// ----------------------------------------------------------------------------
 /// @param {string} source
 /// The name of the YarnScript source to use.
@@ -51,7 +51,7 @@ function yarnspinner_dialoguerunner_create(parameters = {}) {
 
     ChatterboxCreate(_source, _singleton_mode, _execution_context)
 
-    var _dialogue = new YarnSpinnerDialogueRunner()
+    var _dialogue = new DialogueRunner()
     return _dialogue
 }
 
@@ -77,7 +77,7 @@ function yarnspinner_dialoguerunner_get_optioncount(parameters = {}) {
 /// @returns {Struct}
 /// The dialogue
 function yarnspinner_dialoguerunner_hopback(parameters = {}) {
-    var _dialogue = parameters["dialogue"] ?? (is_instanceof(this, YarnSpinnerDialogueRunner) ? this : undefined)
+    var _dialogue = parameters["dialogue"]
     ChatterboxHopBack(private.chatterbox)
     return _dialogue
 }
@@ -538,12 +538,12 @@ function dialogue_load_source(parameters = {}) {
     var _buffer   = parameters["buffer"]
 
     // loads YarnScript from a file
-    if (is_string(_filepath)) {
+    if (typeof _filepath === "string") {
         ChatterboxLoadFromFile(_filepath, _name)
         return undefined
     }
     // loads YarnScript from a string
-    if (is_string(_string)) {
+    if (typeof _string === "string") {
         ChatterboxLoadFromString(_name, _string)
         return undefined
     }
@@ -630,9 +630,9 @@ function dialogue_set_variable(parameters) {
 /// @returns {Undefined}
 function dialogue_unload_source(parameters = {}) {
     var _names = parameters["source"]
-    if (!is_array(_names)) { _names = [_names] }
+    if (!Array.isArray(_names)) { _names = [_names] }
     for (let i = 0; i < _names.length; i++) {
-        if (!is_string(_names[i])) { continue }
+        if (typeof _names[i] != "string") { continue }
         ChatterboxUnload(_names[i])
     }
     return undefined
@@ -643,7 +643,7 @@ function dialogue_unload_source(parameters = {}) {
 /// @param {any} value - The value to check.
 /// @returns {Bool}
 function is_dialogue(_value) {
-    return is_instanceof(_value, YarnSpinnerDialogueRunner)
+    return _value instanceof DialogueRunner;
 }
 
 yarnspinner_dialoguerunner_is

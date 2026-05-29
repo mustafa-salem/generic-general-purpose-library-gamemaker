@@ -255,13 +255,13 @@ function gamemaker_triangle_draw(arguments = {}) {
             if (p.vertices[i][0] == _xmax) {
                 p.vertices[i][0] += (a.canvas_scale - 1)
             } else if (p.vertices[i][0] != _xmin) {
-                p.vertices[i][0] += inverse_lerp_generic(_xmin, _xmax, p.vertices[i][0]) * (a.canvas_scale - 1)
+                p.vertices[i][0] += Interpolation.inverse_lerp(_xmin, _xmax, p.vertices[i][0]) * (a.canvas_scale - 1)
             }
             // Y
             if (p.vertices[i][1] == _ymax) {
                 p.vertices[i][1] += (a.canvas_scale - 1)
             } else if (p.vertices[i][1] != _ymin) {
-                p.vertices[i][1] += inverse_lerp_generic(_ymin, _ymax, p.vertices[i][1]) * (a.canvas_scale - 1)
+                p.vertices[i][1] += Interpolation.inverse_lerp(_ymin, _ymax, p.vertices[i][1]) * (a.canvas_scale - 1)
             }
         }
         */

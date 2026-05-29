@@ -38,16 +38,6 @@ export class Camera {
     */
 
     public get_id() {
-        if (is_instanceof(this, Camera)) { return private.camera_id }
-        // CAMERA_ID
-        if (is_real(arguments.camera)) {
-            return arguments.camera
-        }
-        // CAMERA_STRUCT
-        if (is_struct(arguments.camera)) {
-            return arguments.camera.get_id()
-        }
-        // UNDEFINED
         return -1
     }
 

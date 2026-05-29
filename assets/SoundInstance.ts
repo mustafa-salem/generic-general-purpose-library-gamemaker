@@ -55,7 +55,7 @@ function gamemaker_sound_stop(parameters = {}): void {
 
     audio_stop_sound(_instance)
     // MULTI_TARGET
-    if (is_array(arguments.target)) {
+    if (Array.isArray(arguments.target)) {
         for (let i = 0; i < arguments.target.length; i++) {
             var _value = unpause_sound_generic({ target : arguments.target[i] })
         }
@@ -77,7 +77,7 @@ function gamemaker_sound_stop(parameters = {}): void {
  */
 function gamemaker_sound_set_stop_callback(arguments): void {
     // MULTI_TARGET
-    if (is_array(arguments.target)) {
+    if (Array.isArray(arguments.target)) {
         var _return_values = []
         for (let i = 0; i < arguments.target.length; i++) {
             var _value = unpause_sound_generic({ target : arguments.target[i] })
@@ -100,7 +100,7 @@ function gamemaker_sound_set_stop_callback(arguments): void {
  */
 function gamemaker_sound_get_length(arguments = {}): number {
     // MULTI_TARGET
-    if (is_array(arguments.target)) {
+    if (Array.isArray(arguments.target)) {
         var _targets = arguments.target
         var _return_values = []
         for (let i = 0; i < _targets.length; i++) {
@@ -123,7 +123,7 @@ function gamemaker_sound_get_length(arguments = {}): number {
  */
 function gamemaker_sound_get_track_position(arguments = {}): number {
     // MULTI_TARGET
-    if (is_array(arguments.target)) {
+    if (Array.isArray(arguments.target)) {
         var _targets = arguments.target
         var _return_values = []
         for (let i = 0; i < _targets.length; i++) {
@@ -192,7 +192,7 @@ export class SoundInstance {
      */
     public exists(): boolean {
         // MULTI_TARGET
-        if (is_array(arguments.target)) {
+        if (Array.isArray(arguments.target)) {
             var _return_values = []
             for (let i = 0; i < arguments.target.length; i++) {
                 var _value = unpause_sound_generic({ target : arguments.target[i] })
@@ -221,7 +221,7 @@ export class SoundInstance {
      */
     public paused() {
         // MULTI_TARGET
-        if (is_array(arguments.target)) {
+        if (Array.isArray(arguments.target)) {
             var _return_values = []
             for (let i = 0; i < arguments.target.length; i++) {
                 var _value = unpause_sound_generic({ target : arguments.target[i] })
@@ -254,7 +254,7 @@ export class SoundInstance {
      */
     public persistent() {
         // MULTI_TARGET
-        if (is_array(arguments.target)) {
+        if (Array.isArray(arguments.target)) {
             var _return_values = []
             for (let i = 0; i < arguments.target.length; i++) {
                 var _value = unpause_sound_generic({ target : arguments.target[i] })
@@ -285,7 +285,7 @@ export class SoundInstance {
      */
     public pitch() {
         // MULTI_TARGET
-        if (is_array(arguments.target)) {
+        if (Array.isArray(arguments.target)) {
             var _targets = arguments.target
             var _return_values = []
             for (let i = 0; i < _targets.length; i++) {

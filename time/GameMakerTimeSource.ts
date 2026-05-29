@@ -80,7 +80,6 @@ function gamemaker_timesource_destroy(parameters = {}) {
 /// @param {type} parameter_name <parameter_description>
 /// @returns {type}
 function gamemaker_timesource_exists(parameters = {}) {
-    if (is_instanceof(this, TimeSourceGeneric)) { arguments.time_source = this }
     var _time_source_id = get_id(arguments)
     return time_source_exists(_time_source_id)
 }
@@ -88,7 +87,6 @@ function gamemaker_timesource_exists(parameters = {}) {
 /// 
 /// @returns {type}
 function gamemaker_timesource_get_arguments(parameters = {}) {
-    if (!is_instanceof(this, TimeSourceGeneric)) { arguments.time_source = this }
     var _time_source = arguments["time_source"]
     return is_struct(_time_source) ? _time_source.private.arguments : undefined
 }
@@ -96,7 +94,6 @@ function gamemaker_timesource_get_arguments(parameters = {}) {
 /// 
 /// @returns {type}
 function gamemaker_timesource_get_callback(parameters = {}) {
-    if (!is_instanceof(this, TimeSourceGeneric)) { arguments.time_source = this }
     var _time_source = arguments["time_source"]
     return is_struct(_time_source) ? _time_source.private.callback : undefined
 }
@@ -104,7 +101,6 @@ function gamemaker_timesource_get_callback(parameters = {}) {
 /// 
 /// @returns {type}
 function gamemaker_timesource_get_children(parameters = {}) {
-    if (is_instanceof(this, TimeSourceGeneric)) { arguments.time_source = this }
     var _time_source_id = get_id(arguments)
     var _children_ids = time_source_get_children(_time_source_id)
     var _children = []
@@ -117,7 +113,6 @@ function gamemaker_timesource_get_children(parameters = {}) {
 /// 
 /// @returns {type}
 function gamemaker_timesource_get_completed_repetitions(parameters = {}) {
-    if (is_instanceof(this, TimeSourceGeneric)) { arguments.time_source = this }
     var _time_source_id = get_id(arguments)
     return time_source_get_reps_completed(_time_source_id)
 }
@@ -125,7 +120,6 @@ function gamemaker_timesource_get_completed_repetitions(parameters = {}) {
 /// 
 /// @returns {type}
 function gamemaker_timesource_get_expiry_type(parameters = {}) {
-    if (!is_instanceof(this, TimeSourceGeneric)) { arguments.time_source = this }
     var _time_source = arguments["time_source"]
     return is_struct(_time_source) ? _time_source.private.expiry_type : undefined
 }
@@ -140,7 +134,6 @@ function gamemaker_timesource_get_id(arguments = {}) {
 /// 
 /// @returns {type}
 function gamemaker_timesource_get_parent(parameters = {}) {
-    if (is_instanceof(this, TimeSourceGeneric)) { arguments.time_source = this }
     var _time_source_id = get_id(arguments)
     var _parent_id = time_source_get_parent(_time_source_id)
     return new TimeSourceGeneric({ time_source_id : _parent_id })
@@ -149,7 +142,6 @@ function gamemaker_timesource_get_parent(parameters = {}) {
 /// 
 /// @returns {type}
 function gamemaker_timesource_get_period(parameters = {}) {
-    if (is_instanceof(this, TimeSourceGeneric)) { arguments.time_source = this }
     var _time_source_id = get_id(arguments)
     return time_source_get_period(_time_source_id)
 }
@@ -157,7 +149,6 @@ function gamemaker_timesource_get_period(parameters = {}) {
 /// 
 /// @returns {type}
 function gamemaker_timesource_get_remaining_repetitions(parameters = {}) {
-    if (is_instanceof(this, TimeSourceGeneric)) { arguments.time_source = this }
     var _time_source_id = get_id(arguments)
     var _remaining_repetitions = time_source_get_reps_remaining(_time_source_id)
     return _remaining_repetitions == undefined ? Infinity : _remaining_repetitions
@@ -166,7 +157,6 @@ function gamemaker_timesource_get_remaining_repetitions(parameters = {}) {
 /// 
 /// @returns {type}
 function gamemaker_timesource_get_remaining_time(parameters = {}) {
-    if (is_instanceof(this, TimeSourceGeneric)) { arguments.time_source = this }
     var _time_source_id = get_id(arguments)
     return time_source_get_time_remaining(_time_source_id)
 }
@@ -174,7 +164,6 @@ function gamemaker_timesource_get_remaining_time(parameters = {}) {
 /// 
 /// @returns {type}
 function gamemaker_timesource_get_repetitions(parameters = {}) {
-    if (!is_instanceof(this, TimeSourceGeneric)) { arguments.time_source = this }
     var _time_source = arguments["time_source"]
     var _remaining_repetitions = time_source_get_reps_remaining(_time_source_id)
     if (_remaining_repetitions == undefined) {
@@ -187,16 +176,12 @@ function gamemaker_timesource_get_repetitions(parameters = {}) {
 /// 
 /// @returns {type}
 function gamemaker_timesource_get_state(parameters = {}) {
-    if (is_instanceof(this, TimeSourceGeneric)) { arguments.time_source = this }
-    var _time_source_id = get_id(arguments)
     return time_source_get_state(_time_source_id)
 }
 
 /// 
 /// @returns {type}
 function gamemaker_timesource_get_units(parameters = {}) {
-    if (is_instanceof(this, TimeSourceGeneric)) { arguments.time_source = this }
-    var _time_source_id = get_id(arguments)
     return time_source_get_units(_time_source_id)
 }
 
@@ -237,7 +222,7 @@ function gamemaker_timesource_pause(parameters = {}) {
         throw new InvalidArgumentException({ message : "`parameters` must be a struct." })
     }
     var _time_sources = parameters["time_source"]
-    if (not is_array(_time_sources)) {
+    if (!Array.isArray(_time_sources)) {
         _time_sources = [_time_sources]
     }
     for (let i = 0; i < _time_sources.length; i++) {
@@ -251,8 +236,6 @@ function gamemaker_timesource_pause(parameters = {}) {
 /// 
 /// @returns {type}
 function gamemaker_timesource_reconfigure(parameters = {}) {
-    if (is_instanceof(this, TimeSourceGeneric)) { arguments.time_source = this }
-    var _time_source_id = get_id(arguments)
     var _arguments = private_static.reconfigure_arguments(arguments)
     time_source_reconfigure(
         _arguments.time_source_id,
@@ -268,8 +251,6 @@ function gamemaker_timesource_reconfigure(parameters = {}) {
 /// 
 /// @returns {type}
 function gamemaker_timesource_reset(parameters = {}) {
-    if (is_instanceof(this, TimeSourceGeneric)) { arguments.time_source = this }
-    var _time_source_id = get_id(arguments)
     time_source_reset(_time_source_id)
     return this
 }
@@ -277,8 +258,6 @@ function gamemaker_timesource_reset(parameters = {}) {
 /// 
 /// @returns {type}
 function gamemaker_timesource_resume(parameters = {}) {
-    if (is_instanceof(this, TimeSourceGeneric)) { arguments.time_source = this }
-    var _time_source_id = get_id(arguments)
     time_source_resume(_time_source_id)
     return this
 }
@@ -286,8 +265,6 @@ function gamemaker_timesource_resume(parameters = {}) {
 /// 
 /// @returns {type}
 function gamemaker_timesource_start(parameters = {}) {
-    if (is_instanceof(this, TimeSourceGeneric)) { arguments.time_source = this }
-    var _time_source_id = get_id(arguments)
     time_source_start(_time_source_id)
     return this
 }
@@ -295,8 +272,6 @@ function gamemaker_timesource_start(parameters = {}) {
 /// 
 /// @returns {type}
 function gamemaker_timesource_stop(parameters = {}) {
-    if (is_instanceof(this, TimeSourceGeneric)) { arguments.time_source = this }
-    var _time_source_id = get_id(arguments)
     time_source_stop(_time_source_id)
     return this
 }

@@ -134,7 +134,7 @@ function scr_draw_circle_width(argument0, argument1, argument2, argument3) {
 
     ring_surf = -1
     if (!gamemaker_surface_exists({ surface : ring_surf })) {
-        ring_surf = gamemaker_surface_create()
+        ring_surf = Surface.create()
         .set_dimensions({ x: argument2 * 2, y: argument2 * 2 })
         gamemaker_rendertarget_set_surface(ring_surf)
         draw_clear_alpha(Colour.Black, 0)

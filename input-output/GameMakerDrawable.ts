@@ -39,11 +39,7 @@ class Drawable {
     /// @param {Real} _x_dimensions
     /// x_dimensions
     /// @returns {Struct.RectangleElement} this
-    static set_x_dimensions = function(_x_dimensions) {
-        if (!is_real(_x_dimensions)) {
-            // new InvalidTypeErrorGeneric()
-            return this
-        }
+    static set_x_dimensions = function(_x_dimensions: number) {
         private.dimensions.x = _x_dimensions
         return this
     }
@@ -57,11 +53,7 @@ class Drawable {
     /// @param {Real} _y_dimensions
     /// y_dimensions
     /// @returns {Struct.RectangleElement} this
-    static set_y_dimensions = function(_y_dimensions) {
-        if (!is_real(_y_dimensions)) {
-            // new InvalidTypeErrorGeneric()
-            return this
-        }
+    static set_y_dimensions = function(_y_dimensions: number) {
         private.dimensions.y = _y_dimensions
         return this
     }
@@ -103,12 +95,8 @@ class Drawable {
     /// @param {Struct} _x_alignment
     /// x_alignment
     /// @returns {Struct.RectangleElement}
-    static set_x_alignment = function(_x_alignment) {
-        if (!is_real(_x_alignment)) {
-            // new InvalidTypeErrorGeneric()
-            return this
-        }
-        private.alignment.x = clamp(_x_alignment, 0, 1)
+    static set_x_alignment = function(_x_alignment: number) {
+        private.alignment.x = MathEX.clamp(_x_alignment, 0, 1)
         return this
     }
 
@@ -121,12 +109,8 @@ class Drawable {
     /// @param {Struct} _y_alignment
     /// y_alignment
     /// @returns {Struct.RectangleElement}
-    static set_y_alignment = function(_y_alignment) {
-        if (!is_real(_y_alignment)) {
-            // new InvalidTypeErrorGeneric()
-            return this
-        }
-        private.alignment.y = clamp(_y_alignment, 0, 1)
+    static set_y_alignment = function(_y_alignment: number) {
+        private.alignment.y = MathEX.clamp(_y_alignment, 0, 1)
         return this
     }
 
