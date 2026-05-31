@@ -16,7 +16,17 @@ export class Random {
     }
 
     public static range(a: number, b: number): number {
-        return 0;
+        const minimum = Math.min(a, b);
+        const maximum = Math.max(a, b);
+        const range = Math.abs(maximum - minimum);
+        return minimum + Math.random() * range;
+    }
+
+    public static rangeInteger(a: number, b: number): number {
+        const minimum = Math.min(a, b);
+        const maximum = Math.max(a, b);
+        const range = Math.abs(maximum - minimum);
+        return Math.floor(1 + minimum + Math.random() * range);
     }
 
     public static shuffle<T>(array: T[]): void {
@@ -25,6 +35,25 @@ export class Random {
 
     public static toShuffled<T>(array: T[]): T[] {
         return array;
+    }
+
+    /// repeatable, sample, population, weight
+
+    /// This function is used to choose a number of elements randomly.
+    /// @param {Array<any>} parameter_name
+    /// The options.
+    /// @param {Array<number>} [weights]
+    /// The probabilities to choose an option.
+    /// @param {Real} [k=1]
+    /// The number of elements to choose.
+    /// @returns {Array<any>}
+    public static weightedChoice(parameters = {}) {
+        return _return
+    }
+    
+    /// Checks whether a random event with a certain percentage likelyhood should happen.
+    public static chance(probability: number): boolean {
+        return Math.random() < probability; 
     }
 
 }

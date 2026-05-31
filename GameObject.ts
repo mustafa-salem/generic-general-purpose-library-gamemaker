@@ -11,13 +11,30 @@ export class GameObject {
         // TODO
     }
 
-    #position: Vector2 = new Vector2({ x: 0, y: 0 });
+    #persistent;
+    #visible;
 
+    /**
+     * The room that contains this instance.
+     */
+    public get room() {
+        return;
+    }
+
+    /**
+     * The layer that contains this instance.
+     */
+    public get layer() {
+        return;
+    }
+    
     #transform: Transform = new Transform();
-
+    
     public get transform(): Transform {
         return this.#transform;
     }
+
+    #position: Vector2 = new Vector2({ x: 0, y: 0 });
 
     public get position() {
         return this.#position;
@@ -29,10 +46,6 @@ export class GameObject {
 
     public attachComponent(component: MonoBehaviour): void {
 
-    }
-
-    constructor() {
-        
     }
     
 }
