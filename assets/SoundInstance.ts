@@ -177,7 +177,9 @@ function gamemaker_sound_fadeout(parameters = {}): void {
 function gamemaker_sound_set_pitch(parameters = {}): void {
 
 }
-
+/**
+ * 
+ */
 export class SoundInstance {
 
     #voice = null;

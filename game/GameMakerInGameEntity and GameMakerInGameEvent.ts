@@ -1,8 +1,10 @@
 /// gamemaker_construct_create set_method set_event
 
 gamemaker_object(ingameentity_construct_object)
-
-gamemaker_construct_create({ name: "In-Game Entity" })
+/**
+ * 
+ */
+export class "In-Game Entity" })
 
 gamemaker_object(ingame_entity_object)
 .attach_eventhandler({ event: "Create Event", handler: function(parameters = {}) {
@@ -20,5 +22,7 @@ gamemaker_object(ingame_entity_object)
 /// ingameevent_find
 
 gamemaker_object(ingameevent_construct_object)
-
-gamemaker_construct_create({ name: "In-Game Event" })
+/**
+ * 
+ */
+export class "In-Game Event" {}

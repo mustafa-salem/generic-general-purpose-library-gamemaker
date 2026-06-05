@@ -188,7 +188,7 @@ function gamemaker_timesource_get_units(parameters = {}) {
 /// 
 /// @returns {type}
 function gamemaker_timesource_is_active(parameters = {}) {
-    if (not is_struct(parameters)) {
+    if (!is_struct(parameters)) {
         throw new InvalidArgumentException({ message : "`parameters` must be a struct." })
     }
     return time_source_get_state(time_source) == time_source_state_active
@@ -198,7 +198,7 @@ function gamemaker_timesource_is_active(parameters = {}) {
 /// 
 /// @returns {type}
 function gamemaker_timesource_is_paused(parameters = {}) {
-    if (not is_struct(parameters)) {
+    if (!is_struct(parameters)) {
         throw new InvalidArgumentException({ message : "`parameters` must be a struct." })
     }
     return time_source_get_state(time_source) == time_source_state_paused
@@ -208,7 +208,7 @@ function gamemaker_timesource_is_paused(parameters = {}) {
 /// 
 /// @returns {type}
 function gamemaker_timesource_is_stopped(parameters = {}) {
-    if (not is_struct(parameters)) {
+    if (!is_struct(parameters)) {
         throw new InvalidArgumentException({ message : "`parameters` must be a struct." })
     }
     return time_source_get_state(time_source) == time_source_state_stopped
@@ -218,7 +218,7 @@ function gamemaker_timesource_is_stopped(parameters = {}) {
 /// 
 /// @returns {type}
 function gamemaker_timesource_pause(parameters = {}) {
-    if (not is_struct(parameters)) {
+    if (!is_struct(parameters)) {
         throw new InvalidArgumentException({ message : "`parameters` must be a struct." })
     }
     var _time_sources = parameters["time_source"]

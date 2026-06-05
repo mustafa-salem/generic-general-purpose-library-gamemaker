@@ -43,7 +43,7 @@ function __function_VWOXH6QC() {
     })();
     ///
     gamemaker_object(object_index).trigger_event(_event_names[event_type][event_number]);
-    return undefined;
+    return;
 }
 
 /// This function returns the `Object` struct instance associated with the targeted object. In case of failure `undefined` is returned instead.
@@ -54,7 +54,7 @@ function __function_VWOXH6QC() {
 function gamemaker_object(argument0) {
     var _object = gamemaker_object_handle(argument0);
     if (_object == undefined) {
-        return undefined;
+        return;
     }
     return Object.private.objects[_object];
 }
@@ -173,7 +173,7 @@ function gamemaker_object_set_visible(parameters) {
     var _object  = parameters.object;
     var _visible = parameters.visible;
     object_set_visible(_object, _visible);
-    return undefined;
+    return;
 }
 
 /// If possible, gets the 'parent' of the targeted 'Object'; otherwise, returns 'undefined'.
@@ -206,7 +206,7 @@ function gamemaker_object_attach_eventhandler(parameters) {
     var _object = parameters.object;
     var _event  = parameters.event;
     var handler = parameters.handler;
-    return undefined;
+    return;
 }
 
 /// Triggers an event on the targeted 'Object'.
@@ -217,7 +217,7 @@ function gamemaker_object_attach_eventhandler(parameters) {
 function gamemaker_object_trigger_event(parameters) {
     var _object = parameters.object;
     var _event  = parameters.event;
-    return undefined;
+    return;
 }
 
 /// Destroys the targeted 'Object Instance', removing them from the game.
@@ -236,7 +236,7 @@ function gamemaker_objectinstance_destroy(parameters) {
             instance_destroy(_instances[i], true);
         }
     }
-    return undefined;
+    return;
 }
 
 /// Checks whether the targeted object instance exists.
@@ -261,7 +261,7 @@ function gamemaker_objectinstance_set_position(parameters) {
 
     _instance.x = _x;
     _instance.y = _y;
-    return undefined;
+    return;
     /*
     var alignment = arguments["alignment"] ?? "top_left"
     if (alignment == "sprite_center") {
@@ -413,7 +413,7 @@ function gamemaker_objectinstance_get_sequence_instance(parameters) {
 /// @returns {Undefined}
 function gamemaker_objectinstance_execute_parentevent(parameters) {
     var _instance = parameters.instance;
-    return undefined;
+    return;
 }
 
 ///
@@ -441,7 +441,7 @@ function gamemaker_objectinstance_draw(parameters) {
     parameters["alpha"]      ??= _object_instance_handle.image_alpha
     parameters["colour"]     ??= _object_instance_handle.image_blend
     gamemaker_sprite_draw(parameters);
-    return undefined;
+    return;
 }
 
 ///
@@ -454,7 +454,7 @@ function gamemaker_objectinstance_move_and_collide(parameters) {
     with (_instance) {
         move_and_collide(_x_distance, _y_distance, _collidables);
     }
-    return undefined;
+    return;
 }
 
 ///
@@ -464,7 +464,7 @@ function gamemaker_objectinstance_move_and_collide(parameters) {
 /// @returns {Undefined}
 function gamemaker_objectinstance_set_creationcode(parameters) {
     var _instance = parameters.instance;
-    return undefined;
+    return;
 }
 
 /// object_exists

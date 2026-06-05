@@ -3,11 +3,11 @@
 // ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
 
 yarnspinner_define_function({ name: "dialoguerunner_get_variable", callable: function(argument0 = []) {
-    return undefined;
+    return;
 }});
 
 yarnspinner_define_function({ name: "dialoguerunner_execute_command", callable: function(argument0 = []) {
-    return undefined;
+    return;
 }});
 
 yarnspinner_define_function({ name: "choose", callable: function(argument0 = []) {

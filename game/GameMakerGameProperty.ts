@@ -128,7 +128,7 @@ function gamemaker_quest_advanceto_milestone(parameters) {
 /// @param {Struct} parameters The struct containing the arguments to pass to the function.
 /// @returns {}
 function gamemaker_quest_set_status(parameters) {
-    return undefined;
+    return;
 }
 
 /// 

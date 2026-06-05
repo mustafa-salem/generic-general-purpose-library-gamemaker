@@ -21,7 +21,9 @@ function gm_coordinates_polartocartesian(parameters) {
 function gm_radianstodegrees(_radians) {
     return radtodeg(_radians);
 }
-
+/**
+ * 
+ */
 export class Coordinates {
 
     public static fromPolar() {
@@ -33,7 +35,9 @@ export class Coordinates {
     }
 
 }
-
+/**
+ * 
+ */
 export class Angle {
 
     public toRadians(): number {

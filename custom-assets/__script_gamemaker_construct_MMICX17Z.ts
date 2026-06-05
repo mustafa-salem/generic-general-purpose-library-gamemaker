@@ -57,7 +57,7 @@ function gamemaker_construct_instantiate(parameters = {}) {
 /// @param {Struct} parameters The struct containing the arguments to pass to the function.
 /// @returns {Undefined}
 function gamemaker_construct_set_variable(parameters = {}) {
-    return undefined;
+    return;
 }
 
 /// collision_get_collidees
@@ -173,19 +173,22 @@ class GameMakerConstruct {
 /// ----------------------------------------------------------------------------
 gamemaker_object(construct_object)
 protected ["Create Event"](): void {
-    if (not variable_instance_exists(this, "construct_instance")) {
+    if (!variable_instance_exists(this, "construct_instance")) {
         construct_instance = myconstructor()
     }
     execute_parentevent(argument0)
-}})
+}
+
 protected ["Destroy Event"](): void {
     construct_instance.trigger_event("Destroy Event");
     execute_parentevent(argument0)
-}})
+}
+
 protected ["Clean Up Event"](): void {
     construct_instance.trigger_event("Clean Up Event");
     execute_parentevent(argument0)
-}})
+}
+
 protected ["Step Event"](): void {
     construct_instance.trigger_event("Step Event");
     execute_parentevent(argument0)
@@ -228,7 +231,7 @@ function gamemaker_constructinstance_collision(parameters = {}) {
 /// @param {Struct} parameters
 /// @returns {Undefined}
 function gamemaker_constructinstance_destroy(parameters) {
-    return undefined;
+    return;
 }
 
 /// Makes instances not exist non-destructively.
@@ -286,57 +289,61 @@ function gamemaker_constructinstance_movetowards_position(parameters = {}) {
 /// ----------------------------------------------------------------------------
 /// obj_move_to_point
 /// ----------------------------------------------------------------------------
-gamemaker_construct_create({ name: "obj_move_to_point", parent: "" })
-protected ["Create Event"](): void {
-    target = 923
-    moved = 0
-    movetimer = 0
-    movex = 0
-    movey = 0
-    movemax = 10
-    charmarker = 0
-}})
-protected ["Step Event"](): void {
-    if (!instance_exists(target)) {
-        this.destroy();
-        return;
+export class "obj_move_to_point" extends MonoBehaviour {
+
+    protected ["Create Event"](): void {
+        target = 923
+        moved = 0
+        movetimer = 0
+        movex = 0
+        movey = 0
+        movemax = 10
+        charmarker = 0
     }
-    if (moved == false) {
-        x = target.x
-        y = target.y
-        dist = distance_to_point(movex, movey)
-        dir = point_direction(x, y, movex, movey)
-        amt = (dist / movemax)
-        xadd = lengthdir_x(amt, dir)
-        yadd = lengthdir_y(amt, dir)
-        moved = true
-    }
-    target.x += xadd
-    target.y += yadd
-    if (target.object_index == obj_actor) {
-        target.fake_speed = amt
-        target.fake_direction = dir
-    }
-    movetimer += 1
-    target.x = Interpolation.lerp(x, movex, (movetimer / movemax))
-    target.y = Interpolation.lerp(y, movey, (movetimer / movemax))
-    if (movetimer >= movemax) {
-        if (target.object_index == obj_actor)
-            target.fake_speed = 0
-        if (charmarker == 1)
-            target.fun = false
-        if (charmarker == 2) {
-            with (target) {
-                follow = 1
-                fun = false
-                scr_caterpillar_interpolate()
-            }
+    
+    protected ["Step Event"](): void {
+        if (!instance_exists(target)) {
+            GameObject.destroy(this.gameObject);
+            return;
         }
-        this.destroy();
+        if (moved == false) {
+            x = target.x
+            y = target.y
+            dist = distance_to_point(movex, movey)
+            dir = point_direction(x, y, movex, movey)
+            amt = (dist / movemax)
+            xadd = lengthdir_x(amt, dir)
+            yadd = lengthdir_y(amt, dir)
+            moved = true
+        }
+        target.x += xadd
+        target.y += yadd
+        if (target.object_index == obj_actor) {
+            target.fake_speed = amt
+            target.fake_direction = dir
+        }
+        movetimer += 1
+        target.x = Interpolation.lerp(x, movex, (movetimer / movemax))
+        target.y = Interpolation.lerp(y, movey, (movetimer / movemax))
+        if (movetimer >= movemax) {
+            if (target.object_index == obj_actor)
+                target.fake_speed = 0
+            if (charmarker == 1)
+                target.fun = false
+            if (charmarker == 2) {
+                with (target) {
+                    follow = 1
+                    fun = false
+                    scr_caterpillar_interpolate()
+                }
+            }
+            GameObject.destroy(this.gameObject);
+        }
+        if (target == obj_move_to_point)
+            GameObject.destroy(this.gameObject);
     }
-    if (target == obj_move_to_point)
-        this.destroy();
-}})
+    
+}
 
 /// <description>
 /// ---
@@ -355,7 +362,7 @@ function gamemaker_constructinstance_set_creationcode(parameters = {}) {
 /// @param {Struct} parameters
 /// @returns {Undefined}
 function gamemaker_constructinstance_set_position(parameters) {
-    return undefined;
+    return;
 }
 
 /// <description>

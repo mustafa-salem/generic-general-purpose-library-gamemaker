@@ -436,7 +436,7 @@ add_event = function(parameters = {}) {
         // the name string of the transition
         var _transition_name = arguments["transition_name"]
         if (!__is_valid_transition_name(_transition_name)) {
-            return undefined;
+            return;
         }
 
         // the name string of the source state
@@ -754,7 +754,7 @@ class FiniteStateMachine {
     __trigger_event_listener = function(_event_name, _arguments = []) {
         var _event_handlers = private.event_handlers[_event_name]
         if (!Array.isArray(_event_handlers)) {
-            return undefined;
+            return;
         }
         for (let i = 0; i < _event_handlers.length; i++) {
             method(private.execution_context, _event_handlers[i].callable)(_arguments)

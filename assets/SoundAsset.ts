@@ -22,7 +22,9 @@ function gamemaker_sound_play(key: SoundAssetKey): SoundInstance {
 export function gamemaker_sound(key: SoundAssetKey): SoundAsset {
     return;
 }
-
+/**
+ * 
+ */
 export class SoundAsset {
 
     /**
@@ -33,7 +35,9 @@ export class SoundAsset {
     }
 
 }
-
+/**
+ * 
+ */
 export class SoundAssetRegistry {
 
     /**

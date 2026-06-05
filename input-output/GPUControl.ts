@@ -1,5 +1,7 @@
 import { BlendMode } from "./BlendMode";
-
+/**
+ * 
+ */
 export class GPUControl {
 
     public static get blendenable(): boolean {

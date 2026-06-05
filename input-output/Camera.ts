@@ -22,7 +22,9 @@ gamemaker_camera_get_id
 function gamemaker_camera(parameters = {}) {
     return;
 }
-
+/**
+ * 
+ */
 export class Camera {
 
     /*

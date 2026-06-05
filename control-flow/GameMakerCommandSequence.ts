@@ -349,7 +349,7 @@ function scr_cutscene_master_commands_initialize() {
 function c_cmd(argument0, argument1, argument2, argument3, argument4, argument5, argument6) {
     
     if (!cutscene_exists()) {
-        return undefined;
+        return;
     }
 
     __cs_i = (cutscene_object.maximum_command - 1)
@@ -512,7 +512,7 @@ function scr_cutscene_commands() {
             var __commandscript = command_arg2[i]
             for (const instance of obj_script_delayed) {
                 if (script == __commandscript and target == __commandtarget) {
-                    this.destroy();
+                    GameObject.destroy(this.gameObject);
                     alarm[0] = -5
                     max_time = -300
                 }
@@ -654,7 +654,7 @@ function scr_cutscene_commands() {
         if (instant) {
             for (const instance of obj_panner) {
                 gamemaker_camera(view_camera[0]).set_viewposition({ x: finalx, y: finaly })
-                this.destroy();
+                GameObject.destroy(this.gameObject);
             }
         }
     }
@@ -845,7 +845,7 @@ class GameMakerCommandSequence {
         var _parameters = {}
         _parameters.cutscene = this
         if (private.commands.length < private.command_index - 1) {
-            return undefined;
+            return;
         }
         private.commands[private.command_index](_parameters)
         private.command_index++
@@ -926,8 +926,10 @@ class GameMakerCommandSequence {
 // ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
 //     ―――――――――――――――――――― CONSTRUCTS ――――――――――――――――――――
 // ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
-
-gamemaker_construct_create({ name: "cutscene_object", parent: "In-Game Event" })
+/**
+ * 
+ */
+export class "cutscene_object" extends "In-Game Event" {}
 
 protected ["Create Event"](): void {
     waiting = 0
@@ -957,7 +959,7 @@ protected ["Create Event"](): void {
     for (let i = 0; i < 10; i++) save_object[i] = 99999999
     scr_cutscene_master_commands_initialize()
     terminate_this_frame = 0
-}})
+}
 
 protected ["Step Event"](): void {
     if (initialised == 0) {
@@ -1018,7 +1020,7 @@ protected ["Step Event"](): void {
                 gamemaker_constructinstance_destroy({ instance : actor_id[jj] })
             }
         }
-        this.destroy();
+        GameObject.destroy(this.gameObject);
     }
 }})
 

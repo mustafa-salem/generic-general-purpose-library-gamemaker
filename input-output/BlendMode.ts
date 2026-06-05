@@ -1,7 +1,7 @@
 export class BlendMode {
 
     ///  The libraries default blend mode. Like bm_normal but adjusted to work the
-    /// same on any surface as on the application_surface.
+    /// same on any surface as on the application surface.
     public static Default: BlendMode;
 
     /// Game Maker's default blend mode.

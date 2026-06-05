@@ -21,7 +21,7 @@ function gamemaker_guilayer_set_dimensions(parameters) {
     var _x_dimension = parameters.x;
     var _y_dimension = parameters.y;
     display_set_gui_size(_x_dimension, _y_dimension);
-    return undefined;
+    return;
 }
 
 ///
@@ -37,5 +37,5 @@ function gamemaker_guilayer_set_maximise(parameters) {
     var _xoffset = parameters.xoffset;
     var _yoffset = parameters.yoffset;
     display_set_gui_maximise(_xscale, _yscale, _xoffset, _yoffset);
-    return undefined;
+    return;
 }

@@ -9,7 +9,7 @@ __gamemaker_room_initialize();
 function __gamemaker_room_initialize() {
     /// early return
     if (global["#gamemaker"] != undefined) {
-        return undefined;
+        return;
     }
     var _roomhandles = asset_get_ids(asset_room);
     for (let i = 0; i < _roomhandles.length; i++) {
@@ -17,7 +17,7 @@ function __gamemaker_room_initialize() {
         _room["#handle"] = _roomhandles[i];
         __GAMEMAKER_CONTEXT["rooms"]["assets"][i] = _room;
     }
-    return undefined;
+    return;
 }
 
 function __gamemaker_room_context() {
@@ -87,7 +87,7 @@ function gamemaker_roomhandle(argument0) {
     }
     /// gamemaker_room_exists
     static __context = __gamemaker_room_context();
-    return undefined;
+    return;
 }
 
 /// Creates a new, empty, room and adds it permanently to the game (until the executable is closed).
@@ -104,7 +104,7 @@ function gamemaker_room_create(parameters = {}) {
     if (typeof(parameters) != "struct") {
         throw new InvalidArgumentException($"'parameters' must be a struct, but is a {typeof(parameters)} (value: {parameters}).");
     }
-    if (not struct_exists(parameters, "room")) {
+    if (!struct_exists(parameters, "room")) {
         throw new InvalidArgumentException("'parameters.room' must be passed.");
     }
     /// Main Functionality
@@ -127,7 +127,7 @@ function gamemaker_room_exists(parameters) {
     if (typeof(parameters) != "struct") {
         throw new InvalidArgumentException($"'parameters' must be a struct, but is a {typeof(parameters)} (value: {parameters}).");
     }
-    if (not struct_exists(parameters, "room")) {
+    if (!struct_exists(parameters, "room")) {
         throw new InvalidArgumentException("'parameters.room' must be passed.");
     }
     /// Main Functionality
@@ -148,7 +148,7 @@ function gamemaker_room_get_name(parameters) {
     if (typeof(parameters) != "struct") {
         throw new InvalidArgumentException($"'parameters' must be a struct, but is a {typeof(parameters)} (value: {parameters}).");
     }
-    if (not struct_exists(parameters, "room")) {
+    if (!struct_exists(parameters, "room")) {
         throw new InvalidArgumentException("'parameters.room' must be passed.");
     }
     return _return;
@@ -166,7 +166,7 @@ function gamemaker_room_get_persistent(parameters) {
     if (typeof(parameters) != "struct") {
         throw new InvalidArgumentException($"'parameters' must be a struct, but is a {typeof(parameters)} (value: {parameters}).");
     }
-    if (not struct_exists(parameters, "room")) {
+    if (!struct_exists(parameters, "room")) {
         throw new InvalidArgumentException("'parameters.room' must be passed.");
     }
     return _return
@@ -186,10 +186,10 @@ function gamemaker_room_set_persistent(room: object, persistent: boolean) {
     if (typeof(parameters) != "struct") {
         throw new InvalidArgumentException($"'parameters' must be a struct, but is a {typeof(parameters)} (value: {parameters}).");
     }
-    if (not struct_exists(parameters, "room")) {
+    if (!struct_exists(parameters, "room")) {
         throw new InvalidArgumentException("'parameters.room' must be passed.");
     }
-    if (not struct_exists(parameters, "persistent")) {
+    if (!struct_exists(parameters, "persistent")) {
         throw ("`parameters.persistent` must be passed");
     }
     var _room       = parameters["room"];
@@ -199,7 +199,7 @@ function gamemaker_room_set_persistent(room: object, persistent: boolean) {
     } else {
         room_set_persistent(_room, _persistent)
     }
-    return undefined;
+    return;
 }
 
 /// Gets the x dimension of the targeted room, in pixels.
@@ -214,7 +214,7 @@ function gamemaker_room_get_x_dimension(parameters) {
     if (typeof(parameters) != "struct") {
         throw new InvalidArgumentException($"'parameters' must be a struct, but is a {typeof(parameters)} (value: {parameters}).");
     }
-    if (not struct_exists(parameters, "room")) {
+    if (!struct_exists(parameters, "room")) {
         throw new InvalidArgumentException("'parameters.room' must be passed.");
     }
     var _room = parameters["room"];
@@ -236,7 +236,7 @@ function gamemaker_room_get_y_dimension(parameters) {
     if (typeof(parameters) != "struct") {
         throw new InvalidArgumentException($"'parameters' must be a struct, but is a {typeof(parameters)} (value: {parameters}).");
     }
-    if (not struct_exists(parameters, "room")) {
+    if (!struct_exists(parameters, "room")) {
         throw new InvalidArgumentException("'parameters.room' must be passed.");
     }
     var _room = parameters["room"];
@@ -260,19 +260,19 @@ function gamemaker_room_set_dimensions(parameters) {
     if (typeof(parameters) != "struct") {
         throw new InvalidArgumentException($"'parameters' must be a struct, but is a {typeof(parameters)} (value: {parameters}).");
     }
-    if (not struct_exists(parameters, "room")) {
+    if (!struct_exists(parameters, "room")) {
         throw new InvalidArgumentException("'parameters.room' must be passed.");
     }
-    if (not (struct_exists(parameters, "x") or struct_exists(parameters, "y"))) {
+    if (!(struct_exists(parameters, "x") or struct_exists(parameters, "y"))) {
         throw new InvalidArgumentException("'parameters' must have property 'x' and/or 'y'.");
     }
     if (_room == undefined) {
         throw new Throwable("'room' must be a room.");
     }
-    if (not is_numeric(_x_dimension)) {
+    if (!is_numeric(_x_dimension)) {
         throw new InvalidArgumentException("If 'parameters' has property 'x', it must be a positive number.");
     }
-    if (not is_numeric(_y_dimension)) {
+    if (!is_numeric(_y_dimension)) {
         throw new InvalidArgumentException("If 'parameters' has property 'y', it must be a positive number.");
     }
     var _room       = gamemaker_roomhandle(parameters["room"]);
@@ -293,7 +293,7 @@ function gamemaker_room_set_dimensions(parameters) {
             room_set_height(_room, _y_dimension);
         }
     }
-    return undefined;
+    return;
 }
 
 /// Makes the game go to a room.
@@ -313,13 +313,13 @@ function gamemaker_room_goto(parameters) {
     if (typeof(parameters) != "struct") {
         throw new InvalidArgumentException($"'parameters' must be a struct, but is a {typeof(parameters)} (value: {parameters}).");
     }
-    if (not struct_exists(parameters, "room")) {
+    if (!struct_exists(parameters, "room")) {
         throw new InvalidArgumentException("'parameters.room' must be passed.");
     }
     var _room = parameters["room"];
     var _room_handle = gamemaker_roomhandle(_room);
     room_goto(_room_handle);
-    return undefined;
+    return;
 }
 
 /// Attaches an event handler to a room.
@@ -338,13 +338,13 @@ function gamemaker_room_attach_eventhandler(parameters) {
     if (typeof(parameters) != "struct") {
         throw new InvalidArgumentException($"'parameters' must be a struct, but is a {typeof(parameters)} (value: {parameters}).");
     }
-    if (not struct_exists(parameters, "room")) {
+    if (!struct_exists(parameters, "room")) {
         throw new InvalidArgumentException("'parameters.room' must be passed.");
     }
-    if (not struct_exists(parameters, "event")) {
+    if (!struct_exists(parameters, "event")) {
         throw new InvalidArgumentException("'parameters.event' must be passed.");
     }
-    if (not struct_exists(parameters, "handler")) {
+    if (!struct_exists(parameters, "handler")) {
         throw new InvalidArgumentException("'parameters.handler' must be passed.");
     }
     /// Main Functionality
@@ -354,7 +354,7 @@ function gamemaker_room_attach_eventhandler(parameters) {
     _room = gamemaker_room(_room);
     _room["#eventhandlers"][_event] ??= [];
     _room["#eventhandlers"][_event].push(_handler);
-    return undefined;
+    return;
 }
 
 /// Triggers an event on a room.
@@ -373,17 +373,17 @@ function gamemaker_room_trigger_event(parameters) {
     if (typeof(parameters) != "struct") {
         throw new InvalidArgumentException($"'parameters' must be a struct, but is a {typeof(parameters)} (value: {parameters}).");
     }
-    if (not struct_exists(parameters, "room")) {
+    if (!struct_exists(parameters, "room")) {
         throw new InvalidArgumentException("'parameters.room' must be passed.");
     }
     if (_room["#eventhandlers"][_event] == undefined) {
-        return undefined;
+        return;
     }
     _eventhandlers = _room["#eventhandlers"][_event];
     for (let i = 0; i < _eventhandlers.length; i++) {
         _eventhandlers[i]();
     }
-    return undefined;
+    return;
 }
 
 /// Gets the entryway hint for a room.
@@ -398,7 +398,7 @@ function gamemaker_room_get_entryway(parameters) {
     if (typeof(parameters) != "struct") {
         throw new InvalidArgumentException($"'parameters' must be a struct, but is a {typeof(parameters)} (value: {parameters}).");
     }
-    if (not struct_exists(parameters, "room")) {
+    if (!struct_exists(parameters, "room")) {
         throw new InvalidArgumentException("'parameters.room' must be passed.");
     }
     return gamemaker_room(room).private.entrance;
@@ -407,13 +407,15 @@ function gamemaker_room_get_entryway(parameters) {
 gamemaker_object(__object_gamemaker_roomcontroller)
 protected ["Create Event"](): void {
     gamemaker_room(room).trigger_event("Create Event");
-}})
+}
+
 protected ["Clean Up Event"](): void {
     gamemaker_room(room).trigger_event("Clean Up Event");
 }})
 .attach_eventhandler({ event: "Room Start Event", handler: () => {
     gamemaker_room(room).trigger_event("Room Start Event");
-}})
+}
+
 protected ["Room End Event"](): void {
     gamemaker_room(room).trigger_event("Room End Event");
 }});

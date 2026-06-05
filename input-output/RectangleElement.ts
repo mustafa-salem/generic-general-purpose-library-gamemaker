@@ -1,5 +1,8 @@
 import { Vector2 } from "@gamemaker/data-types/Vector2";
 
+/**
+ * 
+ */
 export class RectangleElement {
 
     public static create(): RectangleElement {

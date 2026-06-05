@@ -26,13 +26,13 @@ class AudioStack {
      // audio stack
      var _audio_stack = parameters["audio_stack"]
      if (typeof _audio_stack != "string") {
-        return undefined;
+        return;
     }
 
      // priority
      var _priority = parameters["priority"] ?? VinylStackMaxPriorityGet(_audio_stack)
      if (!is_numeric(_priority)) {
-        return undefined;
+        return;
     }
 
      return VinylStackGet(_audio_stack, _priority)

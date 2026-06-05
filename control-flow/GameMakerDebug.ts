@@ -8,7 +8,7 @@ function gamemaker_assert() {
 /// @param {Struct.Throwable|String} [throwable]
 /// @returns {Undefined}
 function gamemaker_guard(condition, throwable) {
-    return undefined;
+    return;
 }
 
 #macro BEGIN_SCRIPT_HINT_DEBUG_GENERIC show_debug_message("BEGIN_SCRIPT:\n" + string(debug_get_callstack()))

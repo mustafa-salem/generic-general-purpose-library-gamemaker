@@ -18,7 +18,7 @@ export class View {
     yscale() { return viewport_height() / height() }
 
     if (arguments == undefined) {
-        return undefined;
+        return;
     }
 
     private = {

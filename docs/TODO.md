@@ -1,0 +1,4 @@
+**deprecated**
+ObjectInstanceAbstraction
+ObjectAbstraction
+StatefulObjectAbstraction

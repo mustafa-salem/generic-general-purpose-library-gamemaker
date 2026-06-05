@@ -1,18 +1,20 @@
+import { Vector2 } from "./data-types/Vector2";
+
 export class Transform {
 
-    #position;
-    #rotation;
-    #scale;
+    #position: Vector2;
+    #rotation: Vector2;
+    #scale: Vector2;
 
-    public get position() {
+    public get position(): Vector2 {
         return this.#position;
     }
 
-    public get rotation() {
+    public get rotation(): Vector2 {
         return this.#rotation;
     }
 
-    public get scale() {
+    public get scale(): Vector2 {
         return this.#scale;
     }
 

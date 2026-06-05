@@ -2,6 +2,9 @@ import { Vector2 } from "@gamemaker/data-types/Vector2";
 import { MonoBehaviour } from "@gamemaker/MonoBehaviour";
 import { Transform } from "@gamemaker/Transform";
 
+/**
+ * 
+ */
 export class GameObject {
 
     /**
@@ -11,8 +14,26 @@ export class GameObject {
         // TODO
     }
 
-    #persistent;
-    #visible;
+    /**
+     * Whether the instance carries over from room to room.
+     */
+    public get persistent(): boolean {
+        return false;
+    }
+
+    /**
+     * Whether the instance is visible, and therefore is executing its draw events.
+     */
+    public get visible(): boolean {
+        return true;
+    }
+
+    /**
+     * @todo
+     */
+    public set visible(visible: boolean) {
+
+    }
 
     /**
      * The room that contains this instance.
@@ -34,18 +55,12 @@ export class GameObject {
         return this.#transform;
     }
 
-    #position: Vector2 = new Vector2({ x: 0, y: 0 });
-
-    public get position() {
-        return this.#position;
+    public attachComponent<T extends MonoBehaviour>(type: { new(): T }): T {
+        return new type();
     }
 
-    public set position(position: Vector2) {
-        this.#position = this.#position;
-    }
-
-    public attachComponent(component: MonoBehaviour): void {
-
+    public findComponent<T extends MonoBehaviour>(type: { new(): T }): T {
+        return new type();
     }
     
 }

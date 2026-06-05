@@ -73,7 +73,7 @@ function gamemaker_input_verb_consume(parameters = {}) {
     var _verbindex = parameters.input;
     var _playerindex = parameters.player;
     InputVerbConsume(_verbindex, _playerindex);
-    return undefined;
+    return;
 }
 
 /// 
@@ -146,12 +146,12 @@ function gamemaker_input_system_deserialize(parameters) {
 
 function gamemaker_input_save_system_data_to_file() {
     if (!is_struct(arguments)) {
-        return undefined;
+        return;
     }
 
     var _filepath = arguments["filepath"] ?? private.system_config.default_filepath
     if (typeof _filepath != "string") {
-        return undefined;
+        return;
     }
 
     //Export a nice readable string
@@ -176,7 +176,7 @@ function gamemaker_input_load_system_data_from_file() {
         //Always clean up your memory!
         buffer_delete(_buffer)
         //We failed to validate the controls so force a reset of the control scheme
-        if (not input_system_verify(_incoming_data)) {
+        if (!input_system_verify(_incoming_data)) {
             show_notification("Couldn't load control settings!")
         //Otherwise load as planned
         } else {
