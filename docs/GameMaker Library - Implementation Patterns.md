@@ -27,7 +27,7 @@ for (var i = 0; i < array_length(_instances); i++) {
 
 When a construct is to be created
 ```
-gamemaker_construct_create({ name: "", parent: "" })
+
 ```
 
 When an instance of a construct is to be created
@@ -166,7 +166,7 @@ gamemaker_textelement_create({ string: string })
 ## DELTARUNE
 
 ```
-Simulation.weirdroute
+Simulation.onWeirdRoute
 ```
 
 ```

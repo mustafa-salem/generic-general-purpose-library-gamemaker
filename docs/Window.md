@@ -50,19 +50,15 @@ The image above shows the game window drawn in a browser, but for the other targ
 
 | GameMaker Language | TypeScript |
 | - | - |
-| `window_get_colour` | `Window.backgroundColour` |
-| `window_set_colour` | `Window.backgroundColour` |
+| `window_get_colour`<br>`window_set_colour` | `Window.backgroundColour` |
 
 **Border & Caption**
 
 | GameMaker Language | TypeScript |
 | - | - |
-| `window_set_caption` | `` |
-| `window_get_caption` | `` |
-| `window_set_showborder` | `` |
-| `window_get_showborder` | `` |
-| `window_enable_borderless_fullscreen` | `` |
-| `window_get_borderless_fullscreen` | `` |
+| `window_get_caption()`<br>`window_set_caption()` | `Window.caption` |
+| `window_get_showborder`<br>`window_set_showborder` | `` |
+| `window_get_borderless_fullscreen`<br>`window_enable_borderless_fullscreen` | `` |
 
 **Dimensions & Position**
 
@@ -73,7 +69,7 @@ The image above shows the game window drawn in a browser, but for the other targ
 | `window_set_fullscreen(full);` | `Window.set_fullscreen` |
 | `window_minimise` | `Window.` |
 | `window_restore` | `Window.` |
-| `window_set_min_width` | `Window.` | `Window.set_minimum_dimensions`
+| `window_set_min_width` | `Window.` | `Window.minimumDimensions`
 | `window_set_min_height` | `Window.` |
 | `window_set_max_width` | `Window.` | `Window.set_maximum_dimensions`
 | `window_set_max_height` | `Window.` |

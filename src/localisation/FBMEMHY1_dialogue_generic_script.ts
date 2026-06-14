@@ -1,0 +1,15 @@
+yarnspinner_define_function({ name: "dialoguerunner_get_variable", callable: function(argument0 = []) {
+    return;
+}});
+
+yarnspinner_define_function({ name: "dialoguerunner_execute_command", callable: function(argument0 = []) {
+    return;
+}});
+
+yarnspinner_define_function({ name: "choose", callable: function(argument0 = []) {
+    return Random.choose([argument0])
+}});
+
+yarnspinner_define_function({ name: "random_get_integer", callable: function(argument0 = []) {
+    return irandom()
+}});

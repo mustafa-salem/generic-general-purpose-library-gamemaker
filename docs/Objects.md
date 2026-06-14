@@ -143,10 +143,8 @@ Multiple
 | Function | — | — | 
 | ----- | ----- | ----- |
 | `gamemaker_objectinstance` | `` |  |
-| `gamemaker_objectinstance_destroy` | `` |  |
 | `gamemaker_objectinstance_exists` | `` |  |
 | `gamemaker_objectinstance_set_position` | `` |  |
-| `gamemaker_object_instance_is_instanceof` | `` |  |
 | `gamemaker_object_instance_set_creationcode` | `` |  |
 | `gamemaker_object_instance_set_event` | `` |  |
 | `gamemaker_object_instance_set_eventhandler` | `` |  |
@@ -179,7 +177,7 @@ Multiple
 | ----- | ----- | ----- |
 | `instance_create_layer` | `` |  |
 | `instance_create_depth` | `` |  |
-| `instance_destroy` | `gamemaker_objectinstance_destroy` |  |
+| `instance_destroy` | `` |  |
 | `instance_exists` | `gamemaker_objectinstance_exists` |  |
 | `instance_change` | `` |  |
 | `instance_copy` | `` |  |
