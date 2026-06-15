@@ -14,11 +14,11 @@
 
 | Library Identifier | Description |
 | --- | --- |
-| `gamemaker_room(room)` | The struct for the current room. |
-| `gamemaker_room(room_next)` |  |
-| `gamemaker_room(room_previous)` |  |
-| `gamemaker_room(room_first)` |  |
-| `gamemaker_room(room_last)` |  |
+| `RoomAssetRegistry.lookup(room)` | The struct for the current room. |
+| `RoomAssetRegistry.lookup(room_next)` |  |
+| `RoomAssetRegistry.lookup(room_previous)` |  |
+| `RoomAssetRegistry.lookup(room_first)` |  |
+| `RoomAssetRegistry.lookup(room_last)` |  |
 
 ### Information
 
@@ -46,15 +46,15 @@
 | Library Identifier | Description |
 | --- | --- |
 | `gamemaker_room_goto` `.goto` |  |
-| `gamemaker_room(room_next).goto()` |  |
-| `gamemaker_room(room_previous).goto()` |  |
+| `RoomAssetRegistry.lookup(room_next).goto()` |  |
+| `RoomAssetRegistry.lookup(room_previous).goto()` |  |
 | `gamemaker_room_restart` `.restart` |  |
 
 ### Modifying Rooms
 
 | Identifier | Library |
 | --- | --- |
-| `room_add();` | `gamemaker_room_create({ name: String });` |
+| `room_add();` | `RoomManager.createRoomAsset({ name: String });` |
 | `room_duplicate` | `` |
 | `room_assign` | `` |
 | `room_instance_add` | `` |

@@ -9,7 +9,7 @@ export class In-Game Entity" })
 gamemaker_object(ingame_entity_object)
 .attach_eventhandler({ event: "Create Event", handler: function(parameters = {}) {
     if (this["ingame_entity"] == undefined) {
-        ingame_entity = gamemaker_construct_instantiate({ object_instance : this })
+        ingame_entity = GameObject.instantiate({ object_instance : this })
     }
 }})
 .attach_eventhandler({ event: "Step Event", handler: function(parameters = {}) {

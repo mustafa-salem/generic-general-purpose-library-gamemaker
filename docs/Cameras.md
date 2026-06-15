@@ -15,7 +15,7 @@
 
 | GML | Generic | Notes |
 | --- | --- | --- |
-| `view_xport[0 .. 7]` `view_get_xport(0 .. 7)` | `gamemaker_viewport_get_x_position({ viewport : 0 .. 7 })` `gamemaker_viewport(0 .. 7).get_x_position()` | |
+| `view_xport[0 .. 7]` `view_get_xport(0 .. 7)` | `Viewport.get_x_position({ viewport : 0 .. 7 })` `gamemaker_viewport(0 .. 7).get_x_position()` | |
 | `` | `` | |
 | `` | `` | |
 | `` | `` | |

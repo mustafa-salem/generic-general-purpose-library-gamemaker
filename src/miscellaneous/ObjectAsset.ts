@@ -317,15 +317,6 @@ function gamemaker_objectinstance_get_y_dimension(parameters) {
     var _instance = parameters.instance;
     return _instance.sprite_height;
 }
-/// `parameters.instance` The 'Object Instance' to target.
-/// y_position
-/// @param {Struct} parameters The struct containing the arguments to pass to the function.
-/// The y position to use as a basis for the depth sorting algorithm.
-function gamemaker_objectinstance_depthsort(parameters) {
-    var _instance = parameters.instance;
-    var _object_instance = parameters.object_instance
-    _object_instance.depth = 8000 - room_height / 2 + _object_instance.y + _object_instance.sprite_height - _object_instance.sprite_yoffset
-}
 
 ///
 /// ---

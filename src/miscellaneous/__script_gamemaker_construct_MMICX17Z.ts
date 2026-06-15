@@ -9,19 +9,6 @@ function gamemaker_construct(argument0) {
     return __context["constructs"][argument0];
 }
 
-/// @param {Struct} parameters
-/// construct
-/// position
-/// position.x
-/// position.y
-/// @returns {Struct.GameMakerConstructInstance}
-function gamemaker_construct_instantiate(parameters = {}) {
-    var _constructinstance = new GameMakerConstructInstance();
-    gamemaker_object_instantiate();
-    return _constructinstance;
-}
-
-
 /// collision_get_collidees
 
 /// gamemaker_construct_get_eventmethod({ construct : "obj_laserscythe" })

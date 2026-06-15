@@ -170,7 +170,7 @@ function gamemaker_sprite_draw(arguments) {
 
         draw_surface(surface, arguments.screen_x, arguments.screen_y)
 
-        gamemaker_surface_destroy({ surface : surface })
+        Surface.destroy({ surface : surface })
         shader_reset()
 
         if (_preserved_shader != -1) { shader_set(_preserved_shader) }

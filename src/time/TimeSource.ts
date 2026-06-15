@@ -25,7 +25,7 @@
 /// @param {type} arguments
 /// @param {type} parameter_name
 /// @returns {type}
-function gamemaker_call_later(parameters = {}) {
+function CallLater(parameters = {}) {
     arguments.creation_scope = other
     var _time_source = new TimeSourceGeneric(arguments).start()
     TIME_SOURCE_CONTROLLER_GENERIC.add_garbage_collection({ time_source : _time_source })

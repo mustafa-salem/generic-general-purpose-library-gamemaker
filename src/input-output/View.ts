@@ -59,7 +59,7 @@ export class View {
         return camera_get_view_height(_camera_id)
     }
 
-    public get_dimensions() {
+    public get dimensions() {
         var _camera_id = Camera.get_id({ camera : arguments.camera })
         return {
             x : camera_get_view_width(_camera_id),

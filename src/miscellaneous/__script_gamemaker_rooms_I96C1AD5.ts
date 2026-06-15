@@ -28,22 +28,6 @@ function __gamemaker_room_context() {
     return __context;
 }
 
-/// @param {Asset} _handle description
-/// @param {String} _name description
-/// @returns {Struct.GameMakerRoom|Undefined}
-function __gamemaker_room_create(_handle, _name) {
-    ///
-    var _room = new GameMakerRoom();
-    _room["#handle"] = _handle;
-    _room["#name"]   = _name;
-    /// save room to lookup
-    __GAMEMAKER_ROOM_ASSETS[_name] = _room;
-    /// add room controller to room
-    var _instance = room_instance_add(_handle, 0, 0, __object_gamemaker_roomcontroller);
-    ///
-    return _room;
-}
-
 /// @param {Asset} argument0 description
 /// @returns {Struct|Undefined}
 function __gamemaker_room_get(argument0) {
@@ -58,7 +42,7 @@ function __gamemaker_room_get(argument0) {
 /// If possible, resolves a value to an instance of `GameMakerRoom`; otherwise, returns `undefined`.
 /// @param {Asset.GMRoom|String} argument0 The value to resolve.
 /// @returns {Struct.GameMakerRoom|Undefined}
-function gamemaker_room(argument0) {
+function RoomAssetRegistry.lookup(argument0) {
     var _room = undefined;
     var _type = typeof(argument0);
     switch (_type) {
@@ -88,30 +72,6 @@ function gamemaker_roomhandle(argument0) {
     /// gamemaker_room_exists
     static __context = __gamemaker_room_context();
     return;
-}
-
-/// Creates a new, empty, room and adds it permanently to the game (until the executable is closed).
-/// **NOTE:** New rooms are not part of usual room ordering.
-/// ---
-/// `[parameters.name]` The name of the room.
-/// @param {Struct} [parameters]
-/// @returns {Struct.GameMakerRoom|Undefined}
-function gamemaker_room_create(parameters = {}) {
-    /// Guard Clauses
-    if (argument_count != 1) {
-        throw new ArgumentCountError($"'argument_count' must be 1, but is {argument_count}.");
-    }
-    if (typeof(parameters) != "struct") {
-        throw new InvalidArgumentException($"'parameters' must be a struct, but is a {typeof(parameters)} (value: {parameters}).");
-    }
-    if (!struct_exists(parameters, "room")) {
-        throw new InvalidArgumentException("'parameters.room' must be passed.");
-    }
-    /// Main Functionality
-    var _name = parameters.name;
-    var _handle = room_add();
-    var _room = __gamemaker_room_create(_handle, _name);
-    return _room;
 }
 
 /// Checks whether a room exists.
@@ -351,7 +311,7 @@ function gamemaker_room_attach_eventhandler(parameters) {
     var _room    = parameters["room"];
     var _event   = parameters["event"];
     var _handler = parameters["handler"];
-    _room = gamemaker_room(_room);
+    _room = RoomAssetRegistry.lookup(_room);
     _room["#eventhandlers"][_event] ??= [];
     _room["#eventhandlers"][_event].push(_handler);
     return;
@@ -401,21 +361,21 @@ function gamemaker_room_get_entryway(parameters) {
     if (!struct_exists(parameters, "room")) {
         throw new InvalidArgumentException("'parameters.room' must be passed.");
     }
-    return gamemaker_room(room).private.entrance;
+    return RoomAssetRegistry.lookup(room).private.entrance;
 }
 
 gamemaker_object(__object_gamemaker_roomcontroller)
 protected ["Create Event"](): void {
-    gamemaker_room(room).trigger_event("Create Event");
+    RoomAssetRegistry.lookup(room).trigger_event("Create Event");
 }
 
 protected ["Clean Up Event"](): void {
-    gamemaker_room(room).trigger_event("Clean Up Event");
+    RoomAssetRegistry.lookup(room).trigger_event("Clean Up Event");
 }})
 .attach_eventhandler({ event: "Room Start Event", handler: () => {
-    gamemaker_room(room).trigger_event("Room Start Event");
+    RoomAssetRegistry.lookup(room).trigger_event("Room Start Event");
 }
 
 protected ["Room End Event"](): void {
-    gamemaker_room(room).trigger_event("Room End Event");
+    RoomAssetRegistry.lookup(room).trigger_event("Room End Event");
 }});

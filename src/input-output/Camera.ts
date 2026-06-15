@@ -1,3 +1,5 @@
+import { View } from "./View";
+
 /*
 
 * camera_get_default
@@ -16,12 +18,13 @@ gamemaker_camera_create
 gamemaker_camera_get_id
 */
 
-// gamemaker_camera(view_camera[0])
+// Application.standardCamera
 // RoomManager.currentRoom.viewports[0].camera
 // RoomManager.currentRoom.getViewport({ index: 0 }).camera
 function gamemaker_camera(parameters = {}) {
     return;
 }
+
 /**
  * 
  */

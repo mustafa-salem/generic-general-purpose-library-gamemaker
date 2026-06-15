@@ -95,7 +95,7 @@ export class Window {
 
         window_center();
         return;
-        /// gamemaker_call_later({ delay_frames: 1, callback : window_center });
+        /// CallLater({ delay_frames: 1, callback : window_center });
         /// do this manually to avoid delay
         /// window_set_position(x, y)
 
@@ -140,11 +140,9 @@ export class Window {
     /**
      * 
      */
-    public static set_dimensions(dimensions: Vector2) {
+    public static set dimensions(dimensions: Vector2) {
 
         window_set_size(dimensions.x, dimensions.y);
-
-        return;
 
     }
 

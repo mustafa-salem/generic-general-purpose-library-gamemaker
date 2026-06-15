@@ -18,8 +18,16 @@ export class Transform {
         return this.#rotation;
     }
 
+    public set rotation(rotation: Vector3) {
+        this.#rotation = rotation;
+    }
+
     public get scale(): Vector3 {
         return this.#scale;
+    }
+
+    public set scale(scale: Vector3) {
+        this.#scale = scale;
     }
 
     public translate(translation: Vector3): void {

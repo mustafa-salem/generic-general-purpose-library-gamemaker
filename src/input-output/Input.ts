@@ -1,9 +1,9 @@
 /// casts to Input Action
-function gamemaker_inputaction(value) {
+function InputAction(value) {
     return {};
 }
 
-class GameMakerInputAction {
+class InputAction {
     
     this.is_pressed = function() {
 

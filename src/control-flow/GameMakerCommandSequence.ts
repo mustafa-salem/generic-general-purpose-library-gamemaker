@@ -11,7 +11,7 @@ function cutscene_exists() {
 /// Creates a new instance of a command sequence.
 /// ---
 /// @returns {Struct.GameMakerCommandSequence}
-function gamemaker_commandsequence_create(parameters) {
+function this.startCoroutine(parameters) {
     var _cutscene_master = gamemaker_object_instantiate(0, 0, cutscene_object);
     _cutscene_master.cutscene_object = id;
     return _cutscene_master;
@@ -298,7 +298,7 @@ function scr_cutscene_loadstate() {
         }
     }
     for (let i = 0; i < array_length_1d(masterArray); i++) { variable_instance_set(id, masterArray[i], myVar[i]) }
-    gamemaker_camera(view_camera[0]).set_viewposition({ x: remCameraX, y: remCameraY })
+    Application.standardCamera.set_viewposition({ x: remCameraX, y: remCameraY })
     GameObject.destroy({ instance : [obj_panner, obj_move_actor, obj_move_to_point, instance_shake_object, Dialoguer, typewriter_object, dialogue_face_object, obj_jump_to_point, obj_stickto, obj_lerpvar] })
     screen_shake_effect_destroy()
     loadedState = 1
@@ -309,8 +309,8 @@ function scr_cutscene_loadstate() {
 function scr_cutscene_savestate() {
     masterArray = variable_instance_get_names(id)
     for (let i = 0; i < array_length_1d(masterArray); i++) { myVar[i] = variable_instance_get(id, masterArray[i]) }
-    remCameraX = gamemaker_camera(view_camera[0]).view.position.x
-    remCameraY = gamemaker_camera(view_camera[0]).view.position.y
+    remCameraX = Application.standardCamera.view.position.x
+    remCameraY = Application.standardCamera.view.position.y
     for (let i = 0; i < 20; i++) {
         actorSaved[i] = 0
         if (instance_exists(actor_id[i])) {
@@ -647,7 +647,7 @@ function scr_cutscene_commands() {
         if (!instant) {
             scr_pan(command_arg1[i], command_arg2[i], command_arg3[i])
         } else {
-            gamemaker_camera(view_camera[0]).set_viewposition({ x: gamemaker_camera(view_camera[0]).view.position.x + command_arg1[i] * command_arg3[i], y : gamemaker_camera(view_camera[0]).view.position.y + command_arg2[i] * command_arg3[i] })
+            Application.standardCamera.set_viewposition({ x: Application.standardCamera.view.position.x + command_arg1[i] * command_arg3[i], y : Application.standardCamera.view.position.y + command_arg2[i] * command_arg3[i] })
         }
     }
 
@@ -655,7 +655,7 @@ function scr_cutscene_commands() {
         if (!instant) {
             scr_pan_lerp(command_arg1[i], command_arg2[i], command_arg3[i])
         } else {
-            gamemaker_camera(view_camera[0]).set_viewposition({ x: command_arg1[i], y: command_arg2[i] })
+            Application.standardCamera.set_viewposition({ x: command_arg1[i], y: command_arg2[i] })
         }
     }
 
@@ -663,7 +663,7 @@ function scr_cutscene_commands() {
         scr_pan_to_obj(command_arg1[i], command_arg2[i])
         if (instant) {
             for (const instance of obj_panner) {
-                gamemaker_camera(view_camera[0]).set_viewposition({ x: finalx, y: finaly })
+                Application.standardCamera.set_viewposition({ x: finalx, y: finaly })
                 GameObject.destroy(this.gameObject);
             }
         }
@@ -939,7 +939,7 @@ class GameMakerCommandSequence {
 /**
  * 
  */
-export class cutscene_object extends "In-Game Event" {}
+export class cutscene_object extends MonoBehaviour {}
 
 protected ["Create Event"](): void {
     waiting = 0

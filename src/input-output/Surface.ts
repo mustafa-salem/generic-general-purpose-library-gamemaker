@@ -45,10 +45,10 @@ export class Surface {
     }
 
     /**
-     * gamemaker_surface_destroy
+     * 
      */
-    public destroy(): this {
-        return this;
+    public destroy(surface: Surface): void {
+        return;
     }
 
     /**
@@ -277,7 +277,7 @@ function gamemaker_surface_clear(parameters = {}) {
 
 /// * surface_free
 /// @param {mixed} surface The value or the array of values that identify the surface to destroy.
-function gamemaker_surface_destroy(parameters) {
+function Surface.destroy(parameters) {
     var _surface = parameters["surface"]
     if (!Array.isArray(_surface)) { _surface = [_surface] }
     for (let i = 0; i < _surface.length; i++) {

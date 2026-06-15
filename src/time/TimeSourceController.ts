@@ -5,7 +5,7 @@ time_source_controller_generic.gml
 
 @overview
 This file defines the constructor for the TimeSourceControllerGeneric struct.
-This struct caches time sources created by gamemaker_call_later and automatically
+This struct caches time sources created by CallLater and automatically
 garbage collects them once they have called their callback method.
 ――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
 *******************************************************************************/
@@ -24,13 +24,13 @@ class TimeSourceControllerGeneric {
     static time_sources = []
 
     /// @type {Array<Struct.TimeSourceGeneric>}
-    /// caches time sources created by gamemaker_call_later
+    /// caches time sources created by CallLater
     static call_later_time_sources = []
 
     //     ―――――――――――――――――――― STEP_EVENT ――――――――――――――――――――
 
     static "Step Event" = function() {
-        // remove time sources used with gamemaker_call_later once they have run their callback method
+        // remove time sources used with CallLater once they have run their callback method
         for (let i = 0; i < call_later_time_sources.length; i++) {
             var _time_source = call_later_time_sources[i]
             // destroy stopped time sources

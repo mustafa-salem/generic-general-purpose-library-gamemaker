@@ -5,8 +5,22 @@ import { Transform } from "@gamemaker/Transform";
 
 /**
  * 
- */
+*/
 export class GameObject {
+    
+    public static findInstance() {
+        
+    }
+
+    /// `parameters.instance` The 'Object Instance' to target.
+    /// y_position
+    /// @param {Struct} parameters The struct containing the arguments to pass to the function.
+    /// The y position to use as a basis for the depth sorting algorithm.
+    public static depthsort(parameters) {
+        var _instance = parameters.instance;
+        var _object_instance = parameters.object_instance
+        _object_instance.depth = 8000 - room_height / 2 + _object_instance.y + _object_instance.sprite_height - _object_instance.sprite_yoffset
+    }
 
     /**
      * Creates a game object instance with an instance of the provided component attached.
