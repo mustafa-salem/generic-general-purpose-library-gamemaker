@@ -21,12 +21,12 @@ ASSET_GENERIC
 
 class AssetGeneric {
 
-    static get_id = function(arguments) {
+    static get_id(arguments) {
         _id
         return _id
     }
 
-    static get_asset_id = function(arguments) {
+    static get_asset_id(arguments) {
         _id
         return _id
     }
@@ -37,17 +37,17 @@ class AssetGeneric {
         return this.#name;
     }
 
-    static get_asset_name = function(arguments) {
+    static get_asset_name(arguments) {
         var _name
         return _name
     }
 
-    static get_type = function(arguments) {
+    static get_type(arguments) {
         var _type
         return _type
     }
 
-    static get_asset_type = function(arguments) {
+    static get_asset_type(arguments) {
         var _type
         return _type
     }

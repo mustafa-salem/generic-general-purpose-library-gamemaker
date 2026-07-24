@@ -38,17 +38,8 @@
 
 | Identifier | Description |
 | --- | --- |
-| `room_goto` |  |
-| `room_goto_next` |  |
-| `room_goto_previous` |  |
+| `room_goto`<br>`room_goto_previous`<br>`room_goto_next` | `RoomManager.gotoRoom()` |
 | `room_restart` |  |
-
-| Library Identifier | Description |
-| --- | --- |
-| `gamemaker_room_goto` `.goto` |  |
-| `RoomAssetRegistry.lookup(room_next).goto()` |  |
-| `RoomAssetRegistry.lookup(room_previous).goto()` |  |
-| `gamemaker_room_restart` `.restart` |  |
 
 ### Modifying Rooms
 

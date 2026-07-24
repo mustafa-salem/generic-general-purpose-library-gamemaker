@@ -1,9 +1,9 @@
-static attach_eventhandler = function(parameters = {}) {
+static attach_eventhandler(parameters = {}) {
     this["#eventhandlers"];
     return this;
 }
 
-static trigger_event = function(parameters = {}) {
+static trigger_event(parameters = {}) {
     var _ = this["#eventhandlers"];
 
     return this;

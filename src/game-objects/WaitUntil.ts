@@ -1,9 +1,9 @@
 import { YieldInstruction } from "./YieldInstruction";
 
 /**
- * In a coroutine function, yield an instance of this instruction to make the coroutine pause while a condition is true.
+ * In a coroutine function, yield an instance of this instruction to make the coroutine pause until a condition is true.
  */
-export class WaitWhile extends YieldInstruction {
+export class WaitUntil extends YieldInstruction {
 
     readonly #predicate: () => boolean;
 

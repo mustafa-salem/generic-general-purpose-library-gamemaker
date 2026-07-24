@@ -2,15 +2,15 @@ class ObserverPatternPublisher {
     
     this.subscribers = [];
 
-    this.register_subscriber = function() {
+    this.register_subscriber() {
 
     };
 
-    this.deregister_subscriber = function() {
+    this.deregister_subscriber() {
 
     };
 
-    this.notify_subscribers = function() {
+    this.notify_subscribers() {
 
     };
 

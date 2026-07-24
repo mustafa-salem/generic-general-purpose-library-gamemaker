@@ -27,11 +27,11 @@ part_system_update(ind);
 
 class ParticleSystemInstanceGeneric {
 
-    destroy = function() {
+    destroy() {
         part_system_destroy(particle_system_id)
     }
 
-    position = function(arguments) {
+    position(arguments) {
         part_system_position(particle_system_id, arguments.x, arguments.y)
     }
 

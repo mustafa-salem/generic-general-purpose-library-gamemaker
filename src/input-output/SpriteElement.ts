@@ -1,38 +1,3 @@
-/// set_alpha
-/// set_default_scale animate set_origin set_alignment set_fragment set_gradient_fill rectangle({})
-/// .set_blending({ colour: , alpha:  })
-/// .set_blending({ alpha:  }) .set_blending({ colour:  })
-/// .set_fragmentposition .set_fragmentdimensions
- 
-/// 
-/// ---
-/// {string|handle|integer} parameters.sprite The sprite to display.
-/// {integer} [parameters.frame=0] The index of the frame of the sprite to display. Defaults to 0.
-/// @returns {Struct.SpriteElement}
-function gamemaker_spriteelement_create(parameters = {}) {
-
-    var _spriteelement = new SpriteElement()
-
-    _spriteelement.private = {
-        sprite     : undefined,
-        frame      : 0,
-        x_origin   : 0,
-        y_origin   : 0,
-        x_scale    : 1,
-        y_scale    : 1,
-        x_position: 0,
-        y_position: 0,
-        bendcolour : Colour.White,
-        blendalpha : 1,
-        x_rotation : 0,
-        y_rotation : 0,
-        z_rotation : 0,
-        subimage   : { x : [0, 0], y : [0, 0] },
-    }
-
-    return _spriteelement
-}
-
 /// 
 /// @param {mixed} sprite
 /// @param {Real} x_position
@@ -43,6 +8,8 @@ function gamemaker_spriteelement_create(parameters = {}) {
 /// @param {Real} y_dimension
 /// @param {Real} x_scale
 /// @param {Real} y_scale
+
+import { Transformation } from "@gamemaker/math/Transformation";
 
 /// @param {Real} x_rotation
 /// @param {Real} y_rotation
@@ -99,37 +66,66 @@ function gamemaker_sprite_draw(parameters) {
     return _sprite
 }
 
-// ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
-//     ――――――――――――――――――――――――――――――――――――――――― CONSTRUCTORS ――――――――――――――――――――――――――――――――――――――――――――――――――――――
-// ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
 /**
  * 
  */
 export class SpriteElement {
 
-    public static create(): SpriteElement {
-        return new SpriteElement();
+    /// set_alpha
+    /// set_default_scale animate set_origin set_alignment set_fragment set_gradient_fill rectangle({})
+    /// .set_blending({ colour: , alpha:  })
+    /// .set_blending({ alpha:  }) .set_blending({ colour:  })
+    /// .set_fragmentposition .set_fragmentdimensions
+    
+    /// 
+    /// ---
+    /// {string|handle|integer} parameters.sprite The sprite to display.
+    /// {integer} [parameters.frame=0] The index of the frame of the sprite to display. Defaults to 0.
+    /// @returns {Struct.SpriteElement}
+    // function gamemaker_spriteelement_create(parameters = {}) {
+
+    //     var _spriteelement = new SpriteElement()
+
+    //     _spriteelement.private = {
+    //         sprite     : undefined,
+    //         frame      : 0,
+    //         x_origin   : 0,
+    //         y_origin   : 0,
+    //         x_scale    : 1,
+    //         y_scale    : 1,
+    //         x_position: 0,
+    //         y_position: 0,
+    //         bendcolour : Colour.White,
+    //         blendalpha : 1,
+    //         x_rotation : 0,
+    //         y_rotation : 0,
+    //         z_rotation : 0,
+    //         subimage   : { x : [0, 0], y : [0, 0] },
+    //     }
+
+    //     return _spriteelement
+    // }
+
+    /**
+     * The sprite assigned to this sprite element.
+     */
+    public get sprite() {
+
+    }
+
+    public set sprite(sprite) {
+
+    }
+
+    public get transform(): Transformation {
+        return new Transformation();
     }
 
     public draw(): void {
 
     }
 
-    // private.x_position = 0
-    // private.y_position = 0
-    // private.z_position = undefined
-
-    public get position() {
-
-    }
-
-    public set position(position: Vector2) {
-
-    }
-
-     */
     /// # offset
-     */
     private.x_offset = 0
     private.y_offset = 0
 
@@ -137,9 +133,7 @@ export class SpriteElement {
     this.y_offset = method(this, Drawable.y_offset)
     this.offset   = method(this, Drawable.offset)
 
-     */
     /// # alignment
-     */
     private.x_alignment = 0
     private.y_alignment = 0
 
@@ -147,9 +141,7 @@ export class SpriteElement {
     this.get_y_alignment = method(this, Drawable.get_y_alignment)
     this.set_alignment   = method(this, Drawable.set_alignment)
 
-     */
     /// # dimensions
-     */
     private.x_dimensions = 0
     private.y_dimensions = 0
 
@@ -157,30 +149,7 @@ export class SpriteElement {
     this.get_y_dimension = method(this, Drawable.get_y_dimension)
     this.set_dimensions   = method(this, Drawable.set_dimensions)
 
-     */
-    /// # scale
-     */
-    private.x_scale = 0
-    private.y_scale = 0
-
-    this.get_y_scale = method(this, Drawable.get_y_scale)
-    this.set_scaling   = method(this, Drawable.set_scaling)
-
-     */
-    /// # rotation
-     */
-    private.x_rotation = 0
-    private.y_rotation = 0
-    private.z_rotation = 0
-
-    this.get_x_rotation = method(this, Drawable.get_x_rotation)
-    this.get_y_rotation = method(this, Drawable.get_y_rotation)
-    this.get_z_rotation = method(this, Drawable.get_z_rotation)
-    this.set_rotation   = method(this, Drawable.set_rotation)
-
-     */
     /// # blending
-     */
     private.blend_colour = 0
     private.blend_alpha  = 0
     private.blendmode   = 0
@@ -190,9 +159,7 @@ export class SpriteElement {
     this.get_blendmode    = method(this, Drawable.get_blendmode)
     this.set_blending     = method(this, Drawable.set_blending)
 
-     */
     /// # shading
-     */
     private.shader
     private.shader_variables
 

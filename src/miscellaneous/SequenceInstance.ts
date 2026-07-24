@@ -23,11 +23,11 @@ function gamemaker_sequence_instance_destroy(parameters = {}) {
 /// GameMakerSequenceInstance
 class GameMakerSequenceInstance {
 
-    destroy = function() {
+    destroy() {
         layer_sequence_destroy(elementID)
     }
 
-    playhead_position = function(arguments) {
+    playhead_position(arguments) {
         if (arguments["frame"]) {
             var _frame = arguments.frame
             layer_sequence_headpos(elementID, _frame)
@@ -38,7 +38,7 @@ class GameMakerSequenceInstance {
         }
     }
 
-    position = function(arguments) {
+    position(arguments) {
         if (arguments["x"]) {
             layer_sequence_x(elementID, arguments.x)
         }
@@ -47,11 +47,11 @@ class GameMakerSequenceInstance {
         }
     }
 
-    pause = function() {
+    pause() {
         layer_sequence_pause(elementID)
     }
 
-    play = function() {
+    play() {
         layer_sequence_play(elementID)
     }
 

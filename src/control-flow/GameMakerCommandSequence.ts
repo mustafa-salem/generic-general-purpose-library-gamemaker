@@ -299,7 +299,7 @@ function scr_cutscene_loadstate() {
     }
     for (let i = 0; i < array_length_1d(masterArray); i++) { variable_instance_set(id, masterArray[i], myVar[i]) }
     Application.standardCamera.set_viewposition({ x: remCameraX, y: remCameraY })
-    GameObject.destroy({ instance : [obj_panner, obj_move_actor, obj_move_to_point, instance_shake_object, Dialoguer, typewriter_object, dialogue_face_object, obj_jump_to_point, obj_stickto, obj_lerpvar] })
+    GameObject.destroy({ instance : [obj_panner, obj_move_actor, obj_move_to_point, InstanceShake, Dialoguer, typewriter_object, dialogue_face_object, obj_jump_to_point, obj_stickto, obj_lerpvar] })
     screen_shake_effect_destroy()
     loadedState = 1
     waiting = 0
@@ -516,11 +516,11 @@ function scr_cutscene_commands() {
         } else {
             var __commandtarget = command_arg1[i]
             var __commandscript = command_arg2[i]
-            for (const instance of obj_script_delayed) {
+            for (const instance of GameObject.findInstances(obj_script_delayed)) {
                 if (script == __commandscript and target == __commandtarget) {
-                    GameObject.destroy(this.gameObject);
                     alarm[0] = -5
                     max_time = -300
+                    GameObject.destroy(this.gameObject);
                 }
             }
         }
@@ -617,9 +617,9 @@ function scr_cutscene_commands() {
         if (command_arg1[i] == "free") { deltarune_get_overworldbgm().stop() }
         if (command_arg1[i] == "pause") { deltarune_get_overworldbgm().pause() }
         if (command_arg1[i] == "resume") { deltarune_get_overworldbgm().resume() }
-        if (command_arg1[i] == "init") { gamemaker_sound().play({ command_arg2[i] }) }
-        if (command_arg1[i] == "initplay") { gamemaker_sound().play({ command_arg2[i] }) }
-        if (command_arg1[i] == "initloop") { gamemaker_sound().play({ command_arg2[i], loop : true }) }
+        if (command_arg1[i] == "init") { SoundAssetRegistry.lookup().play({ command_arg2[i] }) }
+        if (command_arg1[i] == "initplay") { SoundAssetRegistry.lookup().play({ command_arg2[i] }) }
+        if (command_arg1[i] == "initloop") { SoundAssetRegistry.lookup().play({ command_arg2[i], loop : true }) }
         if (command_arg1[i] == "volume") { gamemaker_sound_set_gain(deltarune_get_overworldbgm(), command_arg2[i], command_arg3[i]) }
         if (command_arg1[i] == "pitch") { gamemaker_sound_set_pitch(deltarune_get_overworldbgm(), command_arg2[i]) }
         if (command_arg1[i] == "pitchtime") { gamemaker_sound_set_pitch(deltarune_get_overworldbgm(), command_arg2[i], command_arg3[i]) }
@@ -662,7 +662,7 @@ function scr_cutscene_commands() {
     if (_c == "panobj") {
         scr_pan_to_obj(command_arg1[i], command_arg2[i])
         if (instant) {
-            for (const instance of obj_panner) {
+            for (const instance of GameObject.findInstances(obj_panner)) {
                 Application.standardCamera.set_viewposition({ x: finalx, y: finaly })
                 GameObject.destroy(this.gameObject);
             }
@@ -684,7 +684,7 @@ function scr_cutscene_commands() {
 
     if (_c == "shakeobj") {
         if (!instant) {
-            with (command_actor[i]) create_shake_effect()
+            create_shake_effect(command_actor[i])
         }
     }
 
@@ -733,7 +733,7 @@ function scr_cutscene_commands() {
 
     if (_c == "actortoobject") {
         gamemaker_object_instantiate(command_actor[i].x, command_actor[i].y, command_arg1[i])
-        command_actor[i].visible = false
+        command_actor[i].gameObject.isVisible = false;
     }
 
     // CUSTOM
@@ -742,11 +742,11 @@ function scr_cutscene_commands() {
         _input_actor_name = actor_name[_input_actor_id]
         _input_actor_instance = actor_id[_input_actor_id]
 
-        if(_input_actor_instance.main == true) {
+        if (_input_actor_instance.main == true) {
             overworldcharacter_construct.x = _input_actor_instance.x
             overworldcharacter_construct.y = _input_actor_instance.y
-            overworldcharacter_construct.visible = true
-            _input_actor_instance.visible = false
+            overworldcharacter_construct.gameObject.isVisible = true
+            _input_actor_instance.gameObject.isVisible = false;
             if (_input_actor_instance.facing == "d") { MAIN_CHARACTER_FACING_DIRECTION = DIRECTION.DOWN } if (_input_actor_instance.facing == "r") { MAIN_CHARACTER_FACING_DIRECTION = DIRECTION.RIGHT } if (_input_actor_instance.facing == "u") { MAIN_CHARACTER_FACING_DIRECTION = DIRECTION.UP } if (_input_actor_instance.facing == "l") { MAIN_CHARACTER_FACING_DIRECTION = DIRECTION.LEFT }
         } else {
             for (lll = 0; lll < 2; lll++) {
@@ -754,8 +754,8 @@ function scr_cutscene_commands() {
                     CATERPILLAR_CHARACTERS[lll].x = _input_actor_instance.x
                     CATERPILLAR_CHARACTERS[lll].y = _input_actor_instance.y
                     scr_caterpillar_facing_single(_input_actor_name, _input_actor_instance.facing)
-                    CATERPILLAR_CHARACTERS[lll].visible = true
-                    _input_actor_instance.visible = false
+                    CATERPILLAR_CHARACTERS[lll].gameObject.isVisible = true
+                    _input_actor_instance.gameObject.isVisible = false;
                 }
             }
         }
@@ -766,8 +766,8 @@ function scr_cutscene_commands() {
             if (actor_name[jjj] == "kris" and instance_exists(actor_id[jjj])) {
                 overworldcharacter_construct.x = actor_id[jjj].x
                 overworldcharacter_construct.y = actor_id[jjj].y
-                overworldcharacter_construct.visible = true
-                actor_id[jjj].visible = false
+                overworldcharacter_construct.gameObject.isVisible = true
+                actor_id[jjj].gameObject.isVisible = false;
                 if (actor_id[jjj].facing == "d") { MAIN_CHARACTER_FACING_DIRECTION = DIRECTION.DOWN }
                 if (actor_id[jjj].facing == "r") { MAIN_CHARACTER_FACING_DIRECTION = DIRECTION.RIGHT }
                 if (actor_id[jjj].facing == "u") { MAIN_CHARACTER_FACING_DIRECTION = DIRECTION.UP }
@@ -790,8 +790,8 @@ function scr_cutscene_commands() {
                             _caterpillar_moved = 1
                         }
                         scr_caterpillar_facing_single(actor_name[jjj], actor_id[jjj].facing)
-                        CATERPILLAR_CHARACTERS[lll].visible = true
-                        actor_id[jjj].visible = false
+                        CATERPILLAR_CHARACTERS[lll].gameObject.isVisible = true
+                        actor_id[jjj].gameObject.isVisible = false;
                     }
                 }
             }
@@ -851,7 +851,7 @@ class GameMakerCommandSequence {
         command_index : 0,
     }
 
-    private.execute_next_command = function() {
+    private.execute_next_command() {
         var _parameters = {}
         _parameters.cutscene = this
         if (private.commands.length < private.command_index - 1) {
@@ -863,25 +863,25 @@ class GameMakerCommandSequence {
 
     /// 
     /// @returns {Struct} this
-    static exists = function(parameters = {}) {
+    static exists(parameters = {}) {
         return _return
     }
 
     /// 
     /// @returns {Struct} this
-    static create = function(parameters = {}) {
+    static create(parameters = {}) {
         return _return
     }
 
     /// 
     /// @returns {Struct} this
-    static destroy = function(parameters = {}) {
+    static destroy(parameters = {}) {
         return _return
     }
 
     /// 
     /// @returns {Struct} this
-    static add_command = function(parameters = {}) {
+    static add_command(parameters = {}) {
         parameters.commandsequence = this
         __gamemaker_commandsequence_add_command(parameters)
         return this
@@ -892,38 +892,38 @@ class GameMakerCommandSequence {
     /// `parameters.seconds` The amount of seconds to wait.
     /// `parameters.condition` The condition to wait for to be true.
     /// @returns {Struct} this
-    static add_wait = function(parameters = {}) {
+    static add_wait(parameters = {}) {
         return this
     }
 
     /// Starts execution.
     /// @returns {Struct} this
-    static start = function(parameters = {}) {
+    static start(parameters = {}) {
         return _return
     }
 
     /// Pauses execution.
     /// @returns {Struct} this
-    static pause = function(parameters = {}) {
+    static pause(parameters = {}) {
         return _return
     }
 
     /// Resumes execution
     /// @returns {Struct} this
-    static resume = function(parameters = {}) {
+    static resume(parameters = {}) {
         return _return
     }
 
     /// Makes execution wait
     /// `parameters.seconds` The amount of seconds to wait.
     /// `parameters.condition` The condition to wait for to be true.
-    static wait = function(parameters = {}) {
+    static wait(parameters = {}) {
         return this
     }
 
     /// 
     /// @returns {Struct} this
-    static stop = function(parameters = {}) {
+    static stop(parameters = {}) {
         return this
     }
 
@@ -941,7 +941,7 @@ class GameMakerCommandSequence {
  */
 export class cutscene_object extends MonoBehaviour {}
 
-protected ["Create Event"](): void {
+protected override "Create Event"(): void {
     waiting = 0
     cs_wait_timer = 0
     cs_wait_amount = 0
@@ -971,7 +971,7 @@ protected ["Create Event"](): void {
     terminate_this_frame = 0
 }
 
-protected ["Step Event"](): void {
+protected override "Step Event"(): void {
     if (initialised == 0) {
         initialised = 1
     if (waiting == 0) {

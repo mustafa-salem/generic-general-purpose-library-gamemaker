@@ -5,19 +5,19 @@ function InputAction(value) {
 
 class InputAction {
     
-    this.is_pressed = function() {
+    this.is_pressed() {
 
     };
 
-    this.is_long_pressed = function() {
+    this.is_long_pressed() {
 
     };
 
-    this.is_held = function() {
+    this.is_held() {
 
     };
 
-    this.is_released = function() {
+    this.is_released() {
 
     };
 
@@ -99,7 +99,7 @@ function gamemaker_input_check_exclusive_pressed(parameters = {}) {
 /// ---
 /// @param {Struct} parameters The struct containing the arguments to pass to the function.
 /// @returns {type}
-gamemaker_input_get_held_duration = function(parameters) {
+gamemaker_input_get_held_duration(parameters) {
 
     if (parameters.units == "frames") {
         <statement>
@@ -212,7 +212,7 @@ class InputControllerGeneric {
 
 class InputController() : InputControllerGeneric {
 
-    static game_start_event = function() {
+    static game_start_event() {
         import_system_config()
     }
 
@@ -312,7 +312,7 @@ new InputController()
 
 class InputController() : InputControllerGeneric {
 
-    static game_start_event = function() {
+    static game_start_event() {
         import_system_config()
     }
 

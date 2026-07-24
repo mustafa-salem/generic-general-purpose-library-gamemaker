@@ -8,8 +8,16 @@ import { Transform } from "@gamemaker/Transform";
 */
 export class GameObject {
     
+    public static instanceExists<T extends Component>(component: { new(): T }): boolean {
+        return false;
+    }
+
     public static findInstance() {
         
+    }
+
+    public static findInstances<T extends Component>(component: { new(): T }): T[] {
+        return [];
     }
 
     /// `parameters.instance` The 'Object Instance' to target.
@@ -44,29 +52,52 @@ export class GameObject {
         // TODO
     }
 
+    /** The name of the game object. */
+    public name: string = "";
+
+    #parent: GameObject | null = null;
+
+    /**
+     * The parent game object of this game object.
+     */
+    public get parent(): GameObject | null {
+        return this.#parent;
+    }
+
+    /**
+     * TODO: Check for looping.
+     */
+    public set parent(parent: GameObject | null) {
+        this.#parent = parent;
+    }
+
     /**
      * Whether the instance carries over from room to room.
      */
-    public get persistent(): boolean {
+    public get isPersistent(): boolean {
         return false;
+    }
+
+    public set isPersistent(persistent: boolean) {
+    
     }
 
     /**
      * Whether the instance is visible, and therefore is executing its draw events.
      */
-    public get visible(): boolean {
+    public get isVisible(): boolean {
         return true;
     }
 
     /**
      * @todo
      */
-    public set visible(visible: boolean) {
+    public set isVisible(visible: boolean) {
 
     }
 
     /**
-     * The room that contains this instance.
+     * The room that contains this GameObject.
      */
     public get room() {
         return;

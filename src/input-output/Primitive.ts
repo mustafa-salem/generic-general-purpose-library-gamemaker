@@ -18,49 +18,49 @@ function __gamemaker_primitive_create() {
     }
 
     ///
-    create = function(parameters = {}) {
+    create(parameters = {}) {
         parameters.primitive = this
         gamemaker_primitive_create(parameters)
         return this
     }
 
     ///
-    get_type = function(parameters = {}) {
+    get_type(parameters = {}) {
         parameters.primitive = this
         gamemaker_primitive_get_type(parameters)
         return this
     }
 
     ///
-    set_type = function(parameters = {}) {
+    set_type(parameters = {}) {
         parameters.primitive = this
         gamemaker_primitive_set_type(parameters)
         return this
     }
 
     ///
-    get_texture = function(parameters = {}) {
+    get_texture(parameters = {}) {
         parameters.primitive = this
         gamemaker_primitive_get_texture(parameters)
         return this
     }
 
     ///
-    set_texture = function(parameters = {}) {
+    set_texture(parameters = {}) {
         parameters.primitive = this
         gamemaker_primitive_set_texture(parameters)
         return this
     }
 
     ///
-    static add_vertex = function(parameters = {}) {
+    static add_vertex(parameters = {}) {
         parameters.primitive = this
         gamemaker_primitive_add_vertex(parameters)
         return this
     }
 
     ///
-    draw = function(parameters = {}) {
+    draw(parameters = {}) {
         parameters.primitive = this
         gamemaker_primitive_draw(parameters)
         return this

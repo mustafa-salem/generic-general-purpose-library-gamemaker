@@ -105,7 +105,7 @@ export class RectangleElement {
 
     /// @returns {Real}
     /// _colour_solid_fill
-    static get_colour_solid_fill = function() {
+    static get_colour_solid_fill() {
         return private.solid_fill.colour
     }
 
@@ -113,7 +113,7 @@ export class RectangleElement {
     /// @param {Real}
     /// _colour_solid_fill
     /// @returns {Struct.RectangleElement}
-    static set_colour_solid_fill = function(_colour_solid_fill: number) {
+    static set_colour_solid_fill(_colour_solid_fill: number) {
         private.solid_fill.colour = Interpolation.clamp(_colour_solid_fill, Colour.Black, Colour.White)
         return this
     }
@@ -124,7 +124,7 @@ export class RectangleElement {
 
     /// @returns {Real}
     /// _alpha_solid_fill
-    static get_alpha_solid_fill = function() {
+    static get_alpha_solid_fill() {
         return private.solid_fill.alpha
     }
 
@@ -132,7 +132,7 @@ export class RectangleElement {
     /// @param {Real} _alpha_solid_fill
     /// _alpha_solid_fill
     /// @returns {Struct.RectangleElement} this
-    static set_alpha_solid_fill = function(_alpha_solid_fill: number) {
+    static set_alpha_solid_fill(_alpha_solid_fill: number) {
         private.solid_fill.alpha = Interpolation.clamp(_alpha_solid_fill, 0, 1)
         return this
     }
@@ -144,14 +144,14 @@ export class RectangleElement {
      */
     ///
      */
-    static get_solid_fill = function() {
+    static get_solid_fill() {
         return variable_clone(private.solid_fill)
     }
 
      */
     ///
      */
-    static set_solid_fill = function(arguments = {}) {
+    static set_solid_fill(arguments = {}) {
         if (!is_struct(arguments)) {
             // new InvalidTypeErrorGeneric()
             return this
@@ -165,11 +165,11 @@ export class RectangleElement {
 
     //     ―――――――――――――――――――― COLOUR_GRADIENT_FILL ――――――――――――――――――――
 
-    static get_colour_gradient_fill = function() {
+    static get_colour_gradient_fill() {
 
     }
 
-    static set_colour_gradient_fill = function() {
+    static set_colour_gradient_fill() {
 
     }
 
@@ -177,11 +177,11 @@ export class RectangleElement {
 
     //     ―――――――――――――――――――― ALPHA_GRADIENT_FILL ――――――――――――――――――――
 
-    static get_alpha_gradient_fill = function() {
+    static get_alpha_gradient_fill() {
 
     }
 
-    static set_alpha_gradient_fill = function() {
+    static set_alpha_gradient_fill() {
 
     }
 
@@ -192,14 +192,14 @@ export class RectangleElement {
      */
     ///
      */
-    static get_gradient_fill = function() {
+    static get_gradient_fill() {
         return variable_clone(private.gradient_fill)
     }
 
      */
     ///
      */
-    static set_gradient_fill = function(arguments = {}) {
+    static set_gradient_fill(arguments = {}) {
         if (!is_struct(arguments)) {
             // new InvalidTypeErrorGeneric()
             return this
@@ -234,11 +234,11 @@ export class RectangleElement {
 
     //     ―――――――――――――――――――― THICKNESS_SOLID_OUTLINE ――――――――――――――――――――
 
-    static get_thickness_solid_outline = function() {
+    static get_thickness_solid_outline() {
         return private.solid_outline.thickness
     }
 
-    static set_thickness_solid_outline = function(_thickness) {
+    static set_thickness_solid_outline(_thickness) {
         return this
     }
 
@@ -246,11 +246,11 @@ export class RectangleElement {
 
     //     ―――――――――――――――――――― ALIGNMENT_SOLID_OUTLINE ――――――――――――――――――――
 
-    static get_alignment_solid_outline = function() {
+    static get_alignment_solid_outline() {
         return private.solid_outline.alignment
     }
 
-    static set_alignment_solid_outline = function(_alignment) {
+    static set_alignment_solid_outline(_alignment) {
         return this
     }
 
@@ -261,7 +261,7 @@ export class RectangleElement {
     /// @returns {Real}
     /// colour_solid_outline
      */
-    static get_colour_solid_outline = function() {
+    static get_colour_solid_outline() {
         return private.solid_outline.colour
     }
 
@@ -271,7 +271,7 @@ export class RectangleElement {
     /// colour_solid_outline
     /// @returns {Struct.RectangleElement}
      */
-    static set_colour_solid_outline = function(_colour_solid_outline: number) {
+    static set_colour_solid_outline(_colour_solid_outline: number) {
         private.solid_outline.colour = Interpolation.clamp(_colour_solid_outline, Colour.Black, Colour.White)
         return this
     }
@@ -283,7 +283,7 @@ export class RectangleElement {
     /// @returns {Real}
     /// alpha_solid_outline
      */
-    static get_alpha_solid_outline = function() {
+    static get_alpha_solid_outline() {
         return private.solid_outline.alpha
     }
 
@@ -293,7 +293,7 @@ export class RectangleElement {
     /// alpha_solid_outline
     /// @returns {Struct.RectangleElement} this
      */
-    static set_alpha_solid_outline = function(_alpha_solid_outline: number) {
+    static set_alpha_solid_outline(_alpha_solid_outline: number) {
         private.solid_outline.alpha = Interpolation.clamp(_alpha_solid_outline, 0, 1)
         return this
     }
@@ -305,14 +305,14 @@ export class RectangleElement {
      */
     ///
      */
-    static get_solid_outline = function() {
+    static get_solid_outline() {
         return variable_clone(private.solid_outline)
     }
 
      */
     ///
      */
-    static set_solid_outline = function(arguments = {}) {
+    static set_solid_outline(arguments = {}) {
         if (!is_struct(arguments)) {
             // new InvalidTypeErrorGeneric()
             return this

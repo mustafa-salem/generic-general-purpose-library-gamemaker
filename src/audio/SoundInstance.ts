@@ -3,7 +3,7 @@
 .resume()
 .stop()
 .fade_out({ duration_frames : })
-.is_playing
+.isPlaying
 .get_track_position
 .get_track_position_seconds
 .set_track_position

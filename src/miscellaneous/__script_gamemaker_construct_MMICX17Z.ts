@@ -60,11 +60,11 @@ class GameMakerConstruct {
         return _instancecount;
     }
     
-    static attach_eventhandler = function(parameters = {}) {
+    static attach_eventhandler(parameters = {}) {
         return this;
     };
 
-    static instantiate = function(parameters = {}) {
+    static instantiate(parameters = {}) {
         var _instance = new GameMakerConstructInstance()
         /// variables
         var _variables
@@ -79,7 +79,7 @@ class GameMakerConstruct {
     /// The struct containing the arguments to pass to the function.
     /// @param {type} parameters.name
     /// @returns {any}
-    static get_variable = function(parameters = {}) {
+    static get_variable(parameters = {}) {
         return _return
     }
 
@@ -90,7 +90,7 @@ class GameMakerConstruct {
     /// @param {type} parameters.value
     /// @param {type} parameters.expression
     /// @returns {Struct} this
-    static set_variable = function(parameters = {}) {
+    static set_variable(parameters = {}) {
         return _return
     }
 
@@ -109,24 +109,24 @@ class GameMakerConstruct {
  * Construct Object
  */
 gamemaker_object(construct_object)
-protected ["Create Event"](): void {
+protected override "Create Event"(): void {
     if (!variable_instance_exists(this, "construct_instance")) {
         construct_instance = myconstructor()
     }
     execute_parentevent(argument0)
 }
 
-protected ["Destroy Event"](): void {
+protected override "Destroy Event"(): void {
     construct_instance.trigger_event("Destroy Event");
     execute_parentevent(argument0)
 }
 
-protected ["Clean Up Event"](): void {
+protected override "Clean Up Event"(): void {
     construct_instance.trigger_event("Clean Up Event");
     execute_parentevent(argument0)
 }
 
-protected ["Step Event"](): void {
+protected override "Step Event"(): void {
     construct_instance.trigger_event("Step Event");
     execute_parentevent(argument0)
 }})
@@ -205,7 +205,7 @@ function gamemaker_constructinstance_movetowards_position(parameters = {}) {
  */
 export class obj_move_to_point extends MonoBehaviour {
 
-    protected ["Create Event"](): void {
+    protected override "Create Event"(): void {
         target = 923
         moved = 0
         movetimer = 0
@@ -215,7 +215,7 @@ export class obj_move_to_point extends MonoBehaviour {
         charmarker = 0
     }
     
-    protected ["Step Event"](): void {
+    protected override "Step Event"(): void {
         if (!instance_exists(target)) {
             GameObject.destroy(this.gameObject);
             return;
@@ -317,7 +317,7 @@ class GameMakerConstructInstance {
     this.private = {}
 
     /// <description>
-    this.collision = function() {
+    this.collision() {
 
     }
 
@@ -339,7 +339,7 @@ class GameMakerConstructInstance {
 
     /// <description>
     /// @returns {Array<String>}
-    static get_tags = function() {
+    static get_tags() {
         var _tags = private.tags
         return _tags
     }
@@ -348,7 +348,7 @@ class GameMakerConstructInstance {
     /// @param {Struct} parameters The struct containing the arguments to pass to the function.
     /// @param {Array<String>} parameters.tags
     /// @returns {Struct.GameMakerConstructInstance} this
-    static set_tags = function(parameters = {}) {
+    static set_tags(parameters = {}) {
         return this
     }
 
@@ -356,7 +356,7 @@ class GameMakerConstructInstance {
     /// @param {Struct} parameters The struct containing the arguments to pass to the function.
     /// @param {Array<String>} parameters.tags
     /// @returns {Struct.GameMakerConstructInstance} this
-    static add_tags = function(parameters = {}) {
+    static add_tags(parameters = {}) {
         return this
     }
 
@@ -364,7 +364,7 @@ class GameMakerConstructInstance {
     /// @param {Struct} parameters The struct containing the arguments to pass to the function.
     /// @param {Array<String>} parameters.tags
     /// @returns {Struct.GameMakerConstructInstance} this
-    static remove_tags = function(parameters = {}) {
+    static remove_tags(parameters = {}) {
         return this
     }
 
@@ -372,7 +372,7 @@ class GameMakerConstructInstance {
     /// @param {Struct} parameters The struct containing the arguments to pass to the function.
     /// @param {Array<String>} parameters.tags
     /// @returns {Bool}
-    static has_tags = function(parameters = {}) {
+    static has_tags(parameters = {}) {
         var _has_tags = false
         return _has_tags
     }
@@ -381,7 +381,7 @@ class GameMakerConstructInstance {
     /// @param {Struct} parameters The struct containing the arguments to pass to the function.
     /// @param {Array<String>} parameters.tags
     /// @returns {Bool}
-    static hasany_tag = function(parameters = {}) {
+    static hasany_tag(parameters = {}) {
         var _hasany_tag = false
         return _hasany_tag
     }
@@ -390,7 +390,7 @@ class GameMakerConstructInstance {
     /// @param {Struct} parameters The struct containing the arguments to pass to the function.
     /// @param {Array<String>} parameters.tags
     /// @returns {Real}
-    static get_tagcount = function(parameters = {}) {
+    static get_tagcount(parameters = {}) {
         var _tagcount = 0
         return _tagcount
     }

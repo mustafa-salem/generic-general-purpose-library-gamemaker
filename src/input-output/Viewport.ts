@@ -247,35 +247,35 @@ export class Viewport {
         view_port_index : parameters.view_port_index,
     } */
 
-    get_index = function() {
+    get_index() {
         return private.view_port_index
     }
 
     ///
     /// proxy for Viewport.is_visible
     /// @returns {Bool}
-    static get_visible = function(parameters = {}) {
+    static get_visible(parameters = {}) {
         return Viewport.is_visible(parameters)
     }
 
     ///
     /// proxy for Viewport.set_visible
     /// @returns {Struct.Viewport} this
-    static set_visible = function(parameters = {}) {
+    static set_visible(parameters = {}) {
         Viewport.set_visible(parameters)
     }
 
     ///
     /// proxy for Viewport.get_surface
     /// @returns {Struct.GameMakerSurface|Undefined}
-    static get_surface = function(parameters = {}) {
+    static get_surface(parameters = {}) {
         return Viewport.get_surface(parameters)
     }
 
     ///
     /// proxy for Viewport.set_surface
     /// @returns {Struct.Viewport} this
-    static set_surface = function(parameters = {}) {
+    static set_surface(parameters = {}) {
         Viewport.set_surface(parameters)
         if (_is_instance_scope) { return this }
     }
@@ -289,7 +289,7 @@ export class Viewport {
     ///
     /// proxy for Viewport.set_camera
     /// @returns {Struct.Viewport} this
-    static set_camera = function(parameters = {}) {
+    static set_camera(parameters = {}) {
         Viewport.set_camera(parameters)
         if (_is_instance_scope) { return this }
     }
@@ -310,7 +310,7 @@ export class Viewport {
     }
 
     /// @returns {Real}
-    static get_x_dimension = function(parameters = {}) {
+    static get_x_dimension(parameters = {}) {
         if (_is_instance_scope) { parameters.view_port = this }
     }
 
@@ -318,12 +318,12 @@ export class Viewport {
     /// @param {Struct} parameters
     /// @param {Type} parameters.parameter_name
     /// @returns {type}
-    static set_x_dimensions = function(parameters = {}) {
+    static set_x_dimensions(parameters = {}) {
         Viewport.set_x_dimension(parameters)
     }
 
     /// @returns {type}
-    static get_y_dimension = function(parameters = {}) {
+    static get_y_dimension(parameters = {}) {
         return Viewport.get_y_dimension(parameters)
     }
 
@@ -331,12 +331,12 @@ export class Viewport {
     /// @param {Struct} parameters
     /// @param {Type} parameters.parameter_name
     /// @returns {type}
-    static set_y_dimensions = function(parameters = {}) {
+    static set_y_dimensions(parameters = {}) {
         Viewport.set_y_dimension(parameters)
     }
 
     /// @returns {type}
-    static get_dimensions = function(parameters = {}) {
+    static get_dimensions(parameters = {}) {
         return 
     }
 
@@ -346,7 +346,7 @@ export class Viewport {
     /// <parameter_description>
     /// @param {Type} parameters.y
     /// @returns {type}
-    static set_dimensions = function(parameters = {}) {
+    static set_dimensions(parameters = {}) {
         Viewport.set_dimensions(parameters)
     }
 

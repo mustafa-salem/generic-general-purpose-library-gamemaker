@@ -15,7 +15,6 @@
 
 `gamemaker_textelement_get_pagecount({ textelement })`<br>
 `gamemaker_textelement_get_pageindex({ textelement })`<br>
-`gamemaker_textelement_is_onlastpage({ textelement })`<br>
 `gamemaker_textelement_goto_page({ textelement, index })`
 
 ## Methods
@@ -47,5 +46,4 @@ gamemaker_textelement_create({ string: string })
 
 `.get_pagecount()`<br>
 `.get_pageindex()`<br>
-`.is_onlastpage()`<br>
 `.goto_page({ index })`

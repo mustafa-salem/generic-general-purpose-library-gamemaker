@@ -1,7 +1,7 @@
 import { GameObject } from "./GameObject";
 import { Transform } from "./Transform";
 
-export class Component {
+export abstract class Component {
  
     #gameObject: GameObject;
     

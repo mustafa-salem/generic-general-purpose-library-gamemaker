@@ -19,7 +19,7 @@ function gamemaker_sound_play(key: SoundAssetKey): SoundInstance {
     return instance;
 }
 
-export function gamemaker_sound(key: SoundAssetKey): SoundAsset {
+export function SoundAssetRegistry.lookup(key: SoundAssetKey): SoundAsset {
     return;
 }
 /**
@@ -32,31 +32,6 @@ export class SoundAsset {
      */
     public play({ loop = false, gain = 1, pitch = 1 } = { loop: false, gain: 1, pitch: 1 }): SoundInstance {
         return new SoundInstance();
-    }
-
-}
-/**
- * 
- */
-export class SoundAssetRegistry {
-
-    /**
-     * 
-     */
-    static #soundAssets: Record<SoundAssetKey, SoundAsset> = (() => {
-        const object: Record<string, SoundAsset> = {};
-        for (let key in SoundAssets) {
-            const assetKey = key as keyof typeof SoundAsset;
-            object[assetKey] = new SoundAsset();
-        }
-        return object;
-    })();
-
-    /**
-     * 
-     */
-    public static lookup(key: SoundAssetKey): SoundAsset {
-        return this.#soundAssets[key];
     }
 
 }

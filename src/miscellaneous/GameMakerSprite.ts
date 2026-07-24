@@ -45,7 +45,7 @@ function gamemaker_sprite_get_fps(_sprite) {
 
 function gamemaker_sprite_draw(arguments) {
 
-    static draw_method_default = function(arguments) {
+    static draw_method_default(arguments) {
         draw_sprite_general(
             arguments.sprite,
             arguments.frame,
@@ -66,7 +66,7 @@ function gamemaker_sprite_draw(arguments) {
         )
     }
 
-    static draw_method_nine_slice = function(arguments) {
+    static draw_method_nine_slice(arguments) {
         draw_sprite_ext(
             arguments.sprite,
             arguments.frame,
@@ -80,7 +80,7 @@ function gamemaker_sprite_draw(arguments) {
         )
     }
 
-    static draw_method_tiled = function(arguments) {
+    static draw_method_tiled(arguments) {
         draw_sprite_tiled_ext(
             arguments.sprite,
             arguments.frame,
@@ -93,7 +93,7 @@ function gamemaker_sprite_draw(arguments) {
         )
     }
 
-    static draw_method_shader = function(arguments) {
+    static draw_method_shader(arguments) {
 
         arguments.screen_x = arguments.x
         arguments.screen_y = arguments.y

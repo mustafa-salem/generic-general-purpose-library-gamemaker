@@ -1,19 +1,27 @@
 import { Vector3 } from "../data-types/Vector3";
 
 export class Transform {
-
-    #position: Vector3;
-    #rotation: Vector3;
-    #scale: Vector3;
-
-    public get position(): Readonly<Vector3> {
-        return this.#position;
+    
+    #position: Vector3 = new Vector3(0, 0, 0);
+    #rotation: Vector3 = new Vector3(0, 0, 0);
+    #scale: Vector3 = new Vector3(0, 0, 0);
+    
+    /**
+     * The local position of the game object (relative to its parent).
+     */
+    public get position(): Vector3 {
+       return this.#position;
     }
-
+    
     public set position(position: Vector3) {
-        this.#position = position;
+        this.#position.x = position.x;
+        this.#position.y = position.y;
+        this.#position.z = position.z;
     }
 
+    /**
+     * 
+     */
     public get rotation(): Vector3 {
         return this.#rotation;
     }
@@ -22,6 +30,9 @@ export class Transform {
         this.#rotation = rotation;
     }
 
+    /**
+     * 
+     */
     public get scale(): Vector3 {
         return this.#scale;
     }
@@ -31,6 +42,10 @@ export class Transform {
     }
 
     public translate(translation: Vector3): void {
+        
+    }
+
+    public rotate(translation: Vector3): void {
         
     }
 

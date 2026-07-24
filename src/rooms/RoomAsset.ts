@@ -7,7 +7,7 @@ export class RoomAsset {
     /**
      * Restarts the current room.
      * 
-     * **NOTE:** This functions like `gamemaker_room_goto`, leaving and then entering the same room. Same restrictions apply.
+     * **NOTE:** This functions like `room_goto`, leaving and then entering the same room. Same restrictions apply.
      */
     public static restart(): void {
         room_restart();
@@ -26,11 +26,6 @@ export class RoomAsset {
     
     public get_handle() {
         return this["#handle"];
-    };
-
-    public goto(): this {
-        gamemaker_room_goto();
-        return this;
     };
     
     public get_x_dimension(): number {
@@ -56,5 +51,8 @@ export class RoomAsset {
         gamemaker_room_trigger_event({ room: this, event: _event });
         return this;
     };
+
+    /** Callback to be executed when the room is entered. (not when a persistent room is reentered) */
+    public "Room Creation Code": () => void;
 
 }

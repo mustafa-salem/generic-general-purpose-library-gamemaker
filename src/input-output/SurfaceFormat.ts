@@ -35,7 +35,7 @@ function SurfaceFormatGeneric() {
         }
     }
 
-    get_constant = function() {
+    get_constant() {
         var _constant = get_struct_member(constants, ["channel_count", "bit_depth", "type", "is_normalized"])
         return _constant
     }

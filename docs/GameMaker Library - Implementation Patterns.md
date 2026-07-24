@@ -32,7 +32,7 @@ When a construct is to be created
 
 When an instance of a construct is to be created
 ```
-gamemaker_construct("").instantiate();
+gamemaker_construct("");
 gamemaker_construct("").instantiate({ position: { x: _, y: _ } });
 gamemaker_construct("").instantiate({ position: { x: _, y: _ }, variables: { } });
 gamemaker_construct("").instantiate({ layer: gamemaker_layer(""), position: { x: _, y: _ } });
@@ -66,10 +66,6 @@ draw_set_alpha  -> set_blending.alpha
 ```
 
 ---
-
-```
-draw_text(x, y, string);
-```
 
 ```
 gamemaker_textelement_create({ string: string })
@@ -170,7 +166,7 @@ Simulation.onWeirdRoute
 ```
 
 ```
-PartyInstance.has_characters({ characters : "susie" })
+PartyInstance.hasCharactersWithName({ characters : "susie" })
 ```
 
 When an overworld in-game entity should execute a simple dialogue interaction

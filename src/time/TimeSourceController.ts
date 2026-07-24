@@ -29,7 +29,7 @@ class TimeSourceControllerGeneric {
 
     //     ―――――――――――――――――――― STEP_EVENT ――――――――――――――――――――
 
-    static "Step Event" = function() {
+    static "Step Event"() {
         // remove time sources used with CallLater once they have run their callback method
         for (let i = 0; i < call_later_time_sources.length; i++) {
             var _time_source = call_later_time_sources[i]
@@ -46,14 +46,14 @@ class TimeSourceControllerGeneric {
 
     //  ―――――――――――――――――――― STEP_EVENT ――――――――――――――――――――
 
-    static get_default_parent = function() {
+    static get_default_parent() {
         return default_parent
     }
 
     /// Sets the default value used for the parent time source when creating a time source.
     /// @param {Struct} arguments
     /// {Id.TimeSource or Struct.TimeSourceGeneric} time_source
-    static set_default_parent = function(arguments = {}) {
+    static set_default_parent(arguments = {}) {
         if (is_struct(arguments.time_source)) {
             default_parent = arguments.time_source
         } else {
@@ -61,23 +61,23 @@ class TimeSourceControllerGeneric {
         }
     }
 
-    static get_default_period = function() {
+    static get_default_period() {
         return default_period
     }
 
-    static get_default_units = function() {
+    static get_default_units() {
         return default_units
     }
 
-    static get_default_repetitions = function() {
+    static get_default_repetitions() {
         return default_repetitions
     }
 
-    static get_default_expiry_type = function() {
+    static get_default_expiry_type() {
         return default_expiry_type
     }
 
-    static add_garbage_collection = function(arguments = {}) {
+    static add_garbage_collection(arguments = {}) {
         call_later_time_sources.push(arguments.time_source)
     }
 

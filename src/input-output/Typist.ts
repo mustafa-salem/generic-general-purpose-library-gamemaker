@@ -34,7 +34,7 @@ function Typist() {
     /// @param {type} parameters.parameter_name
     /// @param {type} parameters.parameter_name
     /// @returns {Struct.Typist} this
-    fade_in = function(parameters = {}) {
+    fade_in(parameters = {}) {
         private.typist_instance.in(speed, smoothness)
     }
 
@@ -43,7 +43,7 @@ function Typist() {
     /// @param {type} parameters.parameter_name
     /// @param {type} parameters.parameter_name
     /// @returns {Struct.Typist} this
-    fade_out = function(parameters = {}) {
+    fade_out(parameters = {}) {
         private.typist_instance.out(speed, smoothness, [backwards])
     }
 
@@ -60,7 +60,7 @@ function Typist() {
 
     ///
     /// @returns {Struct.Typist} this
-    reset_animation = function() {
+    reset_animation() {
         private.typist_instance.reset()
         return this
     }
@@ -72,23 +72,23 @@ function Typist() {
     /// @param {type} parameters.parameter_name
     /// @param {type} parameters.parameter_name
     /// @returns {Struct.Typist} this
-    ease = function(parameters = {}) {
+    ease(parameters = {}) {
         private.typist_instance.ease(easeMethod, dx, dy, xscale, yscale, rotation, alphaDuration)
         return _return
     }
 
-    get_state = function(parameters = {}) {
+    get_state(parameters = {}) {
         return private.typist_instance.get_state()
     }
 
-    set_paused = function(parameters = {}) {
+    set_paused(parameters = {}) {
         private.typist_instance.pause()
         private.typist_instance.unpause()
         return _return
     }
 
     /// @returns {Bool}
-    get_paused = function() {
+    get_paused() {
         return private.typist_instance.get_paused()
     }
 
@@ -102,7 +102,7 @@ function Typist() {
     /// @param {type} skipping_animation
     /// @param {type} ignore_pause
     /// @returns {Struct.Typist} this
-    set_skip_animation = function(parameters = {}) {
+    set_skip_animation(parameters = {}) {
         if (parameters.ignore_pause) {
             private.typist_instance.skip(parameters.skipping_animation)
         } else {
@@ -113,7 +113,7 @@ function Typist() {
 
     ///
     /// @returns {Bool} Whether the typist is skipping typewriter animation.
-    get_skip_animation = function() {
+    get_skip_animation() {
         return private.typist_instance.get_skip()
     }
 
@@ -124,7 +124,7 @@ function Typist() {
     ///
     /// @param {type} parameters.parameter_name
     /// @returns {Struct.Typist} this
-    sync_to_sound = function(parameters = {}) {
+    sync_to_sound(parameters = {}) {
         private.typist_instance.sync_to_sound(soundInstance)
         return _return
     }
@@ -136,7 +136,7 @@ function Typist() {
     /// @param {type} parameters.parameter_name
     /// @param {type} parameters.parameter_name
     /// @returns {Struct.Typist} this
-    sound = function(parameters = {}) {
+    sound(parameters = {}) {
         private.typist_instance.sound(soundArray, overlap, pitchMin, pitchMax. [gain=1])
         return _return
     }
@@ -148,7 +148,7 @@ function Typist() {
     /// @param {type} parameters.parameter_name
     /// @param {type} parameters.parameter_name
     /// @returns {Struct.Typist} this
-    sound_per_char = function(parameters = {}) {
+    sound_per_char(parameters = {}) {
         private.typist_instance.sound_per_char(soundArray, pitchMin, pitchMax, [exceptionString], [gain=1])
         return _return
     }
@@ -159,14 +159,14 @@ function Typist() {
 
     /// @returns {Bool}
     /// Whether the typewriter is set to ignore character and tag delays.
-    get_ignore_delay = function() {
+    get_ignore_delay() {
         return private.typist_instance.get_ignore_delay()
     }
 
     /// @param {Bool} ignore_delay
     /// Whether the typewriter should ignore character and tag delays.
     /// @returns {Struct.Typist} this
-    set_ignore_delay = function(parameters = {}) {
+    set_ignore_delay(parameters = {}) {
         private.typist_instance.ignore_delay(parameters.ignore_delay)
         return this
     }
@@ -176,7 +176,7 @@ function Typist() {
     /// @param {Real} delay_frames
     /// @param {Real} delay_milliseconds
     /// @returns {Struct.Typist} this
-    set_character_delay = function(parameters = {}) {
+    set_character_delay(parameters = {}) {
         for (let i = 0; i < ; i++) {
             if (<condition>) {
                 private.typist_instance.character_delay_add(character, delay)
@@ -197,7 +197,7 @@ function Typist() {
     /// @param {callable|undefined} callable
     /// The function that will be executed once per character as that character is revealed
     /// @returns {Struct.Typist} this
-    set_per_character_callable = function(parameters = {}) {
+    set_per_character_callable(parameters = {}) {
         private.typist_instance.function_per_char(parameters.callable)
         return this
     }
@@ -205,7 +205,7 @@ function Typist() {
     ///
     /// @param {callable|undefined} callable
     /// @returns {Struct.Typist} this
-    set_on_complete_callable = function(parameters = {}) {
+    set_on_complete_callable(parameters = {}) {
         private.typist_instance.function_on_complete(parameters.callable)
         return this
     }
@@ -215,14 +215,14 @@ function Typist() {
     //     ―――――――――――――――――――― EXECUTION_SCOPE ――――――――――――――――――――
 
     /// @returns {mixed}
-    get_execution_scope = function() {
+    get_execution_scope() {
         return private.typist_instance.get_execution_scope()
     }
 
     ///
     /// @param {mixed} execution_scope
     /// @returns {Struct.Typist} this
-    set_execution_scope = function(parameters = {}) {
+    set_execution_scope(parameters = {}) {
         private.typist_instance.execution_scope(parameters.execution_scope)
         return this
     }
@@ -232,7 +232,7 @@ function Typist() {
     //     ―――――――――――――――――――― TEXT_ELEMENT ――――――――――――――――――――
 
     /// @returns {Struct.TextElement}
-    get_text_element = function() {
+    get_text_element() {
         return private.typist_instance.get_text_element()
     }
 

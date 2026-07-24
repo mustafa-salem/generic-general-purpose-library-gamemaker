@@ -37,50 +37,50 @@ function finitestatemachine_create() {
     ///
     /// NOTE: This function is only meant to be used in change()
     /// @returns {Function}
-    get_current_event_function = function() {
+    get_current_event_function() {
         return private.temp_event
     }
 
     /// @returns {string}
     /// The name of the current state.
-    get_current_state_name = function() {
+    get_current_state_name() {
         var _state_name = private.history_contents.length > 0 ? private.history_contents[0] : undefined
         return _state_name
     }
 
     /// @returns {mixed}
     /// The object instance handle or struct used as this context for event execution.
-    get_execution_context = function() {
+    get_execution_context() {
         return private.execution_context
     }
 
     /// @returns {integer}
     /// The maxmimum amount of history entries to keep.
-    get_history_capacity = function() {
+    get_history_capacity() {
         return private.history_capacity
     }
 
     /// @returns {array}
     /// A clone of the array holding the history entries.
-    get_history_contents = function() {
+    get_history_contents() {
         return variable_clone(private.history_contents)
     }
 
     /// @returns {String}
     /// The name of the previous state.
-    get_previous_state_name = function() {
+    get_previous_state_name() {
         return private.history_contents.length > 1 ? private.history_contents[1].state_name : undefined
     }
     
 /// @returns {Array<String>}
 /// An array containing the names of the states of the finite state machine.
-get_state_names = function() {
+get_state_names() {
     return struct_get_names(private.states)
 }
 
     /// This function is used to get the time the current state has been running.
     /// @returns {Real}
-    get_state_runtime_seconds = function(parameters = {}) {
+    get_state_runtime_seconds(parameters = {}) {
         return (get_timer() - private.state_start_time) / 1000000
     }
 
@@ -88,7 +88,7 @@ get_state_names = function() {
     /// @param {type} parameter_name
     /// <parameter_description>
     /// @returns {Bool}
-    has_event = function(parameters = {}) {
+    has_event(parameters = {}) {
         var _event_name = parameters["event_name"]
         if (typeof _event_name != "string" or _event_name == "") {
             __debug_message("Event should be a non-empty string.")
@@ -103,7 +103,7 @@ get_state_names = function() {
     /// @param {String} [arguments.source_state]
     /// @returns {Real}
     /// FSM_TRIGGER_GENERIC
-    has_transition = function(arguments = {}) {
+    has_transition(arguments = {}) {
         var _transition_name   = arguments["transition_name"]
         var _source_state_name = arguments["source_state_name"]
         if (typeof _transition_name != "string") return false
@@ -139,7 +139,7 @@ get_state_names = function() {
 
     /// @returns {Bool}
     /// Whether history keeping is enabled.
-    is_history_enabled = function() {
+    is_history_enabled() {
         return private.history_enabled
     }
 
@@ -150,7 +150,7 @@ get_state_names = function() {
     /// @param {string} [parent]
     /// The name of the parent state to check. Defaults to the current state.
     /// @returns {Bool}
-    is_state = function(parameters = {}) {
+    is_state(parameters = {}) {
         // the name of the state to check
         var _state_name  = parameters["state"]
         if (!__is_valid_state_name(_state_name)) {
@@ -177,7 +177,7 @@ get_state_names = function() {
     /// @param {Array<any>} arguments
     /// @returns {type}
     /// Whether the transition has been successfully triggered.
-    trigger_transition = function(parameters = {}) {
+    trigger_transition(parameters = {}) {
         var _transitions = arguments["transition"]
         var _arguments   = arguments["arguments"]
         //
@@ -234,7 +234,7 @@ get_state_names = function() {
     /// @param {integer} capacity
     /// The maxmimum amount of history entries to keep. At least 2.
     /// @returns {Struct.FiniteStateMachine} this
-    set_history = function({ enabled, capacity }: { enabled: boolean, capacity: number }) {
+    set_history({ enabled, capacity }: { enabled: boolean, capacity: number }) {
         private.history_enabled = enabled
         private.history_capacity = Math.max(2, capacity)
         // resize history
@@ -251,7 +251,7 @@ get_state_names = function() {
     /// @param {type} execution_context
     /// The object instance handle or struct used as this context for event execution.
     /// @returns {Struct.FiniteStateMachine} this
-    set_execution_context = function(parameters = {}) {
+    set_execution_context(parameters = {}) {
         private.execution_context = parameters.execution_context
         return this
     }
@@ -264,7 +264,7 @@ get_state_names = function() {
     /// @param {string|all} name
     /// <parameter_description>
     /// @returns {Struct.FiniteStateMachine} this
-    remove_event_listener = function(parameters = {}) {
+    remove_event_listener(parameters = {}) {
         // loop over events
         for (let i = 0; i < 0; i++) {
             // loop over event handlers
@@ -280,14 +280,14 @@ get_state_names = function() {
     /// @param {type} parameter_name
     /// <parameter_description>
     /// @returns {Struct.FiniteStateMachine} this
-    remove_event = function(parameters = {}) {
+    remove_event(parameters = {}) {
         return this
     }
 
     /// This function is used to remove a state.
     /// @param {type} state
     /// @returns {Struct.FiniteStateMachine} this
-    remove_state = function(parameters = {}) {
+    remove_state(parameters = {}) {
         var _state_names = parameters["state"]
         if (!Array.isArray(_state_names)) { _state_names = [_state_names] }
         for (let i = 0; i < _state_names.length; i++) {
@@ -307,7 +307,7 @@ get_state_names = function() {
     ///
     /// @param {type} parameter_name
     /// @returns {Struct.FiniteStateMachine} this
-    remove_transition = function(parameters = {}) {
+    remove_transition(parameters = {}) {
         return this
     }
 
@@ -315,7 +315,7 @@ get_state_names = function() {
 /// @param {string} name
 /// @param {string|undefined} [state]
 /// @returns {Struct.FiniteStateMachine} this
-add_event = function(parameters = {}) {
+add_event(parameters = {}) {
 
     /* ―――――――――――――――――――― ARGUMENT_VALIDATION ―――――――――――――――――――― */
 
@@ -365,7 +365,7 @@ add_event = function(parameters = {}) {
     ///
     /// @param {type} runtime_frames
     /// @returns {Struct.FiniteStateMachine} this
-    add_state_runtime = function(time: number) {
+    add_state_runtime(time: number) {
         private.state_start_time = get_timer() - time * 1000000
         return this
     }
@@ -376,7 +376,7 @@ add_event = function(parameters = {}) {
     /// @param {string} parent
     /// The name of the parent state of the state to define.
     /// @returns {Struct.FiniteStateMachine} this
-    add_state = function(parameters = {}) {
+    add_state(parameters = {}) {
 
         /* ―――――――――――――――――――― ARGUMENT_VALIDATION ―――――――――――――――――――― */
 
@@ -429,7 +429,7 @@ add_event = function(parameters = {}) {
     /// the current state.
     /// @param {Struct} arguments { transition_name : String, source_state_name : [String], destination_state_name : [String], predicate_method : [Function], leave_event : [Function], enter_event : [Function] }
     /// @returns {Struct.FiniteStateMachine} this
-    add_transition = function(arguments = {}) {
+    add_transition(arguments = {}) {
 
         /* ―――――――――――――――――――― ARGUMENT_VALIDATION ―――――――――――――――――――― */
 
@@ -509,7 +509,7 @@ add_event = function(parameters = {}) {
 /// The context in which code is to be executed.
 /// Defaults to the finite state machine's execution context.
 /// @returns {Struct.FiniteStateMachine} this
-attach_eventhandler = function(parameters = {}) {
+attach_eventhandler(parameters = {}) {
     // var _name ??= method_get_index(_callable)
 
     var _event    = parameters["event"]
@@ -544,7 +544,7 @@ attach_eventhandler = function(parameters = {}) {
     /// @param {Function} enterstate_event
     /// @param {Array<Any>} arguments
     /// @returns {Struct.FiniteStateMachine} this
-    change_state = function(arguments) {
+    change_state(arguments) {
         // the name of the state to change to
         var _state_name  = arguments["state_name"]
 
@@ -611,7 +611,7 @@ attach_eventhandler = function(parameters = {}) {
     /// The name of the state to check.
     /// @returns {Bool}
     /// Whether the finite state machine has a state with the given name.
-    exists_state = function(parameters = {}) {
+    exists_state(parameters = {}) {
         var _state_name = parameters["state"]
         if (!__is_valid_state_name()) {
             return false
@@ -622,7 +622,7 @@ attach_eventhandler = function(parameters = {}) {
     /// This function is used to execute the current event of the parent state.
     /// @param {Struct} parameter_name
     /// @returns {Struct.FiniteStateMachine} this
-    execute_parentevent = function(parameters = {}) {
+    execute_parentevent(parameters = {}) {
         var _state_name = private.history_contents[0]
 
         if (private.state_parent_name[_state_name] == undefined) {
@@ -668,7 +668,7 @@ class FiniteStateMachine {
      */
     ///
      */
-    __debug_message = function(_method_name, _message_string) {
+    __debug_message(_method_name, _message_string) {
         show_debug_message($"FiniteStateMachine.{_method_name}: {_message_string}")
     }
 
@@ -697,7 +697,7 @@ class FiniteStateMachine {
     ///
     /// @returns {Bool}
     /// Whether the string is valid as a state name.
-    __is_valid_state_name = function(_string) {
+    __is_valid_state_name(_string) {
         if (typeof _string != "string" or _string == "") {
             __debug_message("The state name should be a non-empty string.")
             return false
@@ -720,7 +720,7 @@ class FiniteStateMachine {
 
     /// @returns {Bool}
     /// Whether the string is valid as an event name.
-    __is_valid_event_name = function(_string) {
+    __is_valid_event_name(_string) {
         if (struct_exists(this, _string)) {
             __debug_message($"Can not use '{_string}' as an event.")
             return false
@@ -736,7 +736,7 @@ class FiniteStateMachine {
     /// @param {Array<any>} arguments
     /// The array of variables to pass into the event callable.
     /// @returns {Struct.FiniteStateMachine} this
-    __execute_event = function(parameters = {}) {
+    __execute_event(parameters = {}) {
         var _event_name = parameters["event_name"]
         var _state_name = parameters["state_name"] ?? private.history_contents[0]
         var _arguments  = parameters["arguments"]
@@ -757,7 +757,7 @@ class FiniteStateMachine {
     private.event_handlers = {}
 
     ///
-    __trigger_event_listener = function(_event_name, _arguments = []) {
+    __trigger_event_listener(_event_name, _arguments = []) {
         var _event_handlers = private.event_handlers[_event_name]
         if (!Array.isArray(_event_handlers)) {
             return;
@@ -774,7 +774,7 @@ class FiniteStateMachine {
 
     /// @returns {Bool}
     /// Whether the string is a valid transition name.
-    __is_valid_transition_name = function(_string) {
+    __is_valid_transition_name(_string) {
         if (typeof _string === "string" and _string != "") {
             return true
         } else {
@@ -786,7 +786,7 @@ class FiniteStateMachine {
     ///
     /// @param {Struct} arguments { transitions : Array<Struct>, source_state_name : String, trigger_name : String, arguments : [Array<Any>] }
     /// @returns {Bool} Whether the trigger_transition is successful (true), or not (false)
-    __try_triggering_transition = function(arguments = {}) {
+    __try_triggering_transition(arguments = {}) {
         var _transitions       = arguments["transitions"]
         var _source_state_name = arguments["source_state_name"]
         var _trigger_name      = arguments["trigger_name"]
@@ -823,7 +823,7 @@ class FiniteStateMachine {
      */
     ///
      */
-    __add_to_history = function(parameters = {}) {
+    __add_to_history(parameters = {}) {
         var _state_name = parameters["state_name"]
         private.history_contents.splice(0, 0, { state_name : _state_name });
         // resize history

@@ -24,14 +24,14 @@ class Menu {
         index : 0,
     }
 
-    row_count = function() { return defaults.row_count }
-    column_count = function() { return defaults.column_count }
-    visible_count = function() { return defaults.visible_count }
-    page_flip_type = function() { return defaults.page_flip_type }
-    wrap_horizontally = function() { return defaults.wrap_horizontally }
-    wrap_vertically = function() { return defaults.wrap_vertically }
+    row_count() { return defaults.row_count }
+    column_count() { return defaults.column_count }
+    visible_count() { return defaults.visible_count }
+    page_flip_type() { return defaults.page_flip_type }
+    wrap_horizontally() { return defaults.wrap_horizontally }
+    wrap_vertically() { return defaults.wrap_vertically }
 
-    current_index = function(_index) {
+    current_index(_index) {
         if (!is_undefined(_index)) {
             current.index = keep_in_range(_index)
             current.index = _index
@@ -44,55 +44,55 @@ class Menu {
     ―――――――――――――――――――― CALCULATED PROPERTIES ――――――――――――――――――――
     *******************************************************************************/
 
-    page_size = function() { return (row_count() * column_count()) }
-    page_count = function() { return Math.ceil(entry_count() / page_size()) }
+    page_size() { return (row_count() * column_count()) }
+    page_count() { return Math.ceil(entry_count() / page_size()) }
 
-    last_row = function() { return (row_count() - 1) }
-    last_column = function() { return (column_count() - 1) }
-    last_page_index = function() { return (page_size() - 1) }
-    last_page = function() { return (page_count() - 1) }
+    last_row() { return (row_count() - 1) }
+    last_column() { return (column_count() - 1) }
+    last_page_index() { return (page_size() - 1) }
+    last_page() { return (page_count() - 1) }
 
-    row_wrap = function() { return last_row() }
-    column_wrap = function() { return last_column() }
-    page_wrap = function() { return last_page_index() }
+    row_wrap() { return last_row() }
+    column_wrap() { return last_column() }
+    page_wrap() { return last_page_index() }
 
-    horizontal_wrap = function() { return column_wrap() }
-    vertical_wrap = function() { return (row_wrap() * column_count()) }
+    horizontal_wrap() { return column_wrap() }
+    vertical_wrap() { return (row_wrap() * column_count()) }
 
-    row = function(_index) { return (Math.floor(_index / column_count()) % row_count()) }
-    column = function(_index) { return (_index % column_count()) }
-    page = function(_index) { return Math.floor(_index / page_size()) }
+    row(_index) { return (Math.floor(_index / column_count()) % row_count()) }
+    column(_index) { return (_index % column_count()) }
+    page(_index) { return Math.floor(_index / page_size()) }
 
-    on_first_row = function(_index) { return (row(_index) == 0) }
-    on_last_row = function(_index) { return ((row(_index) == row_wrap()) || (on_last_page(_index) && row(_index) == row(last_index()))) }
+    on_first_row(_index) { return (row(_index) == 0) }
+    on_last_row(_index) { return ((row(_index) == row_wrap()) || (on_last_page(_index) && row(_index) == row(last_index()))) }
 
-    on_first_column = function(_index) { return (column(_index) == 0) }
-    on_last_column = function(_index) { return ((column(_index) == column_wrap()) || (_index == last_index())) }
+    on_first_column(_index) { return (column(_index) == 0) }
+    on_last_column(_index) { return ((column(_index) == column_wrap()) || (_index == last_index())) }
 
-    on_first_page = function(_index) { return (page(_index) == 0) }
-    on_last_page = function(_index) { return (page(_index) == last_page()) }
+    on_first_page(_index) { return (page(_index) == 0) }
+    on_last_page(_index) { return (page(_index) == last_page()) }
 
     // RETURNS TOTAL NUMBER OF ENTRIES
-    entry_count = function() { print_debug_callstack("Menu.entry must be overwritten") }
+    entry_count() { print_debug_callstack("Menu.entry must be overwritten") }
     // RETURNS NUMBER OF ENTRIES CURRENTLY VISIBLE
-    visible_entry_count = function() {  Math.min(max_visible_entry_count(), entry_count() - (page_size() * (page_count() - 1))) }
+    visible_entry_count() {  Math.min(max_visible_entry_count(), entry_count() - (page_size() * (page_count() - 1))) }
 
-    page_index = function(_index) { return (_index - (page(_index) * page_size())) }
+    page_index(_index) { return (_index - (page(_index) * page_size())) }
 
     // RETURNS INDEX OF FIRST VISIBLE ENTRY
-    visible_offset = function() { page_index(current_index()) }
+    visible_offset() { page_index(current_index()) }
 
-    current_visible_index = function(_index) { return _index + visible_offset() }
+    current_visible_index(_index) { return _index + visible_offset() }
 
-    last_index = function() { return (entry_count() - 1) }
+    last_index() { return (entry_count() - 1) }
 
-    keep_in_range = function(_index) { return Math.min((entry_count() - 1), Math.max(0, _index)) }
+    keep_in_range(_index) { return Math.min((entry_count() - 1), Math.max(0, _index)) }
 
     // RETRIEVES ONE ENTRY
     // NOTE: MUST BE OVERWRITTEN IN INSTANCE
-    entry = function(_index) { print_debug_callstack("Menu.entry must be overwritten") }
+    entry(_index) { print_debug_callstack("Menu.entry must be overwritten") }
     // RETRIEVES ALL ENTRIES
-    entries = function() {
+    entries() {
         var _entry_count = entry_count()
         var _entries = new Array(_entry_count)
         for (let i = 0; i < _entry_count; i++) { _entries[i] = entry(i) }
@@ -100,9 +100,9 @@ class Menu {
     }
 
     // RETRIEVES ONE VISIBLE ENTRY
-    visible_entry = function(_index) { return entry(_index + visible_offset()) }
+    visible_entry(_index) { return entry(_index + visible_offset()) }
     // RETRIEVES ALL VISIBLE ENTRIES
-    visible_entries = function() {
+    visible_entries() {
         var _visible_entry_count = visible_entry_count()
         var _visible_entries = new Array(_visible_entry_count)
         for (let i = 0; i < _visible_entry_count; i++) { _visible_entries[i] = visible_entry(i) }
@@ -115,7 +115,7 @@ class Menu {
 
     /* ―――――――――――――――――――― LEFT ―――――――――――――――――――― */
 
-    move_left = function() {
+    move_left() {
         var _old_index = current_index()
         var _new_index = _old_index
 
@@ -140,7 +140,7 @@ class Menu {
 
     /* ―――――――――――――――――――― RIGHT ―――――――――――――――――――― */
 
-    move_right = function() {
+    move_right() {
         var _old_index = current_index()
         var _new_index = _old_index
 
@@ -165,7 +165,7 @@ class Menu {
 
     /* ―――――――――――――――――――― UP ―――――――――――――――――――― */
 
-    move_up = function() {
+    move_up() {
         var _old_index = current_index()
         var _new_index = _old_index
 
@@ -190,7 +190,7 @@ class Menu {
 
     /* ―――――――――――――――――――― DOWN ―――――――――――――――――――― */
 
-    move_down = function() {
+    move_down() {
         var _old_index = current_index()
         var _new_index = _old_index
 

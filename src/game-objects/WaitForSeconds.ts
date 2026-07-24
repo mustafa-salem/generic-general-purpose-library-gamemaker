@@ -5,7 +5,7 @@ import { YieldInstruction } from "./YieldInstruction";
  */
 export class WaitForSeconds extends YieldInstruction {
 
-    #seconds: number;
+    readonly #seconds: number;
 
     public constructor(seconds: number) {
         super();

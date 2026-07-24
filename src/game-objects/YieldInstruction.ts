@@ -1,3 +1,3 @@
-export class YieldInstruction {
+export abstract class YieldInstruction {
 
 }

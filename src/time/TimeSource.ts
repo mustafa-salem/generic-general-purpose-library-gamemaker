@@ -284,7 +284,7 @@ class TimeSourceGeneric {
 
     //     ―――――――――――――――――――― STATIC PUBLIC METHODS ――――――――――――――――――――
     
-    static get_id = function(parameters = {}) {
+    static get_id(parameters = {}) {
         parameters.timesource = this
         return this
     }
@@ -294,22 +294,22 @@ class TimeSourceGeneric {
         return this
     }
 
-    static exists = function(parameters = {}) {
+    static exists(parameters = {}) {
         parameters.timesource = this
         return this
     }
 
-    static destroy = function(parameters = {}) {
+    static destroy(parameters = {}) {
         parameters.timesource = this
         return this
     }
 
-    static start = function(parameters = {}) {
+    static start(parameters = {}) {
         parameters.timesource = this
         return this
     }
 
-    static pause = function(parameters = {}) {
+    static pause(parameters = {}) {
         parameters.timesource = this
         gamemaker_timesource_pause(parameters)
         return this
@@ -319,7 +319,7 @@ class TimeSourceGeneric {
     /// represented by this struct.
     /// NOTE: Check 'gamemaker_timesource_is_stopped' for parameters.
     /// @returns {Struct} this - Fluent interface
-    static stop = function(parameters = {}) {
+    static stop(parameters = {}) {
         parameters.timesource = this
         gamemaker_timesource_stop(parameters)
         return this
@@ -330,82 +330,82 @@ class TimeSourceGeneric {
     /// NOTE: Check 'gamemaker_timesource_is_stopped' for parameters and return value.
     /// NOTE: Check 'gamemaker_timesource_is_stopped' for parameters.
     /// NOTE: Check 'gamemaker_timesource_is_stopped' for return value.
-    static is_stopped = function(parameters = {}) {
+    static is_stopped(parameters = {}) {
         parameters.timesource = this
         return gamemaker_timesource_is_stopped(parameters)
     }
 
-    static resume = function(parameters = {}) {
+    static resume(parameters = {}) {
         parameters.timesource = this
         return this
     }
 
-    static reconfigure = function(parameters = {}) {
+    static reconfigure(parameters = {}) {
         parameters.timesource = this
         return this
     }
 
-    static reset = function(parameters = {}) {
+    static reset(parameters = {}) {
         parameters.timesource = this
         return this
     }
 
-    static get_children = function(parameters = {}) {
+    static get_children(parameters = {}) {
         parameters.timesource = this
         return this
     }
 
-    static get_parent = function(parameters = {}) {
+    static get_parent(parameters = {}) {
         parameters.timesource = this
         return this
     }
 
-    static get_period = function(parameters = {}) {
+    static get_period(parameters = {}) {
         parameters.timesource = this
         return this
     }
 
-    static get_state = function(parameters = {}) {
+    static get_state(parameters = {}) {
         parameters.timesource = this
         return this
     }
 
-    static get_remaining_time = function(parameters = {}) {
+    static get_remaining_time(parameters = {}) {
         parameters.timesource = this
         return this
     }
 
-    static get_units = function(parameters = {}) {
+    static get_units(parameters = {}) {
         parameters.timesource = this
         return this
     }
 
-    static get_completed_repetitions = function(parameters = {}) {
+    static get_completed_repetitions(parameters = {}) {
         parameters.timesource = this
         return this
     }
 
-    static get_remaining_repetitions = function(parameters = {}) {
+    static get_remaining_repetitions(parameters = {}) {
         parameters.timesource = this
         return this
     }
 
-    static get_repetitions = function(parameters = {}) {
+    static get_repetitions(parameters = {}) {
         parameters.timesource = this
         return this
     }
 
-    static get_expiry_type = function(parameters = {}) {
+    static get_expiry_type(parameters = {}) {
         parameters.timesource = this
         return this
     }
 
-    static get_callback = function(parameters = {}) {
+    static get_callback(parameters = {}) {
         parameters.timesource = this
         return this
     }
 
-    static get_arguments = function(parameters = {}) {
+    static get_arguments(parameters = {}) {
         parameters.timesource = this
         return this
     }

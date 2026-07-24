@@ -150,7 +150,7 @@ class AudioGroup {
                 name : undefined,
             }
 
-            get_id = function() {
+            get_id() {
                 return private.id
             }
 
@@ -160,40 +160,40 @@ class AudioGroup {
                 return this.#name;
             }
 
-            load = function(arguments = {}) {
+            load(arguments = {}) {
                 arguments.audio_group = this
                 load_audio_group_generic(arguments)
                 return this
             }
 
-            unload = function(arguments = {}) {
+            unload(arguments = {}) {
                 arguments.audio_group = this
                 unload_audio_group_generic(arguments)
                 return this
             }
 
-            is_loaded = function(arguments = {}) {
+            is_loaded(arguments = {}) {
                 arguments.audio_group = this
                 return is_loaded_audio_group_generic(arguments)
             }
 
-            get_load_progress = function(arguments = {}) {
+            get_load_progress(arguments = {}) {
                 arguments.audio_group = this
                 return get_load_progress(arguments)
             }
 
-            stop = function(arguments = {}) {
+            stop(arguments = {}) {
                 arguments.audio_group = this
                 stop_sound_generic_group_generic(arguments)
                 return this
             }
 
-            get_gain = function(arguments = {}) {
+            get_gain(arguments = {}) {
                 arguments.audio_group = this
                 return get_gain_audio_group_generic(arguments)
             }
 
-            set_gain = function(arguments) {
+            set_gain(arguments) {
                 arguments.audio_group = this
                 set_gain_audio_group_generic(arguments)
                 return this

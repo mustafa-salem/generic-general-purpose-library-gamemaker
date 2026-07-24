@@ -20,22 +20,22 @@ function gamemaker_buffer_read(arguments = {}) {
 
 class BufferGeneric {
 
-    exists = function(arguments = {}) {
+    exists(arguments = {}) {
         arguments.buffer = this
         return gamemaker_buffer_exists(arguments)
     }
 
-    delete = function(arguments = {}) {
+    delete(arguments = {}) {
         arguments.buffer = this
         gamemaker_buffer_delete(arguments)
     }
 
-    read = function(arguments = {}) {
+    read(arguments = {}) {
         arguments.buffer = this
         gamemaker_buffer_read(arguments)
     }
 
-    write = function(arguments = {}) {
+    write(arguments = {}) {
         arguments.buffer = this
         gamemaker_buffer_write(arguments)
     }

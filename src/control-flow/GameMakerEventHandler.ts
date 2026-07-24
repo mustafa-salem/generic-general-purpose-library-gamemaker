@@ -2,7 +2,7 @@
 
 class EventHandler {
 
-    static handleEvent = function(_event) {
+    static handleEvent(_event) {
         return _return
     }
 

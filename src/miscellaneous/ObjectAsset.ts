@@ -463,81 +463,81 @@ function gamemaker_objectinstance_set_creationcode(parameters) {
 
 class GameMakerObject {
 
-    static get_handle = function(parameters = {}) {
+    static get_handle(parameters = {}) {
         return private.handle;
     };
 
-    static get_parent = function(parameters = {}) {
+    static get_parent(parameters = {}) {
         parameters.object = this;
         return gamemaker_object_get_parent(parameters);
     };
 
-    static get_persistent = function(parameters = {}) {
+    static get_persistent(parameters = {}) {
         parameters.object = this;
         /// object_get_persistent
     };
 
-    static set_persistent = function(parameters = {}) {
+    static set_persistent(parameters = {}) {
         parameters.object = this;
         /// object_set_persistent
         return this;
     };
 
-    static get_solid = function(parameters = {}) {
+    static get_solid(parameters = {}) {
         parameters.object = this;
         /// object_get_solid
     };
 
-    static set_solid = function(parameters = {}) {
+    static set_solid(parameters = {}) {
         parameters.object = this;
         /// object_set_solid
         return this;
     };
 
-    static get_physics = function(parameters = {}) {
+    static get_physics(parameters = {}) {
         parameters.object = this;
         /// object_get_physics
     };
 
-    static get_visible = function(parameters = {}) {
+    static get_visible(parameters = {}) {
         parameters.object = this;
         return gamemaker_object_get_visible(parameters)
     };
 
-    static set_visible = function(parameters = {}) {
+    static set_visible(parameters = {}) {
         parameters.object = this;
         gamemaker_object_set_visible(parameters);
         return this;
     };
 
-    static get_sprite = function(parameters = {}) {
+    static get_sprite(parameters = {}) {
         parameters.object = this;
         /// object_get_sprite
     };
 
-    static set_sprite = function(parameters = {}) {
+    static set_sprite(parameters = {}) {
         parameters.object = this;
         /// object_set_sprite
         return this;
     };
 
-    static get_mask = function(parameters = {}) {
+    static get_mask(parameters = {}) {
         parameters.object = this;
         /// object_get_mask
     };
 
-    static set_mask = function(parameters = {}) {
+    static set_mask(parameters = {}) {
         parameters.object = this;
         /// object_set_mask
         return this;
     };
 
-    static attach_eventhandler = function(parameters = {}) {
+    static attach_eventhandler(parameters = {}) {
         parameters.object = this;
         return gamemaker_object_attach_eventhandler(parameters)
     };
 
-    static trigger_event = function(parameters = {}) {
+    static trigger_event(parameters = {}) {
         parameters.object = this;
         return gamemaker_object_trigger_event(parameters)
     };
@@ -553,35 +553,35 @@ class GameMakerObject {
 
 class GameMakerObjectInstance {
 
-    static get_handle = function(parameters = {}) {
+    static get_handle(parameters = {}) {
         return private.handle;
     };
 
-    static get_object = function() {
+    static get_object() {
         return get_handle().object_index;
     };
 
-    static exists = function(parameters = {}) {
+    static exists(parameters = {}) {
         parameters.instance = this;
         return gamemaker_objectinstance_exists(parameters);
     };
 
-    static create = function(parameters = {}) {
+    static create(parameters = {}) {
 
     };
 
-    static destroy = function(parameters = {}) {
+    static destroy(parameters = {}) {
         parameters.instance = this;
         GameObject.destroy(parameters);
         return this;
     };
 
-    static get_visible = function(parameters = {}) {
+    static get_visible(parameters = {}) {
         parameters.instance = this;
         return object_instance.visible
     };
 
-    static set_visible = function(parameters = {}) {
+    static set_visible(parameters = {}) {
         parameters.instance = this;
         object_instance.visible = arguments.visible
         return this
@@ -598,7 +598,7 @@ class GameMakerObjectInstance {
         return this;
     };
     
-    static execute_parentevent = function(parameters) {
+    static execute_parentevent(parameters) {
         parameters.instance = this;
         gamemaker_objectinstance_execute_parentevent(parameters);
         return this;

@@ -464,11 +464,11 @@ class GameMakerSurface {
         depth_buffer_enabled : true,
     }
 
-    ensure_existance = function() {}
+    ensure_existance() {}
 
     surface_existance_ensurance_enabled = true
 
-    private.ensure_surface_exists = function() {
+    private.ensure_surface_exists() {
         if (exists() or !surface_existance_ensurance_enabled) {
             return;
         }
@@ -481,48 +481,48 @@ class GameMakerSurface {
         })
     }
 
-    set_target = function(arguments = {}) {
+    set_target(arguments = {}) {
         private.ensure_surface_exists()
         arguments.surface = this
         gamemaker_rendertarget_set_surface(arguments)
     }
 
-    get_texture = function(arguments = {}) {
+    get_texture(arguments = {}) {
         arguments.surface = this
         surface_get_texture
     }
 
-    get_depth_disable = function(arguments = {}) {
+    get_depth_disable(arguments = {}) {
         arguments.surface = this
         surface_get_depth_disable
     }
 
-    get_pixel = function(arguments = {}) {
+    get_pixel(arguments = {}) {
         arguments.surface = this
         surface_getpixel_ext
     }
 
-    save = function(arguments = {}) {
+    save(arguments = {}) {
         arguments.surface = this
         surface_save_part
     }
 
-    load_contents_from_buffer = function(arguments = {}) {
+    load_contents_from_buffer(arguments = {}) {
         arguments.surface = this
 
     }
 
-    load_contents_from_buffer = function(arguments = {}) {
+    load_contents_from_buffer(arguments = {}) {
         buffer_get_surface(_buffer_id, _surface_id, _offset_bytes)
     }
 
 
-    save_contents_to_buffer = function(arguments = {}) {
+    save_contents_to_buffer(arguments = {}) {
         arguments.surface = this
 
     }
 
-    save_contents_to_buffer = function(arguments = {}) {
+    save_contents_to_buffer(arguments = {}) {
 
         var _buffer = is_struct(arguments.buffer) ? arguments.buffer : create_buffer_generic({  })
 
@@ -538,28 +538,28 @@ class GameMakerSurface {
         default_blend_alpha : SURFACE_DEFAULT_BLEND_ALPHA,
     }
 
-    = function(arguments = {}) {
+   (arguments = {}) {
         arguments.surface = this
         surface_copy_part
     }
 
-    = function(arguments = {}) {
+   (arguments = {}) {
         arguments.surface = this
         surface_depth_disable
     }
 
-    static build = function(parameters = {}) {
+    static build(parameters = {}) {
         parameters.surface = this
         gamemaker_surface_build(parameters)
         return this
     }
 
-    static get_x_dimension = function(parameters = {}) {
+    static get_x_dimension(parameters = {}) {
         parameters.surface = this
         return gamemaker_surface_get_x_dimension(parameters)
     }
 
-    static get_y_dimension = function(parameters = {}) {
+    static get_y_dimension(parameters = {}) {
         parameters.surface = this
         return gamemaker_surface_get_y_dimension(parameters)
     }
@@ -568,13 +568,13 @@ class GameMakerSurface {
     /// set_height
     /// set_width
     /// set_scaling
-    static set_dimensions = function(parameters = {}) {
+    static set_dimensions(parameters = {}) {
         parameters.surface = this;
         gamemaker_surface_set_dimensions(parameters);
         return this;
     }
 
-    static get_format = function(parameters = {}) {
+    static get_format(parameters = {}) {
         parameters.surface = this
         return gamemaker_surface_get_format(parameters)
     }

@@ -1,4 +1,43 @@
+import { Vector2 } from "@gamemaker/data-types/Vector2";
 import { Colour } from "@gamemaker/input-output/Colour";
+import { Transformation } from "@gamemaker/math/Transformation";
+
+class TextFormatting {
+
+    /**
+     * 
+     */
+    public get font() {
+
+    }
+
+    public set font(font) {
+
+    }
+
+    /**
+     * 
+     */
+    public get alignment() {
+
+    }
+
+    public set alignment(alignment) {
+
+    }
+
+    /**
+     * 
+     */
+    public get colour() {
+
+    }
+
+    public set colour(colour: Colour) {
+
+    }
+
+}
 
 /**
  * A drawable TextElement
@@ -6,13 +45,24 @@ import { Colour } from "@gamemaker/input-output/Colour";
 export class TextElement {
 
     /**
-     * Creates a new Text Element instance and returns it.
+     * The string to display.
      */
-    public static create(): TextElement {
-        /// scribble(string, [uniqueID])
-        return new TextElement();
+    public get text(): string {
+        return "";
     }
 
+    public set text(text: string) {
+
+    }
+
+    public get formatting(): TextFormatting {
+
+    }
+
+    public get transform(): Transformation {
+        return new Transformation();
+    }
+    
     #scribble_text_element = null;
 
     /**
@@ -105,6 +155,10 @@ export class TextElement {
         return this;
     }
 
+    public set alignment(alignment: Vector2) {
+
+    }
+
     /**
      * 
      */
@@ -120,19 +174,10 @@ export class TextElement {
     }
 
     /**
-     * 
-     */
-    public set position(position: Vector2) {
-        // if (!is_undefined(arguments["x"])) { this.#position.x = arguments.x }
-        // if (!is_undefined(arguments["y"])) { this.#position.y = arguments.y }
-    }
-
-    /**
      * draws the instance
      */
-    public draw({}): this {
-        this.#scribble_text_element.draw(parameters.x, parameters.y, parameters.typist)
-        return this;
+    public draw(): void {
+        this.#scribble_text_element.draw(parameters.x, parameters.y, parameters.typist);
     }
     
     /**
@@ -154,9 +199,9 @@ export class TextElement {
     }
 
     /**
-     * 
+     * Whether the last page of the text is being shown.
      */
-    public is_onlastpage(): boolean {
+    public get isOnLastPage(): boolean {
         
         return this.#scribble_text_element.on_last_page();
 
@@ -182,7 +227,6 @@ draw
 get_pagecount
 get_pageindex
 goto_page
-is_onlastpage
 set_alignment
 set_blending
 set_position

@@ -1,43 +1,4 @@
-/* global.entrance; create; set_event; .get; add_tags; get_id */
-
-#macro __GAMEMAKER_ROOM_CONTEXT __gamemaker_room_context()
-
-#macro __GAMEMAKER_ROOM_ASSETS __gamemaker_room_context()["assets"]
-
-__gamemaker_room_initialize();
-
-function __gamemaker_room_initialize() {
-    /// early return
-    if (global["#gamemaker"] != undefined) {
-        return;
-    }
-    var _roomhandles = asset_get_ids(asset_room);
-    for (let i = 0; i < _roomhandles.length; i++) {
-        var _room = new GameMakerObject();
-        _room["#handle"] = _roomhandles[i];
-        __GAMEMAKER_CONTEXT["rooms"]["assets"][i] = _room;
-    }
-    return;
-}
-
-function __gamemaker_room_context() {
-    static __context = (function() {
-        __gamemaker_room_initialize();
-        return __GAMEMAKER_CONTEXT["rooms"];
-    })();
-    return __context;
-}
-
-/// @param {Asset} argument0 description
-/// @returns {Struct|Undefined}
-function __gamemaker_room_get(argument0) {
-    ///
-    if (__GAMEMAKER_ROOM_ASSETS[argument0] == undefined) {
-        __gamemaker_room_create(argument0, room_get_name(argument0));
-    }
-    ///
-    return __GAMEMAKER_ROOM_ASSETS[room_get_name(argument0)];
-}
+/* global.entrance; create; set_event; .get; add_tags; get_id; __object_gamemaker_roomcontroller */
 
 /// If possible, resolves a value to an instance of `GameMakerRoom`; otherwise, returns `undefined`.
 /// @param {Asset.GMRoom|String} argument0 The value to resolve.
@@ -256,31 +217,6 @@ function gamemaker_room_set_dimensions(parameters) {
     return;
 }
 
-/// Makes the game go to a room.
-/// **NOTE:** If called, the rest of the current event will still be executed, but you cannot create non-persistent object instances for the rest of the event.
-/// **NOTE:** Persistent object instances of persistent objects will have their object variables set, but instances make
-/// persistent upon their creation will not.
-/// **NOTE:** After the current Object Event is done running, the Room End Event is executed for each instance, and then if the room is non-persistent Clean Up for each non-persistent instance.
-/// **NOTE:** `room` will not change until the Pre-Creation Code of the instances in the room to go to.
-/// ---
-/// `parameters.room` The room to target; it must be resolvable to a room.
-/// @param {Struct} parameters The struct containing the arguments to pass to the function.
-/// @returns {Undefined}
-function gamemaker_room_goto(parameters) {
-    if (argument_count != 1) {
-        throw new ArgumentCountError($"'argument_count' must be 1, but is {argument_count}.");
-    }
-    if (typeof(parameters) != "struct") {
-        throw new InvalidArgumentException($"'parameters' must be a struct, but is a {typeof(parameters)} (value: {parameters}).");
-    }
-    if (!struct_exists(parameters, "room")) {
-        throw new InvalidArgumentException("'parameters.room' must be passed.");
-    }
-    var _room = parameters["room"];
-    var _room_handle = gamemaker_roomhandle(_room);
-    room_goto(_room_handle);
-    return;
-}
 
 /// Attaches an event handler to a room.
 /// ---
@@ -363,19 +299,3 @@ function gamemaker_room_get_entryway(parameters) {
     }
     return RoomAssetRegistry.lookup(room).private.entrance;
 }
-
-gamemaker_object(__object_gamemaker_roomcontroller)
-protected ["Create Event"](): void {
-    RoomAssetRegistry.lookup(room).trigger_event("Create Event");
-}
-
-protected ["Clean Up Event"](): void {
-    RoomAssetRegistry.lookup(room).trigger_event("Clean Up Event");
-}})
-.attach_eventhandler({ event: "Room Start Event", handler: () => {
-    RoomAssetRegistry.lookup(room).trigger_event("Room Start Event");
-}
-
-protected ["Room End Event"](): void {
-    RoomAssetRegistry.lookup(room).trigger_event("Room End Event");
-}});
