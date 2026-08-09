@@ -38,7 +38,7 @@ class TimeSourceControllerGeneric {
                 _time_source.destroy()
             }
             // delete destroyed time sources from array
-            if (!_time_source.exists()) {
+            if (!_time_source.exists) {
                 call_later_time_sources.splice(i, 1)
             }
         }

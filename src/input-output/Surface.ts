@@ -257,7 +257,7 @@ function gamemaker_rendertarget_set_surface(parameters) {
 /// @returns {Undefined}
 function gamemaker_surface_build(parameters = {}) {
     var _surface
-    if (surface.exists() == false) {
+    if (surface.exists == false) {
 
     }
     return undefined
@@ -295,7 +295,7 @@ function Surface.destroy(parameters) {
 /// @returns {Bool}
 function gamemaker_surface_exists(parameters) {
     var _surface = parameters["surface"]
-    if (is_struct(_surface)) { return _surface.exists() }
+    if (is_struct(_surface)) { return _surface.exists }
     if (is_numeric(_surface)) { return surface_exists(_surface) }
 }
 
